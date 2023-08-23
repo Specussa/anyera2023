@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anyera</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+  <script>window.console = window.console || function(t) {};</script>
+</head>
+<body>          
+  <div class="overlay"></div>
+  <div class="preloader">
+    <div class="preloader__top"></div>
+    <svg class="preloader__image" role="img" width="25" height="25" viewBox="0 0 25 25" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <circle cx="2.5" cy="22.5" r="2.5"/>
+      <circle cx="2.5" cy="12.5" r="2.5"/>
+      <circle cx="2.5" cy="2.5" r="2.5"/>
+      <circle cx="12.5" cy="2.5" r="2.5"/>
+      <circle cx="22.5" cy="2.5" r="2.5"/>
+      <circle cx="22.5" cy="12.5" r="2.5"/>
+      <circle cx="12.5" cy="12.5" r="2.5"/>
+      <circle cx="12.5" cy="22.5" r="2.5"/>
+      <circle cx="22.5" cy="22.5" r="2.5"/>
+    </svg>
+    <div class="preloader__bottom"></div>
+  </div>
+  
+  <header class="header">
+    <div class="header__progress">
+      <div class="header__progress_bar"></div>
+    </div>
+  
+    <div class="container">
+      <div class="header__content">
+        <button class="header__burger" aria-label="Открыть меню">
+        <span>
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="2.5" cy="22.5" r="2.5"/>
+            <circle cx="2.5" cy="12.5" r="2.5"/>
+            <circle cx="2.5" cy="2.5" r="2.5"/>
+            <circle cx="12.5" cy="2.5" r="2.5"/>
+            <circle cx="22.5" cy="2.5" r="2.5"/>
+            <circle cx="22.5" cy="12.5" r="2.5"/>
+            <circle cx="12.5" cy="12.5" r="2.5"/>
+            <circle cx="12.5" cy="22.5" r="2.5"/>
+            <circle cx="22.5" cy="22.5" r="2.5"/>
+          </svg>
+        </span>
+          <span>MENU</span>
+        </button>
+      
+        <a class="header__name" href="index.html">
+          <svg width="230" height="41" viewBox="0 0 230 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M69.2478 5.23767H72.1008V22.5597L56.4295 9.96556V21.5H53.658V4.17797L69.2478 16.6906V5.23767ZM110.659 5.23767L101.081 13.5522L101.142 21.5H98.3912L98.3097 13.5522L88.8947 5.23767H92.8686L99.7362 11.2087L106.665 5.23767H110.659ZM142.933 7.86654H130.359V12.0442H139.53V14.6527H130.359V18.9119H142.933V21.5H127.465V5.23767H142.933V7.86654ZM175.971 21.5H172.262L166.821 14.2247H163.948V11.6163H164.681L166.739 11.6366C166.998 11.6366 167.412 11.623 167.983 11.5959C168.92 11.5008 169.783 11.3038 170.571 11.0049C171.576 10.6109 172.079 10.1761 172.079 9.70064C172.079 9.30665 171.664 8.91945 170.836 8.53904C170.36 8.32167 169.83 8.15864 169.246 8.04995C168.662 7.92768 168.071 7.86654 167.473 7.86654H162.582V21.5H159.729V5.23767H167.473C169.565 5.23767 171.304 5.63166 172.69 6.41964C173.41 6.84081 173.974 7.3299 174.382 7.88692C174.803 8.44394 175.013 9.04851 175.013 9.70064C175.013 10.7875 174.558 11.6842 173.648 12.3906C172.738 13.0835 171.569 13.593 170.143 13.9191L175.971 21.5Z"
+                fill="currentColor"/>
+            <path
+                d="M18.7686 21.4573C19.5455 21.4573 20.2634 21.0428 20.6518 20.3699L26.7288 9.84136L29.0287 14.1988L26.2943 14.8824C26.1455 14.9195 26.081 15.0949 26.1701 15.2197L26.4754 15.6471C26.853 16.1757 27.4471 16.5078 28.0952 16.5525L30.2246 16.6993L32.8665 20.5197C33.2726 21.1069 33.941 21.4573 34.655 21.4573H36.4174C36.5852 21.4573 36.6898 21.2753 36.6053 21.1303L26.9174 4.51977C26.8333 4.37562 26.6249 4.37599 26.5413 4.52043L16.9319 21.131C16.8481 21.2759 16.9527 21.4573 17.1202 21.4573H18.7686Z"
+                fill="currentColor"/>
+            <path
+                d="M195.066 21.4934C195.843 21.4934 196.561 21.0788 196.95 20.4059L203.027 9.87743L205.327 14.2348L202.592 14.9184C202.443 14.9556 202.379 15.131 202.468 15.2558L202.773 15.6832C203.151 16.2118 203.745 16.5439 204.393 16.5886L206.522 16.7354L209.164 20.5557C209.57 21.1429 210.239 21.4934 210.953 21.4934H212.715C212.883 21.4934 212.988 21.3113 212.903 21.1664L203.215 4.55584C203.131 4.41169 202.923 4.41206 202.839 4.55651L193.23 21.167C193.146 21.312 193.251 21.4934 193.418 21.4934H195.066Z"
+                fill="currentColor"/>
+            <path
+                d="M32.6245 38.1058V32.8804H34.6923C35.2447 32.8804 35.7299 32.9924 36.1479 33.2163C36.566 33.4403 36.8895 33.7488 37.1184 34.142C37.3523 34.5351 37.4692 34.9855 37.4692 35.4931C37.4692 36.0007 37.3523 36.4511 37.1184 36.8443C36.8895 37.2374 36.566 37.546 36.1479 37.7699C35.7299 37.9939 35.2447 38.1058 34.6923 38.1058H32.6245ZM33.0052 37.7625H34.6624C35.1551 37.7625 35.5831 37.6654 35.9464 37.4713C36.3097 37.2772 36.5909 37.011 36.7899 36.6726C36.989 36.3292 37.0885 35.936 37.0885 35.4931C37.0885 35.0502 36.989 34.6596 36.7899 34.3211C36.5909 33.9778 36.3097 33.709 35.9464 33.5149C35.5831 33.3209 35.1551 33.2238 34.6624 33.2238H33.0052V37.7625ZM42.5242 38.1058V32.8804H42.9049V38.1058H42.5242ZM50.6902 38.1432C50.297 38.1432 49.9338 38.0785 49.6003 37.9491C49.2669 37.8147 48.9758 37.6281 48.7269 37.3892C48.4831 37.1503 48.294 36.8716 48.1596 36.5531C48.0252 36.2297 47.9581 35.8763 47.9581 35.4931C47.9581 35.1099 48.0252 34.7591 48.1596 34.4406C48.294 34.1171 48.4856 33.8359 48.7344 33.5971C48.9832 33.3582 49.2719 33.174 49.6003 33.0447C49.9338 32.9103 50.2995 32.8431 50.6977 32.8431C51.0759 32.8431 51.4267 32.9028 51.7502 33.0223C52.0737 33.1417 52.3499 33.3209 52.5788 33.5597L52.3399 33.8135C52.111 33.5896 51.8597 33.4303 51.586 33.3358C51.3172 33.2412 51.0236 33.194 50.7051 33.194C50.3667 33.194 50.0532 33.2512 49.7646 33.3656C49.4759 33.4801 49.2246 33.6418 49.0106 33.8509C48.7966 34.0599 48.6299 34.3037 48.5105 34.5824C48.396 34.8611 48.3388 35.1647 48.3388 35.4931C48.3388 35.8216 48.396 36.1252 48.5105 36.4038C48.6299 36.6825 48.7966 36.9264 49.0106 37.1354C49.2246 37.3444 49.4759 37.5062 49.7646 37.6206C50.0532 37.7351 50.3667 37.7923 50.7051 37.7923C51.0137 37.7923 51.3048 37.745 51.5785 37.6505C51.8572 37.5559 52.111 37.3992 52.3399 37.1802L52.5564 37.4713C52.3225 37.6953 52.0413 37.8645 51.7129 37.9789C51.3894 38.0884 51.0485 38.1432 50.6902 38.1432ZM52.1906 37.434V35.5155H52.5564V37.4713L52.1906 37.434ZM57.9642 38.1058V32.8804H58.3449V38.1058H57.9642ZM64.8985 38.1058V33.2238H63.0174V32.8804H67.1604V33.2238H65.2792V38.1058H64.8985ZM70.7011 38.1058L73.1048 32.8804H73.4855L75.8892 38.1058H75.4786L73.2093 33.1193H73.3735L71.1117 38.1058H70.7011ZM71.582 36.6353L71.7089 36.3143H74.8366L74.9635 36.6353H71.582ZM80.5702 38.1058V32.8804H80.9509V37.7625H83.9593V38.1058H80.5702ZM95.4984 38.1432C95.17 38.1432 94.8764 38.0884 94.6176 37.9789C94.3638 37.8694 94.1622 37.7177 94.0129 37.5236C93.8686 37.3245 93.7965 37.0956 93.7965 36.8368C93.7965 36.6228 93.8437 36.4262 93.9383 36.2471C94.0328 36.063 94.1871 35.8813 94.4011 35.7021C94.6201 35.518 94.9112 35.3239 95.2745 35.1199C95.593 34.9358 95.8443 34.7765 96.0284 34.6421C96.2126 34.5078 96.342 34.3784 96.4166 34.254C96.4913 34.1296 96.5286 33.9952 96.5286 33.8509C96.5286 33.6369 96.4564 33.4652 96.3121 33.3358C96.1728 33.2064 95.9712 33.1417 95.7075 33.1417C95.4288 33.1417 95.2098 33.2139 95.0505 33.3582C94.8963 33.4975 94.8191 33.6841 94.8191 33.918C94.8191 34.0275 94.8366 34.132 94.8714 34.2316C94.9062 34.3311 94.9684 34.4431 95.058 34.5675C95.1526 34.6869 95.282 34.8362 95.4462 35.0154L98.2157 37.9341L97.9917 38.1805L95.1401 35.1796C94.9659 34.9955 94.8291 34.8337 94.7296 34.6944C94.63 34.555 94.5604 34.4257 94.5205 34.3062C94.4857 34.1818 94.4683 34.0524 94.4683 33.918C94.4683 33.7041 94.5181 33.5174 94.6176 33.3582C94.7221 33.1989 94.8664 33.0745 95.0505 32.9849C95.2397 32.8954 95.4586 32.8506 95.7075 32.8506C95.9414 32.8506 96.1429 32.8904 96.3121 32.97C96.4863 33.0496 96.6207 33.1641 96.7152 33.3134C96.8098 33.4577 96.857 33.6344 96.857 33.8434C96.857 34.0275 96.8123 34.1992 96.7227 34.3585C96.6381 34.5127 96.4938 34.6695 96.2897 34.8288C96.0857 34.983 95.807 35.1597 95.4537 35.3588C95.1252 35.5479 94.8664 35.7196 94.6773 35.8738C94.4882 36.0281 94.3538 36.1799 94.2742 36.3292C94.1996 36.4735 94.1622 36.6328 94.1622 36.8069C94.1622 37.011 94.2195 37.1901 94.3339 37.3444C94.4484 37.4987 94.6051 37.6181 94.8042 37.7027C95.0082 37.7873 95.2446 37.8296 95.5134 37.8296C95.8717 37.8296 96.1902 37.7575 96.4689 37.6132C96.7476 37.4639 96.9815 37.2399 97.1706 36.9413C97.3597 36.6427 97.4965 36.267 97.5811 35.8141L97.8872 35.9112C97.7926 36.4038 97.6359 36.8169 97.4169 37.1503C97.1979 37.4788 96.9267 37.7276 96.6032 37.8968C96.2798 38.061 95.9115 38.1432 95.4984 38.1432ZM108.593 38.1058V32.8804H110.66C111.213 32.8804 111.698 32.9924 112.116 33.2163C112.534 33.4403 112.858 33.7488 113.086 34.142C113.32 34.5351 113.437 34.9855 113.437 35.4931C113.437 36.0007 113.32 36.4511 113.086 36.8443C112.858 37.2374 112.534 37.546 112.116 37.7699C111.698 37.9939 111.213 38.1058 110.66 38.1058H108.593ZM108.973 37.7625H110.631C111.123 37.7625 111.551 37.6654 111.914 37.4713C112.278 37.2772 112.559 37.011 112.758 36.6726C112.957 36.3292 113.057 35.936 113.057 35.4931C113.057 35.0502 112.957 34.6596 112.758 34.3211C112.559 33.9778 112.278 33.709 111.914 33.5149C111.551 33.3209 111.123 33.2238 110.631 33.2238H108.973V37.7625ZM118.828 35.2841H121.657V35.62H118.828V35.2841ZM118.873 37.7625H122.098V38.1058H118.492V32.8804H121.986V33.2238H118.873V37.7625ZM128.592 38.1432C128.204 38.1432 127.835 38.0785 127.487 37.9491C127.144 37.8147 126.877 37.643 126.688 37.434L126.86 37.1503C127.039 37.3345 127.283 37.4912 127.592 37.6206C127.905 37.745 128.236 37.8072 128.584 37.8072C128.933 37.8072 129.216 37.7625 129.435 37.6729C129.659 37.5783 129.824 37.4539 129.928 37.2996C130.038 37.1454 130.092 36.9737 130.092 36.7846C130.092 36.5606 130.033 36.3815 129.913 36.2471C129.794 36.1127 129.637 36.0057 129.443 35.9261C129.249 35.8465 129.037 35.7793 128.808 35.7245C128.579 35.6698 128.348 35.6126 128.114 35.5529C127.88 35.4882 127.666 35.406 127.472 35.3065C127.278 35.207 127.121 35.0726 127.002 34.9034C126.887 34.7292 126.83 34.5053 126.83 34.2316C126.83 33.9827 126.895 33.7538 127.024 33.5448C127.154 33.3358 127.355 33.1666 127.629 33.0372C127.903 32.9078 128.253 32.8431 128.681 32.8431C128.97 32.8431 129.254 32.8854 129.532 32.97C129.816 33.0546 130.057 33.1691 130.257 33.3134L130.115 33.6195C129.896 33.4702 129.659 33.3607 129.406 33.291C129.157 33.2163 128.915 33.179 128.681 33.179C128.348 33.179 128.072 33.2263 127.853 33.3209C127.634 33.4154 127.472 33.5423 127.368 33.7016C127.263 33.8558 127.211 34.03 127.211 34.2241C127.211 34.4481 127.268 34.6272 127.383 34.7616C127.502 34.8959 127.659 35.0029 127.853 35.0826C128.047 35.1622 128.261 35.2294 128.495 35.2841C128.729 35.3389 128.96 35.3986 129.189 35.4633C129.418 35.523 129.629 35.6026 129.824 35.7021C130.018 35.8017 130.174 35.936 130.294 36.1053C130.413 36.2745 130.473 36.4934 130.473 36.7622C130.473 37.006 130.406 37.2349 130.271 37.4489C130.137 37.6579 129.931 37.8271 129.652 37.9565C129.378 38.081 129.025 38.1432 128.592 38.1432ZM135.5 38.1058V32.8804H135.88V38.1058H135.5ZM143.666 38.1432C143.272 38.1432 142.909 38.0785 142.576 37.9491C142.242 37.8147 141.951 37.6281 141.702 37.3892C141.459 37.1503 141.269 36.8716 141.135 36.5531C141.001 36.2297 140.934 35.8763 140.934 35.4931C140.934 35.1099 141.001 34.7591 141.135 34.4406C141.269 34.1171 141.461 33.8359 141.71 33.5971C141.959 33.3582 142.247 33.174 142.576 33.0447C142.909 32.9103 143.275 32.8431 143.673 32.8431C144.051 32.8431 144.402 32.9028 144.726 33.0223C145.049 33.1417 145.325 33.3209 145.554 33.5597L145.315 33.8135C145.086 33.5896 144.835 33.4303 144.561 33.3358C144.293 33.2412 143.999 33.194 143.681 33.194C143.342 33.194 143.029 33.2512 142.74 33.3656C142.451 33.4801 142.2 33.6418 141.986 33.8509C141.772 34.0599 141.605 34.3037 141.486 34.5824C141.371 34.8611 141.314 35.1647 141.314 35.4931C141.314 35.8216 141.371 36.1252 141.486 36.4038C141.605 36.6825 141.772 36.9264 141.986 37.1354C142.2 37.3444 142.451 37.5062 142.74 37.6206C143.029 37.7351 143.342 37.7923 143.681 37.7923C143.989 37.7923 144.28 37.745 144.554 37.6505C144.833 37.5559 145.086 37.3992 145.315 37.1802L145.532 37.4713C145.298 37.6953 145.017 37.8645 144.688 37.9789C144.365 38.0884 144.024 38.1432 143.666 38.1432ZM145.166 37.434V35.5155H145.532V37.4713L145.166 37.434ZM150.94 38.1058V32.8804H151.261L154.986 37.6355H154.814V32.8804H155.195V38.1058H154.881L151.149 33.3507H151.32V38.1058H150.94ZM167.402 38.1058V33.2238H165.521V32.8804H169.664V33.2238H167.783V38.1058H167.402ZM174.676 35.2841H177.505V35.62H174.676V35.2841ZM174.721 37.7625H177.946V38.1058H174.34V32.8804H177.834V33.2238H174.721V37.7625ZM182.193 38.1058L184.597 32.8804H184.977L187.381 38.1058H186.97L184.701 33.1193H184.865L182.603 38.1058H182.193ZM183.074 36.6353L183.201 36.3143H186.328L186.455 36.6353H183.074ZM192.062 38.1058V32.8804H192.383L194.809 37.0682H194.637L197.056 32.8804H197.37L197.377 38.1058H197.004L196.996 33.4552H197.101L194.809 37.4116H194.622L192.323 33.4552H192.435V38.1058H192.062Z"
+                fill="currentColor"/>
+          </svg>
+        </a>
+      
+        <button class="btn button__project header__project">
+          <span class="button__text">BRIEFING</span>
+          <span class="button__hover"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <main class="main"  data-scroll-speed="10" data-scroll-container="" id="top">
+    <div class="main__dots" data-scroll data-scroll-sticky data-scroll-target="#top">
+      <ul class="main__dots_list">
+        <li><a data-scroll-to href="#future__dot" id="future__dots"><span>FUTURE</span></a></li>
+        <li><a data-scroll-to href="#services__dot" id="services__dots"><span>SERVICES</span></a></li>
+        <li><a data-scroll-to href="#keys__dot" id="keys__dots"><span>KEYS</span></a></li>
+        <li><a data-scroll-to href="#team__dot" id="team__dots"><span>TEAM</span></a></li>
+        <li><a data-scroll-to href="#technologies__dot" id="technologies__dots"><span>TECHNOLOGIES</span></a></li>
+        <li><a data-scroll-to href="#public__dot" id="public__dots"><span>PUBLICATION</span></a></li>
+        <li><a data-scroll-to href="#footer__dot" id="footer__dots"><span>FOOTER</span></a></li>
+      </ul>
+    </div>
+    <div class="main__section">
+      <div class="main__border"></div>
+      <section class="digital" id="future__dot">
+        <ul class="digital_social_list">
+          <li><a href="https://t.me/anyera" target="_blank" class="digital_social_link">TG</a></li>
+          <li><a href="https://vk.com/anyera" target="_blank" class="digital_social_link">VK</a></li>
+          <li><a href="https://www.behance.net/anyera" target="_blank" class="digital_social_link">BE</a></li>
+          <li><a href="#" target="_blank" class="digital_social_link">DR</a></li>
+        </ul>
+        <div class="inner-container digital__container">
+          <div class="digital__info">
+            <div class="digital__head">
+              <span class="digital__head_block"><span>Y</span><span>O</span><span>U</span> <span>W</span><span>E</span><span>B</span><span>-</span><span>S</span><span>I</span><span>T</span><span>E</span> <span>I</span><span>N</span></span>
+              <h1 class="digital__head_block"><span>F</span><span>U</span><span>T</span><span>U</span><span>R</span><span>E</span> <span>E</span><span>R</span><span>A</span></h1>
+            </div>
+            
+            <p class="digital__desc">
+              We will develop you a modern website that will delight you for a long time and bring profit to your company.
+            </p>
+            
+            <button class="btn button__project showreel__button">
+              <span class="button__text">SHOWREEL</span>
+              <span class="button__hover"></span>
+            </button>
+          </div>
+        </div>
+        <div class="inner-container accredited__container">
+          <ul class="accredited__list">
+            <li class="accredited__item">
+              <p class="accredited__head">ACCREDITED IT COMPANY</p>
+              <p class="accredited__desc">The Ministry of Digital Development of the Russian Federation confirms that we are a reliable contractor.</p>
+            </li>
+            <li class="accredited__item">
+              <p class="accredited__head">BITRIX PARTNER</p>
+              <p class="accredited__desc">We are officially a partner of Bitrix and provide licenses for your sites.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="services" id="services__dot">
+        <div class="inner-container services__container">
+          <ul class="services__list">
+            <li class="services__item">
+              <ul class="services__sublist">
+                <li class="services__subitem">
+                  <p class="services__subitem_head">WEB - DEVELOPMENT</p>
+                  <p class="services__subitem_desc">A team of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                </li>
+                <li class="services__subitem">
+                  <p class="services__subitem_head">DIGITAL DESIGN</p>
+                  <p class="services__subitem_desc">We are officially a partner of Bitrix and provide licenses for your sites.</p>
+                </li>
+                <li class="services__subitem">
+                  <p class="services__subitem_head">SUPPORT</p>
+                  <p class="services__subitem_desc">We are officially a partner of Bitrix and provide licenses for your sites.</p>
+                </li>
+              </ul>
+            </li>
+            <li class="services__item">
+              <div class="services__top">
+                <h2 class="services__head">SERVICES</h2>
+                <p class="services__desc">We are a small team of full-cycle digital specialists, developing functional products of a wide range from idea to implementation. You can order the development of any software for the web from us</p>
+              </div>
+              <div class="services__bottom">
+                <button class="btn button__project services__button">
+                  <span class="button__text">ALL SERVICES</span>
+                  <span class="button__hover"></span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="projects" id="keys__dot">
+        <div class="inner-container projects__container">
+          <div class="projects__list_filter">
+            <ul class="projects__block_list">
+              <li class="projects__block_item">
+                <p class="projects__block_name">ANYERA</p>
+                <h2 class="projects__block_head">KEYS</h2>
+              </li>
+              <li class="projects__block_item">
+                <p class="projects__block_desc">Not all of our works are presented here, but some of the latest ones, if you want to see more, click on the button</p>
+                <button class="btn button__project project__button">
+                  <span class="button__text">ALL KEYS</span>
+                  <span class="button__hover"></span>
+                </button>
+              </li>
+            </ul>
+            <ul class="projects__list">
+              <li class="projects__item filter__item" data-category="first__construction second__corporate second__catalog third__uiux">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_6.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">Aloe</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #9B1E21"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="projects__item filter__item" data-category="first__tourism first__construction second__catalog third__uiux third__analytics">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_1.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">Lavender</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #303337"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="projects__item filter__item" data-category="first__construction second__service third__uiux third__analytics third__design">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_2.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">Stinging Nettle</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #526DD4"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="projects__item filter__item" data-category="first__construction first__logistic second__service third__analytics">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_3.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">gorse</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #2B5090"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="projects__item filter__item" data-category="first__construction second__service third__design">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_4.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">Hemp</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #A20109"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="projects__item filter__item" data-category="first__tourism first__auto second__portal third__design">
+                <div class="projects__padding">
+                  <div class="projects__item_block">
+                    <p class="projects__heading">SPA - сайт волейбольной школы</p>
+                    <div class="projects__hover">
+                      <img src="img/project/project_5.webp" alt="">
+                      <div class="projects__info">
+                        <div class="projects__tags">
+                          <p class="projects__tag">UI/UX</p>
+                          <p class="projects__tag">1CBITRIX</p>
+                          <p class="projects__tag">ПРОЕКТИРОВАНИЕ</p>
+                          <p class="projects__tag">БАЗОВОЕ SEO</p>
+                        </div>
+                        <p class="projects__description">Titan Arum</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="document.location='#'" class="button__project projects__link">
+                    <span class="button__text">Перейти на сайт</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="projects_back">
+                    <div class="projects__back_color" style="background-color: #5C7E88"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="team" id="team__dot">
+        <div class="team__flex">
+          <div class="team__left"></div>
+          <ul class="team__list">
+            <li class="team__item">
+              <div class="team__slider swiper-container loading">
+                <ul class="team__slider_list swiper-wrapper">
+                  <li class="team__slider_item swiper-slide">
+                    <div class="team__slider_left">
+                      <img src="img/team/team_1.jpg" alt="">
+                    </div>
+                    <div class="team__slider_right">
+                      <p class="team__slider_name">Vladislav</p>
+                      <p class="team__slider_head">Founder / General manager / UI/UX</p>
+                      <p class="team__slider_info">I created my first website 15 years ago. After a long break, I decided to return to the field and have been engaged in design and development for 5 years now. Now you are watching the development of a new team of which I am the leader.</p>
+                    </div>
+                  </li>
+                  <li class="team__slider_item swiper-slide">
+                    <div class="team__slider_left">
+                      <img src="img/team/team_2.jpg" alt="">
+                    </div>
+                    <div class="team__slider_right">
+                      <p class="team__slider_name">Vladislav</p>
+                      <p class="team__slider_head">Founder / General manager / UI/UX</p>
+                      <p class="team__slider_info">I created my first website 15 years ago. After a long break, I decided to return to the field and have been engaged in design and development for 5 years now. Now you are watching the development of a new team of which I am the leader.</p>
+                    </div>
+                  </li>
+                  <li class="team__slider_item swiper-slide">
+                    <div class="team__slider_left">
+                      <img src="img/team/team_3.jpg" alt="">
+                    </div>
+                    <div class="team__slider_right">
+                      <p class="team__slider_name">Vladislav</p>
+                      <p class="team__slider_head">Founder / General manager / UI/UX</p>
+                      <p class="team__slider_info">I created my first website 15 years ago. After a long break, I decided to return to the field and have been engaged in design and development for 5 years now. Now you are watching the development of a new team of which I am the leader.</p>
+                    </div>
+                  </li>
+                  <li class="team__slider_item swiper-slide">
+                    <div class="team__slider_left">
+                      <img src="img/team/team_4.jpg" alt="">
+                    </div>
+                    <div class="team__slider_right">
+                      <p class="team__slider_name">Vladislav</p>
+                      <p class="team__slider_head">Founder / General manager / UI/UX</p>
+                      <p class="team__slider_info">I created my first website 15 years ago. After a long break, I decided to return to the field and have been engaged in design and development for 5 years now. Now you are watching the development of a new team of which I am the leader.</p>
+                    </div>
+                  </li>
+                  <li class="team__slider_item swiper-slide">
+                    <div class="team__slider_left">
+                      <img src="img/team/team_5.jpg" alt="">
+                    </div>
+                    <div class="team__slider_right">
+                      <p class="team__slider_name">Vladislav</p>
+                      <p class="team__slider_head">Founder / General manager / UI/UX</p>
+                      <p class="team__slider_info">I created my first website 15 years ago. After a long break, I decided to return to the field and have been engaged in design and development for 5 years now. Now you are watching the development of a new team of which I am the leader.</p>
+                    </div>
+                  </li>
+                </ul>
+                <div class="swiper-pagination team__pagination"></div>
+                <div class="swiper-button-prev team__slider_prev">
+                  <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 31L0.999999 16.15L16 0.999999" stroke="#D3D3D3"/>
+                  </svg>
+                </div>
+                <div class="swiper-button-next team__slider_next">
+                  <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L16 15.85L1 31" stroke="#262626"/>
+                  </svg>
+                </div>
+              </div>
+            </li>
+            <li class="team__item">
+              <div class="team__top">
+                <h2 class="team__head">TEAM</h2>
+              </div>
+              <div class="team__bottom">
+                <p class="team__desc">Our team has been in existence for less than a year, despite this, we have already achieved tremendous success in the field of web development and design</p>
+                <button class="btn button__project team__button">
+                  <span class="button__text">ABOUT US</span>
+                  <span class="button__hover"></span>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="team__right"></div>
+        </div>
+        <div class="inner-container team__container">
+          <ul class="team__works">
+            <li class="team__works_item">
+              <h3 class="team__works_head">6+</h3>
+              <p class="team__works_desc">Experts are already <br>in our team</p>
+            </li>
+            <li class="team__works_item">
+              <h3 class="team__works_head">5+</h3>
+              <p class="team__works_desc">Years, Average commercial <br>experience</p>
+            </li>
+            <li class="team__works_item">
+              <h3 class="team__works_head">100+</h3>
+              <p class="team__works_desc">Projects <br>implemented</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="technologies" id="technologies__dot">
+        <div class="inner-container technologies__container">
+          <div class="technologies__empty"></div>
+          <div class="technologies__info">
+            <div class="technologies__info_top">
+              <h2 class="technologies__head">TECHNOLOGIES</h2>
+            </div>
+            <div class="technologies__info_bottom">
+              <p class="technologies__description">We work with a fairly wide stack of technologies, but we will indicate here the most frequently used</p>
+            </div>
+          </div>
+        </div>
+        <div class="technologies__border">
+          <div class="technologies__block">
+            <div class="technologies__flex">
+              <div class="technologies__top" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="3">
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_1.svg" alt="">
+                  <p class="technologies__desc">REACT</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_2.svg" alt="">
+                  <p class="technologies__desc">DJANGO</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_3.svg" alt="">
+                  <p class="technologies__desc">1C BITRIX</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_4.svg" alt="">
+                  <p class="technologies__desc">LARAVEL</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_5.svg" alt="">
+                  <p class="technologies__desc">TILDA</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_6.svg" alt="">
+                  <p class="technologies__desc">POSTGRESQL</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_7.svg" alt="">
+                  <p class="technologies__desc">FIGMA</p>
+                </div>
+              </div>
+              <div class="technologies__bottom" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="-3">
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_8.svg" alt="">
+                  <p class="technologies__desc">HTML</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_9.svg" alt="">
+                  <p class="technologies__desc">CSS</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_10.svg" alt="">
+                  <p class="technologies__desc">JAVASCRIPT</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_11.svg" alt="">
+                  <p class="technologies__desc">PHP</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_12.svg" alt="">
+                  <p class="technologies__desc">PYTHON</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_13.svg" alt="">
+                  <p class="technologies__desc">MYSQL</p>
+                </div>
+                <div class="technologies__slide">
+                  <img class="technologies__image" src="img/techno/techno_14.svg" alt="">
+                  <p class="technologies__desc">PROCREATE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="public" id="public__dot">
+        <div class="inner-container public__container">
+          <div class="public__blocks">
+            <div class="public__info">
+              <h2 class="public__head">PUBLICATION</h2>
+              <p class="public__desc">We will develop you a modern website that will delight you for a long time and bring profit to your company.</p>
+              <div class="swiper-button-prev public__slider_prev">
+                <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 31L0.999999 16.15L16 0.999999" stroke="#D3D3D3"/>
+                </svg>
+              </div>
+              <div class="swiper-button-next public__slider_next">
+                <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L16 15.85L1 31" stroke="#262626"/>
+                </svg>
+              </div>
+            </div>
+            <div class="public__flex">
+              <div class="public__slider swiper-container loading">
+                <ul class="public__list swiper-wrapper">
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation </p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="public__item swiper-slide">
+                    <div class="public__height">
+                      <div class="public__top">
+                        <ul class="public__tags">
+                          <li class="public__tag">#animation</li>
+                          <li class="public__tag">#design</li>
+                        </ul>
+                        <p class="public__slider_head">WEB - DEVELOPMENT</p>
+                        <p class="public__slider_desc">A public of full-cycle digital specialists, we develop functional products of a wide range from idea to implementation</p>
+                      </div>
+                      <div class="public__bottom">
+                        <p class="public__date">20.03.2023</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  
+    <footer class="footer" id="footer__dot">
+      <div class="container">
+        <section class="say">
+          <div class="say__content">
+            <h2 class="say__head">Tell us about <br> your project</h2>
+            
+            <div class="say__bottom">
+              <p class="say__desc">Describe your task and we will contact you as soon as possible.</p>
+              <button class="btn button__project say__button">
+                <span class="button__text">SEND</span>
+                <span class="button__hover"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+  
+        <hr class="divider-h">
+      
+        <div class="footer__content">
+          <div class="footer__contacts">
+            <ul class="footer__contacts_list">
+              <li class="footer__contacts_item">
+                <p class="footer__contacts_desc">Звоните нам по номеру:</p>
+                <a href="tel:+79270030100" class="footer__contacts_link">8 927 003 01 00</a>
+              </li>
+              
+              <li class="footer__contacts_item">
+                <p class="footer__contacts_desc">Пишите нам на почту</p>
+                <a href="mailto:hello@anyera.ru" class="footer__contacts_link">HELLO@ANYERA.RU</a>
+              </li>
+            </ul>
+  
+            <ul class="footer__social">
+              <li><a href="https://t.me/anyera" target="_blank" class="footer__social_link">TG</a></li>
+              <li><a href="https://vk.com/anyera" target="_blank" class="footer__social_link">VK</a></li>
+              <li><a href="https://www.behance.net/anyera" target="_blank" class="footer__social_link">BE</a>
+              </li>
+              <li><a href="#" target="_blank" class="footer__social_link">DR</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer__navigation footer-navigation-grid">
+            <div class="footer-navigation-grid__item">
+              <ul class="footer__list">
+                <li class="footer__item"><a href="#" class="footer__link footer__link--head">МЕНЮ</a></li>
+                <li class="footer__item"><a href="projects.html" class="footer__link">Проекты</a></li>
+                <li class="footer__item"><a href="services.html" class="footer__link">Услуги</a></li>
+                <li class="footer__item"><a href="team.html" class="footer__link">Команда</a></li>
+                <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Брифинг</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-navigation-grid__item">
+              <ul class="footer__list">
+                <li class="footer__item"><a href="#" class="footer__link footer__link--head">сервисы</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Аналитика</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Дизайн</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Веб-разработка</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Поддержка и развитие</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Автоматизация</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-navigation-grid__item">
+              <ul class="footer__list">
+                <li class="footer__item"><a href="#" class="footer__link footer__link--head">ПРОЧЕЕ</a></li>
+                <li class="footer__item"><a href="career.html" class="footer__link">Карьера</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Сертификаты</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Документация</a></li>
+                <li class="footer__item"><a href="public.html" class="footer__link">Публикации</a></li>
+                <li class="footer__item"><a href="#" class="footer__link">Медиа</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="divider-h">
+  
+        <div class="footer__privacy">
+          <p class="privacy-policy">
+            <a href="policy.html">Privacy policy</a>
+          </p>
+  
+          <button data-scroll-to href="#top" class="button__project footer__to-top">
+            <span class="button__text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="17" viewBox="0 0 32 17" fill="none">
+                <path d="M1 16L15.85 0.999999L31 16" stroke="currentColor"/>
+              </svg>
+            </span>
+            
+            <span class="button__hover"></span>
+          </button>
+          
+          <p class="footer__copyright">© 2023 LCC “ANYERA” All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+  
+  <div class="header__nav">
+    <div class="header__nav_scroll" data-scrollbar>
+      <div class="header__nav_block">
+        <div class="container">
+          <ul class="header__nav_list">
+            <li class="header__nav_item">
+              <h3>
+                <a href="index.html" class="header__nav_link">
+                  <span>MAIN</span>
+                </a>
+              </h3>
+            </li>
+        
+            <li class="header__nav_item">
+              <h3>
+                <a href="projects.html" class="header__nav_link">
+                  <span>KEYS</span>
+                </a>
+              </h3>
+          
+              <ul class="header__subnav_list">
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="projects.html" class="header__subnav_link">KEYS 1</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="projects.html" class="header__subnav_link">KEYS 2</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="projects.html" class="header__subnav_link">KEYS 3</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="projects.html" class="header__subnav_link">KEYS 4</a>
+                  </h5>
+                </li>
+              </ul>
+            </li>
+        
+            <li class="header__nav_item">
+              <h3>
+                <a href="services.html" class="header__nav_link">
+                  <span>SERVICES</span>
+                </a>
+              </h3>
+          
+              <ul class="header__subnav_list">
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="services.html" class="header__subnav_link">Аналитика</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="services.html" class="header__subnav_link">Дизайн</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="services.html" class="header__subnav_link">Веб-разработка</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="services.html" class="header__subnav_link">Поддержка и развитие</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="services.html" class="header__subnav_link">Автоматизация</a>
+                  </h5>
+                </li>
+              </ul>
+            </li>
+        
+            <li class="header__nav_item">
+              <h3>
+                <a href="team.html" class="header__nav_link">
+                  <span>ABOUT</span>
+                </a>
+              </h3>
+          
+              <ul class="header__subnav_list">
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="career.html" class="header__subnav_link">Команда</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="career.html" class="header__subnav_link">Карьера</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="career.html" class="header__subnav_link">Сертификаты</a>
+                  </h5>
+                </li>
+              </ul>
+            </li>
+        
+            <li class="header__nav_item">
+              <h3>
+                <a href="public.html" class="header__nav_link">
+                  <span>ARTICLES</span>
+                </a>
+              </h3>
+          
+              <ul class="header__subnav_list">
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="publication.html" class="header__subnav_link">ARTICLES 1</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="publication.html" class="header__subnav_link">ARTICLES 2</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="publication.html" class="header__subnav_link">ARTICLES 3</a>
+                  </h5>
+                </li>
+            
+                <li class="header__subnav_item">
+                  <h5>
+                    <a href="publication.html" class="header__subnav_link">ARTICLES 4</a>
+                  </h5>
+                </li>
+              </ul>
+            </li>
+          </ul>
+      
+          <div class="header__nav_bottom">
+            <div class="header__nav_bottom-item settings">
+              <div class="js-change-clr-mode settings__item clr-mode" data-clr-mode-active="">
+                <button class="clr-mode__btn" data-clr-mode="dark">
+                  <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18.4896 4.92516L15.8542 7.02412L16.8021 10.3348L14.0625 8.37654L11.323 10.3348L12.2709 7.02412L9.63546 4.92516L12.9584 4.82778L14.0625 1.58197L15.1667 4.82778L18.4896 4.92516ZM22.1355 12.4013L20.4271 13.7538L21.0417 15.896L19.2709 14.6301L17.5 15.896L18.1146 13.7538L16.4063 12.4013L18.5521 12.3472L19.2709 10.2375L19.9896 12.3472L22.1355 12.4013ZM19.7605 17.7569C20.625 17.6704 21.5521 18.9471 21 19.7585C20.6667 20.2454 20.3125 20.6998 19.875 21.1326C15.8021 25.3846 9.20837 25.3846 5.14587 21.1326C1.07296 16.913 1.07296 10.0535 5.14587 5.83398C5.56254 5.40121 6.00004 5.01171 6.46879 4.66549C7.25004 4.09207 8.47921 5.05499 8.39587 5.953C8.11462 9.04734 9.11462 12.2607 11.4063 14.6301C13.6875 17.0104 16.7709 18.0491 19.7605 17.7569ZM18.0521 19.9425C15.1042 19.7693 12.1875 18.5035 9.92712 16.1881C7.66671 13.8187 6.45837 10.7784 6.29171 7.72738C3.36462 11.1247 3.47921 16.3396 6.61462 19.6071C9.76046 22.8637 14.7813 22.9827 18.0521 19.9425Z"
+                        fill="currentColor"/>
+                  </svg>
+                </button>
+            
+                <span class="clr-mode__name"></span>
+            
+                <button class="clr-mode__btn" data-clr-mode="light">
+                  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M3.84091 20.3854L5.36644 21.8541L7.31393 19.9895L5.77758 18.5104M12.9833 6.74996C9.40207 6.74996 6.49166 9.55204 6.49166 13C6.49166 16.4479 9.40207 19.25 12.9833 19.25C16.5645 19.25 19.4749 16.4479 19.4749 13C19.4749 9.54163 16.5645 6.74996 12.9833 6.74996ZM21.6388 14.0416H24.8846V11.9583H21.6388M18.6526 19.9895L20.6001 21.8541L22.1257 20.3854L20.189 18.5104M22.1257 5.70829L20.6001 4.24996L18.6526 6.11454L20.189 7.59371M14.0652 1.54163H11.9013V4.66663H14.0652M7.31393 6.11454L5.36644 4.24996L3.84091 5.70829L5.77758 7.59371L7.31393 6.11454ZM1.08197 14.0416H4.32778V11.9583H1.08197M14.0652 21.3333H11.9013V24.4583H14.0652"
+                        fill="currentColor"/>
+                  </svg>
+                </button>
+              </div>
+          
+              <div class="settings__item change-language">
+                <div class="change-language__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 21 21" fill="none">
+                    <path
+                        d="M10.5 20.9166C9.07637 20.9166 7.73088 20.643 6.46352 20.0958C5.19616 19.5485 4.08922 18.802 3.14269 17.8562C2.19686 16.9103 1.45033 15.8037 0.903106 14.5364C0.355884 13.269 0.0826199 11.9235 0.0833143 10.4999C0.0833143 9.05895 0.356925 7.70895 0.904148 6.44992C1.45137 5.19089 2.1979 4.08881 3.14373 3.14367C4.08956 2.19714 5.19581 1.45061 6.46248 0.904085C7.72915 0.357558 9.07498 0.0839464 10.5 0.083252C11.941 0.083252 13.291 0.356863 14.55 0.904085C15.809 1.45131 16.9111 2.19784 17.8562 3.14367C18.8028 4.0895 19.5493 5.19193 20.0958 6.45096C20.6423 7.70999 20.916 9.05964 20.9166 10.4999C20.9166 11.9235 20.643 13.269 20.0958 14.5364C19.5486 15.8037 18.8021 16.9107 17.8562 17.8572C16.9104 18.803 15.808 19.5496 14.5489 20.0968C13.2899 20.644 11.9403 20.9173 10.5 20.9166ZM10.5 18.7812C10.9514 18.1562 11.342 17.5051 11.6719 16.828C12.0017 16.151 12.2708 15.4305 12.4791 14.6666H8.52081C8.72915 15.4305 8.99824 16.151 9.3281 16.828C9.65797 17.5051 10.0486 18.1562 10.5 18.7812ZM7.79165 18.3645C7.47915 17.7916 7.20554 17.1968 6.97081 16.5801C6.73609 15.9635 6.54095 15.3256 6.3854 14.6666H3.31248C3.81595 15.5346 4.44547 16.2898 5.20102 16.9322C5.95658 17.5746 6.82012 18.052 7.79165 18.3645ZM13.2083 18.3645C14.1805 18.052 15.0444 17.5746 15.8 16.9322C16.5555 16.2898 17.1847 15.5346 17.6875 14.6666H14.6146C14.4583 15.3263 14.2632 15.9645 14.0291 16.5812C13.7951 17.1978 13.5215 17.7923 13.2083 18.3645ZM2.42706 12.5833H5.96873C5.91665 12.236 5.87741 11.893 5.85102 11.5541C5.82463 11.2152 5.81179 10.8638 5.81248 10.4999C5.81248 10.1353 5.82568 9.78395 5.85206 9.44575C5.87845 9.10756 5.91734 8.7645 5.96873 8.41658H2.42706C2.34026 8.76381 2.27498 9.10686 2.23123 9.44575C2.18748 9.78464 2.16595 10.136 2.16665 10.4999C2.16665 10.8645 2.18852 11.2159 2.23227 11.5541C2.27602 11.8923 2.34095 12.2353 2.42706 12.5833ZM8.05206 12.5833H12.9479C13 12.236 13.0392 11.893 13.0656 11.5541C13.092 11.2152 13.1048 10.8638 13.1041 10.4999C13.1041 10.1353 13.091 9.78395 13.0646 9.44575C13.0382 9.10756 12.9993 8.7645 12.9479 8.41658H8.05206C7.99998 8.76381 7.96074 9.10686 7.93436 9.44575C7.90797 9.78464 7.89512 10.136 7.89581 10.4999C7.89581 10.8645 7.90901 11.2159 7.9354 11.5541C7.96179 11.8923 8.00067 12.2353 8.05206 12.5833ZM15.0312 12.5833H18.5729C18.6597 12.236 18.725 11.893 18.7687 11.5541C18.8125 11.2152 18.834 10.8638 18.8333 10.4999C18.8333 10.1353 18.8114 9.78395 18.7677 9.44575C18.7239 9.10756 18.659 8.7645 18.5729 8.41658H15.0312C15.0833 8.76381 15.1225 9.10686 15.1489 9.44575C15.1753 9.78464 15.1882 10.136 15.1875 10.4999C15.1875 10.8645 15.1743 11.2159 15.1479 11.5541C15.1215 11.8923 15.0826 12.2353 15.0312 12.5833ZM14.6146 6.33325H17.6875C17.184 5.4652 16.5548 4.70999 15.8 4.06763C15.0451 3.42527 14.1812 2.94783 13.2083 2.63533C13.5208 3.20825 13.7944 3.80304 14.0291 4.41971C14.2639 5.03638 14.459 5.67422 14.6146 6.33325ZM8.52081 6.33325H12.4791C12.2708 5.56936 12.0017 4.84888 11.6719 4.17179C11.342 3.49471 10.9514 2.84367 10.5 2.21867C10.0486 2.84367 9.65797 3.49471 9.3281 4.17179C8.99824 4.84888 8.72915 5.56936 8.52081 6.33325ZM3.31248 6.33325H6.3854C6.54165 5.67353 6.73713 5.03534 6.97186 4.41867C7.20658 3.802 7.47984 3.20756 7.79165 2.63533C6.81943 2.94783 5.95554 3.42527 5.19998 4.06763C4.44443 4.70999 3.81526 5.4652 3.31248 6.33325Z"
+                        fill="currentColor"/>
+                  </svg>
+                </div>
+            
+                <div class="change-language__control">
+                  <button class="change-language__btn">RU</button>
+                  <button class="change-language__btn active">ENG</button>
+                </div>
+              </div>
+            </div>
+        
+            <ul class="header__nav_bottom-item header__nav__contact_list">
+              <li class="header__nav_contact_item">
+                <p class="">Сall us by number:</p>
+            
+                <h5>
+                  <a href="tel:+79270030100" class="header__nav_contact_link">8 927 003 01 00</a>
+                </h5>
+              </li>
+          
+              <li class="header__nav_contact_item">
+                <p class="">Write to our mail:</p>
+            
+                <h5>
+                  <a href="mailto:hello@anyera.ru" class="header__nav_contact_link">HELLO@ANYERA.RU</a>
+                </h5>
+              </li>
+            </ul>
+        
+            <ul class="header__nav_bottom-item header__nav_bottom_social">
+              <li><a href="https://t.me/anyera" target="_blank" class="header__nav_bottom_link">TG</a></li>
+              <li><a href="https://vk.com/anyera" target="_blank" class="header__nav_bottom_link">VK</a></li>
+              <li><a href="https://www.behance.net/anyera" target="_blank" class="header__nav_bottom_link">BE</a></li>
+              <li><a href="#" target="_blank" class="header__nav_bottom_link">DR</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header__consultation">
+    <div class="header__consultation_scroll" data-scrollbar>
+      <div class="inner-container header__consultation_container">
+        <div class="header__consultation_blocks">
+          <div class="header__consultation_burger_flex">
+            <button class="button__close header__consultation_burger" aria-label="Закрыть меню">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="2.5" cy="22.5" r="2.5"></circle>
+                <circle cx="2.5" cy="2.5" r="2.5"></circle>
+                <circle cx="22.5" cy="2.5" r="2.5"></circle>
+                <circle cx="12.5" cy="12.5" r="2.5"></circle>
+                <circle cx="22.5" cy="22.5" r="2.5"></circle>
+              </svg>
+            </button>
+          </div>
+          <div class="header__consultation_block">
+            <div class="header__consultation_info">
+              <div class="header__consultation_say">
+                <h2 class="header__consultation_head">Tell us about your project</h2>
+                <p class="header__consultation_desc">Опишите свою задачу и мы свяжемся с вами в кратчайшие сроки.</p>
+              </div>
+              <div class="header__consultation_contacts">
+                <a href="tel:+79270030100" class="header__consultation_tel">8 927 003 01 00</a>
+                <a href="mailto:hello@anyera.ru" class="header__consultation_mail">info@visualhearts.ru</a>
+              </div>
+            </div>
+            <form id="form" class="header__forms_form">
+              <div class="header__forms_form_controls">
+                <div class="header__forms_form_control">
+                  <input class="header__forms_form_input" type="text" minlength="4" maxlength="40" placeholder="Имя" id="username" />
+                  <span class="header__forms_form_bar"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="header__forms_form_control">
+                  <input class="header__forms_form_input" type="tel" minlength="5" maxlength="20" placeholder="Телефон" id="phone" />
+                  <span class="header__forms_form_bar"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="header__select_box">
+                  <span class="header__select_name">Способ связи</span>
+                  <div class="header__select" data-select>
+                    <div class="header__select_selected_item" data-select-action data-select-open>
+                      <div class="header__select_selected-title" data-select-title>
+                        Выберите способ
+                      </div>
+                      <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 1L6.05 6L1 1"/>
+                      </svg>
+                    </div>
+                    <div class="header__select_list" data-select-list>
+                      <div class="header__select_list_item" data-select-action data-select-item>Позвонить</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Написать на почту</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Написать в телеграм</div>
+                    </div>
+                    <input class="header__select_input" type="text" data-select-input>
+                  </div>
+                </div>
+                <div class="header__select_box">
+                  <span class="header__select_name">Бюджет проекта</span>
+                  <div class="header__select" data-select>
+                    <div class="header__select_selected_item" data-select-action data-select-open>
+                      <div class="header__select_selected-title" data-select-title>
+                        Выберите бюджет
+                      </div>
+                      <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 1L6.05 6L1 1" stroke="#262626"/>
+                      </svg>
+                    </div>
+                    <div class="header__select_list" data-select-list>
+                      <div class="header__select_list_item" data-select-action data-select-item>от 50 до 150</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>от 150 до 500</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>от 500 до 1 млн</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>от 1 млн</div>
+                    </div>
+                    <input class="header__select_input" type="text" data-select-input>
+                  </div>
+                </div>
+                <div class="header__select_box">
+                  <span class="header__select_name">Тип услуги</span>
+                  <div class="header__select" data-select>
+                    <div class="header__select_selected_item" data-select-action data-select-open>
+                      <div class="header__select_selected-title" data-select-title>
+                        Выберите тип
+                      </div>
+                      <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 1L6.05 6L1 1" stroke="#262626"/>
+                      </svg>
+                    </div>
+                    <div class="header__select_list" data-select-list>
+                      <div class="header__select_list_item" data-select-action data-select-item>Одностраничный сайт</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Многостраничный сайт</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Нужен интернет-магазин</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Веб-приложение</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Дизайн</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Иллюстрации</div>
+                      <div class="header__select_list_item" data-select-action data-select-item>Другое</div>
+                    </div>
+                    <input class="header__select_input" type="text" data-select-input>
+                  </div>
+                </div>
+                <div class="header__forms_form_control">
+                  <span class="header__form_name">Опишите проект</span>
+                  <textarea class="header__forms_form_input header__forms_form_textarea" name="" id="text" placeholder=""></textarea>
+                  <span class="header__forms_form_bar"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="button__project button__project_input header__form_button">
+                <input type="submit" name="submit" value="Отправить" class="button__text">
+                <span class="button__hover"></span>
+              </div>
+              <p class="header__form_policy">Нажимая на кнопку, вы соглашаетесь с условиями <a href="#">политики конфиденциальности</a>.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header__say">
+    <div class="inner-container header__career_container">
+      <div class="block__left header__career_left"></div>
+      <div class="header__career_blocks">
+        <div class="header__career_burger_flex">
+          <button class="button__close header__say_burger" aria-label="Закрыть меню">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="2.5" cy="22.5" r="2.5"></circle>
+              <circle cx="2.5" cy="2.5" r="2.5"></circle>
+              <circle cx="22.5" cy="2.5" r="2.5"></circle>
+              <circle cx="12.5" cy="12.5" r="2.5"></circle>
+              <circle cx="22.5" cy="22.5" r="2.5"></circle>
+            </svg>
+          </button>
+        </div>
+        <div class="header__career_block">
+          <div class="header__career_info">
+            <div class="header__career_say">
+              <p class="header__career_head">Оставьте контакты</p>
+              <p class="header__career_desc">Мы свяжемся с вами в кратчайшие сроки.</p>
+            </div>
+          </div>
+          <form id="formsay" class="header__forms_form">
+            <div class="header__forms_form_controls">
+              <div class="header__forms_form_control">
+                <input class="header__forms_form_input" type="text" minlength="4" maxlength="40" placeholder="Имя" id="usernamesay" />
+                <span class="header__forms_form_bar"></span>
+                <small>Error message</small>
+              </div>
+              <div class="header__forms_form_control">
+                <input class="header__forms_form_input" type="tel" minlength="5" maxlength="20" placeholder="Телефон" id="phonesay" />
+                <span class="header__forms_form_bar"></span>
+                <small>Error message</small>
+              </div>
+            </div>
+            <button class="button__project header__form_button">
+              <span class="button__text">Отправить</span>
+              <span class="button__hover"></span>
+            </button>
+            <p class="header__form_policy">Нажимая на кнопку, вы соглашаетесь с условиями <a href="#">политики конфиденциальности</a>.</p>
+          </form>
+        </div>
+      </div>
+      <div class="block__right header__career_right"></div>
+    </div>
+  </div>
+  <div class="showreel__modal">
+    <div class="showreel__modal_inner">
+      <div class="showreel__video_responsive">
+        <video id="showreel__video" src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164" data-overlay="1" data-title="ANYERA"></video>
+      </div>
+      <button class="button__close showreel__modal_close" aria-label="Закрыть видео">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="2.5" cy="22.5" r="2.5"></circle>
+          <circle cx="2.5" cy="2.5" r="2.5"></circle>
+          <circle cx="22.5" cy="2.5" r="2.5"></circle>
+          <circle cx="12.5" cy="12.5" r="2.5"></circle>
+          <circle cx="22.5" cy="22.5" r="2.5"></circle>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/scrollbar.js"></script>
+  <script>
+    window.onload = function () {
+      document.body.classList.add('loaded_hiding');
+      document.querySelector('.preloader__top').style.top = "-50%";
+      document.querySelector('.preloader__bottom').style.top = "100%";
+      window.scrollTo(0,0);
+      window.setTimeout(function () {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loaded_hiding');
+        document.querySelector('.preloader').style.display = "none";
+      }, 300);
+    }
+    const scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true, getSpeed: true,getDirection: true});
+    const hn_scroll = document.querySelector('.header__nav_scroll');
+    const hc_scroll = document.querySelector('.header__consultation_scroll');
+    Scrollbar.init(hn_scroll);
+    Scrollbar.init(hc_scroll);
+    const headerprogress = document.querySelector('.header__progress_bar');
+    scroll.on('scroll', (args) => {
+      var scrollY = Math.round(args["scroll"]["y"]);
+      var scrollH = Math.round(args["limit"]["y"]);
+      let scrollheader = Math.round((scrollY / scrollH) * 100);
+      headerprogress.style.flexBasis = scrollheader + '%';
+    });
+  </script>
+</body>
+</html>
