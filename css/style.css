@@ -115,13 +115,13 @@ button, button:focus, button:hover, button:active {
 }
 
 .overlay.active {
-  background-color: var(--bg-clr);
-  opacity: 0.95;
+  /* background-color: var(--bg-clr);
+  opacity: 0.95; */
   visibility: visible;
 }
 
 .dark .overlay.active {
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 .main__section {
