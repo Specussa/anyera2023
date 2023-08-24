@@ -1,3 +1,19 @@
+// start height
+var oldWidth = window.innerWidth;
+const docheight = document.documentElement
+const appHeight = () => {docheight.style.setProperty('--height', `${window.innerHeight}px`)}
+window.addEventListener('resize', appHeight)
+appHeight()
+window.onresize = function () {
+  var newWidth = window.innerWidth;
+  if (newWidth != oldWidth) {
+    const appHeight = () => {docheight.style.setProperty('--height', `${window.innerHeight}px`)}
+    window.addEventListener('resize', appHeight)
+    appHeight()
+  }
+};
+// end height
+
 // start navbar
 const bodyoverlay = document.querySelector('.overlay');
 const menu = document.querySelector('.header__nav');

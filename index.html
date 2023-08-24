@@ -7,8 +7,8 @@
   <title>Anyera</title>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/swiper.min.css">
-  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <script>window.console = window.console || function(t) {};</script>
 </head>
@@ -68,10 +68,14 @@
           <span></span>
           <span></span>
         </button>
-        <button class="btn button__project header__project">
-          <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
-          <span class="button__hover"></span>
-        </button>
+        <div class="header__right">
+          <a class="header__link" href="#">Команда</a>
+          <a class="header__link" href="#">Проекты</a>
+          <button class="button__project header__project">
+            <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
+            <span class="button__hover"></span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -474,7 +478,7 @@
       </div>
     </div>
   </div>
-  
+
   <script src="js/swiper.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/scroll.js"></script>
