@@ -212,6 +212,8 @@ section {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  -webkit-transition: border 0.2s linear;
+  transition: border 0.2s linear;
 }
 
 .btn svg path {
@@ -249,18 +251,14 @@ section {
   height: 120%;
 }
 
-.btn:active,
-.btn:focus {
-  border: 1px solid var(--border);
-}
-
 .btn:hover,
 .btn.active,
+.btn:focus,
 .btn:hover svg path,
 .btn.active svg path {
   color: var(--bg);
   stroke: var(--bg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--purple);
 }
 
 .dark .btn:hover,
