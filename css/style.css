@@ -283,7 +283,7 @@ section {
   font-family: var(--title-font);
   font-size: 12px;
   font-weight: 400;
-  line-height: 15px;
+  line-height: 12px;
   position: relative;
   margin: auto;
   z-index: 1;
@@ -643,6 +643,7 @@ html.has-scroll-dragging {
   font-weight: 400;
   line-height: 12px;
   color: var(--text);
+  text-transform: uppercase;
 }
 
 /* end header */
