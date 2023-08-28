@@ -77,13 +77,10 @@ button {
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
+select:-webkit-autofill:hover {
   border: none;
   -webkit-text-fill-color: var(--text);
   -webkit-box-shadow: 0 0 0 1000px var(--bg) inset;
@@ -91,7 +88,7 @@ select:-webkit-autofill:focus {
   box-shadow: 0 0 0 1000px var(--bg) inset;
 }
 
-button, button:focus, button:hover, button:active {
+button, button:hover {
   outline: 0;
   border: none;
   -webkit-touch-callout: none;
@@ -253,7 +250,6 @@ section {
 
 .btn:hover,
 .btn.active,
-.btn:focus,
 .btn:hover svg path,
 .btn.active svg path {
   color: var(--bg);
@@ -286,7 +282,7 @@ section {
 .button__text {
   font-family: var(--title-font);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 15px;
   position: relative;
   margin: auto;
@@ -852,7 +848,6 @@ html.has-scroll-dragging {
 
 .header__nav_link,
 .header__nav_link:hover,
-.header__nav_link:focus,
 .header__nav_link:active {
   position: relative;
   display: block;
@@ -1120,12 +1115,8 @@ html.has-scroll-dragging {
 
 .showreel__modal_close svg,
 .showreel__modal_close:hover svg,
-.showreel__modal_close:active svg,
-.showreel__modal_close:focus svg,
 .dark .showreel__modal_close svg,
-.dark .showreel__modal_close:hover svg,
-.dark .showreel__modal_close:active svg,
-.dark .showreel__modal_close:focus svg {
+.dark .showreel__modal_close:hover svg,{
   width: 30px;
   height: 30px;
   fill: #fff;
