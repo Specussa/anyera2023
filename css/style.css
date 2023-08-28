@@ -260,7 +260,7 @@ section {
 .btn.active svg path {
   color: var(--bg);
   stroke: var(--bg);
-  border: 1px solid var(--purple);
+  border: 1px solid var(--border);
 }
 
 .dark .btn:hover,
