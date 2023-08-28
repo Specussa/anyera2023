@@ -212,8 +212,8 @@ section {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  -webkit-transition: border 0.2s linear;
-  transition: border 0.2s linear;
+  -webkit-transition: border 0.3s linear;
+  transition: border 0.3s linear;
 }
 
 .btn svg path {
@@ -542,8 +542,8 @@ html.has-scroll-dragging {
 }
 
 .header__burger {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   overflow: hidden;
   position: absolute;
   top: 50%;
