@@ -544,7 +544,7 @@ if(!digital){} else {
   let digitalopt = {threshold: [0.5]};
   let digitalserv = new IntersectionObserver(onEntry, digitalopt);
   for (let elm of digitalinfo) {digitalserv.observe(elm);}
-  const digitalhead = document.querySelectorAll('.digital__head_block'); 
+  const digitalhead = document.querySelectorAll('.digital__head'); 
   [...digitalhead].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 
   let digitallopt = {threshold: [0.5]};
