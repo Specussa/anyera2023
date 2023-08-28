@@ -1884,7 +1884,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 73.5vh;
+  min-height: 700px;
   align-items: center;
 }
 
@@ -2080,7 +2080,7 @@ html.has-scroll-dragging {
   font-size: 16px;
   font-weight: 300;
   line-height: 19px;
-  color: var(--text);
+  color: var(--text-gray);
 }
 
 .accredited__head,
