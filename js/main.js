@@ -293,18 +293,18 @@ var iconExpand = '<i class="spec-expand"></i>';
 var iconCompress = '<i class="spec-compress"></i>';
 
 players.forEach(function (player) {
-  var video = player.querySelector('video');
-  var skin = attachSkin(video.dataset.spec);
+  var videos = player.querySelector('.showreel__video_responsive video');
+  var skin = attachSkin(videos.dataset.spec);
   player.classList.add(skin);
-  var overlay = video.dataset.overlay;
+  var overlay = videos.dataset.overlay;
   addOverlay(player, overlay);
-  var title = showTitle(skin, video.dataset.title);
+  var title = showTitle(skin, videos.dataset.title);
   if (title) {
       player.insertAdjacentHTML('beforeend', title);
   }
   var html = buildControls(skin);
   player.insertAdjacentHTML('beforeend', html);
-  var color = video.dataset.color;
+  var color = videos.dataset.color;
   addColor(player, color);
   var playerControls = player.querySelector('.' + skin + '__controls');
   var progress = player.querySelector('.progress');
@@ -313,35 +313,35 @@ players.forEach(function (player) {
   var volumeButton = player.querySelector('.volume');
   var fullScreenButton = player.querySelector('.fullscreen');
   if (obj.browserName === "IE" && (obj.browserVersion === 8 || obj.browserVersion === 9)) {
-      showControls(video);
+      showControls(videos);
       playerControls.style.display = "none";
   }
-  video.addEventListener('click', function () {
+  videos.addEventListener('click', function () {
       togglePlay(this, player);
   });
-  video.addEventListener('play', function () {
+  videos.addEventListener('play', function () {
       updateButton(this, toggle);
   });
-  video.addEventListener('pause', function () {
+  videos.addEventListener('pause', function () {
       updateButton(this, toggle);
   });
-  video.addEventListener('timeupdate', function () {
+  videos.addEventListener('timeupdate', function () {
       handleProgress(this, progressBar);
   });
   toggle.forEach(function (button) {
       return button.addEventListener('click', function () {
-          togglePlay(video, player);
+          togglePlay(videos, player);
       });
   });
   volumeButton.addEventListener('click', function () {
-      toggleVolume(video, volumeButton);
+      toggleVolume(videos, volumeButton);
   });
   var mousedown = false;
   progress.addEventListener('click', function (e) {
-      scrub(e, video, progress);
+      scrub(e, videos, progress);
   });
   progress.addEventListener('mousemove', function (e) {
-      return mousedown && scrub(e, video, progress);
+      return mousedown && scrub(e, videos, progress);
   });
   progress.addEventListener('mousedown', function () {
       return mousedown = true;
@@ -356,37 +356,37 @@ players.forEach(function (player) {
       return onFullScreen(e, player);
   });
 });
-function showControls(video) {
-  video.setAttribute("controls", "controls");
+function showControls(videon) {
+  videon.setAttribute("controls", "controls");
 }
-function togglePlay(video, player) {
-  var method = video.paused ? 'play' : 'pause';
-  video[method]();
-  video.paused ? player.classList.remove('is-playing') : player.classList.add('is-playing');
+function togglePlay(videon, player) {
+  var method = videon.paused ? 'play' : 'pause';
+  videon[method]();
+  videon.paused ? player.classList.remove('is-playing') : player.classList.add('is-playing');
 }
-function updateButton(video, toggle) {
-  var icon = video.paused ? iconPlay : iconPause;
+function updateButton(videon, toggle) {
+  var icon = videon.paused ? iconPlay : iconPause;
   toggle.forEach(function (button) {
       return button.innerHTML = icon;
   });
   const progress = document.querySelector('.progress');
   const progress__time = document.getElementById("progress__time");
   progress.addEventListener('mousemove', (e) => {
-    var thours = Math.floor((e.offsetX / progress.offsetWidth * video.duration) / 60 / 60);
-    var tminutes = Math.floor((e.offsetX / progress.offsetWidth * video.duration) / 60) - (thours * 60);
-    var tseconds = Math.floor((e.offsetX / progress.offsetWidth * video.duration) % 60);
+    var thours = Math.floor((e.offsetX / progress.offsetWidth * videon.duration) / 60 / 60);
+    var tminutes = Math.floor((e.offsetX / progress.offsetWidth * videon.duration) / 60) - (thours * 60);
+    var tseconds = Math.floor((e.offsetX / progress.offsetWidth * videon.duration) % 60);
     progress__time.innerHTML = [tminutes,tseconds.toString().padStart(2, '0')].join(':');
   });
-  var dhours = Math.floor(video.duration / 60 / 60);
-  var dminutes = Math.floor(video.duration / 60) - (dhours * 60);
-  var dseconds = Math.floor(video.duration % 60);
+  var dhours = Math.floor(videon.duration / 60 / 60);
+  var dminutes = Math.floor(videon.duration / 60) - (dhours * 60);
+  var dseconds = Math.floor(videon.duration % 60);
   progress__duration.innerHTML = [dminutes,dseconds.toString().padStart(2, '0')].join(':');
 }
 function skip() {
-  video.currentTime += parseFloat(this.dataset.skip);
+  videon.currentTime += parseFloat(this.dataset.skip);
 }
-function toggleVolume(video, volumeButton) {
-  var level = video.volume;
+function toggleVolume(videon, volumeButton) {
+  var level = videon.volume;
   var icon = iconVolumeMedium;
   if (level == 1) {
       level = 0;
@@ -398,33 +398,33 @@ function toggleVolume(video, volumeButton) {
       level = 0.5;
       icon = iconVolumeLow;
   }
-  video['volume'] = level;
+  videon['volume'] = level;
   volumeButton.innerHTML = icon;
 }
 function handleRangeUpdate() {
-  video[this.name] = this.value;
+  videon[this.name] = this.value;
 }
-function handleProgress(video, progressBar) {
-  var percent = video.currentTime / video.duration * 100;
+function handleProgress(videon, progressBar) {
+  var percent = videon.currentTime / videon.duration * 100;
   progressBar.style.flexBasis = percent + '%';
   progress__duration = document.getElementById("progress__duration");
   progress__currenttime = document.getElementById("progress__currenttime");
-  var chours = Math.floor(video.currentTime / 60 / 60);
-  var cminutes = Math.floor(video.currentTime / 60) - (chours * 60);
-  var cseconds = Math.floor(video.currentTime % 60);
+  var chours = Math.floor(videon.currentTime / 60 / 60);
+  var cminutes = Math.floor(videon.currentTime / 60) - (chours * 60);
+  var cseconds = Math.floor(videon.currentTime % 60);
   progress__currenttime.innerHTML = [cminutes,cseconds.toString().padStart(2, '0')].join(':');
 }
-function scrub(e, video, progress) {
-  var scrubTime = e.offsetX / progress.offsetWidth * video.duration;
-  video.currentTime = scrubTime;
+function scrub(e, videon, progress) {
+  var scrubTime = e.offsetX / progress.offsetWidth * videon.duration;
+  videon.currentTime = scrubTime;
 }
 function wrapPlayers() {
-  var videos = document.querySelectorAll('video');
-  videos.forEach(function (video) {
+  var videol = document.querySelectorAll('.showreel__video_responsive video');
+  videol.forEach(function (videon) {
       var wrapper = document.createElement('div');
       wrapper.classList.add('spec__player');
-      video.parentNode.insertBefore(wrapper, video);
-      wrapper.appendChild(video);
+      videon.parentNode.insertBefore(wrapper, videon);
+      wrapper.appendChild(videon);
   });
 }
 Number.prototype.lead0 = function(n) {

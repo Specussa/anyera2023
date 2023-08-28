@@ -65,7 +65,7 @@
         <div class="header__right">
           <a class="header__link" href="#">Команда</a>
           <a class="header__link" href="#">Проекты</a>
-          <button class="button__project header__project">
+          <button class="btn header__project">
             <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
             <span class="button__hover"></span>
           </button>
@@ -104,13 +104,13 @@
       </div>
     </section>
     <section class="showreel">
-      <div class="container showreel__container">
-        
-        <button class="btn button__project showreel__button">
-          <span class="button__text">SHOWREEL</span>
-          <span class="button__hover"></span>
-        </button>
-      </div>
+      <button class="showreel__button">
+        <div class="showreel__block">
+          <video poster="img/main/showreel.webp" playsinline autoplay muted loop>
+            <source src="img/main/showreel.mp4" type="video/mp4">
+          </video>
+        </div>
+      </button>
     </section>
   </main>
   <footer class="footer">
@@ -422,7 +422,7 @@
                   <small>Error message</small>
                 </div>
               </div>
-              <div class="button__project button__project_input header__form_button">
+              <div class="btn btn__input header__form_button">
                 <input type="submit" name="submit" value="Отправить" class="button__text">
                 <span class="button__hover"></span>
               </div>

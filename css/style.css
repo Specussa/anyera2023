@@ -7,8 +7,7 @@
   --text: #161616;
   --text-gray: #6c6c6c;
   --gray-border: #d3d3d3;
-  --border: #cfcfcf;
-  --border-1: 1px solid var(--border);
+  --border: #dfdfdf;
   --orange: #e7b85c;
   --purple: #644bb1;
   --red: #a20109;
@@ -128,6 +127,10 @@ h5 {
   padding: 0;
 }
 
+section {
+  position: relative;
+}
+
 .container {
   width: 100%;
   max-width: 1330px;
@@ -178,8 +181,8 @@ h5 {
   bottom: 0;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  border-left: var(--border-1);
-  border-right: var(--border-1);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
 }
 
 .main__border::after {
@@ -193,33 +196,33 @@ h5 {
   bottom: 0;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  border-left: var(--border-1);
+  border-left: 1px solid var(--border);
 }
 
 /* start buttons */
 
-.button__project {
+.btn {
   display: inline-flex;
   width: fit-content;
   height: fit-content;
   padding: 15px 20px;
   align-items: center;
-  border: var(--border-1);
+  border: 1px solid var(--border);
   flex: 0 0 auto;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
-.button__project svg path {
+.btn svg path {
   stroke: var(--text);
 }
 
-.button__project_input {
+.btn__input {
   padding: 0;
 }
 
-.button__project_input .button__text {
+.btn__input .button__text {
   width: 100%;
   height: 100%;
   padding: 14.5px 26.5px;
@@ -233,51 +236,51 @@ h5 {
   cursor: pointer;
 }
 
-.button__project_input:hover .button__text {
+.btn__input:hover .button__text {
   color: var(--bg);
 }
 
-.dark .button__project_input:hover .button__text {
+.dark .btn__input:hover .button__text {
   color: var(--text);
 }
 
-.button__project_input .button__hover,
-.button__project_input .button__hover:after {
+.btn__input .button__hover,
+.btn__input .button__hover:after {
   height: 120%;
 }
 
-.button__project:active,
-.button__project:focus {
-  border: var(--border-1);
+.btn:active,
+.btn:focus {
+  border: 1px solid var(--border);
 }
 
-.button__project:hover,
-.button__project.active,
-.button__project:hover svg path,
-.button__project.active svg path {
+.btn:hover,
+.btn.active,
+.btn:hover svg path,
+.btn.active svg path {
   color: var(--bg);
   stroke: var(--bg);
   border: 1px solid var(--purple);
 }
 
-.dark .button__project:hover,
-.dark .button__project.active,
-.dark .button__project:hover svg path,
-.dark .button__project.active svg path {
+.dark .btn:hover,
+.dark .btn.active,
+.dark .btn:hover svg path,
+.dark .btn.active svg path {
   color: var(--text);
   stroke: var(--text);
   border: 1px solid var(--purple);
 }
 
-.button__project:hover .button__hover,
-.button__project.active .button__hover {
+.btn:hover .button__hover,
+.btn.active .button__hover {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
-.button__project:hover .button__hover:after {
+.btn:hover .button__hover:after {
   -webkit-transform: skew(0,-8deg);
   transform: skew(0,-8deg);
 }
@@ -383,8 +386,8 @@ h5 {
   width: 100%;
   margin: -41px 0 0;
   padding: 100px 0 0;
-  border-left: var(--border-1);
-  border-right: var(--border-1);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
 }
 
 /* end buttons */
@@ -492,7 +495,7 @@ html.has-scroll-dragging {
   position: fixed;
   z-index: 100;
   width: 100%;
-  border-bottom: var(--border-1);
+  border-bottom: 1px solid var(--border);
   background: var(--bg);
   overflow: hidden;
 }
@@ -790,7 +793,7 @@ html.has-scroll-dragging {
   top: 80px;
   left: 0;
   background: var(--bg);
-  border-bottom: var(--border-1);
+  border-bottom: 1px solid var(--border);
   -webkit-transition: -webkit-transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
   transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
   -webkit-transform: translateY(-100%);
@@ -905,7 +908,7 @@ html.has-scroll-dragging {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
-  border: var(--border-1);
+  border: 1px solid var(--border);
 }
 
 [data-mode-active="light"] {
@@ -1004,34 +1007,21 @@ html.has-scroll-dragging {
 /* start showreel */
 
 .showreel__button {
-  position: absolute;
-  left: 0;
-  bottom: -110px;
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
-  -webkit-transition: -webkit-transform 0.3s linear, opacity 0.3s linear, border-color 0.3s linear;
-  transition: transform 0.3s linear, opacity 0.3s linear, border-color 0.3s linear;
-  opacity: 0;
-}
-
-.loaded .digital__info.animate .showreel__button {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  -webkit-transition-delay: 0.9s, 0.9s, 0s;
-  transition-delay: 0.9s, 0.9s, 0s;
-}
-
-.showreel__container {
-  padding: 0;
+  width: 100%;
 }
 
 .showreel__block {
   width: 100%;
-  min-height: 272px;
-  border-left: var(--border-1);
-  border-right: var(--border-1);
-  border-bottom: var(--border-1);
+  height: 500px;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.showreel__block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .showreel__circle {
@@ -1273,7 +1263,7 @@ html.has-scroll-dragging {
   background-size: 50px 50px;
 }
 
-video {
+#showreel__video {
   width: 100%;
   height: auto;
   cursor: pointer;
@@ -1882,6 +1872,7 @@ video {
 #showreel__video::-webkit-media-controls-enclosure {
   display: none !important;
 }
+
 /* end showreel */
 
 /* start digital */
@@ -1904,7 +1895,7 @@ video {
   flex-direction: column;
   gap: 25px;
   position: absolute;
-  top: 200px;
+  top: 202px;
   left: 10px;
 }
 
@@ -1936,7 +1927,7 @@ video {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 200px 60px 60px;
+  padding: 200px 60px 240px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -1945,7 +1936,7 @@ video {
 }
 
 .digital__right {
-  border-bottom: var(--border-1);
+  border-bottom: 1px solid var(--border);
 }
 
 .digital__head {
@@ -2040,10 +2031,19 @@ video {
   padding: 40px 30px;
   position: absolute;
   left: 50%;
-  bottom: 0;
-  border-top: var(--border-1);
-  border-bottom: var(--border-1);
+  bottom: 100px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   background-color: var(--bg);
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+}
+
+.loaded .animate .accredited__flex {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 .accredited__list {
