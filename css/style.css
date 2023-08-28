@@ -1018,9 +1018,7 @@ html.has-scroll-dragging {
 .showreel__block {
   width: 100%;
   height: 500px;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .showreel__block video {
