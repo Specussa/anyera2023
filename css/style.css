@@ -909,8 +909,8 @@ html.has-scroll-dragging {
 
 .clr-mode {
   position: relative;
-  padding: 7px 30px;
-  width: 160px;
+  padding: 3px 50px;
+  width: 180px;
   font-family: var(--text-font);
   font-size: 12px;
   font-weight: 400;
