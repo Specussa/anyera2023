@@ -124,6 +124,38 @@ toggleClrModeBtnArr.forEach((btn) => {
 });
 // Change color mode end
 
+// start expertise
+var acc = document.getElementsByClassName("expertise__button");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function(e) {
+    var expertise = this.nextElementSibling;
+    var courseExpertise = document.getElementsByClassName("expertise__panel");
+    var courseExpertiseActive = document.getElementsByClassName("expertise__button active");
+
+    if (expertise.style.maxHeight) {
+      expertise.style.maxHeight = null;
+      this.classList.remove("active");
+      expertise.classList.remove("active");
+    } else {
+      for (var q = 0; q < courseExpertiseActive.length; q++) {
+        courseExpertiseActive[q].classList.remove("active");
+        courseExpertise[q].classList.remove("active");
+      }
+      for (var p = 0; p < courseExpertise.length; p++) {
+        this.classList.remove("active");
+        courseExpertise[p].classList.remove("active");
+        courseExpertise[p].style.maxHeight = null;
+      }
+      expertise.style.maxHeight = (expertise.scrollHeight + 40) + "px";
+      expertise.classList.add("active");
+      this.classList.add("active");
+    }
+  };
+}
+// end expertise
+
 // start video
 const preview = document.querySelector('.showreel__button');
 const showreelvideo = document.getElementById('showreel__video');
