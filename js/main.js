@@ -72,9 +72,9 @@ document.querySelector('.header__burger').addEventListener('click', function() {
 })
 
 // Change color mode start
-const toggleClrMode = document.querySelector('.js-change-clr-mode');
-const toggleClrModeBtnArr = document.querySelectorAll('.js-change-clr-mode .clr-mode__btn');
-const toggleClrModeTxt = document.querySelector('.js-change-clr-mode .clr-mode__name');
+const toggleClrMode = document.querySelector('.settings__mode');
+const toggleClrModeBtnArr = document.querySelectorAll('.settings__mode .clr-mode__btn');
+const toggleClrModeTxt = document.querySelector('.settings__mode .clr-mode__name');
 
 // 1. Проверка темной темы на уровне системных настроек
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ) {
