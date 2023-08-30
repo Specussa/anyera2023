@@ -219,7 +219,8 @@ section {
   position: relative;
 }
 
-.btn:hover {
+.btn:hover,
+.btn.active {
   border: 1px solid var(--text);
   -webkit-transform: rotateX(-90deg) translateY(22.5px);
   transform: rotateX(-90deg) translateY(22.5px);
