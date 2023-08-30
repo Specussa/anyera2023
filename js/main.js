@@ -73,8 +73,8 @@ document.querySelector('.header__burger').addEventListener('click', function() {
 
 // Change color mode start
 const toggleClrMode = document.querySelector('.settings__mode');
-const toggleClrModeBtnArr = document.querySelectorAll('.settings__mode .clr-mode__btn');
-const toggleClrModeTxt = document.querySelector('.settings__mode .clr-mode__name');
+const toggleClrModeBtnArr = document.querySelectorAll('.settings__mode .settings__mode_btn');
+const toggleClrModeTxt = document.querySelector('.settings__mode .settings__mode_name');
 
 // 1. Проверка темной темы на уровне системных настроек
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ) {
