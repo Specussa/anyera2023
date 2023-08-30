@@ -169,6 +169,29 @@ for (i = 0; i < acc.length; i++) {
 }
 // end expertise
 
+// start expertise
+const articlesSlider = document.querySelector('.articles__swiper');
+if(articlesSlider){
+  var aboutusThumbs = new Swiper('.articles__swiper', {
+    loop: true,
+    slidesPerView: 4,
+    loopedSlides: 4,
+    spaceBetween: 40,
+    speed: 1000,
+    slideToClickedSlide: false,
+    allowTouchMove: true,
+    navigation: {
+      nextEl: '.articles__next',
+      prevEl: '.articles__prev',
+    },
+    breakpoints: {
+      800: {
+        spaceBetween: 20,
+      },
+    },
+  });
+}
+
 // start video
 const preview = document.querySelector('.showreel__button');
 const showreelvideo = document.getElementById('showreel__video');
