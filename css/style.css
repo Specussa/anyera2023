@@ -93,8 +93,6 @@ button, button:hover {
   border: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -107,7 +105,7 @@ a {
 }
 
 a:hover {
-  color: var(--purple);
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -246,6 +244,41 @@ section {
 }
 
 /* start buttons */
+
+.text {
+  display: flex;
+  height: 1em;
+  flex-direction: column;
+  flex: 0 0 auto;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.text__rotate {
+  display: flex;
+  height: 1em;
+  line-height: 100%;
+}
+
+.text__rotate:last-child {
+  color: #7A5BDA;
+}
+
+.text__rotate span {
+  display: inline-block;
+  -webkit-transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.text:hover .text__rotate span {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.text__rotate span{
+  -webkit-transition-delay: calc(var(--inc-step)*0.03s);
+  transition-delay: calc(var(--inc-step)*0.03s);
+}
 
 .btn {
   display: inline-flex;
@@ -515,8 +548,6 @@ html.has-scroll-smooth {
 
 html.has-scroll-dragging {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none
 }
 
@@ -912,7 +943,6 @@ html.has-scroll-dragging {
 
 .header__nav_container {
   display: flex;
-  max-width: 800px;
   min-height: calc(var(--height) - 80px);
   padding: 60px 0;
   flex-direction: column;
@@ -936,8 +966,9 @@ html.has-scroll-dragging {
 
 .header__nav_list {
   display: flex;
-  width: 50%;
+  width: 330px;
   padding: 0 50px;
+  margin: 0 0 0 auto;
   flex-direction: column;
   gap: 15px;
   position: relative;
@@ -969,25 +1000,14 @@ html.has-scroll-dragging {
   height: 40px;
   position: relative;
   z-index: 2;
-  display: block;
   font-family: var(--text-font);
   font-size: 36px;
   font-weight: 600;
-  line-height: 45px;
-  color: var(--text);
   text-transform: uppercase;
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-  overflow: hidden;
 }
 
 .header__nav_item.active .header__nav_link::before {
   background-color: var(--purple);
-}
-
-.header__nav_item.active .header__nav_link span,
-.header__nav_link:hover span {
-  color: var(--purple);
 }
 
 .header__subnav_list {
@@ -1015,8 +1035,9 @@ html.has-scroll-dragging {
 }
 
 .settings__block {
-  width: 50%;
+  width: 330px;
   padding: 0 50px;
+  margin: 0 0 0 auto;
 }
 
 .settings__mode {
@@ -1090,6 +1111,10 @@ html.has-scroll-dragging {
 .header__nav_bottom_link {
   font-size: 12px;
   font-weight: 700;
+}
+
+.header__nav_bottom_link:hover {
+  color: var(--purple);
 }
 
 .header__nav_burger_flex {
@@ -1374,9 +1399,6 @@ html.has-scroll-dragging {
   bottom: 0;
   background: var(--purple);
   -webkit-transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -ms-transition: 0.3s ease all;
-  -o-transition: 0.3s ease all;
   transition: 0.3s ease all;
 }
 
@@ -1430,9 +1452,6 @@ html.has-scroll-dragging {
   width: 100%;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -1468,9 +1487,6 @@ html.has-scroll-dragging {
 .header__select_arrow {
   width: 30px;
   -webkit-transition: -webkit-transform 0.3s linear;
-  -moz-transition: -moz-transform 0.3s linear;
-  -ms-transition: -ms-transform 0.3s linear;
-  -o-transition: -o-transform 0.3s linear;
   transition: transform 0.3s linear;
 }
 
@@ -1480,9 +1496,6 @@ html.has-scroll-dragging {
 
 .header__select_arrow_rotate {
   -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
@@ -1490,9 +1503,6 @@ html.has-scroll-dragging {
   width: 100%;
   max-height: 0;
   -webkit-transition: max-height 0.4s linear, visibility 0.4s ease-out;
-  -moz-transition: max-height 0.4s linear, visibility 0.4s ease-out;
-  -ms-transition: max-height 0.4s linear, visibility 0.4s ease-out;
-  -o-transition: max-height 0.4s linear, visibility 0.4s ease-out;
   transition: max-height 0.4s linear, visibility 0.4s ease-out;
   position: absolute;
   top: 42px;
@@ -1501,9 +1511,6 @@ html.has-scroll-dragging {
   border: 1px solid transparent;
   visibility: hidden;
   -webkit-transition-delay: 0s, 0.4s;
-  -moz-transition-delay: 0s, 0.4s;
-  -ms-transition-delay: 0s, 0.4s;
-  -o-transition-delay: 0s, 0.4s;
   transition-delay: 0s, 0.4s;
 }
 
@@ -1512,9 +1519,6 @@ html.has-scroll-dragging {
   border-color: var(--gray-border);
   visibility: visible;
   -webkit-transition-delay: 0s;
-  -moz-transition-delay: 0s;
-  -ms-transition-delay: 0s;
-  -o-transition-delay: 0s;
   transition-delay: 0s;
   z-index: 11;
 }
@@ -2487,6 +2491,10 @@ html.has-scroll-dragging {
   font-weight: 700;
   line-height: 15px;
   color: var(--text);
+}
+
+.digital_social_link:hover {
+  color: var(--purple);
 }
 
 .digital_social_list li {
