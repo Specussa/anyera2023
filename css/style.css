@@ -640,7 +640,7 @@ html.has-scroll-dragging {
 }
 
 .c-scrollbar:hover .c-scrollbar_thumb {
-  width: 12px;
+  width: 10px;
 }
 
 .scrollbar-track,
@@ -653,7 +653,7 @@ html.has-scroll-dragging {
 .scrollbar-track:hover,
 .scrollbar-track:hover .scrollbar-thumb,
 .scrollbar-track:hover.scrollbar-track-y {
-  width: 12px;
+  width: 10px;
 }
 
 .has-scroll-dragging .c-scrollbar_thumb {
