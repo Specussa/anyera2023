@@ -654,8 +654,8 @@ html.has-scroll-dragging {
   flex: 0;
   -ms-flex-preferred-size: 0%;
   flex-basis: 0%;
-  -webkit-transition: flex-basis 0.1s linear, -webkit-flex-basis 0.1s linear, -ms-flex-preferred-size 0.1s linear;
-  transition: flex-basis 0.1s linear, -webkit-flex-basis 0.1s linear, -ms-flex-preferred-size 0.1s linear;
+  -webkit-transition: flex-basis 0.3s linear, -webkit-flex-basis 0.3s linear, -ms-flex-preferred-size 0.3s linear;
+  transition: flex-basis 0.3s linear, -webkit-flex-basis 0.3s linear, -ms-flex-preferred-size 0.3s linear;
   z-index: 2;
 }
 
