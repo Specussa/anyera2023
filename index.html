@@ -88,6 +88,7 @@
   <main class="main" data-scroll-container id="top">
     <div class="main__border"></div>
     <section class="digital" data-scroll-section>
+      <div class="main__border"></div>
       <div class="container digital__container">
         <ul class="digital_social_list" data-scroll data-scroll-speed="-4">
           <li>
@@ -142,6 +143,7 @@
       </div>
     </section>
     <section class="showreel" data-scroll-section data-persistent data-scroll-section-inview>
+      <div class="main__border"></div>
       <div class="container showreel__container">
         <div class="showreel__inview" data-scroll data-scroll-repeat>
           <div class="showreel__target" id="showreel__target"></div>
@@ -156,9 +158,10 @@
       </div>
     </section>
     <section class="expertise" data-scroll-section>
+      <div class="main__border"></div>
       <div class="expertise__border"></div>
       <div class="container expertise__container">
-        <div class="expertise__block">
+        <div class="expertise__block" data-scroll data-scroll-speed="-1">
           <div class="expertise__left">
             <button class="expertise__button">
               <h4 class="expertise__heading">Frontend-разработчик</h4>
@@ -280,8 +283,9 @@
     </section>
     <section class="projects" data-scroll-section>
       <div class="projects__block">
-        <div class="container projects__container">
-          <div class="projects__flex">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-speed="-3">
+          <div class="projects__flex" data-scroll>
             <h3 class="projects__head">Products &amp; Services</h3>
             <div class="projects__right">
               <p class="projects__desc">Создаем цифровые сервисы с современным UI/UX дизайном от идеи до реализации.</p>
@@ -291,7 +295,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list">
+          <ul class="projects__list" data-scroll>
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -342,8 +346,9 @@
         </div>
       </div>
       <div class="projects__block">
-        <div class="container projects__container">
-          <div class="projects__flex">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-speed="-3">
+          <div class="projects__flex" data-scroll>
             <h3 class="projects__head">eCommerce</h3>
             <div class="projects__right">
               <p class="projects__desc">Функциональные и удобные площадки для интернет торговли рост продаж обязателен.</p>
@@ -353,7 +358,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list">
+          <ul class="projects__list" data-scroll>
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -404,8 +409,9 @@
         </div>
       </div>
       <div class="projects__block">
-        <div class="container projects__container">
-          <div class="projects__flex">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-speed="-3">
+          <div class="projects__flex" data-scroll>
             <h3 class="projects__head">Corporative Site</h3>
             <div class="projects__right">
               <p class="projects__desc">Создаем цифровые сервисы с современным UI/UX дизайном от идеи до реализации.</p>
@@ -415,7 +421,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list">
+          <ul class="projects__list" data-scroll>
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -467,6 +473,7 @@
       </div>
     </section>
     <section class="articles" data-scroll-section>
+      <div class="main__border"></div>
       <div class="container articles__container">
         <div class="articles__block">
           <div class="articles__slider">
@@ -836,7 +843,7 @@
         document.querySelector('.preloader').style.display = "none";
       }, 300);
     };
-    scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),inertia: 0.8,smooth: true,getDirection: true,mobile: {breakpoint: 0,smooth: true,getDirection: true,},tablet: {breakpoint: 0,smooth: true,getDirection: true,},smartphone: {breakpoint: 0,smooth: true,getDirection: true,}})
+    scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,mobile: {breakpoint: 0,smooth: true,getDirection: true,},tablet: {breakpoint: 0,smooth: true,getDirection: true,},smartphone: {breakpoint: 0,smooth: true,getDirection: true,}})
     new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
     const hn_scroll = document.querySelector('.header__nav_scroll');
     const hc_scroll = document.querySelector('.header__consultation_scroll');
