@@ -87,6 +87,166 @@ document.querySelector('.header__burger').addEventListener('click', function() {
     document.body.style.height = "100%";
   }
 })
+// end header__burger
+
+// кнопка header__project
+burger_c.addEventListener('click', function() {
+  if (burger_c.classList.contains("active")) {
+    bodyoverlay.classList.remove("active");
+    menu_c.classList.remove("active");
+    burger_c.classList.remove("active");
+    document.body.style.overflow = "visible";
+    document.body.style.height = "100%";
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    // if(menu_v){
+    //   menu_v.classList.remove("active");
+    //   burger_v.classList.remove("active");
+    //   burgernav_v.classList.remove("active");
+    // }
+    // if(menu_s){
+    //   menu_s.classList.remove("active");
+    //   burger_s.classList.remove("active");
+    //   burgernav_s.classList.remove("active");
+    // }
+  } else {
+    bodyoverlay.classList.add("active");
+    menu_c.classList.add("active");
+    burger_c.classList.add("active");
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    // if(menu_v){
+    //   menu_v.classList.remove("active");
+    //   burger_v.classList.remove("active");
+    //   burgernav_v.classList.remove("active");
+    // }
+    // if(menu_s){
+    //   menu_s.classList.remove("active");
+    //   burger_s.classList.remove("active");
+    //   burgernav_s.classList.remove("active");
+    // }
+  }
+  if (burgernav_c.classList.contains("active")) {
+    bodyoverlay.classList.remove("active");
+    menu_c.classList.remove("active");
+    burgernav_c.classList.remove("active");
+    document.body.style.overflow = "visible";
+    document.body.style.height = "100%";
+  } else {
+    bodyoverlay.classList.add("active");
+    menu_c.classList.add("active");
+    burgernav_c.classList.add("active");
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+  }
+})
+// кнопка закрыть для header__project
+document.querySelector('.header__consultation_burger').addEventListener('click', function() {
+  if (burgernav_c.classList.contains("active")) {
+    bodyoverlay.classList.remove("active");
+    menu_c.classList.remove("active");
+    burger_c.classList.remove("active");
+    burgernav_c.classList.remove("active");
+    document.body.style.overflow = "visible";
+    document.body.style.height = "100%";
+  }
+})
+// end header__project
+
+// start select
+const SELECT = '[data-select]'
+const SELECT_LIST = '[data-select-list]'
+const SELECT_ARROW = '[data-select-arrow]'
+const SELECT_ACTION = '[data-select-action]'
+const SELECT_TITLE = '[data-select-title]'
+const SELECT_INPUT = '[data-select-input]'
+const SELECT_ITEM = 'selectItem'
+const OPEN_SELECT = 'selectOpen'
+
+class Select {
+  static attach() {
+    document.querySelectorAll(SELECT)
+      .forEach(select => new Select().init(select))
+  }
+
+  init(select) {
+    if (this.findSelect(select)) {
+      this.applyListener()
+    }
+  }
+
+  applyListener() {
+    document.querySelector('*').addEventListener('click', e => {
+      const element = this.select.contains(e.target) && e.target.closest(SELECT_ACTION)
+
+      if (this.isCallSelectElement(element)) {
+        if (this.isOpened()) {
+          this.closeSelectList();
+        } else {
+          this.openSelectList()
+        }
+      }
+
+      if (this.isCallSelectItemElement(element)) {
+        this.addSelectedValue(element)
+      }
+
+      if (this.isCallSelectElement(element) !== true && this.selectOverlayIsClickedElement(element) !== true) {
+        this.closeSelectList()
+      }
+    })
+  }
+
+  isCallSelectElement(element, target) {
+    return element && OPEN_SELECT in element.dataset
+  }
+
+  isCallSelectItemElement(element, target) {
+    return element && SELECT_ITEM in element.dataset
+  }
+
+  findSelect(select) {
+
+    if (select) {
+      this.select = select
+      this.selectList = this.select.querySelector(SELECT_LIST)
+      this.selectArrow = this.select.querySelector(SELECT_ARROW)
+      this.selectTitle = this.select.querySelector(SELECT_TITLE)
+      this.selectInput = this.select.querySelector(SELECT_INPUT)
+      return true
+    }
+    return false
+  }
+
+  isOpened() {
+    return this.selectList.classList.contains('header__select_list_opened')
+  }
+
+  openSelectList() {
+    this.selectList.classList.add('header__select_list_opened')
+    this.selectArrow.classList.add('header__select_arrow_rotate')
+  }
+
+  closeSelectList() {
+    this.selectList.classList.remove('header__select_list_opened')
+    this.selectArrow.classList.remove('header__select_arrow_rotate')
+  }
+
+  addSelectedValue(element) {
+    this.selectTitle.innerHTML = element.innerHTML;
+    this.selectInput.value = element.innerHTML;
+    this.selectInput.setAttribute('value', this.selectInput.value);
+  }
+
+  selectOverlayIsClickedElement(element, target) {
+    return element && 'select' in element.dataset
+  }
+}
+
+Select.attach()
+// end select
 
 // Change color mode start
 const toggleClrMode = document.querySelector('.settings__mode');
