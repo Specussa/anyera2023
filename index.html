@@ -843,7 +843,7 @@
         document.querySelector('.preloader').style.display = "none";
       }, 300);
     };
-    scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),inertia: 1,smooth: true,mobile: {breakpoint: 0,smooth: true,},tablet: {breakpoint: 0,smooth: true,},smartphone: {breakpoint: 0,smooth: true,}})
+    scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,lerp:0.03,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
     new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
     const hn_scroll = document.querySelector('.header__nav_scroll');
     const hc_scroll = document.querySelector('.header__consultation_scroll');
