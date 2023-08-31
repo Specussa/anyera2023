@@ -2020,6 +2020,7 @@ html.has-scroll-dragging {
 
 .digital {
   position: relative;
+  z-index: 2;
 }
 
 .digital__container {

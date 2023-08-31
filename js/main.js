@@ -16,18 +16,22 @@ window.onresize = function () {
 
 // start navbar
 const bodyoverlay = document.querySelector('.overlay');
+
 const menu = document.querySelector('.header__nav');
-const menu_c = document.querySelector('.header__consultation');
-const menu_v = document.querySelector('.header__career');
-const menu_s = document.querySelector('.header__say');
 const burger = document.querySelector('.header__burger');
-const burger_c = document.querySelector('.button__project');
-const burger_v = document.querySelector('.career__button');
-const burger_s = document.querySelector('.say__button');
 const burgernav = document.querySelector('.header__nav_burger');
+
+const menu_c = document.querySelector('.header__consultation');
+const burger_c = document.querySelector('.button__project');
 const burgernav_c = document.querySelector('.header__consultation_burger');
-const burgernav_v = document.querySelector('.header__career_burger');
-const burgernav_s = document.querySelector('.header__say_burger');
+
+// const menu_v = document.querySelector('.header__career');
+// const burger_v = document.querySelector('.career__button');
+// const burgernav_v = document.querySelector('.header__career_burger');
+
+// const menu_s = document.querySelector('.header__say');
+// const burger_s = document.querySelector('.say__button');
+// const burgernav_s = document.querySelector('.header__say_burger');
 
 // кнопка header__burger
 document.querySelector('.header__burger').addEventListener('click', function() {
@@ -42,16 +46,16 @@ document.querySelector('.header__burger').addEventListener('click', function() {
       burger_c.classList.remove("active");
       burgernav_c.classList.remove("active");
     }
-    if(menu_v){
-      menu_v.classList.remove("active");
-      burger_v.classList.remove("active");
-      burgernav_v.classList.remove("active");
-    }
-    if(menu_s){
-      menu_s.classList.remove("active");
-      burger_s.classList.remove("active");
-      burgernav_s.classList.remove("active");
-    }
+    // if(menu_v){
+    //   menu_v.classList.remove("active");
+    //   burger_v.classList.remove("active");
+    //   burgernav_v.classList.remove("active");
+    // }
+    // if(menu_s){
+    //   menu_s.classList.remove("active");
+    //   burger_s.classList.remove("active");
+    //   burgernav_s.classList.remove("active");
+    // }
   } else {
     bodyoverlay.classList.add("active");
     menu.classList.add("active");
@@ -63,16 +67,16 @@ document.querySelector('.header__burger').addEventListener('click', function() {
       burger_c.classList.remove("active");
       burgernav_c.classList.remove("active");
     }
-    if(menu_v){
-      menu_v.classList.remove("active");
-      burger_v.classList.remove("active");
-      burgernav_v.classList.remove("active");
-    }
-    if(menu_s){
-      menu_s.classList.remove("active");
-      burger_s.classList.remove("active");
-      burgernav_s.classList.remove("active");
-    }
+    // if(menu_v){
+    //   menu_v.classList.remove("active");
+    //   burger_v.classList.remove("active");
+    //   burgernav_v.classList.remove("active");
+    // }
+    // if(menu_s){
+    //   menu_s.classList.remove("active");
+    //   burger_s.classList.remove("active");
+    //   burgernav_s.classList.remove("active");
+    // }
   }
   if (burger_c.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
