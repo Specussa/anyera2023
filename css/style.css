@@ -525,17 +525,23 @@ section {
 }
 
 .btn__side_default {
-  color: var(--bg);
   background-color: var(--text);
   -webkit-transform: translateZ(17.5px);
   transform: translateZ(17.5px);
 }
 
+.btn__side_default svg {
+  color: var(--bg);
+}
+
 .btn__side_hover {
-  color: var(--text);
   background-color: var(--bg);
   -webkit-transform: rotateX(90deg) translateZ(17.5px);
   transform: rotateX(90deg) translateZ(17.5px);
+}
+
+.btn__side_hover svg {
+  color: var(--text);
 }
 
 /* end buttons */
@@ -614,7 +620,7 @@ html.has-scroll-dragging {
 }
 
 .c-scrollbar_thumb {
-  width: 8px;
+  width: 3px;
   background-color: var(--purple);
   cursor: -webkit-grab;
   cursor: grab;
@@ -3051,16 +3057,22 @@ html.has-scroll-dragging {
 
 .projects__arrow .btn__side_default {
   background-color: var(--bg);
-  color: var(--text);
   -webkit-transform: translateZ(17.5px);
   transform: translateZ(17.5px);
 }
 
+.projects__arrow .btn__side_default svg {
+  color: var(--text);
+}
+
 .projects__arrow .btn__side_hover {
-  color: var(--bg);
   background-color: var(--text);
   -webkit-transform: rotateX(90deg) translateZ(17.5px);
   transform: rotateX(90deg) translateZ(17.5px);
+}
+
+.projects__arrow .btn__side_hover svg {
+  color: var(--bg);
 }
 
 /* end projects */
