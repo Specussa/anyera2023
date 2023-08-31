@@ -541,6 +541,7 @@ html.has-scroll-dragging {
 }
 
 .c-scrollbar {
+  width: 8px;
   height: 100%;
   opacity: 0;
   position: absolute;
@@ -550,7 +551,7 @@ html.has-scroll-dragging {
   transform-origin: center right;
   -webkit-transition: opacity .3s, -webkit-transform .3s;
   transition: transform .3s, opacity .3s;
-  width: 11px
+  z-index: 2;
 }
 
 .c-scrollbar:hover {
@@ -2020,7 +2021,7 @@ html.has-scroll-dragging {
 
 .digital {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .digital__container {
