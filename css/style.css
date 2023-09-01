@@ -137,6 +137,7 @@ h2 {
   font-size: 54px;
   font-weight: 700;
   line-height: 68px;
+  color: var(--text);
 }
 
 h3 {
@@ -144,6 +145,7 @@ h3 {
   font-size: 36px;
   font-weight: 700;
   line-height: 45px;
+  color: var(--text);
 }
 
 h4 {
@@ -151,6 +153,7 @@ h4 {
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
+  color: var(--text);
 }
 
 h5 {
@@ -158,6 +161,7 @@ h5 {
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
+  color: var(--text);
 }
 
 h6 {
@@ -165,6 +169,19 @@ h6 {
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
+  color: var(--text);
+}
+
+a,
+p {
+  font-family: var(--text-font);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19px;
+}
+
+p {
+  color: var(--text-gray);
 }
 
 section {
@@ -250,9 +267,11 @@ section {
   display: -webkit-box;
   display: flex;
   height: 1em;
+  width: fit-content;
   flex-direction: column;
-  flex: 0 0 auto;
   color: var(--text);
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
   overflow: hidden;
 }
 
@@ -260,8 +279,12 @@ section {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  height: 1em;
-  line-height: 100%;
+  height: calc(1em + 2px);
+  width: fit-content;
+  flex: 0 0 auto;
+  line-height: 1em;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .text__rotate:last-child {
@@ -299,10 +322,6 @@ section {
   overflow: hidden;
 }
 
-.btn svg path {
-  stroke: var(--text);
-}
-
 .btn__input {
   padding: 0;
 }
@@ -335,20 +354,14 @@ section {
 }
 
 .btn:hover,
-.btn.active,
-.btn:hover svg path,
-.btn.active svg path {
+.btn.active {
   color: var(--bg);
-  stroke: var(--bg);
   border: 1px solid var(--purple);
 }
 
 .dark .btn:hover,
-.dark .btn.active,
-.dark .btn:hover svg path,
-.dark .btn.active svg path {
+.dark .btn.active {
   color: var(--text);
-  stroke: var(--text);
   border: 1px solid var(--purple);
 }
 
@@ -1045,8 +1058,7 @@ html.has-scroll-dragging {
   width: fit-content;
 }
 
-.header__nav_link span {
-  height: 40px;
+.header__nav_link {
   position: relative;
   z-index: 2;
   font-family: var(--text-font);
@@ -1069,11 +1081,9 @@ html.has-scroll-dragging {
 
 .header__nav_contact_item p {
   margin-bottom: 20px;
-  font-family: var(--text-font);
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  color: var(--text-gray);
 }
 
 .header__nav_contact_head {
@@ -1625,6 +1635,139 @@ html.has-scroll-dragging {
 }
 
 /* end header__consultation */
+
+/* start footer */
+
+.footer {
+  margin: auto 0 0;
+  flex: 0 0 auto;
+}
+
+.footer__container {
+  max-width: 1440px;
+  background-color: var(--bg);
+}
+
+.footer__block {
+  padding: 60px 0;
+}
+
+.footer__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.footer__mail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.footer__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer__right_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.footer__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  gap: 60px;
+}
+
+.footer__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  gap: 46px;
+}
+
+.footer__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 66px;
+}
+
+.footer__link,
+.footer__bottom p,
+.footer__copyright,
+.footer__privacy {
+  font-family: var(--text-font);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 14px;
+  color: var(--text-gray);
+}
+
+.footer__bottom p {
+  padding: 60px 0 2px;
+}
+
+.footer__privacy {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(0px);
+  transform: translateX(-50%) translateY(0px);
+}
+
+.footer__privacy .text__rotate {
+  height: 1em;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.footer__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer__social_link:hover {
+  color: var(--purple);
+}
+
+/* end footer */
 
 /* start showreel */
 
@@ -2611,11 +2754,6 @@ html.has-scroll-dragging {
   height: 60px;
   max-width: 405px;
   padding-left: 50px;
-  font-family: var(--text-font);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text-gray);
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
   -webkit-transition: -webkit-transform 0.3s linear, opacity 0.3s linear;
@@ -2709,11 +2847,6 @@ html.has-scroll-dragging {
 
 .accredited__desc {
   height: 60px;
-  font-family: var(--text-font);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text-gray);
 }
 
 .accredited__head,
@@ -2864,11 +2997,6 @@ html.has-scroll-dragging {
   max-width: 430px;
   padding: 0 0 0 30px;
   position: relative;
-  font-family: var(--text-font);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text-gray);
 }
 
 .expertise__panel p::before {
@@ -2998,11 +3126,6 @@ html.has-scroll-dragging {
 .projects__desc {
   padding: 0 0 0 30px;
   position: relative;
-  font-family: var(--text-font);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text-gray);
 }
 
 .projects__desc::before {
@@ -3069,14 +3192,6 @@ html.has-scroll-dragging {
   transform: scale(1.2);
   -webkit-transition: -webkit-transform 0.2s linear;
   transition: transform 0.2s linear;
-}
-
-.projects__description {
-  font-family: var(--text-font);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text-gray);
 }
 
 .projects__arrow {

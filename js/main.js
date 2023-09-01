@@ -14,6 +14,15 @@ window.onresize = function () {
 };
 // end height
 
+// start year
+const year = document.querySelector('.footer__year');
+if(!year){} else {
+const currentYear = new Date().getFullYear();
+year.insertAdjacentText('beforebegin', currentYear);
+year.remove();
+}
+// end year
+
 // start navbar
 const bodyoverlay = document.querySelector('.overlay');
 
@@ -782,15 +791,14 @@ function addListenerMulti(element, eventNames, listener) {
   }
 }
 // end video
+
 // start index animation
 let digital = document.querySelector('.digital');
 let digitalinfo = document.querySelectorAll('.digital__info');
 const digitalsl = document.querySelectorAll('.digital_social_list'); 
 if(!digital){} else {
   let digitald = document.querySelectorAll('.digital');
-  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {
-    change.target.classList.add('animate');
-  }});};
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
   let digitaldopt = {threshold: [0]};
   let digitaldserv = new IntersectionObserver(onEntry, digitaldopt);
   for (let elm of digitald) {digitaldserv.observe(elm);}
@@ -806,3 +814,31 @@ if(!digital){} else {
   for (let elm of digitalsl) {digitallserv.observe(elm);}
   [...digitalsl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
+
+// let footer = document.querySelector('.footer');
+// let footerlist = document.querySelectorAll('.footer__list');
+// let footerinfo = document.querySelectorAll('.footer__info');
+// let footercontacts = document.querySelectorAll('.footer__contacts_list');
+// let footersocial = document.querySelectorAll('.footer__social');
+// if(!footer){} else {
+//   let footerd = document.querySelectorAll('.footer');
+//   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+//   let footerdopt = {threshold: [0]};
+//   let footerdserv = new IntersectionObserver(onEntry, footerdopt);
+//   for (let elm of footerd) {footerdserv.observe(elm);}
+  
+//   let footerlistopt = {threshold: [0.5]};
+//   let footerlistserv = new IntersectionObserver(onEntry, footerlistopt);
+//   for (let elm of footerlist) {footerlistserv.observe(elm);}
+  
+//   [...footerlist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+//   let footerinfoopt = {threshold: [0.5]};
+//   let footerinfoserv = new IntersectionObserver(onEntry, footerinfoopt);
+//   for (let elm of footerinfo) {footerinfoserv.observe(elm);}
+  
+//   [...footersocial].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+//   let footercontactsopt = {threshold: [0.5]};
+//   let footercontactsserv = new IntersectionObserver(onEntry, footercontactsopt);
+//   for (let elm of footercontacts) {footercontactsserv.observe(elm);}
+// }
+// end index animation
