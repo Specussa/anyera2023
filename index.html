@@ -992,7 +992,7 @@
 //   let projectsdserv = new IntersectionObserver(onEntry, projectsdopt);
 //   for (let elm of projectsd) {projectsdserv.observe(elm);}
 // }
-    const stickyItems = document.querySelectorAll('[data-scroll-sticky]');
+    const stickyItems = document.querySelectorAll('.projects [data-scroll-sticky]');
     stickyItems.forEach(function(stickyItem){
       let stickyTargetName = stickyItem.getAttribute('data-scroll-target');
       let stickyTarget = document.querySelector(stickyTargetName);
