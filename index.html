@@ -283,10 +283,10 @@
       </div>
     </section>
     <section class="projects" data-scroll-section>
-      <div class="projects__block" data-scroll data-scroll-speed="-5">
-        <div class="main__border" data-scroll></div>
-        <div class="container projects__container" data-scroll>
-          <div class="projects__flex" data-scroll>
+      <div class="projects__block" id="scroll__one">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-sticky data-scroll-target="#scroll__one">
+          <div class="projects__flex">
             <h3 class="projects__head">Products &amp; Services</h3>
             <div class="projects__right">
               <p class="projects__desc">Создаем цифровые сервисы с современным UI/UX дизайном от идеи до реализации.</p>
@@ -296,7 +296,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list" data-scroll>
+          <ul class="projects__list">
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -348,10 +348,10 @@
       </div>
     </section>
     <section class="projects" data-scroll-section>
-      <div class="projects__block" data-scroll data-scroll-speed="-5">
-        <div class="main__border" data-scroll></div>
-        <div class="container projects__container" data-scroll>
-          <div class="projects__flex" data-scroll>
+      <div class="projects__block" id="scroll__two">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-sticky data-scroll-target="#scroll__two">
+          <div class="projects__flex">
             <h3 class="projects__head">eCommerce</h3>
             <div class="projects__right">
               <p class="projects__desc">Функциональные и удобные площадки для интернет торговли рост продаж обязателен.</p>
@@ -361,7 +361,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list" data-scroll>
+          <ul class="projects__list">
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -413,10 +413,10 @@
       </div>
     </section>
     <section class="projects" data-scroll-section>
-      <div class="projects__block" data-scroll data-scroll-speed="-5">
-        <div class="main__border" data-scroll></div>
-        <div class="container projects__container" data-scroll>
-          <div class="projects__flex" data-scroll>
+      <div class="projects__block" id="scroll__three">
+        <div class="main__border"></div>
+        <div class="container projects__container" data-scroll data-scroll-sticky data-scroll-target="#scroll__three">
+          <div class="projects__flex">
             <h3 class="projects__head">Corporative Site</h3>
             <div class="projects__right">
               <p class="projects__desc">Создаем цифровые сервисы с современным UI/UX дизайном от идеи до реализации.</p>
@@ -426,7 +426,7 @@
               </button>
             </div>
           </div>
-          <ul class="projects__list" data-scroll>
+          <ul class="projects__list">
             <li class="projects__item">
               <a href="#" class="projects__link">
                 <div class="projects__image">
@@ -977,6 +977,38 @@
       var scrollH = Math.round(args["limit"]["y"]);
       let scrollheader = Math.round((scrollY / scrollH) * 100);
       headerprogress.style.flexBasis = scrollheader + '%';
+    });
+// let projects = document.querySelector('.projects');
+// if(!projects){} else {
+//   let projectsd = document.querySelectorAll('.projects');
+//   function onEntry(entry) {entry.forEach(change => {
+//     if (change.isIntersecting) {
+//       change.target.classList.add('xyz');
+//     } else {
+//       change.target.classList.remove('xyz');
+//     }
+//   });};
+//   let projectsdopt = {threshold: [0.1]};
+//   let projectsdserv = new IntersectionObserver(onEntry, projectsdopt);
+//   for (let elm of projectsd) {projectsdserv.observe(elm);}
+// }
+    const stickyItems = document.querySelectorAll('[data-scroll-sticky]');
+    stickyItems.forEach(function(stickyItem){
+      let stickyTargetName = stickyItem.getAttribute('data-scroll-target');
+      let stickyTarget = document.querySelector(stickyTargetName);
+      let targetHeight = stickyTarget.getBoundingClientRect().height;
+      let targetTop = stickyTarget.getBoundingClientRect().top;
+      let stickyHeight = targetTop + targetHeight - stickyItem.getBoundingClientRect().height;
+      let fixed = false;
+      scroll.on('scroll', (instance) => {
+        if(instance.scroll.y>=targetTop && instance.scroll.y <= stickyHeight && !fixed){
+          stickyItem.style.position = 'sticky';
+        fixed = true; 
+        }else if((instance.scroll.y < targetTop || instance.scroll.y > stickyHeight)&& fixed){
+          stickyItem.style.position = 'static';
+          fixed = false; 
+        }
+        });
     });
   </script>
 </body>

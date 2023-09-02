@@ -795,7 +795,7 @@ function addListenerMulti(element, eventNames, listener) {
 // start index animation
 let digital = document.querySelector('.digital');
 let digitalinfo = document.querySelectorAll('.digital__info');
-const digitalsl = document.querySelectorAll('.digital_social_list'); 
+const digitalsl = document.querySelectorAll('.digital_social_list');
 if(!digital){} else {
   let digitald = document.querySelectorAll('.digital');
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
