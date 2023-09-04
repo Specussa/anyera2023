@@ -482,11 +482,6 @@ section {
   border-radius: 50%;
 }
 
-.button__close:hover svg {
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
 .button__close svg {
   height: 24px;
   width: 24px;
@@ -498,6 +493,11 @@ section {
   transform: translate(-50%, -50%) rotate(0deg);
   -webkit-transition: -webkit-transform 0.3s linear, color 0.3s linear;
   transition: transform 0.3s linear, color 0.3s linear;
+}
+
+.button__close:hover svg {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .button__close:hover svg {
@@ -702,6 +702,11 @@ html.has-scroll-dragging {
   border-bottom: 1px solid var(--border);
   background: var(--bg);
   overflow: hidden;
+  transition: border-bottom 0.1s linear;
+}
+
+.header.hidden {
+  border-bottom: 1px solid transparent;
 }
 
 .header__container {
@@ -718,6 +723,7 @@ html.has-scroll-dragging {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .header__progress {
@@ -750,15 +756,20 @@ html.has-scroll-dragging {
 .header__burger {
   width: 44px;
   height: 44px;
+  opacity: 1;
   overflow: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out, opacity 0.1s linear;
+  transition: .5s ease-in-out, opacity 0.1s linear;
   cursor: pointer;
+}
+
+.header.hidden .header__burger {
+  opacity: 0;
 }
 
 .header__burger span {
@@ -829,8 +840,13 @@ html.has-scroll-dragging {
 
 .header__name {
   color: var(--text);
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
+  opacity: 1;
+  -webkit-transition: color 0.2s linear, opacity 0.1s linear;
+  transition: color 0.2s linear, opacity 0.1s linear;
+}
+
+.header.hidden .header__name {
+  opacity: 0;
 }
 
 .header__name:hover {
@@ -844,6 +860,53 @@ html.has-scroll-dragging {
   align-items: center;
   gap: 60px;
 }
+
+.header__links {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  gap: 60px;
+  opacity: 1;
+  -webkit-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.header__links.hidden {
+  opacity: 0;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.header__buttons {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  width: 173px;
+  align-items: center;
+  gap: 25px;
+  -webkit-transition: width 0.3s linear;
+  transition: width 0.3s linear;
+  position: relative;
+  z-index: 101;
+}
+
+.header__buttons.active {
+  width: 238px;
+}
+
+.button__project {
+  width: 173px;
+}
+
+/* .button__briefing {
+  width: 184px;
+}
+
+.button__feedback {
+  width: 124px;
+} */
 
 .header__link {
   font-family: var(--title-font);
@@ -1232,14 +1295,14 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: calc(100% - 72px);
+  height: calc(100% - 80px);
   flex-direction: column;
   position: fixed;
-  top: 72px;
+  top: 80px;
   left: 0;
   right: 0;
   background-color: var(--bg);
-  z-index: 99;
+  z-index: 100;
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
   -webkit-transition: -webkit-transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
@@ -1619,14 +1682,44 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  height: 40px;
+  width: 40px;
 }
 
 .header__consultation_burger {
-  position: absolute;
-  top: 33px;
-  right: -10px;
+  position: relative;
+  top: 0;
+  right: 0;
   z-index: 1;
+}
+
+.header__consultation_burger {
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 20px;
+  border: none;
+  background: var(--bg);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.header__consultation_burger svg {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--text);
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) rotate(0deg);
+  -webkit-transition: -webkit-transform 0.3s linear, color 0.3s linear;
+  transition: transform 0.3s linear, color 0.3s linear;
+}
+
+.header__consultation_burger:hover svg {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 /* end header__consultation */

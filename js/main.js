@@ -26,17 +26,15 @@ year.remove();
 // start navbar
 const bodyoverlay = document.querySelector('.overlay');
 
+const header = document.querySelector('.header');
+const headerlinks = document.querySelector('.header__links');
+const headerbuttons = document.querySelector('.header__buttons');
+
 const menu = document.querySelector('.header__nav');
 const burger = document.querySelector('.header__burger');
 
 const menu_c = document.querySelector('.header__consultation');
 const burger_c = document.querySelector('.button__project');
-
-// const menu_v = document.querySelector('.header__career');
-// const burger_v = document.querySelector('.career__button');
-
-// const menu_s = document.querySelector('.header__say');
-// const burger_s = document.querySelector('.say__button');
 
 // кнопка header__burger
 document.querySelector('.header__burger').addEventListener('click', function() {
@@ -50,14 +48,6 @@ document.querySelector('.header__burger').addEventListener('click', function() {
       menu_c.classList.remove("active");
       burger_c.classList.remove("active");
     }
-    // if(menu_v){
-    //   menu_v.classList.remove("active");
-    //   burger_v.classList.remove("active");
-    // }
-    // if(menu_s){
-    //   menu_s.classList.remove("active");
-    //   burger_s.classList.remove("active");
-    // }
     scroll.start();
   } else {
     bodyoverlay.classList.add("active");
@@ -69,16 +59,6 @@ document.querySelector('.header__burger').addEventListener('click', function() {
       menu_c.classList.remove("active");
       burger_c.classList.remove("active");
     }
-    // if(menu_v){
-    //   menu_v.classList.remove("active");
-    //   burger_v.classList.remove("active");
-    //   burgernav_v.classList.remove("active");
-    // }
-    // if(menu_s){
-    //   menu_s.classList.remove("active");
-    //   burger_s.classList.remove("active");
-    //   burgernav_s.classList.remove("active");
-    // }
     scroll.stop();
   }
 })
@@ -94,14 +74,9 @@ burger_c.addEventListener('click', function() {
     document.body.style.height = "100%";
     menu.classList.remove("active");
     burger.classList.remove("active");
-    // if(menu_v){
-    //   menu_v.classList.remove("active");
-    //   burger_v.classList.remove("active");
-    // }
-    // if(menu_s){
-    //   menu_s.classList.remove("active");
-    //   burger_s.classList.remove("active");
-    // }
+    header.classList.remove("hidden");
+    headerlinks.classList.remove("hidden");
+    headerbuttons.classList.remove("active");
     scroll.start();
   } else {
     bodyoverlay.classList.add("active");
@@ -111,14 +86,9 @@ burger_c.addEventListener('click', function() {
     document.body.style.height = "100vh";
     menu.classList.remove("active");
     burger.classList.remove("active");
-    // if(menu_v){
-    //   menu_v.classList.remove("active");
-    //   burger_v.classList.remove("active");
-    // }
-    // if(menu_s){
-    //   menu_s.classList.remove("active");
-    //   burger_s.classList.remove("active");
-    // }
+    header.classList.add("hidden");
+    headerlinks.classList.add("hidden");
+    headerbuttons.classList.add("active");
     scroll.stop();
   }
 })
@@ -130,16 +100,10 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
     burger_c.classList.remove("active");
     document.body.style.overflow = "visible";
     document.body.style.height = "100%";
+    header.classList.remove("hidden");
+    headerlinks.classList.remove("hidden");
+    headerbuttons.classList.remove("active");
     scroll.start();
-  } else {
-    bodyoverlay.classList.add("active");
-    menu_c.classList.add("active");
-    burger_c.classList.add("active");
-    document.body.style.overflow = "hidden";
-    document.body.style.height = "100vh";
-    menu.classList.remove("active");
-    burger.classList.remove("active");
-    scroll.stop();
   }
 })
 // end header__project

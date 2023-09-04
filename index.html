@@ -75,12 +75,31 @@
           <span></span>
         </button>
         <div class="header__right">
-          <a class="header__link text" href="#"><span class="text__rotate">Команда</span></a>
-          <a class="header__link text" href="#"><span class="text__rotate">Проекты</span></a>
-          <button class="btn button__project">
-            <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
-            <span class="button__hover"></span>
-          </button>
+          <div class="header__links">
+            <a class="header__link text" href="#"><span class="text__rotate">Команда</span></a>
+            <a class="header__link text" href="#"><span class="text__rotate">Проекты</span></a>
+          </div>
+          <div class="header__buttons">
+            <button class="btn button__project">
+              <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
+              <span class="button__hover"></span>
+            </button>
+            <!-- <button class="btn button__briefing">
+              <span class="button__text">ОБРАТНАЯ СВЯЗЬ</span>
+              <span class="button__hover"></span>
+            </button>
+            <button class="btn button__feedback">
+              <span class="button__text">БРИФИНГ</span>
+              <span class="button__hover"></span>
+            </button> -->
+            <div class="header__consultation_burger_flex">
+              <button class="header__consultation_burger" aria-label="Закрыть меню">
+                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -831,13 +850,6 @@
     <div class="header__consultation_scroll" data-scrollbar>
       <div class="container header__consultation_container">
         <div class="header__consultation_blocks">
-          <div class="header__consultation_burger_flex">
-            <button class="button__close header__consultation_burger" aria-label="Закрыть меню">
-              <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"/>
-              </svg>
-            </button>
-          </div>
           <div class="header__consultation_block">
             <div class="header__consultation_info">
               <div class="header__consultation_say">
