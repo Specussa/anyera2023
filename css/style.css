@@ -261,6 +261,11 @@ section {
   border-left: 1px solid var(--border);
 }
 
+.top {
+  height: 80px;
+  width: 100%;
+}
+
 /* start buttons */
 
 .text {
@@ -2672,7 +2677,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 190px 0 240px;
+  padding: 120px 0 240px;
   flex-direction: column;
   align-items: center;
   gap: 60px 15px;
@@ -2713,7 +2718,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 200px 60px 180px;
+  padding: 120px 60px 180px;
   flex-direction: column;
   gap: 30px;
 }
@@ -3084,15 +3089,6 @@ html.has-scroll-dragging {
 
 /* start projects */
 
-/* .projects__block {
-  transform: translateY(30vh);
-  transition: transform 0.5s linear;
-}
-
-.xyz .projects__block {
-  transform: translateY(0);
-} */
-
 .projects__container {
   max-width: 1440px;
   z-index: 1;
@@ -3100,9 +3096,13 @@ html.has-scroll-dragging {
 
 .projects__block {
   padding: 60px 0;
-  border-bottom: 1px solid var(--border);
   background-color: var(--bg);
   overflow: hidden;
+}
+
+.projects__block .main__border {
+  bottom: 2px;
+  border-bottom: 1px solid var(--border);
 }
 
 .projects__flex {
@@ -3289,6 +3289,11 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.articles__flex .articles__list {
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .articles__item {
