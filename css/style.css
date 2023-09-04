@@ -888,20 +888,20 @@ html.has-scroll-dragging {
 }
 
 .header__buttons.active {
-  width: 238px;
+  width: 596px;
 }
 
 .button__project {
   width: 173px;
 }
 
-/* .button__briefing {
+.button__briefing {
   width: 184px;
 }
 
 .button__feedback {
   width: 124px;
-} */
+}
 
 .header__link {
   font-family: var(--title-font);
