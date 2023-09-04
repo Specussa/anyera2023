@@ -747,6 +747,16 @@ if(!digital){} else {
   [...digitalsl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
+let breadcrumb = document.querySelector('.breadcrumbs__item');
+let breadcrumbs = document.querySelectorAll('.breadcrumbs__list');
+if(!breadcrumb){} else {
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+  let breadcrumbopt = {threshold: [0.5]};
+  let breadcrumbserv = new IntersectionObserver(onEntry, breadcrumbopt);
+  for (let elm of breadcrumbs) {breadcrumbserv.observe(elm);}
+  [...breadcrumbs].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
 // let footer = document.querySelector('.footer');
 // let footerlist = document.querySelectorAll('.footer__list');
 // let footerinfo = document.querySelectorAll('.footer__info');
