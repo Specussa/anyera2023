@@ -3171,13 +3171,10 @@ html.has-scroll-dragging {
 
 .projects__block {
   padding: 60px 0;
+  margin: 0 0 1px;
   background-color: var(--bg);
-  overflow: hidden;
-}
-
-.projects__block .main__border {
-  bottom: 2px;
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .projects__flex {
