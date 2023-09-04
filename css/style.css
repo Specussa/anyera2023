@@ -54,7 +54,7 @@ body {
   font-size: 14px;
   color: var(--text);
   -webkit-tap-highlight-color: transparent;
-  background: var(--bg);
+  background-color: var(--bg);
 }
 
 button {
@@ -1722,13 +1722,13 @@ html.has-scroll-dragging {
 /* start footer */
 
 .footer {
-  margin: auto 0 0;
+  margin: -1px 0 0;
   flex: 0 0 auto;
+  background-color: var(--bg);
 }
 
 .footer__container {
   max-width: 1440px;
-  background-color: var(--bg);
 }
 
 .footer__block {
