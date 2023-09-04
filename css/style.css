@@ -3509,20 +3509,20 @@ html.has-scroll-dragging {
   margin-top: 30px;
 }
 
-.rules-list__title,
-.rules-list {
+.article__title,
+.article__list {
   margin-bottom: 30px;
 }
 
-.rules-list__title {
+.article__title {
   word-break: break-word;
 }
 
-.rules-list__desc a {
+.article__desc a {
   color: var(--purple);
 }
 
-.rules-list__item:not(:last-child) {
+.article__item:not(:last-child) {
   margin-bottom: 45px;
 }
 
@@ -3574,14 +3574,14 @@ html.has-scroll-dragging {
 
 /* end breadcrumbs */
 
-.tag-list {
+.breadcrumbs__tag_list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin: 15px 0;
 }
 
-.tag-list__name {
+.breadcrumbs___name {
   display: flex;
   align-items: center;
   justify-content: center;
