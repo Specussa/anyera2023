@@ -413,6 +413,8 @@ section {
   color: var(--bg);
 }
 
+.dark .btn.active .button__text,
+.dark .btn:hover .button__text,
 .dark .btn:hover .button__text {
   color: var(--text);
 }
@@ -1244,26 +1246,15 @@ html.has-scroll-dragging {
   z-index: 99;
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  -webkit-transition: -webkit-transform 0.3s linear;
-  transition: transform 0.3s linear;
-  overflow-x: hidden;
-  /* overflow-y: scroll; */
-}
-
-.header__consultation::-webkit-scrollbar {
-  display: none;
-  width: 0px;
-  background: transparent;
-}
-
-.header__consultation::-webkit-scrollbar-thumb {
-  display: none;
-  width: 0px;
-  background: var(--text);
+  -webkit-transition: -webkit-transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s;
+  overflow: hidden;
 }
 
 .header__consultation.active {
   visibility: visible;
+  -webkit-transition: -webkit-transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+  transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0s;
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
 }
