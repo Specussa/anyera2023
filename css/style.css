@@ -700,13 +700,8 @@ html.has-scroll-dragging {
   z-index: 100;
   width: 100%;
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background-color: var(--bg);
   overflow: hidden;
-  transition: border-bottom 0.1s linear;
-}
-
-.header.hidden {
-  border-bottom: 1px solid transparent;
 }
 
 .header__container {

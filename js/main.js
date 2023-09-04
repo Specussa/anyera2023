@@ -66,19 +66,7 @@ document.querySelector('.header__burger').addEventListener('click', function() {
 
 // кнопка header__project
 burger_c.addEventListener('click', function() {
-  if (burger_c.classList.contains("active")) {
-    bodyoverlay.classList.remove("active");
-    menu_c.classList.remove("active");
-    burger_c.classList.remove("active");
-    document.body.style.overflow = "visible";
-    document.body.style.height = "100%";
-    menu.classList.remove("active");
-    burger.classList.remove("active");
-    header.classList.remove("hidden");
-    headerlinks.classList.remove("hidden");
-    headerbuttons.classList.remove("active");
-    scroll.start();
-  } else {
+  if (!burger_c.classList.contains("active")) {
     bodyoverlay.classList.add("active");
     menu_c.classList.add("active");
     burger_c.classList.add("active");
