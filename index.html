@@ -821,12 +821,8 @@
         </video>
       </div>
       <button class="button__close showreel__modal_close" aria-label="Закрыть видео">
-        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="2.5" cy="22.5" r="2.5"></circle>
-          <circle cx="2.5" cy="2.5" r="2.5"></circle>
-          <circle cx="22.5" cy="2.5" r="2.5"></circle>
-          <circle cx="12.5" cy="12.5" r="2.5"></circle>
-          <circle cx="22.5" cy="22.5" r="2.5"></circle>
+        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"/>
         </svg>
       </button>
     </div>
@@ -837,45 +833,37 @@
         <div class="header__consultation_blocks">
           <div class="header__consultation_burger_flex">
             <button class="button__close header__consultation_burger" aria-label="Закрыть меню">
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="2.5" cy="22.5" r="2.5"></circle>
-                <circle cx="2.5" cy="2.5" r="2.5"></circle>
-                <circle cx="22.5" cy="2.5" r="2.5"></circle>
-                <circle cx="12.5" cy="12.5" r="2.5"></circle>
-                <circle cx="22.5" cy="22.5" r="2.5"></circle>
+              <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"/>
               </svg>
             </button>
           </div>
           <div class="header__consultation_block">
             <div class="header__consultation_info">
               <div class="header__consultation_say">
-                <h2 class="header__consultation_head">Tell us about your project</h2>
-                <p class="header__consultation_desc">Опишите свою задачу и мы свяжемся с вами в кратчайшие сроки.</p>
+                <h2 class="header__consultation_head">РАССКАЖИТЕ О ВАШЕМ ПРОЕКТЕ</h2>
+                <p class="header__consultation_desc">Опишите свою задачу и мы свяжемся с вами в ближайшее рабочее время.</p>
               </div>
-              <div class="header__consultation_contacts">
-                <a href="tel:+79270030100" class="header__consultation_tel">8 927 003 01 00</a>
-                <a href="mailto:hello@anyera.ru" class="header__consultation_mail">info@visualhearts.ru</a>
-              </div>
+              <div class="header__consultation_contacts"></div>
             </div>
             <form id="form" class="header__forms_form">
               <div class="header__forms_form_controls">
                 <div class="header__forms_form_control">
-                  <input class="header__forms_form_input" type="text" minlength="4" maxlength="40" placeholder="Имя" id="username" />
+                  <input class="header__forms_form_input" type="text" minlength="4" maxlength="40" placeholder="Как к вам обращаться?" id="username" />
                   <span class="header__forms_form_bar"></span>
+                  <span class="header__forms_form_border"></span>
                   <small>Error message</small>
                 </div>
                 <div class="header__forms_form_control">
-                  <input class="header__forms_form_input" type="tel" minlength="5" maxlength="20" placeholder="Телефон" id="phone" />
+                  <input class="header__forms_form_input" type="tel" minlength="5" maxlength="20" placeholder="Номер для связи" id="phone" />
                   <span class="header__forms_form_bar"></span>
+                  <span class="header__forms_form_border"></span>
                   <small>Error message</small>
                 </div>
                 <div class="header__select_box">
-                  <span class="header__select_name">Способ связи</span>
                   <div class="header__select" data-select>
                     <div class="header__select_selected_item" data-select-action data-select-open>
-                      <div class="header__select_selected-title" data-select-title>
-                        Выберите способ
-                      </div>
+                      <div class="header__select_selected-title" data-select-title>Способ связи</div>
                       <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 1L6.05 6L1 1"/>
                       </svg>
@@ -889,12 +877,9 @@
                   </div>
                 </div>
                 <div class="header__select_box">
-                  <span class="header__select_name">Бюджет проекта</span>
                   <div class="header__select" data-select>
                     <div class="header__select_selected_item" data-select-action data-select-open>
-                      <div class="header__select_selected-title" data-select-title>
-                        Выберите бюджет
-                      </div>
+                      <div class="header__select_selected-title" data-select-title>Бюджет проекта</div>
                       <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 1L6.05 6L1 1" stroke="#262626"/>
                       </svg>
@@ -908,41 +893,21 @@
                     <input class="header__select_input" type="text" data-select-input>
                   </div>
                 </div>
-                <div class="header__select_box">
-                  <span class="header__select_name">Тип услуги</span>
-                  <div class="header__select" data-select>
-                    <div class="header__select_selected_item" data-select-action data-select-open>
-                      <div class="header__select_selected-title" data-select-title>
-                        Выберите тип
-                      </div>
-                      <svg class="header__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 1L6.05 6L1 1" stroke="#262626"/>
-                      </svg>
-                    </div>
-                    <div class="header__select_list" data-select-list>
-                      <div class="header__select_list_item" data-select-action data-select-item>Одностраничный сайт</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Многостраничный сайт</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Нужен интернет-магазин</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Веб-приложение</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Дизайн</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Иллюстрации</div>
-                      <div class="header__select_list_item" data-select-action data-select-item>Другое</div>
-                    </div>
-                    <input class="header__select_input" type="text" data-select-input>
-                  </div>
-                </div>
                 <div class="header__forms_form_control">
                   <span class="header__form_name">Опишите проект</span>
                   <textarea class="header__forms_form_input header__forms_form_textarea" name="" id="text" placeholder=""></textarea>
                   <span class="header__forms_form_bar"></span>
+                  <span class="header__forms_form_border"></span>
                   <small>Error message</small>
                 </div>
               </div>
-              <div class="btn btn__input header__form_button">
-                <input type="submit" name="submit" value="Отправить" class="button__text">
-                <span class="button__hover"></span>
+              <div class="header__form_bottom">
+                <div class="btn btn__input header__form_button">
+                  <input type="submit" name="submit" value="Отправить" class="button__text">
+                  <span class="button__hover"></span>
+                </div>
+                <p class="header__form_policy">Нажимая на кнопку, вы соглашаетесь с условиями <a href="#">политики конфиденциальности</a>.</p>
               </div>
-              <p class="header__form_policy">Нажимая на кнопку, вы соглашаетесь с условиями <a href="#">политики конфиденциальности</a>.</p>
             </form>
           </div>
         </div>

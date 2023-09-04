@@ -493,19 +493,15 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  fill: var(--text);
+  color: var(--text);
   -webkit-transform: translate(-50%, -50%) rotate(0deg);
   transform: translate(-50%, -50%) rotate(0deg);
-  -webkit-transition: -webkit-transform 0.3s linear, fill 0.3s linear;
-  transition: transform 0.3s linear, fill 0.3s linear;
-}
-
-.button__close svg circle:nth-child(4) {
-  fill: var(--purple);
+  -webkit-transition: -webkit-transform 0.3s linear, color 0.3s linear;
+  transition: transform 0.3s linear, color 0.3s linear;
 }
 
 .button__close:hover svg {
-  fill: var(--purple);
+  color: var(--purple);
 }
 
 .padding_top__info {
@@ -1261,7 +1257,6 @@ html.has-scroll-dragging {
 
 .header__consultation_container {
   height: 100%;
-  max-width: 1210px;
 }
 
 .header__consultation_blocks {
@@ -1282,13 +1277,14 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   justify-content: space-between;
+  gap: 0 60px;
 }
 
 .header__consultation_info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 60%;
+  width: 50%;
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
@@ -1303,18 +1299,13 @@ html.has-scroll-dragging {
 }
 
 .header__consultation_head {
-  font-family: var(--space);
-  font-size: 80px;
-  font-weight: 400;
-  line-height: 80px;
-  color: var(--text);
+  font-size: 78px;
+  font-weight: 700;
+  line-height: 98px;
 }
 
 .header__consultation_desc {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 19px;
-  color: var(--text);
+  max-width: 295px;
 }
 
 .header__consultation_contacts {
@@ -1325,29 +1316,9 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
-.header__consultation_tel {
-  width: fit-content;
-  font-family: var(--space);
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 40px;
-  color: var(--text);
-  white-space: nowrap;
-}
-
-.header__consultation_mail {
-  width: fit-content;
-  font-family: var(--space);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 24px;
-  color: var(--text);
-  white-space: nowrap;
-}
-
 .header__forms_form {
-  width: 40%;
-  max-width: 387px;
+  width: 50%;
+  max-width: 515px;
 }
 
 .header__forms_header {
@@ -1393,23 +1364,25 @@ html.has-scroll-dragging {
   transform: translateX(0%);
 }
 
-.header__form_button {
-  width: 100%;
-  justify-content: center;
-  margin: 30px 0 0;
-  color: var(--text);
+.header__form_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .header__form_button .button__hover, .header__form_button .button__hover:after {
   height: 120%;
 }
 
-.header__form_policy {
-  margin: 10px 0 0;
-  font-size: 8px;
+.header__form_policy,
+.header__form_policy a {
+  max-width: 150px;
+  font-size: 9px;
   font-weight: 400;
-  line-height: 11px;
-  color: var(--text);
+  line-height: 16px;
+  text-align: right;
+  color: var(--text-gray);
 }
 
 .header__form_policy a, .header__form_policy a:hover, .header__form_policy a:active, .header__form_policy a:focus {
@@ -1421,17 +1394,18 @@ html.has-scroll-dragging {
   width: 100%;
   height: 43px;
   padding: 14px 10px 10px 0;
-  border-bottom: 1px solid var(--gray-border);
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
   border: none;
   color: var(--text);
   background: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .header__forms_form_input::placeholder {
-  color: var(--gray-border);
+  color: var(--text-gray);
 }
 
 .header__forms_form_input:focus {
@@ -1443,41 +1417,70 @@ html.has-scroll-dragging {
   overflow: hidden;
 }
 
-.header__forms_form_bar {
-  display: block;
+.header__forms_form_bar,
+.header__forms_form_border {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 0 0 auto;
   position: relative;
   bottom: 0;
 }
 
-.header__forms_form_bar:before, .header__forms_form_bar:after {
+.header__forms_form_bar {
+  z-index: 1;
+}
+
+.header__forms_form_border {
+  z-index: 0;
+}
+
+.header__forms_form_bar::before,
+.header__forms_form_bar::after,
+.header__forms_form_border::before,
+.header__forms_form_border::after {
   content: '';
   height: 1px;
-  width: 0;
   position: absolute;
   bottom: 0;
-  background: var(--purple);
-  -webkit-transition: 0.3s ease all;
-  transition: 0.3s ease all;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 
-.header__forms_form_bar:before {
-  left:50%;
+.header__forms_form_bar::before,
+.header__forms_form_bar::after {
+  width: 0;
+  background-color: var(--purple);
 }
 
-.header__forms_form_bar:after {
+.header__forms_form_border::before,
+.header__forms_form_border::after {
+  width: 50%;
+  background-color: var(--border);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.form__control.error .header__forms_form_border::before,
+.form__control.error .header__forms_form_border::after {
+  background-color: var(--error);
+}
+
+.header__forms_form_bar::before,
+.header__forms_form_border::before {
+  left: 50%;
+}
+
+.header__forms_form_bar:after,
+.header__forms_form_border::after {
   right: 50%;
 }
 
-.header__forms_form_input:focus ~ .header__forms_form_bar:before,.header__forms_form_input:focus ~ .header__forms_form_bar:after {
+.header__forms_form_input:focus ~ .header__forms_form_bar::before,
+.header__forms_form_input:focus ~ .header__forms_form_bar::after {
   width: 50%;
-}
-
-.header__forms_form_control.error .header__forms_form_input {
-  border-bottom: 1px solid var(--error);
-}
-
-.header__forms_form_control.success .header__forms_form_input {
-  border-bottom: 1px solid var(--purple);
 }
 
 .header__form_name {
@@ -1490,10 +1493,8 @@ html.has-scroll-dragging {
 
 .header__forms_form_border {
   width: 100%;
-  height: 37px;
   display: block;
   position: relative;
-  top: -37px;
   z-index: 0;
 }
 
@@ -1511,14 +1512,6 @@ html.has-scroll-dragging {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
-}
-
-.header__select_name {
-  margin: 0 0 5px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
-  color: var(--text);
 }
 
 .header__select_selected_item {
@@ -1905,11 +1898,7 @@ html.has-scroll-dragging {
 .dark .showreel__modal_close:hover svg {
   width: 30px;
   height: 30px;
-  fill: #fff;
-}
-
-.showreel__modal_close svg circle:nth-child(4) {
-  fill: #fff;
+  color: #fff;
 }
 
 .showreel__modal_visible {
