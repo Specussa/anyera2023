@@ -288,9 +288,9 @@ Select.attach()
 // end select
 
 // Change color mode start
-const toggleClrMode = document.querySelector('.settings__mode');
-const toggleClrModeBtnArr = document.querySelectorAll('.settings__mode .settings__mode_btn');
-const toggleClrModeTxt = document.querySelector('.settings__mode .settings__mode_name');
+const toggleClrMode = document.querySelector('.header__set_mode');
+const toggleClrModeBtnArr = document.querySelectorAll('.header__set_mode .header__set_mode_btn');
+const toggleClrModeTxt = document.querySelector('.header__set_mode .header__set_mode_name');
 
 // 1. Проверка темной темы на уровне системных настроек
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ) {
