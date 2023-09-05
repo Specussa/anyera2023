@@ -283,7 +283,7 @@ section {
 
 .leave.cursor::before {
   width: 0px;
-  height: 0px;
+  height: 30px;
 }
 
 .main__section {
@@ -568,19 +568,9 @@ section {
 .btn__arrow {
   height: 35px;
   width: 35px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  -webkit-transform: translateZ(-17.5px);
-  transform: translateZ(-17.5px);
   position: relative;
   z-index: 2;
-}
-
-.btn__arrow:hover, .active .btn__arrow {
-  -webkit-transform: rotateX(-90deg) translateY(17.5px);
-  transform: rotateX(-90deg) translateY(17.5px);
+  overflow: hidden;
 }
 
 .btn__side {
@@ -594,6 +584,8 @@ section {
   align-items: center;
   position: absolute;
   backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .btn__side svg {
@@ -603,8 +595,20 @@ section {
 
 .btn__side_default {
   background-color: var(--text);
-  -webkit-transform: translateZ(17.5px);
-  transform: translateZ(17.5px);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.btn__arrow:hover .btn__side_default,
+.active .btn__arrow .btn__side_default {
+  -webkit-transform: translateY(35px);
+  transform: translateY(35px);
+}
+
+.btn__arrow:hover .btn__side_hover,
+.active .btn__arrow .btn__side_hover {
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
 }
 
 .btn__side_default svg {
@@ -613,8 +617,8 @@ section {
 
 .btn__side_hover {
   background-color: var(--bg);
-  -webkit-transform: rotateX(90deg) translateZ(17.5px);
-  transform: rotateX(90deg) translateZ(17.5px);
+  -webkit-transform: translateY(-35px);
+  transform: translateY(-35px);
 }
 
 .btn__side_hover svg {
@@ -1484,7 +1488,8 @@ html.has-scroll-dragging {
   gap: 40px;
 }
 
-.header__form_button .button__hover, .header__form_button .button__hover:after {
+.header__form_button .button__hover,
+.header__form_button .button__hover:after {
   height: 120%;
 }
 
@@ -1499,7 +1504,10 @@ html.has-scroll-dragging {
   color: var(--text-gray);
 }
 
-.header__form_policy a, .header__form_policy a:hover, .header__form_policy a:active, .header__form_policy a:focus {
+.header__form_policy a,
+.header__form_policy a:hover,
+.header__form_policy a:active,
+.header__form_policy a:focus {
   text-decoration: underline;
 }
 
@@ -1648,7 +1656,8 @@ html.has-scroll-dragging {
   cursor: none;
 }
 
-.header__select_selected-title, .header__select_list_item {
+.header__select_selected-title,
+.header__select_list_item {
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
@@ -3054,22 +3063,6 @@ html.has-scroll-dragging {
   background-color: var(--text);
 }
 
-.expertise__button.active .btn__arrow,
-.expertise__button.active .btn__arrow:hover {
-  -webkit-transform: rotateX(-90deg) translateY(17.5px);
-  transform: rotateX(-90deg) translateY(17.5px);
-}
-
-.expertise__button .btn__arrow:hover {
-  -webkit-transform: translateZ(-17.5px);
-  transform: translateZ(-17.5px);
-}
-
-.expertise__button .btn__side_hover svg {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
 .expertise__panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3338,33 +3331,29 @@ html.has-scroll-dragging {
   left: 5px;
 }
 
-.projects__link:hover .btn__arrow {
-  -webkit-transform: rotateX(-90deg) translateY(17.5px);
-  transform: rotateX(-90deg) translateY(17.5px);
+.projects__item:hover .btn__side_default {
+  -webkit-transform: translateY(-35px);
+  transform: translateY(-35px);
 }
 
-.projects__item:nth-child(2n) .btn__side svg {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+.projects__item:hover .btn__side_hover {
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
 }
 
-.projects__arrow .btn__side_default {
+.projects__item .btn__side_default {
   background-color: var(--bg);
-  -webkit-transform: translateZ(17.5px);
-  transform: translateZ(17.5px);
 }
 
-.projects__arrow .btn__side_default svg {
+.projects__item .btn__side_default svg {
   color: var(--text);
 }
 
-.projects__arrow .btn__side_hover {
+.projects__item .btn__side_hover {
   background-color: var(--text);
-  -webkit-transform: rotateX(90deg) translateZ(17.5px);
-  transform: rotateX(90deg) translateZ(17.5px);
 }
 
-.projects__arrow .btn__side_hover svg {
+.projects__item .btn__side_hover svg {
   color: var(--bg);
 }
 
@@ -3482,7 +3471,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 35px;
+  width: 36px;
   height: 35px;
   margin-top: 0;
   align-items: center;
@@ -3490,18 +3479,12 @@ html.has-scroll-dragging {
   top: 210px;
   bottom: auto;
   color: var(--bg);
-  border: 1px solid var(--bg);
+  border: none;
   background: var(--text);
   background-color: var(--text);
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
   cursor: none;
-}
-
-.articles__prev:hover .btn__arrow:hover,
-.articles__next:hover .btn__arrow:hover {
-  -webkit-transform: rotateX(-90deg) translateY(17.5px);
-  transform: rotateX(-90deg) translateY(17.5px);
 }
 
 .articles__prev {
