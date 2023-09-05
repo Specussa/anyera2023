@@ -14,6 +14,10 @@ window.onresize = function () {
 };
 // end height
 
+// start cursor
+
+// end cursor
+
 // start year
 const year = document.querySelector('.footer__year');
 if(!year){} else {
