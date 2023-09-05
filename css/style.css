@@ -55,13 +55,14 @@ body {
   color: var(--text);
   -webkit-tap-highlight-color: transparent;
   background-color: var(--bg);
+  cursor: none;
 }
 
 button {
   padding: 0;
   margin: 0;
   background: transparent;
-  cursor: pointer;
+  cursor: none;
 }
 
 .main {
@@ -100,8 +101,8 @@ a {
   color: var(--text);
   -webkit-transition: color 0.15s linear;
   transition: color 0.15s linear;
-  cursor: pointer;
   text-decoration: none;
+  cursor: none;
 }
 
 a:hover {
@@ -224,6 +225,45 @@ section {
 /* .dark .overlay.active {
   opacity: 0.9;
 } */
+
+.cursor {
+  width: 15px;
+  height: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 300;
+  mix-blend-mode: difference;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: width .1s linear, height .1s linear;
+  transition: width .1s linear, height .1s linear;
+  pointer-events: none;
+}
+
+.cursor:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--bg);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.cursor.active,
+.cursor.active.hover {
+  width: 50px;
+  height: 50px;
+}
+
+.cursor.hover {
+  width: 30px;
+  height: 30px;
+}
 
 .main__section {
   position: relative;
@@ -354,7 +394,7 @@ section {
   line-height: 11px;
   border-radius: 30px;
   color: var(--text);
-  cursor: pointer;
+  cursor: none;
 }
 
 .btn__input:hover .button__text {
@@ -478,8 +518,8 @@ section {
   padding: 20px;
   border: none;
   background: var(--bg);
-  cursor: pointer;
   border-radius: 50%;
+  cursor: none;
 }
 
 .button__close svg {
@@ -657,6 +697,7 @@ html.has-scroll-dragging {
   opacity: 1;
   -webkit-transition: width .3s;
   transition: width .3s;
+  cursor: none;
 }
 
 .c-scrollbar:hover .c-scrollbar_thumb {
@@ -679,6 +720,7 @@ html.has-scroll-dragging {
 .has-scroll-dragging .c-scrollbar_thumb {
   cursor: -webkit-grabbing;
   cursor: grabbing;
+  cursor: none;
 }
 
 [data-scroll-direction=horizontal] .c-scrollbar_thumb {
@@ -760,7 +802,7 @@ html.has-scroll-dragging {
   transform: translate(-50%, -50%);
   -webkit-transition: .5s ease-in-out, opacity 0.1s linear;
   transition: .5s ease-in-out, opacity 0.1s linear;
-  cursor: pointer;
+  cursor: none;
 }
 
 .header.hidden .header__burger {
@@ -1590,7 +1632,7 @@ html.has-scroll-dragging {
   background: var(--bg);
   border: none;
   border-bottom: 1px solid var(--gray-border);
-  cursor: pointer;
+  cursor: none;
 }
 
 .header__select_selected-title, .header__select_list_item {
@@ -1652,7 +1694,7 @@ html.has-scroll-dragging {
   color: var(--bg);
   border-bottom: 1px solid var(--gray-border);
   background: var(--purple);
-  cursor: pointer;
+  cursor: none;
 }
 
 .dark .header__select_list_item{
@@ -1695,8 +1737,8 @@ html.has-scroll-dragging {
   padding: 20px;
   border: none;
   background: var(--bg);
-  cursor: pointer;
   border-radius: 50%;
+  cursor: none;
 }
 
 .header__consultation_burger svg {
@@ -1931,6 +1973,7 @@ html.has-scroll-dragging {
   height: var(--height);
   -o-object-fit: cover;
   object-fit: cover;
+  cursor: none;
 }
 
 .showreel__video_responsive {
@@ -2122,12 +2165,6 @@ html.has-scroll-dragging {
   background-size: 50px 50px;
 }
 
-#showreel__video {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
 .spec__player {
   margin-bottom: 20px;
   letter-spacing: 0.02em;
@@ -2169,7 +2206,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: none;
 }
 
 .spec:before {
@@ -2222,7 +2259,7 @@ html.has-scroll-dragging {
   border: 0;
   line-height: 1;
   outline: 0;
-  cursor: pointer;
+  cursor: none;
 }
 
 .spec__button.toggle {
@@ -2281,7 +2318,7 @@ html.has-scroll-dragging {
   visibility: visible;
   opacity: 0;
   z-index: 2;
-  cursor: pointer;
+  cursor: none;
 }
 
 .spec__slider {
@@ -2334,7 +2371,7 @@ html.has-scroll-dragging {
   background: transparent;
   border-top: 1px solid hsla(0,0%,100%,.2);
   border-bottom: 1px solid hsla(0,0%,100%,.2);
-  cursor: pointer;
+  cursor: none;
 }
 
 .spec .progress__line {
@@ -2408,7 +2445,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: none;
 }
 
 .minimal:before {
@@ -2436,19 +2473,19 @@ html.has-scroll-dragging {
 }
 
 .minimal__button {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  max-width: 50px;
   background: none;
   border: 0;
   line-height: 1;
   outline: 0;
   padding: 0;
-  cursor: pointer;
   -ms-flex-pack: center;
   -webkit-box-pack: center;
   justify-content: center;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  max-width: 50px;
+  cursor: none;
 }
 
 .minimal__button i {
@@ -2464,7 +2501,6 @@ html.has-scroll-dragging {
   text-align: center;
   outline: 0;
   padding: 0;
-  cursor: pointer;
   position: absolute;
   opacity: 1;
   visibility: visible;
@@ -2477,6 +2513,7 @@ html.has-scroll-dragging {
   transition: all .2s ease-in;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+  cursor: none;
 }
 
 .minimal__slider {
@@ -2546,9 +2583,9 @@ html.has-scroll-dragging {
   -webkit-transition: height 0.3s linear;
   transition: height 0.3s linear;
   background: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   border-radius: 4px;
   position: relative;
+  cursor: none;
 }
 
 .minimal .progress__filled {
@@ -2569,7 +2606,7 @@ html.has-scroll-dragging {
   font-size: 0;
   overflow: hidden;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: none;
 }
 
 .compact:before {
@@ -2608,7 +2645,7 @@ html.has-scroll-dragging {
   line-height: 1;
   outline: 0;
   padding: 0;
-  cursor: pointer;
+  cursor: none;
 }
 
 .compact__button i {
@@ -2624,7 +2661,6 @@ html.has-scroll-dragging {
   text-align: center;
   outline: 0;
   padding: 0;
-  cursor: pointer;
   position: absolute;
   opacity: 1;
   visibility: visible;
@@ -2637,6 +2673,7 @@ html.has-scroll-dragging {
   transition: all .2s ease-in;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+  cursor: none;
 }
 
 .compact__slider {
@@ -2707,9 +2744,9 @@ html.has-scroll-dragging {
   -webkit-transition: height 0.3s linear;
   transition: height 0.3s linear;
   background: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   border-radius: 4px;
   position: relative;
+  cursor: none;
 }
 
 .compact .progress__filled {

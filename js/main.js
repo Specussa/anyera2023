@@ -15,7 +15,59 @@ window.onresize = function () {
 // end height
 
 // start cursor
+// UPDATE: I was able to get this working again... Enjoy!
 
+var cursor = document.querySelector('.cursor');
+var a = document.querySelectorAll('a');
+var button = document.querySelectorAll('button');
+var cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+});
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+});
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('active')
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('active')
+});
+
+a.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+button.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+cursorgrab.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
 // end cursor
 
 // start year
