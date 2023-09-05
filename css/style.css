@@ -254,6 +254,10 @@ section {
   transform: translate(-50%, -50%);
 }
 
+.dark .cursor:before {
+  background-color: var(--text);
+}
+
 .cursor.active,
 .cursor.active.hover {
   width: 50px;
