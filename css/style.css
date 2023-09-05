@@ -241,7 +241,7 @@ section {
   pointer-events: none;
 }
 
-.cursor:before {
+.cursor::before {
   position: absolute;
   content: "";
   top: 50%;
@@ -252,16 +252,28 @@ section {
   background-color: var(--bg);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
 }
 
-.dark .cursor:before {
+.dark .cursor::before {
   background-color: var(--text);
+}
+
+.hover.cursor::before {
+  background-color: var(--orange);
+}
+
+.dark .hover.cursor::before {
+  background-color: var(--orange);
 }
 
 .cursor.active,
 .cursor.active.hover {
   width: 50px;
   height: 50px;
+  -webkit-transition: width 1s linear, height 1s linear;
+  transition: width 1s linear, height 1s linear;
 }
 
 .cursor.hover {
@@ -548,14 +560,6 @@ section {
   color: var(--purple);
 }
 
-.padding_top__info {
-  width: 100%;
-  margin: -41px 0 0;
-  padding: 100px 0 0;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-}
-
 .btn__arrow {
   height: 35px;
   width: 35px;
@@ -578,8 +582,8 @@ section {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 35px;
+  height: 35px;
   border: 1px solid var(--text);
   justify-content: center;
   align-items: center;
@@ -3359,19 +3363,6 @@ html.has-scroll-dragging {
   color: var(--bg);
 }
 
-.projects__arrow {
-  position: absolute;
-  bottom: 5px;
-}
-
-.projects__item:nth-child(1n) .projects__arrow {
-  right: 5px;
-}
-
-.projects__item:nth-child(2n) .projects__arrow {
-  left: 5px;
-}
-
 /* end projects */
 
 /* start articles */
@@ -3499,6 +3490,7 @@ html.has-scroll-dragging {
   background-color: var(--text);
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
+  cursor: none;
 }
 
 .articles__prev:hover .btn__arrow:hover,

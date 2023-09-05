@@ -21,6 +21,8 @@ var cursor = document.querySelector('.cursor');
 var a = document.querySelectorAll('a');
 var button = document.querySelectorAll('button');
 var cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
+var buttonnext = document.querySelectorAll('.swiper-button-next');
+var buttonprev = document.querySelectorAll('.swiper-button-prev');
 
 document.addEventListener('mousemove', function(e){
   var x = e.clientX;
@@ -61,6 +63,24 @@ button.forEach(item => {
 })
 
 cursorgrab.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+buttonnext.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+buttonprev.forEach(item => {
   item.addEventListener('mouseover', () => {
     cursor.classList.add('hover');
   });
