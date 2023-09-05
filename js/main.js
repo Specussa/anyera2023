@@ -28,12 +28,10 @@ document.addEventListener('mousemove', function(e){
   cursor.style.setProperty('--x', `${cursorx}px`);
   cursor.style.setProperty('--y', `${cursory}px`);
 
-  if (cursorx > (document.body.clientWidth - 1) || cursory > (document.body.offsetHeight - 1) || cursorx < 1 || cursory < 1) {
-    cursor.style.width = "0px";
-    cursor.style.height = "0px";
+  if (cursorx > (document.body.clientWidth - 3) || cursory > (document.body.offsetHeight - 3) || cursorx < 3 || cursory < 3) {
+    cursor.classList.add('leave')
   } else {
-    cursor.style.width = null;
-    cursor.style.height = null;
+    cursor.classList.remove('leave')
   }
 });
 
