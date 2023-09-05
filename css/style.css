@@ -1,6 +1,8 @@
 :root {
   --inc-step: 1;
   --height: 100vh;
+  --x: 0px;
+  --y: 0px;
   --text-font: 'Rubik', sans-serif;
   --title-font: 'Winston', sans-serif;
   --bg: #fff;
@@ -230,23 +232,16 @@ section {
   width: 15px;
   height: 15px;
   position: fixed;
-  top: -15px;
+  top: var(--y);
+  left: var(--x);
   z-index: 300;
+  mix-blend-mode: difference;
   -webkit-transition: width .1s linear, height .1s linear;
   transition: width .1s linear, height .1s linear;
   pointer-events: none;
 }
 
-.cursor span {
-  display: block;
-  width: 15px;
-  height: 15px;
-  position: relative;
-  border-radius: 50%;
-  background-color: var(--bg);
-}
-
-.cursor span::before {
+.cursor::before {
   position: absolute;
   content: "";
   top: 50%;
@@ -257,33 +252,31 @@ section {
   background-color: var(--bg);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
   -webkit-transition: background-color 0.1s linear;
   transition: background-color 0.1s linear;
-  z-index: 1;
 }
 
-.dark .cursor span::before {
+.dark .cursor::before {
   background-color: var(--text);
 }
 
-.hover.cursor span::before {
+.hover.cursor::before {
   background-color: var(--orange);
 }
 
-.dark .hover.cursor span::before {
+.dark .hover.cursor::before {
   background-color: var(--orange);
 }
 
-.cursor.active span,
-.cursor.active.hover span {
+.cursor.active,
+.cursor.active.hover {
   width: 50px;
   height: 50px;
   -webkit-transition: width 1s linear, height 1s linear;
   transition: width 1s linear, height 1s linear;
 }
 
-.cursor.hover span {
+.cursor.hover {
   width: 30px;
   height: 30px;
 }

@@ -15,8 +15,6 @@ window.onresize = function () {
 // end height
 
 // start cursor
-// UPDATE: I was able to get this working again... Enjoy!
-
 var cursor = document.querySelector('.cursor');
 var a = document.querySelectorAll('a');
 var button = document.querySelectorAll('button');
@@ -25,15 +23,18 @@ var buttonnext = document.querySelectorAll('.swiper-button-next');
 var buttonprev = document.querySelectorAll('.swiper-button-prev');
 
 document.addEventListener('mousemove', function(e){
-  var x = e.clientX;
-  var y = e.clientY;
-});
+  var cursorx = e.clientX;
+  var cursory = e.clientY;
+  cursor.style.setProperty('--x', `${cursorx}px`);
+  cursor.style.setProperty('--y', `${cursory}px`);
 
-document.addEventListener('mousemove', function(e){
-  var x = e.clientX;
-  var y = e.clientY;
-  cursor.style.left = x + 'px';
-  cursor.style.top = y + 'px';
+  if (cursorx > (document.body.clientWidth - 1) || cursory > (document.body.offsetHeight - 1) || cursorx < 1 || cursory < 1) {
+    cursor.style.width = "0px";
+    cursor.style.height = "0px";
+  } else {
+    cursor.style.width = null;
+    cursor.style.height = null;
+  }
 });
 
 document.addEventListener('mousedown', function(){
