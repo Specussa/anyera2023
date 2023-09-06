@@ -371,7 +371,7 @@ for (i = 0; i < acc.length; i++) {
 }
 // end expertise
 
-// start expertise
+// start articles
 const articlesSlider = document.querySelector('.articles__swiper');
 if(articlesSlider){
   var aboutusThumbs = new Swiper('.articles__swiper', {
@@ -393,6 +393,7 @@ if(articlesSlider){
     },
   });
 }
+// end articles
 
 // start video
 const preview = document.querySelector('.showreel__button');
