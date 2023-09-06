@@ -283,7 +283,9 @@ section {
 
 .leave.cursor::before {
   width: 0px;
-  height: 30px;
+  height: 0px;
+  -webkit-transition: width 0.3s linear, height 0.3s linear, background-color 0.1s linear;
+  transition: width 0.3s linear, height 0.3s linear, background-color 0.1s linear;
 }
 
 .main__section {
