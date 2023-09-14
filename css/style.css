@@ -3070,19 +3070,21 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0;
   max-height: 0;
+  padding: 0;
   flex-direction: column;
   gap: 10px;
   border-bottom: 1px solid var(--gray-border);
   color: var(--text);
   overflow: hidden;
-  -webkit-transition: max-height 0.8s ease-out, padding 0.8s ease-out;
-  transition: max-height 0.8s ease-out, padding 0.8s ease-out;
+  -webkit-transition: max-height 0.5s linear, padding 0.5s linear;
+  transition: max-height 0.5s linear, padding 0.5s linear;
+  transition-delay: 0.5s, 0.5s;
 }
 
 .expertise__panel.active {
   padding: 0 0 20px;
+  transition-delay: 0s, 0s;
 }
 
 .expertise__list,
