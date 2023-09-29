@@ -263,11 +263,13 @@ class Select {
   }
 
   openSelectList() {
+    this.selectList.style.maxHeight = this.selectList.scrollHeight + "px";
     this.selectList.classList.add('header__select_list_opened')
     this.selectArrow.classList.add('header__select_arrow_rotate')
   }
 
   closeSelectList() {
+    this.selectList.style.maxHeight = null;
     this.selectList.classList.remove('header__select_list_opened')
     this.selectArrow.classList.remove('header__select_arrow_rotate')
   }
