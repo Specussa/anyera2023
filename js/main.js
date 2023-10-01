@@ -389,7 +389,11 @@ if(articlesSlider){
       prevEl: '.articles__prev',
     },
     breakpoints: {
-      800: {
+      1919: {
+        spaceBetween: 30,
+      },
+      1023: {
+        slidesPerView: 'auto',
         spaceBetween: 20,
       },
     },
