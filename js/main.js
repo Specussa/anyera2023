@@ -1,17 +1,16 @@
 // start height
-var oldWidth = window.innerWidth;
+let oldWidth = window.innerWidth;
 const docheight = document.documentElement
-const appHeight = () => {docheight.style.setProperty('--height', `${window.innerHeight}px`)}
-window.addEventListener('resize', appHeight)
-appHeight()
-window.onresize = function () {
+docheight.style.setProperty('--height', `${window.innerHeight}px`);
+const appHeight = () => {
   var newWidth = window.innerWidth;
   if (newWidth != oldWidth) {
-    const appHeight = () => {docheight.style.setProperty('--height', `${window.innerHeight}px`)}
-    window.addEventListener('resize', appHeight)
-    appHeight()
+    docheight.style.setProperty('--height', `${window.innerHeight}px`);
   }
-};
+  oldWidth = window.innerWidth;
+}
+window.addEventListener('resize', appHeight);
+appHeight();
 // end height
 
 // start cursor
@@ -822,6 +821,59 @@ function addListenerMulti(element, eventNames, listener) {
   }
 }
 // end video
+
+// start accordion projects__filter
+const projectsfilters = document.querySelector('.projects__filter');
+if(projectsfilters) {
+  var projectsfilter = document.getElementsByClassName("projects__filter_button");
+  for (i = 0; i < projectsfilter.length; i++) {
+    projectsfilter[i].onclick = function(e) {
+      var projectsfilterordion = this.nextElementSibling;
+      var courseprojectsfilterordion = document.getElementsByClassName("projects__filter_sublist");
+      var courseprojectsfilterordionActive = document.getElementsByClassName("projects__filter_button active");
+
+      if (projectsfilterordion.style.maxHeight) {
+        projectsfilterordion.style.maxHeight = null;
+        this.classList.remove("active");
+        projectsfilterordion.classList.remove("active");
+      } else {
+        for (var q = 0; q < courseprojectsfilterordionActive.length; q++) {
+          courseprojectsfilterordionActive[q].classList.remove("active");
+          courseprojectsfilterordion[q].classList.remove("active");
+        }
+        for (var p = 0; p < courseprojectsfilterordion.length; p++) {
+          this.classList.remove("active");
+          courseprojectsfilterordion[p].classList.remove("active");
+          courseprojectsfilterordion[p].style.maxHeight = null;
+        }
+        projectsfilterordion.style.maxHeight = (projectsfilterordion.scrollHeight * 2) + "px";
+        projectsfilterordion.classList.add("active");
+        this.classList.add("active");
+      }
+      window.addEventListener('click', e => {
+        const target = e.target
+        if (!target.closest('.projects__filter')) {
+          for (var q = 0; q < courseprojectsfilterordionActive.length; q++) {
+            courseprojectsfilterordionActive[q].classList.remove("active");
+            courseprojectsfilterordion[q].classList.remove("active");
+          }
+          projectsfilterordion.style.maxHeight = null;
+          this.classList.remove("active");
+          projectsfilterordion.classList.remove("active");
+        }
+      })
+    };
+  }
+  var projectsfiltersublink = document.getElementsByClassName("projects__filter_sublink");
+  for (i = 0; i < projectsfiltersublink.length; i++) {
+    projectsfiltersublink[i].onclick = function(e) {
+      this.parentNode.classList.toggle('active');
+    };
+  }
+  const projectsfl = document.querySelectorAll('.projects__filter_sublist'); 
+  [...projectsfl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+// end accordion projects__filter
 
 // start index animation
 let digital = document.querySelector('.digital');
