@@ -1785,13 +1785,13 @@ html.has-scroll-dragging {
   gap: 40px;
 }
 
-.footer__button {
+.footer__button_up {
   width: 100px;
   height: 70px;
   padding: 0;
 }
 
-.footer__button svg {
+.footer__button_up svg {
   width: 20px;
   height: 40px;
 }
@@ -3632,12 +3632,12 @@ html.has-scroll-dragging {
   .footer__social {
     gap: 60px;
   }
-  .footer__button {
+  .footer__button_up {
     width: 70px;
     height: 40px;
     padding: 0;
   }
-  .footer__button svg {
+  .footer__button_up svg {
     width: 15px;
     height: 30px;
   }
