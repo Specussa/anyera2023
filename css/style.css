@@ -1725,6 +1725,7 @@ html.has-scroll-dragging {
   display: flex;
   justify-content: space-between;
   gap: 40px;
+  position: relative;
 }
 
 .footer__left {
@@ -1773,7 +1774,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   justify-content: flex-end;
-  gap: 60px;
+  gap: 80px;
 }
 
 .footer__buttons {
@@ -1781,7 +1782,18 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   justify-content: flex-end;
-  gap: 46px;
+  gap: 40px;
+}
+
+.footer__button {
+  width: 100px;
+  height: 70px;
+  padding: 0;
+}
+
+.footer__button svg {
+  width: 20px;
+  height: 40px;
 }
 
 .footer__list {
@@ -1790,7 +1802,7 @@ html.has-scroll-dragging {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 66px;
+  gap: 80px;
 }
 
 .footer__link,
@@ -2781,7 +2793,6 @@ html.has-scroll-dragging {
 
 .digital__desc {
   width: 100%;
-  height: 60px;
   max-width: 405px;
   padding-left: 60px;
   -webkit-transform: translateY(100%);
@@ -3100,7 +3111,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0 100px 80px;
+  padding: 0 80px 80px;
 }
 
 .projects__head {
@@ -3128,7 +3139,7 @@ html.has-scroll-dragging {
   content: "";
   display: inline-block;
   width: 2px;
-  height: 50%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -3552,15 +3563,6 @@ html.has-scroll-dragging {
     width: 20px;
     height: 13.2px;
   }
-  .container {
-    /* max-width: 1320px; */
-  }
-  .header__container,
-  .projects__container,
-  .articles__container,
-  .footer__container {
-    /* max-width: 1440px; */
-  }
   .showreel,
   .expertise,
   .projects__block,
@@ -3585,6 +3587,9 @@ html.has-scroll-dragging {
   }
   .projects__item:nth-child(2n) {
     padding: 0 0 0 30px;
+  }
+  .projects__flex {
+    padding: 0 60px 60px;
   }
   .digital__container {
     max-height: 560px;
@@ -3622,6 +3627,19 @@ html.has-scroll-dragging {
   }
   .footer {
     margin: 60px 0 0;
+  }
+  .footer__list,
+  .footer__social {
+    gap: 60px;
+  }
+  .footer__button {
+    width: 70px;
+    height: 40px;
+    padding: 0;
+  }
+  .footer__button svg {
+    width: 15px;
+    height: 30px;
   }
 }
 /* end 1440px */
@@ -3670,7 +3688,6 @@ html.has-scroll-dragging {
     display: none;
   }
   .main__border {
-    /* max-width: 964px; */
     width: calc(100% - 60px);
     left: 30px;
     right: 30px;
@@ -3679,18 +3696,11 @@ html.has-scroll-dragging {
     border-left: none;
   }
   .container {
-    /* max-width: 1024px; */
     padding: 0 30px;
   }
   .showreel__container {
     max-width: 100%;
     padding: 0;
-  }
-  .header__container,
-  .projects__container,
-  .articles__container,
-  .footer__container {
-    /* max-width: 1024px; */
   }
   .projects__container,
   .articles__container {
@@ -3736,6 +3746,9 @@ html.has-scroll-dragging {
   .accredited__item {
     gap: 20px;
   }
+  .accredited__item {
+    gap: 15px;
+  }
   .expertise {
     padding: 30px 0 0;
   }
@@ -3750,6 +3763,9 @@ html.has-scroll-dragging {
   .expertise__border {
     display: none;
   }
+  .expertise__head {
+    padding: 0;
+  }
   .articles__block,
   .footer__block {
     padding: 30px 0;
@@ -3761,9 +3777,13 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .projects__flex {
-    padding: 0 50px 30px;
+    padding: 0 30px 40px;
     flex-direction: column;
     gap: 40px;
+  }
+  .projects__right {
+    width: 100%;
+    justify-content: space-between;
   }
   .projects__image {
     height: 320px;
@@ -3800,6 +3820,44 @@ html.has-scroll-dragging {
   }
   .footer {
     margin: 30px 0 0;
+  }
+  .footer__flex {
+    padding: 0 0 90px;
+    gap: 20px;
+  }
+  .footer__social {
+    gap: 40px;
+  }
+  .footer__list {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 40px;
+  }
+  .footer__contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  .footer__buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .footer__bottom p {
+    padding: 40px 0 2px;
+  }
+  .footer__info {
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .footer__copyright {
+    width: 100%;
+  }
+  .footer__privacy {
+    position: relative;
+    left: 0;
+    -webkit-transform: translateX(0px) translateY(0px);
+    transform: translateX(0px) translateY(0px);
   }
 }
 /* end 1024px */
@@ -3854,13 +3912,11 @@ html.has-scroll-dragging {
     transform: translate(0%, -50%);
   }
   .main__border {
-    /* max-width: 540px; */
     width: calc(100% - 40px);
     left: 20px;
     right: 20px;
   }
   .container {
-    /* max-width: 580px; */
     padding: 0 20px;
   }
   .showreel__container {
@@ -3882,6 +3938,26 @@ html.has-scroll-dragging {
   .projects__item:nth-child(2n) {
     padding: 0;
   }
+  .projects__flex {
+    padding: 0 20px 20px;
+    gap: 20px;
+  }
+  .projects__right {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .projects__button {
+    margin: 0 0 0 auto;
+  }
+  .projects__list {
+    padding: 0 20px;
+  }
+  .articles__top {
+    padding: 0 20px 20px;
+  }
+  .articles__slider {
+    padding: 0 20px;
+  }
   .articles__item {
     width: 235px;
   }
@@ -3900,8 +3976,43 @@ html.has-scroll-dragging {
     padding-left: 20px;
   }
   .digital__info {
-    padding: 40px 20px;
+    padding: 40px 20px 20px;
     gap: 20px;
+  }
+  .expertise__left,
+  .expertise__right {
+    padding: 20px;
+  }
+  .expertise__panel p,
+  .expertise__panel ul,
+  .expertise__panel span,
+  .expertise__desc {
+    padding: 0 0 0 20px;
+  }
+  .expertise__button {
+    height: 60px;
+  }
+  .footer__flex {
+    padding: 0 0 130px;
+  }
+  .footer__right {
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .footer__buttons {
+    bottom: 60px;
+  }
+  .footer__social {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    gap: 80px;
+  }
+  .footer__contact {
+    gap: 20px;
+  }
+  .footer__bottom p {
+    padding: 20px 0 2px;
   }
 }
 /* end 580px */
@@ -3909,8 +4020,8 @@ html.has-scroll-dragging {
 /* start 390px */
 @media (max-width: 579px) {
   h1 {
-    font-size: 61px;
-    line-height: 62px;
+    font-size: 38px;
+    line-height: 38px;
   }
   h2 {
     font-size: 36px;
@@ -3945,6 +4056,26 @@ html.has-scroll-dragging {
   .footer__privacy {
     font-size: 10px;
     line-height: 13px;
+  }
+  .digital__head {
+    height: 66px;
+  }
+  .accredited__list {
+    flex-direction: column;
+  }
+  .footer__social {
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .footer__flex {
+    flex-direction: column;
+  }
+  .footer__list {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
   }
 }
 /* end 390px */
