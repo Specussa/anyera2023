@@ -1733,7 +1733,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 40px;
 }
 
 .footer__mail {
@@ -3830,6 +3830,9 @@ html.has-scroll-dragging {
   }
   .footer__flex {
     padding: 0 0 90px;
+    gap: 20px;
+  }
+  .footer__left {
     gap: 20px;
   }
   .footer__social {
