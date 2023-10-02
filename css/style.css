@@ -830,12 +830,14 @@ html.has-scroll-dragging {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: .5s ease-in-out, opacity 0.1s linear;
-  transition: .5s ease-in-out, opacity 0.1s linear;
+  -webkit-transition: .5s ease-in-out, opacity 0.1s linear 0.3s;
+  transition: .5s ease-in-out, opacity 0.1s linear 0.3s;
 }
 
 .header.hidden .header__burger {
   opacity: 0;
+  -webkit-transition: .5s ease-in-out, opacity 0.1s linear;
+  transition: .5s ease-in-out, opacity 0.1s linear;
 }
 
 .header__burger span {
@@ -907,12 +909,14 @@ html.has-scroll-dragging {
 .header__name {
   color: var(--text);
   opacity: 1;
-  -webkit-transition: color 0.2s linear, opacity 0.1s linear;
-  transition: color 0.2s linear, opacity 0.1s linear;
+  -webkit-transition: color 0.2s linear, opacity 0.1s linear 0.3s;
+  transition: color 0.2s linear, opacity 0.1s linear 0.3s;
 }
 
 .header.hidden .header__name {
   opacity: 0;
+  -webkit-transition: color 0.2s linear, opacity 0.1s linear;
+  transition: color 0.2s linear, opacity 0.1s linear;
 }
 
 .header__name:hover {
@@ -952,8 +956,8 @@ html.has-scroll-dragging {
   width: 173px;
   align-items: center;
   gap: 25px;
-  -webkit-transition: width 0.3s linear;
-  transition: width 0.3s linear;
+  transition: -webkit-transform 0.3s linear, width 0.3s linear;
+  transition: transform 0.3s linear, width 0.3s linear;
   position: relative;
   z-index: 101;
 }
@@ -964,6 +968,10 @@ html.has-scroll-dragging {
 
 .button__project {
   width: 173px;
+}
+
+.button__project_two {
+  display: none;
 }
 
 .button__briefing {
@@ -4016,7 +4024,15 @@ html.has-scroll-dragging {
     height: 70px;
   }
   .header__buttons {
-    display: none;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  .header__buttons.active {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+  .button__project_two {
+    display: inline-flex;
   }
   .header__burger {
     width: 36px;

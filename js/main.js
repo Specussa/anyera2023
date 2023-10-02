@@ -111,6 +111,8 @@ const burger = document.querySelector('.header__burger');
 const menu_c = document.querySelector('.header__consultation');
 const burger_c = document.querySelector('.button__project');
 
+const burger_ctwo = document.querySelector('.button__project_two');
+
 // кнопка header__burger
 document.querySelector('.header__burger').addEventListener('click', function() {
   if (burger.classList.contains("active")) {
@@ -141,6 +143,21 @@ document.querySelector('.header__burger').addEventListener('click', function() {
 
 // кнопка header__project
 burger_c.addEventListener('click', function() {
+  if (!burger_c.classList.contains("active")) {
+    bodyoverlay.classList.add("active");
+    menu_c.classList.add("active");
+    burger_c.classList.add("active");
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    header.classList.add("hidden");
+    headerlinks.classList.add("hidden");
+    headerbuttons.classList.add("active");
+    scroll.stop();
+  }
+})
+burger_ctwo.addEventListener('click', function() {
   if (!burger_c.classList.contains("active")) {
     bodyoverlay.classList.add("active");
     menu_c.classList.add("active");
