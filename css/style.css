@@ -487,14 +487,30 @@ section {
   transition: color 0.3s linear;
 }
 
+.button__count {
+  padding: 0 12px 0 0;
+}
+
+.button__count small {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--text-gray);
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+
 .btn.active .button__text,
-.btn:hover .button__text {
+.btn:hover .button__text,
+.btn.active .button__count small,
+.btn:hover .button__count small {
   color: var(--bg);
 }
 
 .dark .btn.active .button__text,
 .dark .btn:hover .button__text,
-.dark .btn:hover .button__text {
+.dark .btn.active .button__count small,
+.dark .btn:hover .button__count small {
   color: var(--text);
 }
 
@@ -3180,7 +3196,8 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 50%;
+  padding: 0 30px 0 0;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -3219,6 +3236,12 @@ html.has-scroll-dragging {
   color: var(--text-gray);
 }
 
+.projects__filter_button p,
+.projects__filter_button small {
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+
 .projects__filter_button.active,
 .projects__filter_button.active p,
 .projects__filter_button.active small {
@@ -3248,12 +3271,12 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: calc(50% + 18px);
+  width: calc(100% + 18px);
   height: max-content;
   max-height: 0;
   padding: 0 30px;
   flex-wrap: wrap;
-  gap: 5px 40px;
+  gap: 5px 10px;
   position: absolute;
   left: -19px;
   top: 100%;
@@ -3288,20 +3311,39 @@ html.has-scroll-dragging {
   transition-delay: calc(var(--inc-step)*0.05s);
 }
 
-.projects__filter_sublink {
-  display: block;
-  padding: 10px 20px;
-  cursor: pointer;
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
+.projects__filter_check {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-.projects__filter_sublink,
-.projects__filter_sublink:hover {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 20px;
+.projects__filter_clear {
+  display: none;
+  align-items: center;
+  gap: 20px;
   color: var(--text-gray);
+}
+
+.projects__filter_clear.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.projects__filter_clear svg {
+  width: 15.5px;
+  height: 15.5px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+
+.projects__filter_clear:hover svg {
+  width: 15.5px;
+  height: 15.5px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .projects__head {

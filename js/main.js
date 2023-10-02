@@ -17,6 +17,7 @@ appHeight();
 var cursor = document.querySelector('.cursor');
 var a = document.querySelectorAll('a');
 var button = document.querySelectorAll('button');
+var label = document.querySelectorAll('label');
 var cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
 var buttonnext = document.querySelectorAll('.swiper-button-next');
 var buttonprev = document.querySelectorAll('.swiper-button-prev');
@@ -52,6 +53,15 @@ a.forEach(item => {
 })
 
 button.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
+label.forEach(item => {
   item.addEventListener('mouseover', () => {
     cursor.classList.add('hover');
   });
@@ -864,14 +874,36 @@ if(projectsfilters) {
       })
     };
   }
-  var projectsfiltersublink = document.getElementsByClassName("projects__filter_sublink");
-  for (i = 0; i < projectsfiltersublink.length; i++) {
-    projectsfiltersublink[i].onclick = function(e) {
-      this.parentNode.classList.toggle('active');
-    };
+
+  const pfc = [...document.querySelectorAll('.projects__filter_check')];
+  const pfclear = document.querySelector('.projects__filter_clear');
+  const pfla = document.querySelectorAll('.projects__filter_label');
+
+  const onChecked = () => {
+    if(document.querySelector('.projects__filter_label.active')) {
+      pfclear.classList.add("active");
+    } else {
+      pfclear.classList.remove("active");
+    }
   }
-  const projectsfl = document.querySelectorAll('.projects__filter_sublist'); 
-  [...projectsfl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  pfc.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      event.target.closest('.projects__filter_label').classList.add('active');
+    } else {
+      event.target.closest('.projects__filter_label').classList.remove('active');
+    }
+    onChecked()
+  }))
+
+  pfclear.addEventListener('click', function() {
+    for(var i = 0;i < pfc.length; i++) {pfc[i].checked = false;};
+    for(var i = 0;i < pfla.length; i++) {pfla[i].classList.remove('active');};
+    pfclear.classList.remove("active");
+  })
+
+  const projectsfs = document.querySelectorAll('.projects__filter_sublist');
+  [...projectsfs].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 // end accordion projects__filter
 
