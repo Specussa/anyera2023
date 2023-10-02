@@ -968,7 +968,7 @@ html.has-scroll-dragging {
 
 .header__link,
 .header__link:hover {
-  text-transform: lowercase;
+  text-transform: uppercase;
   color: var(--text-gray);
 }
 
@@ -2712,7 +2712,7 @@ html.has-scroll-dragging {
   width: 60px;
   padding: 120px 0 240px;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 60px 15px;
   position: absolute;
   top: 0;
@@ -3522,7 +3522,8 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
-  .btn__input {
+  .btn__input,
+  .header__link {
     font-size: 12px;
     line-height: 14px;
   }
@@ -3653,7 +3654,8 @@ html.has-scroll-dragging {
     line-height: 17px;
   }
   button,
-  .btn__input {
+  .btn__input,
+  .header__link {
     font-size: 10px;
     line-height: 13px;
   }
@@ -3828,7 +3830,8 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
-  .btn__input {
+  .btn__input,
+  .header__link {
     font-size: 10px;
     line-height: 13px;
   }
@@ -3927,7 +3930,8 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
-  .btn__input {
+  .btn__input,
+  .header__link {
     font-size: 10px;
     line-height: 13px;
   }
