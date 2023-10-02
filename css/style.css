@@ -211,8 +211,8 @@ section {
 
 .container {
   width: 100%;
-  max-width: 1810px;
-  padding: 0 60px;
+  max-width: 1920px;
+  padding: 0 120px;
   margin: 0 auto;
   position: relative;
 }
@@ -768,7 +768,7 @@ html.has-scroll-dragging {
 }
 
 .header__container {
-  max-width: 1920px;
+  padding: 0 60px;
 }
 
 .header__content {
@@ -1712,7 +1712,7 @@ html.has-scroll-dragging {
 }
 
 .footer__container {
-  max-width: 1920px;
+  padding: 0 60px;
 }
 
 .footer__block {
@@ -2709,8 +2709,8 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 60px;
-  padding: 120px 0 240px;
+  width: 120px;
+  padding: 120px 0 240px 60px;
   flex-direction: column;
   align-items: flex-start;
   gap: 60px 15px;
@@ -3083,7 +3083,7 @@ html.has-scroll-dragging {
 /* start projects */
 
 .projects__container {
-  max-width: 1920px;
+  padding: 0 60px;
   z-index: 1;
 }
 
@@ -3243,7 +3243,6 @@ html.has-scroll-dragging {
 /* start articles */
 
 .articles__container {
-  max-width: 1920px;
   background-color: var(--bg);
 }
 
@@ -3523,15 +3522,19 @@ html.has-scroll-dragging {
   }
   button,
   .btn__input,
-  .header__link {
+  .header__link,
+  .footer__link,
+  .footer__bottom p,
+  .footer__copyright,
+  .footer__privacy {
     font-size: 12px;
     line-height: 14px;
   }
   .main__border {
-    max-width: 1210px;
-    width: calc(100% - 120px);
-    left: 60px;
-    right: 60px;
+    /* max-width: 1210px; */
+    width: calc(100% - 240px);
+    left: 120px;
+    right: 120px;
   }
   .icon__tg {
     width: 16.75px;
@@ -3550,13 +3553,13 @@ html.has-scroll-dragging {
     height: 13.2px;
   }
   .container {
-    max-width: 1320px;
+    /* max-width: 1320px; */
   }
   .header__container,
   .projects__container,
   .articles__container,
   .footer__container {
-    max-width: 1440px;
+    /* max-width: 1440px; */
   }
   .showreel,
   .expertise,
@@ -3655,7 +3658,11 @@ html.has-scroll-dragging {
   }
   button,
   .btn__input,
-  .header__link {
+  .header__link,
+  .footer__link,
+  .footer__bottom p,
+  .footer__copyright,
+  .footer__privacy {
     font-size: 10px;
     line-height: 13px;
   }
@@ -3663,7 +3670,7 @@ html.has-scroll-dragging {
     display: none;
   }
   .main__border {
-    max-width: 964px;
+    /* max-width: 964px; */
     width: calc(100% - 60px);
     left: 30px;
     right: 30px;
@@ -3672,7 +3679,7 @@ html.has-scroll-dragging {
     border-left: none;
   }
   .container {
-    max-width: 1024px;
+    /* max-width: 1024px; */
     padding: 0 30px;
   }
   .showreel__container {
@@ -3683,7 +3690,7 @@ html.has-scroll-dragging {
   .projects__container,
   .articles__container,
   .footer__container {
-    max-width: 1024px;
+    /* max-width: 1024px; */
   }
   .projects__container,
   .articles__container {
@@ -3719,9 +3726,7 @@ html.has-scroll-dragging {
     background-color: transparent;
   }
   .accredited__list {
-    max-width: 1024px;
     padding: 60px;
-    margin: 0 auto;
     justify-content: flex-end;
     gap: 60px;
   }
@@ -3831,7 +3836,11 @@ html.has-scroll-dragging {
   }
   button,
   .btn__input,
-  .header__link {
+  .header__link,
+  .footer__link,
+  .footer__bottom p,
+  .footer__copyright,
+  .footer__privacy {
     font-size: 10px;
     line-height: 13px;
   }
@@ -3845,13 +3854,13 @@ html.has-scroll-dragging {
     transform: translate(0%, -50%);
   }
   .main__border {
-    max-width: 540px;
+    /* max-width: 540px; */
     width: calc(100% - 40px);
     left: 20px;
     right: 20px;
   }
   .container {
-    max-width: 580px;
+    /* max-width: 580px; */
     padding: 0 20px;
   }
   .showreel__container {
@@ -3883,9 +3892,7 @@ html.has-scroll-dragging {
     border-top: none;
   }
   .accredited__list {
-    max-width: 580px;
     padding: 20px 40px 40px;
-    margin: 0 auto;
     justify-content: flex-start;
     gap: 40px;
   }
@@ -3931,7 +3938,11 @@ html.has-scroll-dragging {
   }
   button,
   .btn__input,
-  .header__link {
+  .header__link,
+  .footer__link,
+  .footer__bottom p,
+  .footer__copyright,
+  .footer__privacy {
     font-size: 10px;
     line-height: 13px;
   }
