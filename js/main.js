@@ -28,7 +28,7 @@ const projecttop = document.querySelector('.project_top');
 
 if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)" && projecttop.style.backgroundColor !=  "var(--bg)"){
   header.classList.add('header__transparent');
-  header.classList.add('project_top__black');
+  header.classList.add('project_top__white');
 } else if (projecttop.style.backgroundColor ==  "var(--bg)") {
   header.classList.add('project_top__bg');
 }

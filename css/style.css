@@ -513,14 +513,14 @@ section {
 
 .header.header__transparent .btn,
 .header.active.header__transparent .btn {
-  -webkit-transition: background-color 0.2s linear 1.4s, border 0.3s linear;
-  transition: background-color 0.2s linear 1.4s, border 0.3s linear;
+  -webkit-transition: background-color 0.2s linear 1.4s, border 0.2s linear 0.1s;
+  transition: background-color 0.2s linear 1.4s, border 0.2s linear 0.1s;
 }
 
 .header.header__transparent .btn.active,
 .header.active.header__transparent .btn.active {
-  -webkit-transition: background-color 0.2s linear, border 0.3s linear;
-  transition: background-color 0.2s linear, border 0.3s linear;
+  -webkit-transition: background-color 0.2s linear, border 0.2s linear 0.1s;
+  transition: background-color 0.2s linear, border 0.2s linear 0.1s;
 }
 
 .button__count {
@@ -3606,7 +3606,46 @@ html.has-scroll-dragging {
   display: flex;
   width: calc(40% - 80px);
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
+}
+
+.project_top__info_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project_top .button__text {
+  color: var(--white);
+}
+
+.project_top.project_top__white .button__text {
+  color: var(--black);
+}
+
+.project_top.project_top__bg .button__text {
+  color: var(--text-gray);
+}
+
+.project_top .btn {
+  border: 1px solid var(--white);
+}
+
+.project_top.project_top__white .btn {
+  border: 1px solid var(--black);
+}
+
+.project_top.project_top__bg .btn {
+  border: 1px solid var(--border);
+}
+
+.project_top .btn:hover,
+.project_top.project_top__white .btn:hover,
+.project_top.project_top__bg .btn:hover {
+  border: 1px solid var(--purple);
 }
 
 .project_top__image {
@@ -3626,8 +3665,8 @@ html.has-scroll-dragging {
   color: var(--white);
 }
 
-.project_top__black .project_top__desc,
-.project_top__black .project_top__head {
+.project_top__white .project_top__desc,
+.project_top__white .project_top__head {
   color: var(--black);
 }
 
