@@ -75,6 +75,7 @@ button {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  background-color: var(--bg);
 }
 
 input:-webkit-autofill,
@@ -3973,7 +3974,6 @@ html.has-scroll-dragging {
     line-height: 14px;
   }
   .main__border {
-    /* max-width: 1210px; */
     width: calc(100% - 240px);
     left: 120px;
     right: 120px;
