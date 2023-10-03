@@ -3589,7 +3589,6 @@ html.has-scroll-dragging {
 
 .project_top {
   height: var(--height);
-  min-height: 1024px;
   max-height: 1024px;
 }
 
@@ -3612,7 +3611,8 @@ html.has-scroll-dragging {
 
 .project_top__image {
   width: 60%;
-  height: 720px;
+  height: calc(var(--height) - 360px);
+  max-height: 664px;
 }
 
 .project_top__image img {
