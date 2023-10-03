@@ -3259,15 +3259,15 @@ html.has-scroll-dragging {
 
 .projects__filter_button span {
   display: inline-flex;
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
 }
 
 .projects__filter_button.active span {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .projects__filter_button span svg {
@@ -3279,14 +3279,14 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: calc(100% + 18px);
+  width: calc(100% + 52px);
   height: max-content;
   max-height: 0;
-  padding: 0 30px;
+  padding: 0 55px;
   flex-wrap: wrap;
   gap: 5px 10px;
   position: absolute;
-  left: -19px;
+  left: -53px;
   top: 100%;
   z-index: 10;
   background-color: var(--bg);
@@ -3298,7 +3298,7 @@ html.has-scroll-dragging {
 
 .projects__filter_sublist.active {
   max-height: 1000px;
-  padding: 20px 30px;
+  padding: 20px 55px;
   z-index: 11;
   border-bottom: 1px solid var(--border);
 }
@@ -3845,6 +3845,14 @@ html.has-scroll-dragging {
   .projects__all_flex {
     padding: 0 90px 60px;
   }
+  .projects__filter_sublist {
+    width: calc(100% + 28px);
+    padding: 0 30px;
+    left: -29px;
+  }
+  .projects__filter_sublist.active {
+    padding: 20px 30px;
+  }
   .digital__container {
     max-height: 560px;
   }
@@ -3866,6 +3874,9 @@ html.has-scroll-dragging {
   }
   .articles__top {
     padding: 0 0 40px;
+  }
+  .projects__filter_list {
+    gap: 10px 30px;
   }
   .articles__image {
     height: 200px;
@@ -4054,6 +4065,9 @@ html.has-scroll-dragging {
   .articles__top {
     padding: 0 30px 30px;
   }
+  .projects__filter_list {
+    gap: 10px 20px;
+  }
   .showreel {
     padding: 0;
   }
@@ -4091,6 +4105,7 @@ html.has-scroll-dragging {
   .projects__filter_sublist {
     width: calc(100% + 38px);
     padding: 0 20px;
+    left: -19px;
   }
   .projects__filter_sublist.active {
     padding: 20px;
@@ -4354,6 +4369,9 @@ html.has-scroll-dragging {
   .articles__top {
     padding: 0 20px 20px;
   }
+  .projects__filter_list {
+    gap: 10px;
+  }
   .articles__slider {
     padding: 0 20px;
   }
@@ -4506,6 +4524,11 @@ html.has-scroll-dragging {
   }
   .accredited__list {
     flex-direction: column;
+  }
+  .projects__filter {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 20px;
   }
   .footer__social {
     width: 100%;
