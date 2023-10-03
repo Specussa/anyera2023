@@ -26,11 +26,13 @@ Scrollbar.init(hc_scroll);
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
 
-if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)"){
+if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)" && projecttop.style.backgroundColor !=  "var(--bg)"){
   header.classList.add('header__transparent');
+  header.classList.add('project_top__black');
+} else if (projecttop.style.backgroundColor ==  "var(--bg)") {
+  header.classList.add('project_top__bg');
 }
 
-console.log(projecttop.style.backgroundColor);
 const headerprogress = document.querySelector('.header__progress_bar');
 
 scroll.on('scroll', (args) => {
@@ -40,8 +42,8 @@ scroll.on('scroll', (args) => {
   headerprogress.style.flexBasis = scrollheader + '%';
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
-  if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)"){
-    if (Math.round(args["scroll"]["y"]) <= 10) {
+  if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)" && projecttop.style.backgroundColor !=  "var(--bg)"){
+    if (Math.round(args["scroll"]["y"]) <= 50) {
       header.classList.add('header__transparent');
     } else {
       header.classList.remove('header__transparent');
