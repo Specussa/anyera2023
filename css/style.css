@@ -512,14 +512,14 @@ section {
 
 .header.header__transparent .btn,
 .header.active.header__transparent .btn {
-  -webkit-transition: background-color 0.2s linear 1.4s;
-  transition: background-color 0.2s linear 1.4s;
+  -webkit-transition: background-color 0.2s linear 1.4s, border 0.3s linear;
+  transition: background-color 0.2s linear 1.4s, border 0.3s linear;
 }
 
 .header.header__transparent .btn.active,
 .header.active.header__transparent .btn.active {
-  -webkit-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
+  -webkit-transition: background-color 0.2s linear, border 0.3s linear;
+  transition: background-color 0.2s linear, border 0.3s linear;
 }
 
 .button__count {

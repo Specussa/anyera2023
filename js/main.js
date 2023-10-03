@@ -26,10 +26,11 @@ Scrollbar.init(hc_scroll);
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
 
-if(projecttop){
+if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)"){
   header.classList.add('header__transparent');
 }
 
+console.log(projecttop.style.backgroundColor);
 const headerprogress = document.querySelector('.header__progress_bar');
 
 scroll.on('scroll', (args) => {
@@ -39,14 +40,12 @@ scroll.on('scroll', (args) => {
   headerprogress.style.flexBasis = scrollheader + '%';
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
-  if(projecttop){
-    if (Math.round(args["scroll"]["y"]) < (projecttop.clientHeight - header.clientHeight)) {
+  if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)"){
+    if (Math.round(args["scroll"]["y"]) <= 10) {
       header.classList.add('header__transparent');
     } else {
       header.classList.remove('header__transparent');
     }
-    console.log(document.documentElement.getAttribute("scroll"));
-    console.log(projecttop.clientHeight);
   }
 });
 // end scroll
