@@ -648,7 +648,6 @@
     </div>
   </div>
   <script src="js/swiper.min.js"></script>
-  <script src="js/main.js"></script>
   <script src="js/form.js"></script>
   <script src="js/scroll.js"></script>
   <script src="js/scrollbar.js"></script>
@@ -664,19 +663,7 @@
         document.querySelector('.preloader').style.display = "none";
       }, 300);
     };
-    scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.03,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
-    new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
-    const hn_scroll = document.querySelector('.header__nav_scroll');
-    const hc_scroll = document.querySelector('.header__consultation_scroll');
-    Scrollbar.init(hn_scroll);
-    Scrollbar.init(hc_scroll);
-    const headerprogress = document.querySelector('.header__progress_bar');
-    scroll.on('scroll', (args) => {
-      var scrollY = Math.round(args["scroll"]["y"]);
-      var scrollH = Math.round(args["limit"]["y"]);
-      let scrollheader = Math.round((scrollY / scrollH) * 100);
-      headerprogress.style.flexBasis = scrollheader + '%';
-    });
   </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
