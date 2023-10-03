@@ -488,7 +488,7 @@ section {
 }
 
 .button__count {
-  padding: 0 12px 0 0;
+  padding: 0 14px 0 0;
 }
 
 .button__count small {
@@ -1111,7 +1111,7 @@ html.has-scroll-dragging {
   width: 100%;
   height: calc(var(--height) - 80px);
   position: fixed;
-  top: 80px;
+  top: 81px;
   left: 0;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
@@ -1365,7 +1365,7 @@ html.has-scroll-dragging {
   height: calc(var(--height) - 80px);
   flex-direction: column;
   position: fixed;
-  top: 80px;
+  top: 81px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -3170,6 +3170,14 @@ html.has-scroll-dragging {
   overflow: hidden;
 }
 
+.projects__all_block {
+  padding: 160px 0 80px;
+  margin: 0 0 1px;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
 .projects__flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3183,7 +3191,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0 80px 80px;
+  padding: 0 115px 80px;
   flex-direction: column;
   gap: 80px;
 }
@@ -3831,6 +3839,12 @@ html.has-scroll-dragging {
   .projects__flex {
     padding: 0 60px 60px;
   }
+  .projects__all_block {
+    padding: 140px 0 60px;
+  }
+  .projects__all_flex {
+    padding: 0 90px 60px;
+  }
   .digital__container {
     max-height: 560px;
   }
@@ -4064,6 +4078,23 @@ html.has-scroll-dragging {
   .projects__item:nth-child(2n) {
     padding: 0 0 0 30px;
   }
+  .projects__all_block {
+    padding: 60px 0 30px;
+  }
+  .projects__all_flex {
+    padding: 0 40px 40px;
+  }
+  .projects__filter {
+    width: 100%;
+    padding: 0;
+  }
+  .projects__filter_sublist {
+    width: calc(100% + 38px);
+    padding: 0 20px;
+  }
+  .projects__filter_sublist.active {
+    padding: 20px;
+  }
   .articles__image {
     height: 160px;
   }
@@ -4253,7 +4284,7 @@ html.has-scroll-dragging {
   .header__nav,
   .header__consultation {
     height: calc(var(--height) - 70px);
-    top: 70px;
+    top: 71px;
   }
   .header__nav_flex {
     padding: 0 0 80px;
@@ -4313,6 +4344,12 @@ html.has-scroll-dragging {
   }
   .projects__list {
     padding: 0 20px;
+  }
+  .projects__all_block {
+    padding: 40px 0 20px;
+  }
+  .projects__all_flex {
+    padding: 0 20px 20px;
   }
   .articles__top {
     padding: 0 20px 20px;
