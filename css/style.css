@@ -3346,6 +3346,10 @@ html.has-scroll-dragging {
   transform: rotate(90deg);
 }
 
+.projects__filter_label {
+  padding: 7px 20px;
+}
+
 .projects__head {
   display: -webkit-box;
   display: -ms-flexbox;
