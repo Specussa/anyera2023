@@ -3682,6 +3682,7 @@ html.has-scroll-dragging {
 }
 
 .project_top .btn {
+  padding: 18px 60px;
   border: 1px solid var(--white);
 }
 
