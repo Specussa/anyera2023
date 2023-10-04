@@ -3865,7 +3865,7 @@ html.has-scroll-dragging {
 
 .project_phone_item {
   width: 316px;
-  height: 722px;
+  height: 100%;
 }
 
 .project_phone__img {
@@ -3888,7 +3888,7 @@ html.has-scroll-dragging {
   position: absolute;
   width: 280px;
   height: 600px;
-  top: 60px;
+  top: 14px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
