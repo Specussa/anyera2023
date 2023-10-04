@@ -538,12 +538,13 @@ const elsliderphone = document.querySelector('.project_phone');
 if(elsliderphone) {
   var pphoneSlider = new Swiper(".project_phone__swiper", {
     autoplay: false,
-    loop: true,
-    slidesPerView: 'auto', // or 'auto'
+    loop: false,
+    slidesPerView: 'auto',
     spaceBetween: 0,
+    initialSlide: 2,
     centerSlides: true,
     centeredSlides : true,
-    effect: 'coverflow', // 'cube', 'fade', 'coverflow',
+    effect: 'coverflow',
     coverflowEffect: {
       rotate: 10,
       stretch: 0,
