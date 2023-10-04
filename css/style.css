@@ -3874,6 +3874,12 @@ html.has-scroll-dragging {
   width: 316px;
   height: 100%;
   border-radius: 40px;
+  overflow: visible;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  border-radius: 40px;
   overflow: hidden;
 }
 
