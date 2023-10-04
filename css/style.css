@@ -3868,8 +3868,13 @@ html.has-scroll-dragging {
 }
 
 .project_phone_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 316px;
   height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
 }
 
 .project_phone__img {
@@ -3880,12 +3885,6 @@ html.has-scroll-dragging {
   z-index: 1;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-}
-
-.project_phone_item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .project_phone_block {
