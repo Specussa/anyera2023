@@ -516,7 +516,7 @@ if(articlesSlider){
 // start project desktop
 const projectdesktopSlider = document.querySelector('.project_desktop__swiper');
 if(projectdesktopSlider){
-  var aboutusThumbs = new Swiper('.project_desktop__swiper', {
+  var pdesktopSlider = new Swiper('.project_desktop__swiper', {
     loop: true,
     slidesPerView: 1,
     loopedSlides: 1,
@@ -534,58 +534,24 @@ if(projectdesktopSlider){
 // end project desktop
 
 // start team photo slider
-const elsliderphoto = document.querySelector('.project_phone');
-if(!elsliderphoto){} else {
-  const itemListParent = document.querySelector('.project_phone__list');
-  const itemList = document.querySelectorAll('.project_phone_item');
-  window.addEventListener('resize', onResizeHandler, false);
-  if (document.documentElement.clientWidth >= 960) {
-    itemListParent.insertBefore(itemList[0], itemList[3]);
-  } else {
-    itemListParent.insertBefore(itemList[0], itemList[2]);
-  };
-  function onResizeHandler() {
-    if (document.documentElement.clientWidth >= 960) {
-      itemListParent.insertBefore(itemList[0], itemList[3]);
-    } else {
-      itemListParent.insertBefore(itemList[0], itemList[2]);
-    };
-  }
-  const sliderSelector = '.project_phone__swiper',
-  options = {
-    grabCursor: true,
+const elsliderphone = document.querySelector('.project_phone');
+if(elsliderphone) {
+  var pphoneSlider = new Swiper(".project_phone__swiper", {
     autoplay: false,
-    init: false,
     loop: true,
+    slidesPerView: 'auto', // or 'auto'
+    spaceBetween: 0,
     centerSlides: true,
     centeredSlides : true,
-    slidesPerView: 'auto',
-    spaceBetween: 0,
-    effect: 'coverflow',
+    effect: 'coverflow', // 'cube', 'fade', 'coverflow',
     coverflowEffect: {
-      rotate: 0,
+      rotate: 10,
       stretch: 0,
       depth: 100,
       modifier: 1,
-      slideShadows : false,
+      slideShadows : true,
     },
-    grabCursor: true,
-    parallax: true,
-    breakpoints: {
-      959: {
-        slidesPerView: 3,
-        spaceBetween: 0,
-        arrow: false,
-      }
-    },
-    on: {
-      imagesReady: function(){
-        this.el.classList.remove('loading');
-      }
-    }
-  };
-  const mySwiper = new Swiper(sliderSelector, options);
-  mySwiper.init();
+  });
 }
 // end team photo slider
 

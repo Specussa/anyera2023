@@ -417,6 +417,10 @@ section {
 .swiper-container-3d .swiper-slide-shadow-top,
 .swiper-container-3d .swiper-wrapper {
   will-change: transform, -webkit-transform, -moz-transform, -ms-transform, -o-transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
   transition-property: transform, -webkit-transform, -moz-transform, -ms-transform, -o-transform;
 }
 
