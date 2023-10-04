@@ -536,10 +536,25 @@ if(projectdesktopSlider){
 // start team photo slider
 const elsliderphone = document.querySelector('.project_phone');
 if(elsliderphone) {
+  const itemListParent = document.querySelector('.project_phone__list');
+  const itemList = document.querySelectorAll('.project_phone_item');
+  window.addEventListener('resize', onResizeHandler, false);
+  if (document.documentElement.clientWidth >= 1439) {
+    itemListParent.insertBefore(itemList[0], itemList[3]);
+  } else {
+    itemListParent.insertBefore(itemList[0], itemList[2]);
+  };
+  function onResizeHandler() {
+    if (document.documentElement.clientWidth >= 1439) {
+      itemListParent.insertBefore(itemList[0], itemList[3]);
+    } else {
+      itemListParent.insertBefore(itemList[0], itemList[2]);
+    };
+  }
   var pphoneSlider = new Swiper(".project_phone__swiper", {
     autoplay: false,
     loop: false,
-    slidesPerView: 'auto',
+    slidesPerView: 5,
     spaceBetween: 0,
     initialSlide: 2,
     centerSlides: true,

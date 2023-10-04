@@ -2096,14 +2096,17 @@ html.has-scroll-dragging {
 }
 
 .showreel__inview {
-  height: var(--height);
   max-height: 650px;
+}
+
+.inview {
+  height: var(--height);
   position: relative;
   overflow: hidden;
 }
 
-.showreel__button,
-.showreel__target {
+.inview__flex,
+.inview__target {
   width: 100%;
   position: absolute;
   top: calc(var(--height) - var(--height)*2);
@@ -2111,11 +2114,12 @@ html.has-scroll-dragging {
   right: 0;
 }
 
-.showreel__target {
+.inview__target {
   bottom: calc(var(--height) - var(--height)*2);
 }
 
-.showreel__block video {
+.inview__block video,
+.inview__block img {
   width: 100%;
   height: var(--height);
   object-fit: cover;
@@ -3797,12 +3801,17 @@ html.has-scroll-dragging {
   background-color: var(--text);
 }
 
+.project_banner__inview {
+  max-height: 620px;
+}
+
 .project_banner__image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 620px;
+  height: 100%;
+  max-height: 620px;
   position: relative;
   z-index: 2;
   border-top: 1px solid var(--border);
@@ -3895,9 +3904,9 @@ html.has-scroll-dragging {
 
 .project_phone_block {
   position: absolute;
-  width: 280px;
-  height: 600px;
-  top: 14px;
+  width: calc(100% - 12%);
+  height: calc(100% - 5%);
+  top: 2.5%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -3908,7 +3917,7 @@ html.has-scroll-dragging {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 40px;
+  border-radius: 10px;
 }
 
 /* end project */
