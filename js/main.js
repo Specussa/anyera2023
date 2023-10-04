@@ -1,32 +1,32 @@
 // start right mouse
-document.oncontextmenu = cmenu; function cmenu() { return false; }
-function preventSelection(element){
-  var preventSelection = false;
-  function addHandler(element, event, handler){
-  if (element.attachEvent) element.attachEvent('on' + event, handler);
-  else if (element.addEventListener) element.addEventListener(event, handler, false);  }
-  function removeSelection(){
-  if (window.getSelection) { window.getSelection().removeAllRanges(); }
-  else if (document.selection && document.selection.clear)
-  document.selection.clear();
-  }
+// document.oncontextmenu = cmenu; function cmenu() { return false; }
+// function preventSelection(element){
+//   var preventSelection = false;
+//   function addHandler(element, event, handler){
+//   if (element.attachEvent) element.attachEvent('on' + event, handler);
+//   else if (element.addEventListener) element.addEventListener(event, handler, false);  }
+//   function removeSelection(){
+//   if (window.getSelection) { window.getSelection().removeAllRanges(); }
+//   else if (document.selection && document.selection.clear)
+//   document.selection.clear();
+//   }
 
-  addHandler(element, 'mousemove', function(){ if(preventSelection) removeSelection(); });
-  addHandler(element, 'mousedown', function(event){ var event = event || window.event; var sender = event.target || event.srcElement; preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i) ;});
+//   addHandler(element, 'mousemove', function(){ if(preventSelection) removeSelection(); });
+//   addHandler(element, 'mousedown', function(event){ var event = event || window.event; var sender = event.target || event.srcElement; preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i) ;});
 
-  function killCtrlA(event){
-  var event = event || window.event;
-  var sender = event.target || event.srcElement;
-  if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
-  var key = event.keyCode || event.which;
-  if ((event.ctrlKey && key == 'U'.charCodeAt(0)) || (event.ctrlKey && key == 'A'.charCodeAt(0)) || (event.ctrlKey && key == 'S'.charCodeAt(0)))
-  { removeSelection();
-  if (event.preventDefault) event.preventDefault();
-  else event.returnValue = false;}}
-  addHandler(element, 'keydown', killCtrlA);
-  addHandler(element, 'keyup', killCtrlA);
-}
-preventSelection(document);
+//   function killCtrlA(event){
+//   var event = event || window.event;
+//   var sender = event.target || event.srcElement;
+//   if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
+//   var key = event.keyCode || event.which;
+//   if ((event.ctrlKey && key == 'U'.charCodeAt(0)) || (event.ctrlKey && key == 'A'.charCodeAt(0)) || (event.ctrlKey && key == 'S'.charCodeAt(0)))
+//   { removeSelection();
+//   if (event.preventDefault) event.preventDefault();
+//   else event.returnValue = false;}}
+//   addHandler(element, 'keydown', killCtrlA);
+//   addHandler(element, 'keyup', killCtrlA);
+// }
+// preventSelection(document);
 // end right mouse
 
 // start height
@@ -45,7 +45,7 @@ appHeight();
 // end height
 
 // start scroll
-scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.03,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
+scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.03,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
 const hn_scroll = document.querySelector('.header__nav_scroll');
@@ -513,7 +513,7 @@ if(articlesSlider){
 }
 // end articles
 
-// start hero
+// start project desktop
 const projectdesktopSlider = document.querySelector('.project_desktop__swiper');
 if(projectdesktopSlider){
   var aboutusThumbs = new Swiper('.project_desktop__swiper', {
@@ -531,7 +531,63 @@ if(projectdesktopSlider){
     },
   });
 }
-// end hero
+// end project desktop
+
+// start team photo slider
+const elsliderphoto = document.querySelector('.project_phone');
+if(!elsliderphoto){} else {
+  const itemListParent = document.querySelector('.project_phone__list');
+  const itemList = document.querySelectorAll('.project_phone_item');
+  window.addEventListener('resize', onResizeHandler, false);
+  if (document.documentElement.clientWidth >= 960) {
+    itemListParent.insertBefore(itemList[0], itemList[3]);
+  } else {
+    itemListParent.insertBefore(itemList[0], itemList[2]);
+  };
+  function onResizeHandler() {
+    if (document.documentElement.clientWidth >= 960) {
+      itemListParent.insertBefore(itemList[0], itemList[3]);
+    } else {
+      itemListParent.insertBefore(itemList[0], itemList[2]);
+    };
+  }
+  const sliderSelector = '.project_phone__swiper',
+  options = {
+    grabCursor: true,
+    autoplay: false,
+    init: false,
+    loop: true,
+    centerSlides: true,
+    centeredSlides : true,
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows : false,
+    },
+    grabCursor: true,
+    parallax: true,
+    breakpoints: {
+      959: {
+        slidesPerView: 3,
+        spaceBetween: 0,
+        arrow: false,
+      }
+    },
+    on: {
+      imagesReady: function(){
+        this.el.classList.remove('loading');
+      }
+    }
+  };
+  const mySwiper = new Swiper(sliderSelector, options);
+  mySwiper.init();
+}
+// end team photo slider
 
 // start video
 const preview = document.querySelector('.showreel__button');

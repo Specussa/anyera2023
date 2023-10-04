@@ -220,7 +220,10 @@ button,
 }
 
 section {
+  height: 100%;
+  width: 100vw;
   margin: -1px 0 0;
+  padding: 0 0 1px;
   position: relative;
   opacity: 1;
   pointer-events: all;
@@ -405,6 +408,27 @@ section {
   background-color: var(--purple);
 }
 
+.swiper-wrapper,
+.swiper-container-3d .swiper-cube-shadow,
+.swiper-container-3d .swiper-slide,
+.swiper-container-3d .swiper-slide-shadow-bottom,
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-top,
+.swiper-container-3d .swiper-wrapper {
+  will-change: transform, -webkit-transform, -moz-transform, -ms-transform, -o-transform;
+  transition-property: transform, -webkit-transform, -moz-transform, -ms-transform, -o-transform;
+}
+
+.swiper-container-3d .swiper-cube-shadow,
+.swiper-container-3d .swiper-slide,
+.swiper-container-3d .swiper-slide-shadow-bottom,
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-top {
+  perspective: 1px !important;
+}
+
 /* start buttons */
 
 .text {
@@ -483,8 +507,8 @@ section {
 }
 
 .btn__input .button__text {
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 120%;
   padding: 14.5px 26.5px;
   color: var(--text-gray);
   background: transparent;
@@ -3804,6 +3828,7 @@ html.has-scroll-dragging {
   height: 642px;
   position: relative;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -3814,6 +3839,7 @@ html.has-scroll-dragging {
   top: 125px;
   left: 50%;
   border-radius: 20px 20px 0 0;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -3833,7 +3859,47 @@ html.has-scroll-dragging {
   position: absolute;
   bottom: 40px;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+.project_phone_item {
+  width: 316px;
+  height: 722px;
+}
+
+.project_phone__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.project_phone_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.project_phone_block {
+  position: absolute;
+  width: 280px;
+  height: 600px;
+  top: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.project_phone_block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 40px;
 }
 
 /* end project */
