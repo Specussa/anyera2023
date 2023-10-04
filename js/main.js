@@ -1,3 +1,34 @@
+// start right mouse
+// document.oncontextmenu = cmenu; function cmenu() { return false; }
+// function preventSelection(element){
+//   var preventSelection = false;
+//   function addHandler(element, event, handler){
+//   if (element.attachEvent) element.attachEvent('on' + event, handler);
+//   else if (element.addEventListener) element.addEventListener(event, handler, false);  }
+//   function removeSelection(){
+//   if (window.getSelection) { window.getSelection().removeAllRanges(); }
+//   else if (document.selection && document.selection.clear)
+//   document.selection.clear();
+//   }
+
+//   addHandler(element, 'mousemove', function(){ if(preventSelection) removeSelection(); });
+//   addHandler(element, 'mousedown', function(event){ var event = event || window.event; var sender = event.target || event.srcElement; preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i) ;});
+
+//   function killCtrlA(event){
+//   var event = event || window.event;
+//   var sender = event.target || event.srcElement;
+//   if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
+//   var key = event.keyCode || event.which;
+//   if ((event.ctrlKey && key == 'U'.charCodeAt(0)) || (event.ctrlKey && key == 'A'.charCodeAt(0)) || (event.ctrlKey && key == 'S'.charCodeAt(0)))
+//   { removeSelection();
+//   if (event.preventDefault) event.preventDefault();
+//   else event.returnValue = false;}}
+//   addHandler(element, 'keydown', killCtrlA);
+//   addHandler(element, 'keyup', killCtrlA);
+// }
+// preventSelection(document);
+// end right mouse
+
 // start height
 let oldWidth = window.innerWidth;
 const docheight = document.documentElement
@@ -58,83 +89,95 @@ var a = document.querySelectorAll('a');
 var button = document.querySelectorAll('button');
 var label = document.querySelectorAll('label');
 var cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
+var swipergrab = document.querySelectorAll('.swiper-container');
 var buttonnext = document.querySelectorAll('.swiper-button-next');
 var buttonprev = document.querySelectorAll('.swiper-button-prev');
 
-document.addEventListener('mousemove', function(e){
-  var cursorx = e.clientX;
-  var cursory = e.clientY;
-  cursor.style.setProperty('--x', `${cursorx}px`);
-  cursor.style.setProperty('--y', `${cursory}px`);
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('mousemove', function(e){
+    var cursorx = e.clientX;
+    var cursory = e.clientY;
+    cursor.style.setProperty('--x', `${cursorx}px`);
+    cursor.style.setProperty('--y', `${cursory}px`);
 
-  if (cursorx > (document.body.clientWidth - 3) || cursory > (document.body.offsetHeight - 3) || cursorx < 3 || cursory < 3) {
-    cursor.classList.add('leave')
-  } else {
-    cursor.classList.remove('leave')
-  }
+    if (cursorx > (document.body.clientWidth - 3) || cursory > (document.body.offsetHeight - 3) || cursorx < 3 || cursory < 3) {
+      cursor.classList.add('leave')
+    } else {
+      cursor.classList.remove('leave')
+    }
+  });
+
+  document.addEventListener('mousedown', function(){
+    cursor.classList.add('active')
+  });
+
+  document.addEventListener('mouseup', function(){
+    cursor.classList.remove('active')
+  });
+
+  a.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  button.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  label.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  cursorgrab.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  swipergrab.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  buttonnext.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  buttonprev.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
 });
-
-document.addEventListener('mousedown', function(){
-  cursor.classList.add('active')
-});
-
-document.addEventListener('mouseup', function(){
-  cursor.classList.remove('active')
-});
-
-a.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
-
-button.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
-
-label.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
-
-cursorgrab.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
-
-buttonnext.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
-
-buttonprev.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    cursor.classList.add('hover');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hover');
-  });
-})
 // end cursor
 
 // start year
@@ -469,6 +512,26 @@ if(articlesSlider){
   });
 }
 // end articles
+
+// start hero
+const projectdesktopSlider = document.querySelector('.project_desktop__swiper');
+if(projectdesktopSlider){
+  var aboutusThumbs = new Swiper('.project_desktop__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    loopedSlides: 1,
+    spaceBetween: 0,
+    speed: 1500,
+    slideToClickedSlide: true,
+    allowTouchMove: true,
+    cssMode: true,
+    pagination: {
+      el: '.project_desktop__pagination',
+      clickable: true,
+    },
+  });
+}
+// end hero
 
 // start video
 const preview = document.querySelector('.showreel__button');
