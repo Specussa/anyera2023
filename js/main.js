@@ -544,6 +544,9 @@ if(elsliderphone) {
     initialSlide: 2,
     centerSlides: true,
     centeredSlides : true,
+    slideToClickedSlide: true,
+    allowTouchMove: true,
+    speed: 1000,
     effect: 'coverflow',
     coverflowEffect: {
       rotate: 10,
