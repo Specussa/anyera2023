@@ -84,28 +84,29 @@ scroll.on('scroll', (args) => {
 // end scroll
 
 // start cursor
-var cursor = document.querySelector('.cursor');
-var a = document.querySelectorAll('a');
-var button = document.querySelectorAll('button');
-var label = document.querySelectorAll('label');
-var cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
-var swipergrab = document.querySelectorAll('.swiper-container');
-var buttonnext = document.querySelectorAll('.swiper-button-next');
-var buttonprev = document.querySelectorAll('.swiper-button-prev');
-
 document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener('mousemove', function(e){
-    var cursorx = e.clientX;
-    var cursory = e.clientY;
-    cursor.style.setProperty('--x', `${cursorx}px`);
-    cursor.style.setProperty('--y', `${cursory}px`);
+  const cursor = document.querySelector(".cursor");
+  const cursorBlock = cursor.querySelector(".cursor__block");
+  const a = document.querySelectorAll('a');
+  const button = document.querySelectorAll('button');
+  const label = document.querySelectorAll('label');
+  const cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
+  const swipergrab = document.querySelectorAll('.swiper-container');
+  const buttonnext = document.querySelectorAll('.swiper-button-next');
+  const buttonprev = document.querySelectorAll('.swiper-button-prev');
+  const sliders = document.querySelectorAll(".swiper-wrapper");
 
-    if (cursorx > (document.body.clientWidth - 3) || cursory > (document.body.offsetHeight - 3) || cursorx < 3 || cursory < 3) {
-      cursor.classList.add('leave')
-    } else {
-      cursor.classList.remove('leave')
-    }
-  });
+  function moveCursor(event) {
+    cursor.style.transform = `translate3d(calc(${event.clientX}px - 50vw), calc(${event.clientY}px - 50vh), 0)`;
+  }
+
+  document.onmousemove = (event) => {
+    moveCursor(event);
+  };
+
+  document.onpointermove = (event) => {
+    moveCursor(event);
+  };
 
   document.addEventListener('mousedown', function(){
     cursor.classList.add('active')
@@ -114,6 +115,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('mouseup', function(){
     cursor.classList.remove('active')
   });
+
+  sliders.forEach(item => {
+    item.onmouseenter = () => {
+      cursorBlock.classList.add("show");
+    };
+    item.onmouseleave = () => {
+      cursorBlock.classList.remove("show");
+    };
+    item.onpointerdown = () => {
+      cursorBlock.classList.add("active");
+    }
+    item.onpointerup = () => {
+      cursorBlock.classList.remove("active");
+    };
+  })
 
   a.forEach(item => {
     item.addEventListener('mouseover', () => {
@@ -488,14 +504,17 @@ for (i = 0; i < acc.length; i++) {
 // start articles
 const articlesSlider = document.querySelector('.articles__swiper');
 if(articlesSlider){
-  var aboutusThumbs = new Swiper('.articles__swiper', {
-    loop: true,
+  var aboutusSlider = new Swiper('.articles__swiper', {
+    loop: false,
+    freeMode: true,
+    watchSlidesProgress: true,
     slidesPerView: 4,
     loopedSlides: 4,
     spaceBetween: 40,
-    speed: 1000,
-    slideToClickedSlide: false,
-    allowTouchMove: true,
+    speed: 1500,
+    autoplay: {
+      delay: 0,
+    },
     navigation: {
       nextEl: '.articles__next',
       prevEl: '.articles__prev',
@@ -522,9 +541,9 @@ if(projectdesktopSlider){
     loopedSlides: 1,
     spaceBetween: 0,
     speed: 1500,
-    slideToClickedSlide: true,
-    allowTouchMove: true,
-    cssMode: true,
+    autoplay: {
+      delay: 0,
+    },
     pagination: {
       el: '.project_desktop__pagination',
       clickable: true,
@@ -563,6 +582,9 @@ if(elsliderphone) {
     allowTouchMove: true,
     speed: 1000,
     effect: 'coverflow',
+    autoplay: {
+      delay: 0,
+    },
     coverflowEffect: {
       rotate: 10,
       stretch: 0,
