@@ -270,17 +270,31 @@ section {
 /* start cursor */
 
 .cursor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 1px;
   height: 1px;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: var(--y);
-  left: var(--x);
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
   z-index: 300;
   mix-blend-mode: difference;
-  -webkit-transition: width .1s linear, height .1s linear;
-  transition: width .1s linear, height .1s linear;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: width .1s linear, height .1s linear, mix-blend-mode .1s linear;
+  transition: width .1s linear, height .1s linear, mix-blend-mode .1s linear;
   pointer-events: none;
   touch-action: none;
+}
+
+.cursor.cursor__slider,
+.cursor.cursor__showreel {
+  mix-blend-mode: normal;
 }
 
 .cursor::before {
@@ -296,6 +310,11 @@ section {
   transform: translate(-50%, -50%);
   -webkit-transition: width 0.1s linear, height 0.1s linear, background-color 0.1s linear;
   transition: width 0.1s linear, height 0.1s linear, background-color 0.1s linear;
+}
+
+.cursor.cursor__slider::before,
+.cursor.cursor__showreel::before {
+  background-color: var(--text);
 }
 
 .dark .cursor::before {
@@ -316,6 +335,14 @@ section {
   height: 50px;
   -webkit-transition: width 1s linear, height 1s linear, background-color 0.1s linear;
   transition: width 1s linear, height 1s linear, background-color 0.1s linear;
+}
+
+.cursor.cursor__slider.active::before,
+.cursor.cursor__showreel.hover.active::before,
+.cursor.cursor__showreel.active::before,
+.cursor.cursor__slider.hover.active::before {
+  width: 100px;
+  height: 100px;
 }
 
 .hover.cursor::before {
@@ -339,34 +366,32 @@ section {
 
 
 
-.cursor {
-  position: fixed;
-  left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  z-index: 5;
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  touch-action: none;
-}
 
 .cursor__block {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  width: 6.25rem;
-  height: 6.25rem;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--bg);
   opacity: 0;
-  transition: height 300ms ease, width 300ms ease, opacity 300ms ease;
+  -webkit-transition: height .3s ease, width .3s ease, opacity .3s ease .3s, background-color .15s ease;
+  transition: height .3s ease, width .3s ease, opacity .3s ease .3s, background-color .15s ease;
+}
+
+.cursor.cursor__slider .cursor__block,
+.cursor.cursor__showreel .cursor__block {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  background-color: var(--text);
+  -webkit-transition: height .3s ease, width .3s ease, opacity .3s ease, background-color .15s ease;
+  transition: height .3s ease, width .3s ease, opacity .3s ease, background-color .15s ease;
 }
 
 .cursor__wrapper {
@@ -374,31 +399,40 @@ section {
   height: 1rem;
 }
 
-.cursor__text {
-  transition: transform 300ms ease;
-  font-family: Oswald, sans-serif;
-  font-size: 1rem;
-  line-height: 1;
-  font-weight: 400;
+.cursor__text_slider p,
+.cursor__text_showreel p {
+  display: none;
+}
+
+.cursor.cursor__slider .cursor__text_slider p,
+.cursor.cursor__showreel .cursor__text_showreel p {
+  display: block;
+}
+
+.cursor__text p {
+  color: var(--bg);
+  -webkit-transition: transform .3s ease;
+  transition: transform .3s ease;
 }
 
 .cursor__left,
 .cursor__right {
   position: absolute;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: #fff;
   opacity: 0;
-  transition: opacity 300ms ease;
+  background-color: var(--text);
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
 }
 
 .cursor__left {
-  left: -1rem;
+  left: -15px;
 }
 
 .cursor__right {
-  right: -1rem;
+  right: -15px;
 }
 
 .cursor__block.active .cursor__left,
@@ -406,13 +440,9 @@ section {
   opacity: 1;
 }
 
-.cursor__block.show {
-  opacity: 1;
-}
-
-.cursor__block.active {
-  width: 4rem;
-  height: 4rem;
+.cursor .cursor__block.active {
+  width: 50px;
+  height: 50px;
 }
 
 .cursor__block.active .cursor__text {
