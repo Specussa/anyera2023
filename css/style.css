@@ -485,6 +485,10 @@ section {
 
 /* start swiper */
 
+.swiper {
+  width: 100%;
+}
+
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: none;
 }
@@ -2044,7 +2048,7 @@ html.has-scroll-dragging {
   padding: 10px 20px;
   color: var(--bg);
   border-bottom: 1px solid var(--gray-border);
-  background: var(--purple);
+  background-color: var(--purple);
   cursor: none;
 }
 
@@ -2054,12 +2058,12 @@ html.has-scroll-dragging {
 
 .dark .header__select_list_item:hover {
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
 }
 
 .header__select_list_item:hover {
   color: var(--bg);
-  background: var(--text);
+  background-color: var(--text);
 }
 
 .header__select_input {
@@ -3534,7 +3538,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0 80px 80px;
+  padding: 0 140px 80px;
 }
 
 .projects__all_flex {
@@ -3836,6 +3840,95 @@ html.has-scroll-dragging {
   color: var(--bg);
 }
 
+.projects__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.projects__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.projects__prev,
+.projects__next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 36px;
+  height: 35px;
+  margin-top: 0;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  bottom: auto;
+  color: var(--bg);
+  border: none;
+  background: var(--border);
+  background-color: var(--border);
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  cursor: none;
+}
+
+.projects__prev {
+  left: 0;
+  right: 0;
+}
+
+.projects__next {
+  left: 0;
+  right: 0;
+}
+
+.projects__prev svg,
+.projects__next svg {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.projects__buttons .btn__side_default svg {
+  color: var(--text);
+}
+
+.projects__buttons .btn__side_hover {
+  background-color: var(--text);
+  -webkit-transform: translateY(-35px);
+  transform: translateY(-35px);
+}
+
+.projects__buttons .btn__side_hover svg {
+  color: var(--bg);
+}
+
+.projects__buttons .btn__side_default {
+  background-color: var(--bg);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.projects__buttons .btn__side {
+  border: 1px solid var(--border);
+  -webkit-transition: -webkit-transform 0.2s linear, border 0.1s linear;
+  transition: transform 0.2s linear, border 0.1s linear;
+}
+
+.projects__buttons .btn__side:hover {
+  border: 1px solid var(--text);
+  -webkit-transition: -webkit-transform 0.2s linear, border 0.1s linear 0.2s;
+  transition: transform 0.2s linear, border 0.1s linear 0.2s;
+}
+
 /* end projects */
 
 /* start project */
@@ -4002,14 +4095,12 @@ html.has-scroll-dragging {
   object-position: top right;
 }
 
-.project_desktop__container {
-  padding: 0 60px;
-}
-
 .project_desktop__slider {
   padding: 80px 80px 140px;
+  margin: 0 1px;
   position: relative;
-  border: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   background-color: var(--bg);
   overflow: hidden;
 }
@@ -4062,7 +4153,6 @@ html.has-scroll-dragging {
 
 .project_phone_flex {
   padding: 80px;
-  margin: 0 80px;
   overflow: hidden;
 }
 
@@ -4102,6 +4192,10 @@ html.has-scroll-dragging {
   object-fit: cover;
   object-position: top center;
   border-radius: 10px;
+}
+
+.projects__wrapper .projects__item {
+  padding: 0 !important;
 }
 
 /* end project */
@@ -4217,6 +4311,7 @@ html.has-scroll-dragging {
   margin-top: 0;
   align-items: center;
   justify-content: center;
+  position: absolute;
   top: 290px;
   bottom: auto;
   color: var(--bg);
@@ -4454,7 +4549,7 @@ html.has-scroll-dragging {
     padding: 0 0 0 30px;
   }
   .projects__flex {
-    padding: 0 60px 60px;
+    padding: 0 120px 60px;
   }
   .projects__all_block {
     padding: 140px 0 60px;
@@ -4471,8 +4566,7 @@ html.has-scroll-dragging {
     padding: 20px 30px;
   }
   .project_phone_flex {
-    padding: 60px 0;
-    margin: 0 60px;
+    padding: 60px;
   }
   .project__info {
     padding: 60px 0;
@@ -4724,7 +4818,7 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .projects__flex {
-    padding: 0 30px 40px;
+    padding: 0 50px 40px;
     flex-direction: column;
     gap: 40px;
   }
@@ -4763,8 +4857,7 @@ html.has-scroll-dragging {
     padding: 20px;
   }
   .project_phone_flex {
-    padding: 40px 0;
-    margin: 0 40px;
+    padding: 40px;
   }
   .project__info {
     padding: 40px 0;
@@ -4796,13 +4889,6 @@ html.has-scroll-dragging {
   }
   .project_top__image {
     height: calc(var(--height) - 220px);
-  }
-  .project_desktop__container {
-    padding: 0;
-  }
-  .project_desktop__slider {
-    border-left: none;
-    border-right: none;
   }
   .articles__image {
     height: 160px;
@@ -4905,7 +4991,9 @@ html.has-scroll-dragging {
   .articles__next,
   .swiper-pagination-clickable .swiper-pagination-bullet,
   .swiper-button-next.swiper-button-disabled,
-  .swiper-button-prev.swiper-button-disabled {
+  .swiper-button-prev.swiper-button-disabled,
+  .projects__prev,
+  .projects__next {
     cursor: pointer;
   }
   h1 {
@@ -5069,12 +5157,6 @@ html.has-scroll-dragging {
   .projects__filter_list {
     gap: 10px;
   }
-  .project_desktop__container {
-    padding: 0;
-  }
-  .project_phone_flex {
-    margin: 0 20px;
-  }
   .project__info {
     flex-direction: column;
     gap: 40px;
@@ -5115,6 +5197,9 @@ html.has-scroll-dragging {
   .project_top__image img {
     object-fit: cover;
     object-position: top left;
+  }
+  .project_phone_flex {
+    padding: 20px;
   }
   .articles__top {
     padding: 0 20px 20px;
