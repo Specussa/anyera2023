@@ -568,19 +568,19 @@ if(projectdesktopSlider){
 }
 // end project desktop
 
-// start team photo slider
+// start project phone slider
 const elsliderphone = document.querySelector('.project_phone');
 if(elsliderphone) {
   const itemListParent = document.querySelector('.project_phone__list');
   const itemList = document.querySelectorAll('.project_phone_item');
   window.addEventListener('resize', onResizeHandler, false);
-  if (document.documentElement.clientWidth >= 1439) {
+  if (document.documentElement.clientWidth >= 1023) {
     itemListParent.insertBefore(itemList[0], itemList[3]);
   } else {
     itemListParent.insertBefore(itemList[0], itemList[2]);
   };
   function onResizeHandler() {
-    if (document.documentElement.clientWidth >= 1439) {
+    if (document.documentElement.clientWidth >= 1023) {
       itemListParent.insertBefore(itemList[0], itemList[3]);
     } else {
       itemListParent.insertBefore(itemList[0], itemList[2]);
@@ -588,7 +588,7 @@ if(elsliderphone) {
   }
   var pphoneSlider = new Swiper(".project_phone__swiper", {
     loop: false,
-    slidesPerView: 5,
+    slidesPerView: 1.5,
     spaceBetween: 0,
     initialSlide: 2,
     centerSlides: true,
@@ -603,9 +603,20 @@ if(elsliderphone) {
       modifier: 1,
       slideShadows : true,
     },
+    breakpoints: {
+      1440: {
+        slidesPerView: 5,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      390: {
+        slidesPerView: 2,
+      },
+    },
   });
 }
-// end team photo slider
+// end project phone slider
 
 // start video
 const preview = document.querySelector('.showreel__button');
