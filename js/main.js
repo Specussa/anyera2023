@@ -45,7 +45,7 @@ appHeight();
 // end height
 
 // start scroll
-scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.03,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
+scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.05,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
 const hn_scroll = document.querySelector('.header__nav_scroll');
@@ -531,7 +531,7 @@ if(articlesSlider){
     slidesPerView: 4,
     loopedSlides: 4,
     spaceBetween: 40,
-    speed: 1500,
+    speed: 1000,
     navigation: {
       nextEl: '.articles__next',
       prevEl: '.articles__prev',
@@ -587,7 +587,6 @@ if(elsliderphone) {
     };
   }
   var pphoneSlider = new Swiper(".project_phone__swiper", {
-    autoplay: false,
     loop: false,
     slidesPerView: 5,
     spaceBetween: 0,
