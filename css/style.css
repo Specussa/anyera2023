@@ -4021,6 +4021,12 @@ html.has-scroll-dragging {
   transform: translateX(-50%);
 }
 
+.project_phone_flex {
+  padding: 80px;
+  margin: 0 80px;
+  overflow: hidden;
+}
+
 .project_phone_item {
   display: -webkit-box;
   display: -ms-flexbox;

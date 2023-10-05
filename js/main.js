@@ -596,9 +596,6 @@ if(elsliderphone) {
     centeredSlides : true,
     slideToClickedSlide: true,
     allowTouchMove: true,
-    freeMode: true,
-    watchSlidesProgress: true,
-    speed: 1000,
     effect: 'coverflow',
     coverflowEffect: {
       rotate: 10,
