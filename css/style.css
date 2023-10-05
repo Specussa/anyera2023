@@ -286,8 +286,8 @@ section {
   mix-blend-mode: difference;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: width .1s linear, height .1s linear, mix-blend-mode .1s linear;
-  transition: width .1s linear, height .1s linear, mix-blend-mode .1s linear;
+  -webkit-transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
+  transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
   pointer-events: none;
   touch-action: none;
 }
@@ -308,8 +308,8 @@ section {
   background-color: var(--bg);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: width 0.1s linear, height 0.1s linear, background-color 0.1s linear;
-  transition: width 0.1s linear, height 0.1s linear, background-color 0.1s linear;
+  -webkit-transition: width .2s linear, height .2s linear, background-color .2s linear;
+  transition: width .2s linear, height .2s linear, background-color .2s linear;
 }
 
 .cursor.cursor__slider::before,
@@ -333,14 +333,14 @@ section {
 .hover.active.cursor::before {
   width: 50px;
   height: 50px;
-  -webkit-transition: width 1s linear, height 1s linear, background-color 0.1s linear;
-  transition: width 1s linear, height 1s linear, background-color 0.1s linear;
+  -webkit-transition: width 1s linear, height 1s linear, background-color .2s linear;
+  transition: width 1s linear, height 1s linear, background-color .2s linear;
 }
 
-.cursor.cursor__slider.active::before,
-.cursor.cursor__showreel.hover.active::before,
-.cursor.cursor__showreel.active::before,
-.cursor.cursor__slider.hover.active::before {
+.cursor__slider.active.cursor::before,
+.cursor__showreel.hover.active.cursor::before,
+.cursor__showreel.active.cursor::before,
+.cursor__slider.hover.active.cursor::before {
   width: 100px;
   height: 100px;
 }
@@ -353,19 +353,9 @@ section {
 .leave.cursor::before {
   width: 0px;
   height: 0px;
-  -webkit-transition: width 0.3s linear, height 0.3s linear, background-color 0.1s linear;
-  transition: width 0.3s linear, height 0.3s linear, background-color 0.1s linear;
+  -webkit-transition: width .2s linear, height .2s linear, background-color .2s linear;
+  transition: width .2s linear, height .2s linear, background-color .2s linear;
 }
-
-
-
-
-
-
-
-
-
-
 
 .cursor__block {
   position: relative;
@@ -380,8 +370,8 @@ section {
   border-radius: 50%;
   background-color: var(--bg);
   opacity: 0;
-  -webkit-transition: height .3s ease, width .3s ease, opacity .3s ease .3s, background-color .15s ease;
-  transition: height .3s ease, width .3s ease, opacity .3s ease .3s, background-color .15s ease;
+  -webkit-transition: height .2s ease, width .2s ease, opacity .2s ease .2s, background-color .2s ease;
+  transition: height .2s ease, width .2s ease, opacity .2s ease .2s, background-color .2s ease;
 }
 
 .cursor.cursor__slider .cursor__block,
@@ -390,8 +380,8 @@ section {
   height: 100px;
   opacity: 1;
   background-color: var(--text);
-  -webkit-transition: height .3s ease, width .3s ease, opacity .3s ease, background-color .15s ease;
-  transition: height .3s ease, width .3s ease, opacity .3s ease, background-color .15s ease;
+  -webkit-transition: height .2s ease, width .2s ease, opacity .2s ease, background-color .2s ease;
+  transition: height .2s ease, width .2s ease, opacity .2s ease, background-color .2s ease;
 }
 
 .cursor__wrapper {
@@ -411,8 +401,8 @@ section {
 
 .cursor__text p {
   color: var(--bg);
-  -webkit-transition: transform .3s ease;
-  transition: transform .3s ease;
+  -webkit-transition: transform .2s ease;
+  transition: transform .2s ease;
 }
 
 .cursor__left,
@@ -423,8 +413,8 @@ section {
   border-radius: 50%;
   opacity: 0;
   background-color: var(--text);
-  -webkit-transition: opacity .3s ease;
-  transition: opacity .3s ease;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
 }
 
 .cursor__left {
@@ -3792,12 +3782,12 @@ html.has-scroll-dragging {
   left: 5px;
 }
 
-.projects__item:hover .btn__side_default {
+.projects__link:hover .btn__side_default {
   -webkit-transform: translateY(-35px);
   transform: translateY(-35px);
 }
 
-.projects__item:hover .btn__side_hover {
+.projects__link:hover .btn__side_hover {
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
 }
