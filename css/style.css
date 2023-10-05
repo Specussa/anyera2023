@@ -3929,6 +3929,20 @@ html.has-scroll-dragging {
   transition: transform 0.2s linear, border 0.1s linear 0.2s;
 }
 
+.projects__swiper_container {
+  padding: 0 40px;
+  z-index: 1;
+}
+
+.projects__swiper_container .projects__flex {
+  padding: 0 160px 80px;
+}
+
+.projects__swiper .projects__item:nth-child(1n),
+.projects__swiper .projects__item:nth-child(2n) {
+  padding: 0 40px;
+}
+
 /* end projects */
 
 /* start project */
@@ -4192,10 +4206,6 @@ html.has-scroll-dragging {
   object-fit: cover;
   object-position: top center;
   border-radius: 10px;
-}
-
-.projects__wrapper .projects__item {
-  padding: 0 !important;
 }
 
 /* end project */
@@ -4548,8 +4558,15 @@ html.has-scroll-dragging {
   .projects__item:nth-child(2n) {
     padding: 0 0 0 30px;
   }
+  .projects__swiper .projects__item:nth-child(1n),
+  .projects__swiper .projects__item:nth-child(2n) {
+    padding: 0 30px;
+  }
   .projects__flex {
     padding: 0 120px 60px;
+  }
+  .projects__swiper_container .projects__flex {
+    padding: 0 140px 60px;
   }
   .projects__all_block {
     padding: 140px 0 60px;
@@ -4744,6 +4761,13 @@ html.has-scroll-dragging {
   .articles__container {
     padding: 0 10px;
   }
+  .projects__swiper_container {
+    padding: 0;
+  }
+  .projects__swiper .projects__item:nth-child(1n),
+  .projects__swiper .projects__item:nth-child(2n) {
+    padding: 0 10px;
+  }
   .digital__container {
     height: 100%;
     max-height: 100%;
@@ -4822,6 +4846,14 @@ html.has-scroll-dragging {
     flex-direction: column;
     gap: 40px;
   }
+  .projects__swiper_container .projects__flex {
+    padding: 0 70px 40px;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .projects__buttons {
+    justify-content: space-between;
+  }
   .projects__right {
     width: 100%;
     justify-content: space-between;
@@ -4831,12 +4863,6 @@ html.has-scroll-dragging {
   }
   .projects__link {
     gap: 10px;
-  }
-  .projects__item:nth-child(1n) {
-    padding: 0 30px 0 0;
-  }
-  .projects__item:nth-child(2n) {
-    padding: 0 0 0 30px;
   }
   .projects__all_block {
     padding: 60px 0 30px;
@@ -5134,9 +5160,20 @@ html.has-scroll-dragging {
   .projects__item:nth-child(2n) {
     padding: 0;
   }
+  .projects__swiper .projects__item:nth-child(1n),
+  .projects__swiper .projects__item:nth-child(2n) {
+    padding: 0 20px;
+  }
   .projects__flex {
     padding: 0 20px 20px;
     gap: 20px;
+  }
+  .projects__swiper_container .projects__flex {
+    padding: 0 40px 20px;
+    gap: 20px;
+  }
+  .projects__head {
+    width: 100%;
   }
   .projects__right {
     flex-direction: column;
@@ -5144,6 +5181,9 @@ html.has-scroll-dragging {
   }
   .projects__button {
     margin: 0 0 0 auto;
+  }
+  .projects__buttons .projects__button {
+    margin: 0;
   }
   .projects__list {
     padding: 0 20px;
@@ -5169,11 +5209,11 @@ html.has-scroll-dragging {
     padding: 40px 20px 70px;
   }
   .project_desktop__img {
-    max-width: 540px;
+    max-width: 500px;
   }
   .project_desktop__swiper {
-    max-width: 420px;
-    max-height: 270px;
+    max-width: 384px;
+    max-height: 250px;
     top: 60px;
     border-radius: 10px 10px 0 0;
   }

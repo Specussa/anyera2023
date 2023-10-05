@@ -633,12 +633,17 @@ if(projectsSlider){
     slideToClickedSlide: false,
     allowTouchMove: true,
     watchSlidesProgress: true,
-    slidesPerView: 2,
+    slidesPerView: 1,
     loopedSlides: 2,
-    spaceBetween: 80,
+    spaceBetween: 0,
     navigation: {
       nextEl: '.projects__next',
       prevEl: '.projects__prev',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 2,
+      },
     },
   });
 }
