@@ -3943,6 +3943,10 @@ html.has-scroll-dragging {
   padding: 0 40px;
 }
 
+.projects__border {
+  border-top: 1px solid var(--border);
+}
+
 /* end projects */
 
 /* start project */
@@ -4111,7 +4115,7 @@ html.has-scroll-dragging {
 
 .project_desktop__slider {
   padding: 80px 80px 140px;
-  margin: 0 1px;
+  margin: 0 2px;
   position: relative;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
