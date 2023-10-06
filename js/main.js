@@ -587,19 +587,19 @@ if(projectdesktopSlider){
 // start project phone slider
 const elsliderphone = document.querySelector('.project_phone');
 if(elsliderphone) {
-  const itemListParent = document.querySelector('.project_phone__list');
-  const itemList = document.querySelectorAll('.project_phone_item');
+  const ppParent = document.querySelector('.project_phone__list');
+  const ppitem = document.querySelectorAll('.project_phone_item');
   window.addEventListener('resize', onResizeHandler, false);
   if (document.documentElement.clientWidth >= 1023) {
-    itemListParent.insertBefore(itemList[0], itemList[3]);
+    ppParent.insertBefore(ppitem[0], ppitem[3]);
   } else {
-    itemListParent.insertBefore(itemList[0], itemList[2]);
+    ppParent.insertBefore(ppitem[0], ppitem[2]);
   };
   function onResizeHandler() {
     if (document.documentElement.clientWidth >= 1023) {
-      itemListParent.insertBefore(itemList[0], itemList[3]);
+      ppParent.insertBefore(ppitem[0], ppitem[3]);
     } else {
-      itemListParent.insertBefore(itemList[0], itemList[2]);
+      ppParent.insertBefore(ppitem[0], ppitem[2]);
     };
   }
   var pphoneSlider = new Swiper(".project_phone__swiper", {
@@ -657,6 +657,43 @@ if(projectsSlider){
   });
 }
 // end project desktop
+
+// start team
+const teamswiperSlider = document.querySelector('.team_slider__swiper');
+if(teamswiperSlider){
+  const tsParent = document.querySelector('.team_slider__list');
+  const tsitem = document.querySelectorAll('.team_slider__item');
+  window.addEventListener('resize', onResizeHandler, false);
+  if (document.documentElement.clientWidth >= 1023) {
+    tsParent.insertBefore(tsitem[0], tsitem[3]);
+  } else {
+    tsParent.insertBefore(tsitem[0], tsitem[2]);
+  };
+  var teamSlider = new Swiper(".team_slider__swiper", {
+    loop: true,
+    slidesPerView: 4,
+    loopedSlides: 4,
+    initialSlide: 2,
+    spaceBetween: 40,
+    loopPreventsSliding: true,
+    effect: "coverflow",
+    centeredSlides: true,
+    slideToClickedSlide: false,
+    allowTouchMove: true,
+    watchSlidesProgress: true,
+    coverflowEffect: {
+      rotate: 20,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
+// end team
 
 // start video
 const preview = document.querySelector('.showreel__button');
