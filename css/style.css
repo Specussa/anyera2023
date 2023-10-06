@@ -512,8 +512,8 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -609,6 +609,11 @@ section {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0;
 }
 
 /* end swiper */
@@ -4695,6 +4700,14 @@ html.has-scroll-dragging {
   .articles__next {
     top: 210px;
   }
+  .swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+  }
+  .swiper-pagination-bullet::after {
+    width: 9px;
+    height: 9px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -4976,6 +4989,14 @@ html.has-scroll-dragging {
     height: calc(100% - 80px);
     padding: 20px;
     gap: 0;
+  }
+  .swiper-pagination-bullet {
+    width: 18px;
+    height: 18px;
+  }
+  .swiper-pagination-bullet::after {
+    width: 8px;
+    height: 8px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -5494,6 +5515,13 @@ html.has-scroll-dragging {
   .projects__navigation .btn__side_hover {
     -webkit-transform: translateY(-40px);
     transform: translateY(-40px);
+  }
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    position: absolute;
+    bottom: 30px;
   }
   .footer__social {
     width: 100%;
