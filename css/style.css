@@ -284,8 +284,8 @@ section {
   bottom: 0%;
   z-index: 300;
   mix-blend-mode: difference;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(-100px, -100px, 0);
+  transform: translate3d(-100px, -100px, 0);
   -webkit-transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
   transition: width .2s linear, height .2s linear, mix-blend-mode .1s linear;
   pointer-events: none;
@@ -3455,12 +3455,19 @@ html.has-scroll-dragging {
 .expertise__panel span,
 .expertise__desc,
 .projects__desc,
-.project__desc {
+.project__desc,
+.team__top_desc,
+.team__bottom_desc {
   max-width: 430px;
   padding: 0 0 0 30px;
   position: relative;
 }
 
+.team__top_desc::before,
+.team__bottom_desc::before,
+.project__desc::before,
+.expertise__desc::before,
+.projects__desc::before,
 .expertise__panel p::before {
   content: "";
   display: inline-block;
@@ -3497,17 +3504,6 @@ html.has-scroll-dragging {
 
 .expertise__head {
   padding: 0 0 0 30px;
-}
-
-.expertise__desc::before {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--text);
 }
 
 .expertise__border {
@@ -3755,17 +3751,6 @@ html.has-scroll-dragging {
   width: 50%;
   justify-content: space-between;
   gap: 40px;
-}
-
-.projects__desc::before {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--text);
 }
 
 .projects__list {
@@ -4134,17 +4119,6 @@ html.has-scroll-dragging {
 
 .project__desc {
   max-width: 100%;
-}
-
-.project__desc::before {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--text);
 }
 
 .project_banner__inview {
@@ -4529,6 +4503,81 @@ html.has-scroll-dragging {
 }
 
 /* end breadcrumbs */
+
+/* start team */
+
+.team__top_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 160px 80px 80px;
+  margin: 0 2px;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--bg);
+}
+
+.team__bottom_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 80px;
+  margin: 0 2px;
+  gap: 40px;
+  background-color: var(--bg);
+}
+
+.team__bottom_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(50% - 20px);
+  flex-direction: column;
+  gap: 40px;
+}
+
+.team__bottom_counters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(50% - 20px);
+  flex-direction: column;
+  gap: 80px;
+}
+
+.team__bottom_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 160px;
+}
+
+.team__bottom_left,
+.team__bottom_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.team__bottom_heading {
+  font-family: var(--title-font);
+  font-size: 160px;
+  font-weight: 700;
+  line-height: 160px;
+  color: var(--text);
+}
+
+.team__bottom_count {
+  font-family: var(--title-font);
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 78px;
+  color: var(--text);
+}
+
+/* end team */
 
 /* start 1440px */
 @media (max-width: 1919px) {
@@ -5362,7 +5411,9 @@ html.has-scroll-dragging {
   .expertise__panel span,
   .expertise__desc,
   .projects__desc,
-  .project__desc {
+  .project__desc,
+  .team__top_desc,
+  .team__bottom_desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {

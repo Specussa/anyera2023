@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('mousemove', function(e){
     let ctx = e.clientX;
     let cty = e.clientY;
-    if (ctx > (document.body.offsetWidth - 10) || cty > (document.body.offsetHeight - 10) || ctx < 10 || cty < 10) {
+    if (ctx > (document.body.offsetWidth - 5) || cty > (document.body.offsetHeight - 5) || ctx < 5 || cty < 5) {
       cursor.classList.add('leave')
     } else {
       cursor.classList.remove('leave')
