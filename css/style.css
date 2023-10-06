@@ -570,7 +570,7 @@ section {
 .swiper-container-3d .swiper-slide-shadow-right,
 .swiper-container-3d .swiper-slide-shadow-top,
 .swiper-3d .swiper-cube-shadow, .swiper-3d .swiper-slide {
-  perspective: 1111111111px !important;
+  perspective: 111px !important;
 }
 
 .swiper-button-next.swiper-button-disabled,
