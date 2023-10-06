@@ -4617,12 +4617,16 @@ html.has-scroll-dragging {
 
 .team_slider_flex {
   padding: 80px;
+  margin: 0 2px;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .team_clients__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0 80px 80px;
   flex-wrap: wrap;
   gap: 40px;
 }
