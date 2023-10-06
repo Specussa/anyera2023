@@ -661,20 +661,11 @@ if(projectsSlider){
 // start team
 const teamswiperSlider = document.querySelector('.team_slider__swiper');
 if(teamswiperSlider){
-  const tsParent = document.querySelector('.team_slider__list');
-  const tsitem = document.querySelectorAll('.team_slider__item');
-  window.addEventListener('resize', onResizeHandler, false);
-  if (document.documentElement.clientWidth >= 1023) {
-    tsParent.insertBefore(tsitem[0], tsitem[3]);
-  } else {
-    tsParent.insertBefore(tsitem[0], tsitem[2]);
-  };
   var teamSlider = new Swiper(".team_slider__swiper", {
     loop: true,
     slidesPerView: 4,
     loopedSlides: 4,
-    initialSlide: 2,
-    spaceBetween: 40,
+    spaceBetween: 0,
     loopPreventsSliding: true,
     effect: "coverflow",
     centeredSlides: true,
