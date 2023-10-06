@@ -671,7 +671,6 @@ if(teamswiperSlider){
     centeredSlides: true,
     slideToClickedSlide: false,
     allowTouchMove: true,
-    watchSlidesProgress: true,
     coverflowEffect: {
       rotate: 20,
       stretch: 0,

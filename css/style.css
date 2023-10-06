@@ -4556,6 +4556,7 @@ html.has-scroll-dragging {
   gap: 160px;
 }
 
+.team__bottom_top,
 .team__bottom_left,
 .team__bottom_right {
   display: -webkit-box;
@@ -4592,10 +4593,8 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   padding: 0 20px;
-}
-
-.team_slider__swiper {
-  height: 400px;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .team_slider_block {
@@ -4603,7 +4602,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 400px;
 }
 
 .team_slider_block img {
@@ -4634,6 +4633,13 @@ html.has-scroll-dragging {
 
 .team_clients__item {
   width: calc(25% - 30px);
+}
+
+.team_clients_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   height: 350px;
 }
 
@@ -4641,6 +4647,29 @@ html.has-scroll-dragging {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.team_slider_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: right;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.team_slider_name {
+  height: 20px;
+}
+
+.team_slider__item .team_slider_info {
+  opacity: 0;
+}
+
+.team_slider__item.swiper-slide-active .team_slider_info {
+  opacity: 1;
 }
 
 /* end team */
