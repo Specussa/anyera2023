@@ -494,6 +494,15 @@ toggleClrModeBtnArr.forEach((btn) => {
     document.body.classList.toggle("dark");
   });
 });
+
+// var hour = new Date().getHours();
+// if (hour >= 5 && hour < 12) {
+//   document.body.classList.remove("light");
+//   document.body.classList.add("dark");
+// } else if (hour >= 5 && hour < 12) {
+//   document.body.classList.remove("dark");
+//   document.body.classList.add("light");
+// }
 // Change color mode end
 
 // start expertise

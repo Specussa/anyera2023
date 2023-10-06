@@ -292,6 +292,10 @@ section {
   touch-action: none;
 }
 
+.cursor svg {
+  height: 1rem;
+}
+
 .cursor.cursor__slider,
 .cursor.cursor__showreel {
   mix-blend-mode: normal;
@@ -398,7 +402,9 @@ section {
 
 .cursor.cursor__slider .cursor__text_slider p,
 .cursor.cursor__showreel .cursor__text_showreel p {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .cursor__text p {
@@ -668,8 +674,8 @@ section {
 .btn {
   display: inline-flex;
   width: fit-content;
-  height: fit-content;
-  padding: 15px 20px;
+  height: 50px;
+  padding: 0 60px;
   align-items: center;
   border: 1px solid var(--border);
   flex: 0 0 auto;
@@ -1313,6 +1319,7 @@ html.has-scroll-dragging {
 
 .button__project {
   width: 173px;
+  padding: 0;
 }
 
 .button__project_two {
@@ -2117,7 +2124,8 @@ html.has-scroll-dragging {
 /* start footer */
 
 .footer {
-  margin: 80px 0 0;
+  margin: -2px 0 0;
+  padding: 0 0 2px;
   flex: 0 0 auto;
   background-color: var(--bg);
   border-top: 1px solid var(--border);
@@ -3803,15 +3811,15 @@ html.has-scroll-dragging {
 
 .projects__arrow {
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
 }
 
 .projects__item:nth-child(1n) .projects__arrow {
-  right: 5px;
+  right: 20px;
 }
 
 .projects__item:nth-child(2n) .projects__arrow {
-  left: 5px;
+  left: 20px;
 }
 
 .projects__link:hover .btn__side_default {
@@ -3856,6 +3864,37 @@ html.has-scroll-dragging {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.projects__navigation .projects__prev,
+.projects__navigation .projects__next,
+.projects__navigation .btn__arrow,
+.projects__navigation .btn__side {
+  width: 50px;
+  height: 50px;
+}
+
+.projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
+.projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+}
+
+.projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_default,
+.projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_default {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.projects__navigation .btn__arrow:hover .btn__side_default,
+.projects__navigation .active .btn__arrow .btn__side_default {
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+}
+
+.projects__navigation .btn__side_hover {
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
 }
 
 .projects__prev,
@@ -3903,8 +3942,6 @@ html.has-scroll-dragging {
 
 .projects__buttons .btn__side_hover {
   background-color: var(--text);
-  -webkit-transform: translateY(-35px);
-  transform: translateY(-35px);
 }
 
 .projects__buttons .btn__side_hover svg {
@@ -3913,8 +3950,6 @@ html.has-scroll-dragging {
 
 .projects__buttons .btn__side_default {
   background-color: var(--bg);
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
 }
 
 .projects__buttons .btn__side {
@@ -4507,6 +4542,7 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
+  .btn,
   .btn__input,
   .header__link,
   .footer__link,
@@ -4657,9 +4693,6 @@ html.has-scroll-dragging {
   .articles__next {
     top: 210px;
   }
-  .footer {
-    margin: 60px 0 0;
-  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -4711,6 +4744,7 @@ html.has-scroll-dragging {
     line-height: 17px;
   }
   button,
+  .btn,
   .btn__input,
   .header__link,
   .footer__link,
@@ -4941,9 +4975,6 @@ html.has-scroll-dragging {
     padding: 20px;
     gap: 0;
   }
-  .footer {
-    margin: 30px 0 0;
-  }
   .footer__flex {
     padding: 0 0 90px;
     gap: 20px;
@@ -4997,6 +5028,7 @@ html.has-scroll-dragging {
     cursor: auto;
   }
   button,
+  .btn,
   a,
   .btn__input .button__text,
   .button__close,
@@ -5059,6 +5091,7 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
+  .btn,
   .btn__input,
   .header__link,
   .footer__link,
@@ -5200,6 +5233,15 @@ html.has-scroll-dragging {
   }
   .projects__filter_list {
     gap: 10px;
+  }
+  .projects__arrow {
+    bottom: 10px;
+  }
+  .projects__item:nth-child(1n) .projects__arrow {
+    right: 10px;
+  }
+  .projects__item:nth-child(2n) .projects__arrow {
+    left: 10px;
   }
   .project__info {
     flex-direction: column;
@@ -5348,6 +5390,7 @@ html.has-scroll-dragging {
     line-height: 19px;
   }
   button,
+  .btn,
   .btn__input,
   .header__link,
   .footer__link,
@@ -5356,6 +5399,13 @@ html.has-scroll-dragging {
   .footer__privacy {
     font-size: 10px;
     line-height: 13px;
+  }
+  .btn {
+    height: 40px;
+    padding: 0 30px;
+  }
+  .button__project {
+    padding: 0;
   }
   .header__nav_container {
     gap: 40px;
@@ -5419,6 +5469,27 @@ html.has-scroll-dragging {
     max-height: 156px;
     top: 50px;
     border-radius: 5px 5px 0 0;
+  }
+  .projects__navigation .projects__prev,
+  .projects__navigation .projects__next,
+  .projects__navigation .btn__arrow,
+  .projects__navigation .btn__side {
+    width: 40px;
+    height: 40px;
+  }
+  .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
+  .projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+  .projects__navigation .btn__arrow:hover .btn__side_default,
+  .projects__navigation .active .btn__arrow .btn__side_default {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+  .projects__navigation .btn__side_hover {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
   }
   .footer__social {
     width: 100%;
