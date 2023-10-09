@@ -544,9 +544,9 @@ if(articlesSlider){
     loop: false,
     freeMode: true,
     watchSlidesProgress: true,
-    slidesPerView: 4,
+    slidesPerView: 'auto',
     loopedSlides: 4,
-    spaceBetween: 40,
+    spaceBetween: 10,
     speed: 1000,
     navigation: {
       nextEl: '.articles__next',
@@ -557,6 +557,20 @@ if(articlesSlider){
         spaceBetween: 30,
       },
       1023: {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+      },
+    },
+    breakpoints: {
+      1920: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1440: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+      1024: {
         slidesPerView: 'auto',
         spaceBetween: 20,
       },
