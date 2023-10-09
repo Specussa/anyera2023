@@ -663,7 +663,7 @@ const teamswiperSlider = document.querySelector('.team_slider__swiper');
 if(teamswiperSlider){
   var teamSlider = new Swiper(".team_slider__swiper", {
     loop: true,
-    slidesPerView: 4,
+    slidesPerView: 1,
     loopedSlides: 4,
     spaceBetween: 0,
     loopPreventsSliding: true,
@@ -677,6 +677,17 @@ if(teamswiperSlider){
       depth: 100,
       modifier: 1,
       slideShadows: false,
+    },
+    breakpoints: {
+      1440: {
+        slidesPerView: 4,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      390: {
+        slidesPerView: 1.5,
+      },
     },
   });
 }
