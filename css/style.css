@@ -4698,7 +4698,7 @@ html.has-scroll-dragging {
   display: flex;
   padding: 80px;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
 }
 
 .team_comments__buttons,
@@ -4863,7 +4863,12 @@ html.has-scroll-dragging {
 
 /* start 1440px */
 @media (max-width: 1919px) {
-  h1 {
+  .team__bottom_heading {
+    font-size: 120px;
+    line-height: 130px;
+  }
+  h1,
+  .team__bottom_count {
     font-size: 61px;
     line-height: 62px;
   }
@@ -5047,6 +5052,41 @@ html.has-scroll-dragging {
   .articles__next {
     top: 210px;
   }
+  .team__top_block {
+    padding: 140px 60px 60px;
+    gap: 20px;
+  }
+  .team__bottom_block {
+    padding: 60px;
+    gap: 20px;
+  }
+  .team_clients_block {
+    height: 257px;
+  }
+  .team_clients__list {
+    padding: 0 60px 60px;
+    gap: 20px;
+  }
+  .team_clients__item {
+    width: calc(25% - 15px);
+  }
+  .team_slider__info {
+    padding: 60px;
+    gap: 20px;
+  }
+  .team_slider_block {
+    height: 300px;
+  }
+  .team_slider_flex {
+    padding: 60px;
+  }
+  .team_comments__block {
+    padding: 60px;
+    gap: 20px;
+  }
+  .team_comments__buttons, .team_comments__swiper {
+    width: calc(50% - 10px);
+  }
   .swiper-pagination-bullet {
     width: 30px;
     height: 30px;
@@ -5073,7 +5113,12 @@ html.has-scroll-dragging {
 
 /* start 1024px */
 @media (max-width: 1439px) {
-  h1 {
+  .team__bottom_heading {
+    font-size: 120px;
+    line-height: 130px;
+  }
+  h1,
+  .team__bottom_count {
     font-size: 61px;
     line-height: 62px;
   }
@@ -5428,7 +5473,12 @@ html.has-scroll-dragging {
   .projects__next {
     cursor: pointer;
   }
-  h1 {
+  .team__bottom_heading {
+    font-size: 80px;
+    line-height: 82px;
+  }
+  h1,
+  .team__bottom_count {
     font-size: 61px;
     line-height: 62px;
   }
@@ -5741,7 +5791,12 @@ html.has-scroll-dragging {
 
 /* start 390px */
 @media (max-width: 579px) {
-  h1 {
+  .team__bottom_heading {
+    font-size: 80px;
+    line-height: 82px;
+  }
+  h1,
+  .team__bottom_count {
     font-size: 38px;
     line-height: 38px;
   }
