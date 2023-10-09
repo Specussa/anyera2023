@@ -4597,8 +4597,10 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   padding: 80px;
+  margin: 0 2px;
   justify-content: space-between;
   gap: 40px;
+  background-color: var(--bg);
 }
 
 .team_slider__info_left,
@@ -4651,8 +4653,10 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   padding: 0 80px 80px;
+  margin: 0 2px;
   flex-wrap: wrap;
   gap: 40px;
+  background-color: var(--bg);
 }
 
 .team_clients__item {
@@ -4701,8 +4705,10 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   padding: 80px;
+  margin: 0 2px;
   justify-content: space-between;
   gap: 40px;
+  background-color: var(--bg);
 }
 
 .team_comments__buttons,

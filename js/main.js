@@ -680,7 +680,7 @@ if(teamswiperSlider){
     },
     breakpoints: {
       1440: {
-        slidesPerView: 4,
+        slidesPerView: 3.5,
       },
       1024: {
         slidesPerView: 3,
