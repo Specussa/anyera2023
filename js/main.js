@@ -718,6 +718,8 @@ const showreelvideo = document.getElementById('showreel__video');
 const showreelmodal = document.querySelector('.showreel__modal');
 const showreelmodalClose = document.querySelector('.showreel__modal_close');
 if(!showreelvideo){} else {
+  showreelvideo.pause();
+  showreelvideo.currentTime = 0;
   preview.onclick = function(e) {
     e.preventDefault();
     showreelmodal.classList.add('showreel__modal_visible');
