@@ -678,12 +678,28 @@ if(teamswiperSlider){
       modifier: 1,
       slideShadows: false,
     },
-    pagination: {
-      el: ".swiper-pagination",
-    },
   });
 }
 // end team
+
+// start team comments
+const teamcommentsSlider = document.querySelector('.team_comments__swiper');
+if(teamcommentsSlider){
+  var tcSlider = new Swiper('.team_comments__swiper', {
+    loop: true,
+    slideToClickedSlide: false,
+    allowTouchMove: true,
+    watchSlidesProgress: true,
+    slidesPerView: 1,
+    loopedSlides: 1,
+    spaceBetween: 80,
+    navigation: {
+      nextEl: '.team_comments__next',
+      prevEl: '.team_comments__prev',
+    },
+  });
+}
+// end team comments
 
 // start video
 const preview = document.querySelector('.showreel__button');

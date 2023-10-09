@@ -3454,7 +3454,8 @@ html.has-scroll-dragging {
 .projects__desc,
 .project__desc,
 .team__top_desc,
-.team__bottom_desc {
+.team__bottom_desc,
+.team_slider__desc {
   max-width: 430px;
   padding: 0 0 0 30px;
   position: relative;
@@ -3465,7 +3466,8 @@ html.has-scroll-dragging {
 .project__desc::before,
 .expertise__desc::before,
 .projects__desc::before,
-.expertise__panel p::before {
+.expertise__panel p::before,
+.team_slider__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -4582,6 +4584,24 @@ html.has-scroll-dragging {
   color: var(--text);
 }
 
+.team_slider__desc {
+  max-width: 100%;
+}
+
+.team_slider__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 80px;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.team_slider__info_left,
+.team_slider__info_right {
+  width: calc(50% - 20px);
+}
+
 .team_slider__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4670,6 +4690,173 @@ html.has-scroll-dragging {
 
 .team_slider__item.swiper-slide-active .team_slider_info {
   opacity: 1;
+}
+
+.team_comments__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 80px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.team_comments__buttons,
+.team_comments__swiper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(50% - 20px);
+  margin: 0;
+  gap: 40px;
+}
+
+.team_comments__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.team_comments__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.team_comments__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+}
+
+.team_comments__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.team_comments__quotes svg {
+  width: 50px;
+  height: 50px;
+}
+
+.team_comments__quotes svg rect {
+  color: var(--text);
+}
+
+.team_comments__quotes svg path {
+  color: var(--bg);
+}
+
+.team_comments__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.team_comments__navigation .team_comments__prev,
+.team_comments__navigation .team_comments__next,
+.team_comments__navigation .btn__arrow,
+.team_comments__navigation .btn__side {
+  width: 50px;
+  height: 50px;
+}
+
+.team_comments__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
+.team_comments__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+}
+
+.team_comments__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_default,
+.team_comments__navigation .swiper-button-disabled .active .btn__arrow .btn__side_default {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.team_comments__navigation .btn__arrow:hover .btn__side_default,
+.team_comments__navigation .active .btn__arrow .btn__side_default {
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+}
+
+.team_comments__navigation .btn__side_hover {
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+
+.team_comments__prev,
+.team_comments__next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 36px;
+  height: 35px;
+  margin-top: 0;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  bottom: auto;
+  color: var(--bg);
+  border: none;
+  background: var(--border);
+  background-color: var(--border);
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  cursor: none;
+}
+
+.team_comments__prev {
+  left: 0;
+  right: 0;
+}
+
+.team_comments__next {
+  left: 0;
+  right: 0;
+}
+
+.team_comments__prev svg,
+.team_comments__next svg {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.team_comments__buttons .btn__side_default svg {
+  color: var(--text);
+}
+
+.team_comments__buttons .btn__side_hover {
+  background-color: var(--text);
+}
+
+.team_comments__buttons .btn__side_hover svg {
+  color: var(--bg);
+}
+
+.team_comments__buttons .btn__side_default {
+  background-color: var(--bg);
+}
+
+.team_comments__buttons .btn__side {
+  border: 1px solid var(--border);
+  -webkit-transition: -webkit-transform 0.2s linear, border 0.1s linear;
+  transition: transform 0.2s linear, border 0.1s linear;
+}
+
+.team_comments__buttons .btn__side:hover {
+  border: 1px solid var(--text);
+  -webkit-transition: -webkit-transform 0.2s linear, border 0.1s linear 0.2s;
+  transition: transform 0.2s linear, border 0.1s linear 0.2s;
 }
 
 /* end team */
@@ -5508,7 +5695,8 @@ html.has-scroll-dragging {
   .projects__desc,
   .project__desc,
   .team__top_desc,
-  .team__bottom_desc {
+  .team__bottom_desc,
+  .team_slider__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -5671,7 +5859,11 @@ html.has-scroll-dragging {
   .projects__navigation .projects__prev,
   .projects__navigation .projects__next,
   .projects__navigation .btn__arrow,
-  .projects__navigation .btn__side {
+  .projects__navigation .btn__side,
+  .team_comments__navigation .team_comments__prev,
+  .team_comments__navigation .team_comments__next,
+  .team_comments__navigation .btn__arrow,
+  .team_comments__navigation .btn__side {
     width: 40px;
     height: 40px;
   }
