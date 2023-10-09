@@ -1529,7 +1529,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: flex;
   min-height: calc(var(--height) - 80px);
-  padding: 60px;
+  padding: 60px 240px;
   flex-direction: column;
   justify-content: center;
   gap: 110px;
@@ -1540,6 +1540,8 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
 }
 
@@ -1547,20 +1549,18 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  width: 50%;
+  width: calc(50% - 250px);
   padding: 0 50px;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 60px;
 }
 
 .header__nav_list {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  width: 330px;
   padding: 0 50px;
-  margin: 0 0 0 auto;
   flex-direction: column;
   gap: 20px;
   position: relative;
@@ -1587,9 +1587,7 @@ html.has-scroll-dragging {
 }
 
 .header__set_block {
-  width: 330px;
   padding: 0 50px;
-  margin: 0 0 0 auto;
 }
 
 .header__set_mode {
@@ -1710,7 +1708,7 @@ html.has-scroll-dragging {
 }
 
 .header__set_language {
-  width: 50%;
+  width: calc(50% - 250px);
   padding: 0 50px;
   align-items: center;
 }
@@ -4926,6 +4924,10 @@ html.has-scroll-dragging {
   .footer__privacy {
     font-size: 12px;
     line-height: 14px;
+  }
+  .header__nav__contact,
+  .header__set_language {
+    width: calc(50% - 20px);
   }
   .main__border {
     width: calc(100% - 240px);
