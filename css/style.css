@@ -216,6 +216,7 @@ strong {
 }
 
 button,
+.btn,
 .btn__input {
   font-family: var(--title-font);
   font-size: 12px;
@@ -3460,7 +3461,8 @@ html.has-scroll-dragging {
 .team__bottom_desc,
 .team_slider__desc,
 .services_top__desc,
-.services__desc {
+.services__desc,
+.briefing__desc {
   max-width: 430px;
   padding: 0 0 0 30px;
   position: relative;
@@ -3474,7 +3476,8 @@ html.has-scroll-dragging {
 .expertise__panel p::before,
 .team_slider__desc::before,
 .services_top__desc::before,
-.services__desc::before {
+.services__desc::before,
+.briefing__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -4996,6 +4999,97 @@ html.has-scroll-dragging {
 
 /* end services */
 
+/* start briefing */
+
+.briefing__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 160px 80px;
+  gap: 160px;
+}
+
+.briefing__left,
+.briefing__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 80px);
+}
+
+.briefing__left {
+  flex-direction: column;
+  gap: 80px;
+}
+
+.briefing__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.briefing__steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.briefing__steps_one,
+.briefing__steps_two,
+.briefing__steps_three,
+.briefing__steps_four,
+.briefing__steps_five {
+  display: none;
+}
+
+.briefing__steps_one.active,
+.briefing__steps_two.active,
+.briefing__steps_three.active,
+.briefing__steps_four.active,
+.briefing__steps_five.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.briefing__steps_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.briefing__step {
+  width: calc(20% - 4px);
+  height: 10px;
+  position: relative;
+  background-color: var(--border);
+}
+
+.briefing__step::after {
+  content: "";
+  width: 0px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--purple);
+  -webkit-transition: width 0.2s linear;
+  transition: width 0.2s linear;
+}
+
+.briefing__step.active::after {
+  width: 100%;
+}
+
+/* end briefing */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -5251,6 +5345,14 @@ html.has-scroll-dragging {
   }
   .services__buttons {
     padding: 60px 0 0;
+  }
+  .briefing__block {
+    padding: 120px 60px;
+    gap: 120px;
+  }
+  .briefing__left,
+  .briefing__right {
+    width: calc(100% - 60px);
   }
   .swiper-pagination-bullet {
     width: 30px;
@@ -5617,6 +5719,14 @@ html.has-scroll-dragging {
   .services__desc {
     max-width: 60%;
     height: max-content;
+  }
+  .briefing__block {
+    padding: 60px 30px;
+    gap: 60px;
+  }
+  .briefing__left,
+  .briefing__right {
+    width: calc(100% - 30px);
   }
   .swiper-pagination-bullet {
     width: 18px;
@@ -5987,7 +6097,8 @@ html.has-scroll-dragging {
   .team__bottom_desc,
   .team_slider__desc,
   .services_top__desc,
-  .services__desc {
+  .services__desc,
+  .briefing__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -6088,6 +6199,21 @@ html.has-scroll-dragging {
     position: relative;
     right: 0;
     bottom: 0;
+  }
+  .briefing__info {
+    gap: 20px;
+  }
+  .briefing__left,
+  .briefing__right {
+    width: 100%;
+  }
+  .briefing__left {
+    gap: 40px;
+  }
+  .briefing__block {
+    padding: 40px 20px;
+    flex-direction: column;
+    gap: 40px;
   }
   .footer__flex {
     padding: 0 0 130px;
@@ -6221,7 +6347,8 @@ html.has-scroll-dragging {
   .team__bottom_desc,
   .team_slider__desc,
   .services_top__desc,
-  .services__desc {
+  .services__desc,
+  .briefing__desc {
     max-width: 100%;
   }
   .digital__head {
