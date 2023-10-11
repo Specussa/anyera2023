@@ -666,6 +666,19 @@ section {
   transform: translateY(0px);
 }
 
+.text__middle {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+  -webkit-transition: height 0.2s linear;
+  transition: height 0.2s linear;
+}
+
+.text__middle .text__rotate {
+  height: calc(1em + 1px);
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
 .text__big {
   -webkit-transform: translateY(2px);
   transform: translateY(2px);
