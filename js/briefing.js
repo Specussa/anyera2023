@@ -64,5 +64,10 @@ if(!bformone){} else {
 
   const bchecks = document.querySelectorAll('.briefing__checks');
   [...bchecks].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  // function updateInput(ish){
+  //   document.getElementById("fieldname").value = ish;
+  // }
+  // onchange="updateInput(this.value)"
 }
 // end validate briefing__form_one

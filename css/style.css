@@ -192,7 +192,11 @@ a,
 p,
 li,
 b,
-strong {
+strong,
+input,
+input::placeholder,
+[data-select-title],
+[data-select-item] {
   font-size: 16px;
   line-height: 19px;
 }
@@ -204,10 +208,18 @@ a {
 
 p,
 li,
-label {
+label,
+input,
+input::placeholder,
+[data-select-title],
+[data-select-item] {
   font-weight: 300;
   font-family: var(--text-font);
   color: var(--text-gray);
+}
+
+input {
+  color: var(--text);
 }
 
 small {
@@ -1905,10 +1917,6 @@ html.has-scroll-dragging {
   background: transparent;
   position: relative;
   z-index: 2;
-}
-
-.header__forms_form_input::placeholder {
-  color: var(--text-gray);
 }
 
 .header__forms_form_input:focus {
@@ -5137,10 +5145,6 @@ html.has-scroll-dragging {
   z-index: 2;
 }
 
-.briefing__input::placeholder {
-  color: var(--text-gray);
-}
-
 .briefing__input:focus {
   outline: none;
 }
@@ -5324,7 +5328,11 @@ html.has-scroll-dragging {
   li,
   label,
   b,
-  strong {
+  strong,
+  input,
+  input::placeholder,
+  [data-select-title],
+  [data-select-item] {
     font-size: 16px;
     line-height: 19px;
   }
@@ -5616,7 +5624,11 @@ html.has-scroll-dragging {
   li,
   label,
   b,
-  strong {
+  strong,
+  input,
+  input::placeholder,
+  [data-select-title],
+  [data-select-item] {
     font-size: 14px;
     line-height: 17px;
   }
@@ -6056,7 +6068,11 @@ html.has-scroll-dragging {
   li,
   label,
   b,
-  strong {
+  strong,
+  input,
+  input::placeholder,
+  [data-select-title],
+  [data-select-item] {
     font-size: 16px;
     line-height: 19px;
   }
@@ -6481,7 +6497,11 @@ html.has-scroll-dragging {
   li,
   label,
   b,
-  strong {
+  strong,
+  input,
+  input::placeholder,
+  [data-select-title],
+  [data-select-item] {
     font-size: 16px;
     line-height: 19px;
   }
