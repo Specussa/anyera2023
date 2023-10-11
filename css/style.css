@@ -98,6 +98,13 @@ select:-webkit-autofill:hover {
   box-shadow: 0 0 0 1000px var(--bg) inset;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 img {
   pointer-events: none;
 }
@@ -125,6 +132,7 @@ a:hover {
 
 ul,
 p,
+label,
 div,
 a,
 h1,
@@ -194,7 +202,8 @@ a {
 }
 
 p,
-li {
+li,
+label {
   font-weight: 300;
   font-family: var(--text-font);
   color: var(--text-gray);
@@ -712,7 +721,7 @@ section {
 .btn__input .button__text {
   width: 100%;
   height: 100%;
-  padding: 0 26.5px;
+  padding: 0 60px;
   color: var(--text-gray);
   background: transparent;
   border: none;
@@ -5088,6 +5097,158 @@ html.has-scroll-dragging {
   width: 100%;
 }
 
+.briefing__control {
+  margin: 0 0 13px;
+  padding: 0 0 17px;
+  position: relative;
+  overflow: hidden;
+}
+
+.briefing__control small {
+  height: 12px;
+  margin: 5px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+}
+
+.briefing__control.error small {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.briefing__input {
+  display: block;
+  width: 100%;
+  height: 43px;
+  padding: 14px 10px 10px 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.briefing__input::placeholder {
+  color: var(--text-gray);
+}
+
+.briefing__input:focus {
+  outline: none;
+}
+
+.briefing__textarea {
+  resize: inherit;
+  overflow: hidden;
+}
+
+.briefing__bar,
+.briefing__border {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1px;
+  flex: 0 0 auto;
+  position: relative;
+  bottom: 0;
+}
+
+.briefing__bar {
+  z-index: 1;
+}
+
+.briefing__border {
+  z-index: 0;
+}
+
+.briefing__bar::before,
+.briefing__bar::after,
+.briefing__border::before,
+.briefing__border::after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+
+.briefing__bar::before,
+.briefing__bar::after {
+  width: 0;
+  background-color: var(--purple);
+}
+
+.briefing__border::before,
+.briefing__border::after {
+  width: 50%;
+  background-color: var(--border);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.briefing__control.success .briefing__border::before,
+.briefing__control.success .briefing__border::after {
+  background-color: var(--green);
+}
+
+.briefing__control.error .briefing__border::before,
+.briefing__control.error .briefing__border::after {
+  background-color: var(--error);
+}
+
+.briefing__bar::before,
+.briefing__border::before {
+  left: 50%;
+}
+
+.briefing__bar:after,
+.briefing__border::after {
+  right: 50%;
+}
+
+.briefing__input:focus ~ .briefing__bar::before,
+.briefing__input:focus ~ .briefing__bar::after {
+  width: 50%;
+}
+
+.header__form_name {
+  margin: 0 0 5px;
+}
+
+.briefing__border {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.briefing__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.briefing__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.briefing__necessarily span {
+  color: var(--error);
+}
+
 /* end briefing */
 
 /* start 1440px */
@@ -5124,6 +5285,7 @@ html.has-scroll-dragging {
   a,
   p,
   li,
+  label,
   b,
   strong {
     font-size: 16px;
@@ -5354,6 +5516,9 @@ html.has-scroll-dragging {
   .briefing__right {
     width: calc(100% - 60px);
   }
+  .briefing__steps {
+    gap: 20px;
+  }
   .swiper-pagination-bullet {
     width: 30px;
     height: 30px;
@@ -5412,6 +5577,7 @@ html.has-scroll-dragging {
   a,
   p,
   li,
+  label,
   b,
   strong {
     font-size: 14px;
@@ -5851,6 +6017,7 @@ html.has-scroll-dragging {
   a,
   p,
   li,
+  label,
   b,
   strong {
     font-size: 16px;
@@ -6275,6 +6442,7 @@ html.has-scroll-dragging {
   a,
   p,
   li,
+  label,
   b,
   strong {
     font-size: 16px;

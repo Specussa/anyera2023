@@ -152,7 +152,39 @@
             </div>
           </div>
           <div class="briefing__right">
-
+            <form id="briefing__form_one" class="briefing__form briefing__form_one">
+              <h4 class="briefing__form_head">Контактные данные</h4>
+              <div class="briefing__controls">
+                <div class="briefing__control">
+                  <label class="briefing__label" for="briefing__username">Как к вам обращаться? *</label>
+                    <input class="briefing__input" type="text" minlength="4" maxlength="40" id="briefing__username" />
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <label class="briefing__label" for="briefing__phone">Номер телефона *</label>
+                  <input class="briefing__input" type="number" minlength="5" maxlength="20" id="briefing__phone" />
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <label class="briefing__label" for="briefing__email">Номер телефона *</label>
+                    <input class="briefing__input" type="email" minlength="7" maxlength="20" id="briefing__email" />
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="briefing__buttons">
+                <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
+                <div class="btn btn__input briefing__button">
+                  <input type="submit" name="submit" value="Продолжить" class="button__text">
+                  <span class="button__hover"></span>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -414,7 +446,7 @@
                   <small>Error message</small>
                 </div>
                 <div class="header__forms_form_control">
-                  <input class="header__forms_form_input" type="tel" minlength="5" maxlength="20" placeholder="Номер для связи" id="phone" />
+                  <input class="header__forms_form_input" type="number" minlength="5" maxlength="20" placeholder="Номер для связи" id="phone" />
                   <span class="header__forms_form_bar"></span>
                   <span class="header__forms_form_border"></span>
                   <small>Error message</small>
@@ -474,6 +506,7 @@
     </div>
   </div>
   <script src="js/swiper.min.js"></script>
+  <script src="js/briefing.js"></script>
   <script src="js/form.js"></script>
   <script src="js/scroll.js"></script>
   <script src="js/scrollbar.js"></script>
