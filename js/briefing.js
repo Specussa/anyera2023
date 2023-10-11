@@ -20,10 +20,10 @@ if(!bformone){} else {
       setErrorFor(busername, 'Обязательное поле'); } else { setSuccessFor(busername);
   }
   if(bphoneValue === '') {
-      setErrorFor(bphone, 'Обязательное поле'); } else { setSuccessFor(bphone);
+      setErrorFor(bphone, 'Введите корректный телефон'); } else { setSuccessFor(bphone);
   }
   if(bemailValue === '') {
-      setErrorFor(bemail, 'Обязательное поле'); } else { setSuccessFor(bemail);
+      setErrorFor(bemail, 'Введите корректный email'); } else { setSuccessFor(bemail);
     }
   }
   
