@@ -5117,6 +5117,10 @@ html.has-scroll-dragging {
   overflow: hidden;
 }
 
+.briefing__control:last-child {
+  margin: 0;
+}
+
 .briefing__control small {
   height: 12px;
   margin: 5px 0 0;
