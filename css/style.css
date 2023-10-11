@@ -12,6 +12,7 @@
   --black: #000;
   --text-gray: #6c6c6c;
   --gray-border: #d3d3d3;
+  --button-gray: #f0f0f0;
   --border: #dfdfdf;
   --orange: #e7b85c;
   --purple: #40018c;
@@ -709,8 +710,8 @@ section {
   flex: 0 0 auto;
   position: relative;
   z-index: 1;
-  -webkit-transition: border 0.3s linear;
-  transition: border 0.3s linear;
+  -webkit-transition: border 0.3s linear, background-color 0.2s linear;
+  transition: border 0.3s linear, background-color 0.2s linear;
   overflow: hidden;
 }
 
@@ -5158,15 +5159,14 @@ html.has-scroll-dragging {
   height: 1px;
   flex: 0 0 auto;
   position: absolute;
+  bottom: 16px;
 }
 
 .briefing__bar {
-  bottom: 17px;
   z-index: 1;
 }
 
 .briefing__border {
-  bottom: 17px;
   z-index: 0;
 }
 
@@ -5263,6 +5263,27 @@ html.has-scroll-dragging {
   color: var(--text-gray);
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
+}
+
+.briefing__checks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.briefing__check_input {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.briefing__check {
+  padding: 0 20px;
+  border-radius: 15px;
+  background-color: var(--button-gray);
+  border: 1px solid var(--button-gray);
 }
 
 /* end briefing */

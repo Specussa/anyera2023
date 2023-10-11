@@ -42,5 +42,27 @@ if(!bformone){} else {
   // function iscontrol(control) {
   // 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(control);
   // }
-  }
+
+  const bcitype = [...document.querySelectorAll('.briefing__checks_type .briefing__check_input')];
+  const bcisum = [...document.querySelectorAll('.briefing__checks_sum .briefing__check_input')];
+  const bchecktype = document.querySelectorAll('.briefing__checks_type .briefing__check');
+  const bchecksum = document.querySelectorAll('.briefing__checks_sum .briefing__check');
+
+  bcitype.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      for(var i = 0;i < bchecktype.length; i++) {bchecktype[i].classList.remove('active');}
+      event.target.closest('.briefing__check').classList.add('active');
+    }
+  }))
+
+  bcisum.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      for(var i = 0;i < bchecksum.length; i++) {bchecksum[i].classList.remove('active');}
+      event.target.closest('.briefing__check').classList.add('active');
+    }
+  }))
+
+  const bchecks = document.querySelectorAll('.briefing__checks');
+  [...bchecks].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
 // end validate briefing__form_one
