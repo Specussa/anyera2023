@@ -5098,8 +5098,12 @@ html.has-scroll-dragging {
 }
 
 .briefing__control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0 0 13px;
   padding: 0 0 17px;
+  flex-direction: column-reverse;
   position: relative;
   overflow: hidden;
 }
@@ -5150,17 +5154,19 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   height: 1px;
   flex: 0 0 auto;
-  position: relative;
-  bottom: 0;
+  position: absolute;
 }
 
 .briefing__bar {
+  bottom: 17px;
   z-index: 1;
 }
 
 .briefing__border {
+  bottom: 17px;
   z-index: 0;
 }
 
@@ -5221,13 +5227,6 @@ html.has-scroll-dragging {
   margin: 0 0 5px;
 }
 
-.briefing__border {
-  width: 100%;
-  display: block;
-  position: relative;
-  z-index: 0;
-}
-
 .briefing__form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5245,8 +5244,19 @@ html.has-scroll-dragging {
   gap: 40px;
 }
 
-.briefing__necessarily span {
+.briefing__necessarily span,
+.briefing__label span {
   color: var(--error);
+}
+
+.briefing__label {
+  transform: translateY(10px);
+  transition: transform 0.2s linear, font-size 0.2s linear;
+}
+
+.briefing__input:focus ~ .briefing__label {
+  font-size: 14px;
+  transform: translateY(0px);
 }
 
 /* end briefing */
