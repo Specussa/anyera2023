@@ -5250,12 +5250,18 @@ html.has-scroll-dragging {
 }
 
 .briefing__label {
+  min-height: 24px;
+  color: var(--text);
+  -webkit-transform: translateY(10px);
   transform: translateY(10px);
-  transition: transform 0.2s linear, font-size 0.2s linear;
+  -webkit-transition: transform 0.2s linear, font-size 0.2s linear, color 0.2s linear;
+  transition: transform 0.2s linear, font-size 0.2s linear, color 0.2s linear;
 }
 
 .briefing__input:focus ~ .briefing__label {
   font-size: 14px;
+  color: var(--text-gray);
+  -webkit-transform: translateY(0px);
   transform: translateY(0px);
 }
 
