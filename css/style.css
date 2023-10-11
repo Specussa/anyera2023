@@ -82,6 +82,7 @@ button {
   -ms-flex-direction: column;
   flex-direction: column;
   background-color: var(--bg);
+  position: relative;
 }
 
 input:-webkit-autofill,
@@ -2141,10 +2142,14 @@ html.has-scroll-dragging {
 /* start footer */
 
 .footer {
-  margin: -2px 0 0;
+  margin: auto 0 0;
   padding: 0 0 2px;
   flex: 0 0 auto;
   background-color: var(--bg);
+}
+
+.footer__border {
+  margin: -2px 0 0;
   border-top: 1px solid var(--border);
 }
 
