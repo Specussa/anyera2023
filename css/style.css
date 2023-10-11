@@ -3367,7 +3367,7 @@ html.has-scroll-dragging {
 
 .expertise__left {
   width: 50%;
-  padding: 20px 50px 50px;
+  padding: 80px;
 }
 
 .expertise__right {
@@ -3375,7 +3375,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 50%;
-  padding: 40px 0;
+  padding: 80px;
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
@@ -3538,6 +3538,10 @@ html.has-scroll-dragging {
 /* end expertise */
 
 /* start projects */
+
+.projects {
+  padding: 0 0 1px;
+}
 
 .projects__container {
   padding: 0 60px;
@@ -3750,6 +3754,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 50%;
+  padding: 0 0 0 40px;
   justify-content: space-between;
   gap: 40px;
 }
@@ -4885,9 +4890,9 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 160px 80px 80px;
+  padding: 160px 80px;
   margin: 0 2px;
-  gap: 40px;
+  gap: 160px;
   overflow: hidden;
   position: relative;
 }
@@ -4938,6 +4943,7 @@ html.has-scroll-dragging {
   width: 100%;
   padding: 80px;
   gap: 160px;
+  position: relative;
 }
 
 .services__left {
@@ -5073,6 +5079,10 @@ html.has-scroll-dragging {
   .showreel__inview {
     max-height: 500px;
   }
+  .expertise__left,
+  .expertise__right {
+    padding: 60px;
+  }
   .projects__image {
     height: 360px;
   }
@@ -5168,6 +5178,9 @@ html.has-scroll-dragging {
   .projects__filter_list {
     gap: 10px 30px;
   }
+  .projects__right {
+    padding: 0 0 0 30px;
+  }
   .articles__image {
     height: 200px;
   }
@@ -5210,6 +5223,29 @@ html.has-scroll-dragging {
   .team_comments__buttons,
   .team_comments__swiper {
     width: calc(50% - 10px);
+  }
+  .services_top__block {
+    padding: 140px 60px;
+    gap: 120px;
+  }
+  .services_top__info,
+  .services__left,
+  .services__right,
+  .services__list_left,
+  .services__list_right {
+    width: calc(50% - 60px);
+    gap: 30px;
+  }
+  .services_top__image {
+    width: calc(50% - 60px);
+    left: calc(50% + 60px);
+  }
+  .services__flex {
+    padding: 40px 60px;
+    gap: 120px;
+  }
+  .services__buttons {
+    padding: 60px 0 0;
   }
   .swiper-pagination-bullet {
     width: 30px;
@@ -5389,7 +5425,7 @@ html.has-scroll-dragging {
   .expertise__left,
   .expertise__right {
     width: 100%;
-    padding: 30px;
+    padding: 40px 30px;
   }
   .expertise__border {
     display: none;
@@ -5425,6 +5461,7 @@ html.has-scroll-dragging {
   }
   .projects__right {
     width: 100%;
+    padding: 0;
     justify-content: space-between;
   }
   .projects__image {
@@ -5538,6 +5575,43 @@ html.has-scroll-dragging {
   }
   .team__bottom_info {
     width: 100%;
+  }
+  .services_top__block {
+    padding: 60px 30px;
+    gap: 60px;
+  }
+  .services_top__info,
+  .services__right,
+  .services__list_left,
+  .services__list_right {
+    width: calc(50% - 30px);
+  }
+  .services_top__image {
+    width: calc(50% - 30px);
+    left: calc(50% + 30px);
+  }
+  .services__left {
+    width: 100%;
+    flex-direction: row;
+  }
+  .services__flex {
+    padding: 40px 30px;
+    flex-direction: column;
+    gap: 60px;
+  }
+  .services__buttons {
+    padding: 0;
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+  }
+  .services__head {
+    width: 40%;
+    flex: 0 0 auto;
+  }
+  .services__desc {
+    max-width: 60%;
+    height: max-content;
   }
   .swiper-pagination-bullet {
     width: 18px;
@@ -5820,6 +5894,9 @@ html.has-scroll-dragging {
   .projects__item:nth-child(2n) .projects__arrow {
     left: 10px;
   }
+  .projects__item:nth-child(1n) {
+    text-align: left;
+  }
   .project__info {
     flex-direction: column;
     gap: 40px;
@@ -5969,6 +6046,44 @@ html.has-scroll-dragging {
   .team_comments__buttons {
     justify-content: space-between;
   }
+  .services__flex {
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  .services_top__block {
+    padding: 40px 20px;
+    gap: 20px;
+  }
+  .services_top__image {
+    width: calc(50% - 10px);
+    left: calc(50% + 10px);
+  }
+  .services_top__info,
+  .services__list_left,
+  .services__list_right {
+    width: calc(50% - 10px);
+    gap: 20px;
+  }
+  .services__right {
+    width: 100%;
+    gap: 20px;
+  }
+  .services__left {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .services__head {
+    width: 100%;
+  }
+  .services__desc {
+    width: 50%;
+  }
+  .services__buttons {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
   .footer__flex {
     padding: 0 0 130px;
   }
@@ -6065,6 +6180,7 @@ html.has-scroll-dragging {
   .header__nav_list,
   .header__nav__contact {
     width: 100%;
+    padding: 0;
   }
   .header__nav__contact {
     gap: 40px;
@@ -6076,10 +6192,6 @@ html.has-scroll-dragging {
   .header__nav_bottom_social {
     position: relative;
     left: auto;
-  }
-  .header__nav_list,
-  .header__nav__contact {
-    padding: 0 20px;
   }
   .header__set_language,
   .header__set_language_control {
@@ -6178,6 +6290,17 @@ html.has-scroll-dragging {
   }
   .team_slider_info {
     gap: 5px;
+  }
+  .services__flex {
+    padding: 30px 20px 90px;
+  }
+  .services__desc {
+    width: 100%;
+  }
+  .services__buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
