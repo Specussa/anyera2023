@@ -5038,6 +5038,8 @@ html.has-scroll-dragging {
   display: flex;
   padding: 160px 80px;
   gap: 160px;
+  position: relative;
+  overflow: hidden;
 }
 
 .briefing__left,
@@ -5305,6 +5307,24 @@ html.has-scroll-dragging {
   transform: translateX(0px);
   -webkit-transition: max-height 0s linear 0.3s, transform 0s linear;
   transition: max-height 0s linear 0.3s, transform 0s linear;
+}
+
+.briefing__form_end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(50% - 80px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: calc(50% + 80px);
+}
+
+.briefing__form_end svg,
+.briefing__form_end img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .briefing__bottom {
@@ -5618,7 +5638,8 @@ html.has-scroll-dragging {
     width: calc(50% - 60px);
     gap: 30px;
   }
-  .services_top__image {
+  .services_top__image,
+  .briefing__form_end {
     width: calc(50% - 60px);
     left: calc(50% + 60px);
   }
@@ -5984,7 +6005,8 @@ html.has-scroll-dragging {
   .services__list_right {
     width: calc(50% - 30px);
   }
-  .services_top__image {
+  .services_top__image,
+  .briefing__form_end {
     width: calc(50% - 30px);
     left: calc(50% + 30px);
   }
@@ -6466,7 +6488,8 @@ html.has-scroll-dragging {
     padding: 40px 20px;
     gap: 20px;
   }
-  .services_top__image {
+  .services_top__image,
+  .briefing__form_end {
     width: calc(50% - 10px);
     left: calc(50% + 10px);
   }

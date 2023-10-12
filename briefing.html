@@ -141,6 +141,7 @@
                 <span class="briefing__steps briefing__steps_three">Шаг 3 - Конкуренты и референсы</span>
                 <span class="briefing__steps briefing__steps_four">Шаг 4 - Аудитория</span>
                 <span class="briefing__steps briefing__steps_five">Шаг 5 - Дополнительно</span>
+                <span class="briefing__steps briefing__steps_end">Брифинг отправлен</span>
               </h4>
               <div class="briefing__steps_flex">
                 <button class="briefing__step briefing__step_one active unblock"><span></span></button>
@@ -244,10 +245,10 @@
               <div class="briefing__bottom">
                 <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
                 <div class="briefing__buttons">
-                  <button class="btn briefing__button_two">
+                  <div class="btn briefing__button_two">
                     <span class="button__text">Назад</span>
                     <span class="button__hover"></span>
-                  </button>
+                  </div>
                   <div class="btn btn__input briefing__button">
                     <input type="submit" name="submit" value="Продолжить" class="button__text">
                     <span class="button__hover"></span>
@@ -255,6 +256,259 @@
                 </div>
               </div>
             </form>
+            <form id="briefing__form_three" class="briefing__form briefing__form_three">
+              <h4 class="briefing__form_head">Конкуренты и референсы</h4>
+              <div class="briefing__controls">
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__link" />
+                  <label class="briefing__label" for="briefing__link">Ссылки на ваших основных конкурентов <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__topics" />
+                  <label class="briefing__label" for="briefing__topics">Примеры сайтов по схожей тематике с вашей, которые вам нравятся. Напишите, что нравится на этих сайтах <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__notopics" />
+                  <label class="briefing__label" for="briefing__notopics">Примеры сайтов по схожей тематике с вашей, которые вам не нравятся. Напишите, что не нравится на этих сайтах <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__price" />
+                  <label class="briefing__label" for="briefing__price">Насколько конкурентна цена на ваш продукт или услугу? И из чего формируется эта цена? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__impression" />
+                  <label class="briefing__label" for="briefing__impression">Что всегда производит на клиентов отталкивающее впечатление? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__important" />
+                  <label class="briefing__label" for="briefing__important">Критерии, то что ВАЖНО. 5 вещей, на которые он будет смотреть при выборе подрядчика. Или открыв 5 сайтов ваших конкурентов? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__like" />
+                  <label class="briefing__label" for="briefing__like">Что именно вашей целевой аудитории нравится в ваших конкурентах? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="briefing__bottom">
+                <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
+                <div class="briefing__buttons">
+                  <div class="btn briefing__button_three">
+                    <span class="button__text">Назад</span>
+                    <span class="button__hover"></span>
+                  </div>
+                  <div class="btn btn__input briefing__button">
+                    <input type="submit" name="submit" value="Продолжить" class="button__text">
+                    <span class="button__hover"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form id="briefing__form_four" class="briefing__form briefing__form_four">
+              <h4 class="briefing__form_head">Аудитория</h4>
+              <div class="briefing__controls">
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__problems" />
+                  <label class="briefing__label" for="briefing__problems">1-3 ключевых боли? Проблемы, которые мешают человеку в повседневности, и которые вы можете частично или полностью решить вашим продуктом? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__triggers" />
+                  <label class="briefing__label" for="briefing__triggers">Триггеры? Какая тема его неосознанно зацепит, хочет он того или нет? Обычно это что-то простое, мимо чего он не может пройти. <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__infoball" />
+                  <label class="briefing__label" for="briefing__infoball">Инфоболь? Информационная боль - это вынужденный поиск информации пользователем в Интернете для решения своей проблемы. Что они гуглят? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__needs" />
+                  <label class="briefing__label" for="briefing__needs">Потребности? Зачем ему потребовалось покупать (опишите ситуацию)? Что он хочет получить в итоге, какой результат? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__barriers" />
+                  <label class="briefing__label" for="briefing__barriers">Опишите минимум 30 барьеров, на которые вы можете как-то повлиять: от важных до самых пустяковых, почему ЦА сомневается в покупке? В том числе опишите этап после покупки - возможно он боится, что через год все сломается. Что может помешать купить вашу услугу? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__strive" />
+                  <label class="briefing__label" for="briefing__strive">К чему стремятся при выборе продукта/услуги? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="briefing__bottom">
+                <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
+                <div class="briefing__buttons">
+                  <div class="btn briefing__button_four">
+                    <span class="button__text">Назад</span>
+                    <span class="button__hover"></span>
+                  </div>
+                  <div class="btn btn__input briefing__button">
+                    <input type="submit" name="submit" value="Продолжить" class="button__text">
+                    <span class="button__hover"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form id="briefing__form_five" class="briefing__form briefing__form_five">
+              <h4 class="briefing__form_head">Дополнительно</h4>
+              <div class="briefing__controls">
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__design" />
+                  <label class="briefing__label" for="briefing__design">Какое впечатление должен, на Ваш взгляд, создавать дизайн лендинга? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__associations" />
+                  <label class="briefing__label" for="briefing__associations">Какие ассоциации должен вызывать дизайн? (например нежный, легкий, воздушный) <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__segment" />
+                  <label class="briefing__label" for="briefing__segment">Основной сегмент целевой аудитории? на кого приходится 80% продаж? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="briefing__bottom">
+                <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
+                <p class="briefing__policy">Нажимая кнопку «Отправить», я даю свое согласие на <a href="policy.html">обработку персональных данных</a></p>
+                <div class="briefing__buttons">
+                  <div class="btn briefing__button_five">
+                    <span class="button__text">Назад</span>
+                    <span class="button__hover"></span>
+                  </div>
+                  <div class="btn btn__input briefing__button">
+                    <input type="submit" name="submit" value="Продолжить" class="button__text">
+                    <span class="button__hover"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="briefing__form briefing__form_end">
+              <svg width="2160" height="3100" viewBox="0 0 2160 3100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1643.96 2742.79C1429.46 2394.65 861.997 1858.55 308.163 2499.24" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M755.666 44.7412C970.166 392.88 1537.63 928.983 2091.46 288.288" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1632.99 2709.48C1405.15 2369.92 817.332 1856.22 288.757 2517.91" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1622.02 2676.17C1381.19 2345.7 773.893 1855.18 271.373 2536.87" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1611.06 2642.86C1357.59 2321.98 731.73 1855.38 256.021 2556.04" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1600.09 2609.55C1334.37 2298.74 690.89 1856.76 242.706 2575.34" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1589.12 2576.24C1311.55 2275.97 651.419 1859.27 231.435 2594.69" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1578.16 2542.94C1289.15 2253.65 613.356 1862.86 222.205 2614.01" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1567.19 2509.62C1267.19 2231.76 576.745 1867.47 215.014 2633.22" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1556.22 2476.32C1245.67 2210.29 541.623 1873.05 209.856 2652.25" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1545.26 2443.01C1224.62 2189.23 508.027 1879.54 206.724 2671.02" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1534.29 2409.7C1204.06 2168.54 475.992 1886.87 205.605 2689.44" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1523.33 2376.39C1183.99 2148.22 445.55 1894.99 206.486 2707.44" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1512.36 2343.08C1164.43 2128.24 416.728 1903.84 209.346 2724.94" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1501.39 2309.77C1145.39 2108.58 389.553 1913.34 214.166 2741.87" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1490.43 2276.46C1126.89 2089.23 364.05 1923.44 220.922 2758.15" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1479.46 2243.15C1108.94 2070.16 340.242 1934.07 229.588 2773.7" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1468.49 2209.85C1091.55 2051.35 318.147 1945.17 240.133 2788.46" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1457.53 2176.54C1074.72 2032.77 297.783 1956.67 252.526 2802.35" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1446.56 2143.23C1058.46 2014.42 279.165 1968.49 266.734 2815.29" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1435.59 2109.92C1042.79 1996.25 262.3 1980.58 282.714 2827.22" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1424.63 2076.61C1027.72 1978.26 247.201 1992.86 300.428 2838.08" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1413.66 2043.3C1013.24 1960.41 233.874 2005.27 319.835 2847.79" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1402.7 2009.97C999.36 1942.67 222.324 2017.72 340.889 2856.27" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1391.73 1976.66C986.09 1925.06 212.548 2030.18 363.538 2863.5" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1380.77 1943.35C973.427 1907.51 204.543 2042.55 387.732 2869.39" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1369.8 1910.04C961.377 1890.03 198.307 2054.77 413.419 2873.89" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1358.83 1876.74C949.941 1872.57 193.833 2066.78 440.545 2876.94" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1347.87 1843.42C939.12 1855.12 191.111 2078.5 469.052 2878.48" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1336.9 1810.12C928.916 1837.65 190.131 2089.87 498.883 2878.47" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1325.94 1776.81C919.324 1820.14 190.875 2100.82 529.972 2876.85" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1314.97 1743.5C910.343 1802.57 193.325 2111.28 562.259 2873.58" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1304 1710.19C901.971 1784.9 197.462 2121.18 595.678 2868.61" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1293.04 1676.88C894.203 1767.12 203.264 2130.47 630.162 2861.89" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1282.07 1643.57C887.036 1749.21 210.705 2139.08 665.643 2853.4" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1271.1 1610.26C880.464 1731.14 219.759 2146.94 702.053 2843.08" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1260.14 1576.95C874.478 1712.89 230.393 2153.99 739.317 2830.91" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1249.17 1543.65C869.073 1694.43 242.576 2160.18 777.365 2816.85" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1238.2 1510.34C864.239 1675.75 256.272 2165.44 816.122 2800.88" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1227.24 1477.03C859.967 1656.82 271.446 2169.71 855.514 2782.97" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1216.27 1443.72C856.25 1637.61 288.058 2172.94 895.467 2763.09" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1205.3 1410.41C853.072 1618.12 306.066 2175.08 935.901 2741.23" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1194.34 1377.1C850.424 1598.31 325.425 2176.06 976.74 2717.37" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1183.37 1343.79C848.294 1578.17 346.092 2175.84 1017.91 2691.49" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1172.4 1310.48C846.667 1557.68 368.018 2174.37 1059.32 2663.58" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1161.44 1277.17C845.53 1536.81 391.154 2171.61 1100.91 2633.64" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1150.47 1243.87C844.869 1515.56 415.448 2167.49 1142.58 2601.66" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1139.51 1210.55C844.669 1493.9 440.85 2161.99 1184.27 2567.63" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1128.54 1177.25C844.91 1471.81 467.301 2155.06 1225.89 2531.57" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1117.57 1143.94C845.579 1449.27 494.746 2146.65 1267.37 2493.47" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1106.61 1110.63C846.656 1426.28 523.128 2136.74 1308.62 2453.33" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1095.64 1077.32C848.124 1402.82 552.388 2125.28 1349.56 2411.18" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1084.66 1044.01C849.953 1378.86 582.453 2112.25 1390.11 2367.02" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1073.69 1010.7C852.147 1354.4 613.285 2097.61 1430.22 2320.87" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1062.73 977.39C854.673 1329.42 644.81 2081.33 1469.78 2272.75" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1051.76 944.083C857.513 1303.92 676.964 2063.4 1508.74 2222.69" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1040.79 910.772C860.645 1277.87 709.681 2043.78 1547.01 2170.7" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1029.83 877.466C864.05 1251.27 742.898 2022.46 1584.52 2116.81" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1018.86 844.157C867.702 1224.11 776.544 1999.42 1621.19 2061.06" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M1007.89 810.847C871.582 1196.37 810.555 1974.64 1656.95 2003.48" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M996.928 777.537C875.666 1168.06 844.863 1948.1 1691.74 1944.11" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M985.961 744.23C879.933 1139.16 879.4 1919.81 1725.49 1882.98" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M974.994 710.92C884.36 1109.66 914.097 1889.75 1758.12 1820.14" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M964.029 677.61C888.924 1079.57 948.887 1857.91 1789.58 1755.63" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M953.062 644.302C893.6 1048.87 983.698 1824.31 1819.79 1689.5" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M942.096 610.994C898.365 1017.56 1018.46 1788.92 1848.7 1621.8" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M931.129 577.686C903.196 985.645 1053.11 1751.77 1876.25 1552.58" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M920.162 544.376C908.069 953.111 1087.58 1712.84 1902.37 1481.89" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M909.197 511.067C912.962 919.964 1121.8 1672.16 1927.02 1409.79" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M898.23 477.759C917.848 886.202 1155.69 1629.74 1950.14 1336.34" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M887.264 444.449C922.704 851.825 1189.2 1585.58 1971.67 1261.59" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M876.297 411.14C927.507 816.835 1222.26 1539.7 1991.57 1185.62" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M865.33 377.832C932.232 781.236 1254.79 1492.13 2009.8 1108.49" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M854.363 344.522C936.857 745.029 1286.74 1442.88 2026.3 1030.25" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M843.396 311.214C941.358 708.221 1318.03 1391.98 2041.04 950.984" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M832.432 277.904C945.714 670.814 1348.62 1339.46 2053.98 870.754" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M821.465 244.596C949.897 632.817 1378.43 1285.34 2065.09 789.633" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M810.498 211.286C953.887 594.236 1407.4 1229.65 2074.32 707.692" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M799.531 177.978C957.661 555.079 1435.47 1172.43 2081.65 625.005" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M788.564 144.668C961.198 515.355 1462.58 1113.71 2087.05 541.644" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M777.598 111.36C964.475 475.074 1488.68 1053.54 2090.5 457.689" stroke="currentColor" stroke-opacity="0.15"/>
+                <path d="M766.633 78.0508C967.473 434.245 1513.72 991.949 2091.98 373.211" stroke="currentColor" stroke-opacity="0.15"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
