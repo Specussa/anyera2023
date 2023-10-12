@@ -5174,6 +5174,10 @@ html.has-scroll-dragging {
   transition: max-height 0.3s linear;
 }
 
+textarea.briefing__input {
+  padding: 14px 20px 10px 0;
+}
+
 .briefing__input:focus {
   max-height: 500px;
 }
@@ -5183,8 +5187,37 @@ html.has-scroll-dragging {
 }
 
 .briefing__textarea {
-  resize: inherit;
+  resize: none;
   overflow: hidden;
+}
+
+.briefing__pencil,
+.briefing__close {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+}
+
+.briefing__pencil {
+  display: inline-block;
+}
+
+.briefing__close {
+  display: none;
+}
+
+.briefing__pencil svg,
+.briefing__close svg {
+  width: 12px;
+  height: 12px;
+}
+
+.briefing__input:focus ~ .briefing__pencil {
+  display: none;
+}
+
+.briefing__input:focus ~ .briefing__close {
+  display: inline-block;
 }
 
 .briefing__bar,
