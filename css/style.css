@@ -218,7 +218,7 @@ input::placeholder,
   color: var(--text-gray);
 }
 
-input {
+input:focus {
   color: var(--text);
 }
 

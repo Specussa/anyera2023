@@ -74,6 +74,7 @@ if(!briefing){} else {
       briefingform.forEach(n => bformone.style.maxHeight = bformone.scrollHeight + "px");
       bformone.classList.add("active");
       bstepsone.classList.add("active");
+      scroll.scrollTo(totop);
     }
   })
   bsteptwo.addEventListener('click', function() {
@@ -84,6 +85,7 @@ if(!briefing){} else {
       briefingform.forEach(n => bformtwo.style.maxHeight = bformtwo.scrollHeight + "px");
       bformtwo.classList.add("active");
       bstepstwo.classList.add("active");
+      scroll.scrollTo(totop);
     }
   })
   bstepthree.addEventListener('click', function() {
@@ -94,6 +96,7 @@ if(!briefing){} else {
       briefingform.forEach(n => bformthree.style.maxHeight = bformthree.scrollHeight + "px");
       bformthree.classList.add("active");
       bstepsthree.classList.add("active");
+      scroll.scrollTo(totop);
     }
   })
   bstepfour.addEventListener('click', function() {
@@ -104,6 +107,7 @@ if(!briefing){} else {
       briefingform.forEach(n => bformfour.style.maxHeight = bformfour.scrollHeight + "px");
       bformfour.classList.add("active");
       bstepsfour.classList.add("active");
+      scroll.scrollTo(totop);
     }
   })
   bstepfive.addEventListener('click', function() {
@@ -114,6 +118,7 @@ if(!briefing){} else {
       briefingform.forEach(n => bformfive.style.maxHeight = bformfive.scrollHeight + "px");
       bformfive.classList.add("active");
       bstepsfive.classList.add("active");
+      scroll.scrollTo(totop);
     }
   })
   // END step
@@ -126,6 +131,7 @@ if(!briefing){} else {
     briefingform.forEach(n => bformone.style.maxHeight = bformone.scrollHeight + "px");
     bformone.classList.add("active");
     bstepsone.classList.add("active");
+    scroll.scrollTo(totop);
   })
   bbuttonthree.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
@@ -134,6 +140,7 @@ if(!briefing){} else {
     briefingform.forEach(n => bformtwo.style.maxHeight = bformtwo.scrollHeight + "px");
     bformtwo.classList.add("active");
     bstepstwo.classList.add("active");
+    scroll.scrollTo(totop);
   })
   bbuttonfour.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
@@ -142,6 +149,7 @@ if(!briefing){} else {
     briefingform.forEach(n => bformthree.style.maxHeight = bformthree.scrollHeight + "px");
     bformthree.classList.add("active");
     bstepsthree.classList.add("active");
+    scroll.scrollTo(totop);
   })
   bbuttonfive.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
@@ -150,6 +158,7 @@ if(!briefing){} else {
     briefingform.forEach(n => bformfour.style.maxHeight = bformfour.scrollHeight + "px");
     bformfour.classList.add("active");
     bstepsfour.classList.add("active");
+    scroll.scrollTo(totop);
   })
   // END back
 
