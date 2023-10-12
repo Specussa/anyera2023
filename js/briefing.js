@@ -314,11 +314,24 @@ if(!briefing){} else {
     if(bassociationsValue === '') {setErrorForBriefing(bassociations, 'Обязательное поле');} else {setSuccessForBriefing(bassociations);}
     if(bsegmentValue === '') {setErrorForBriefing(bsegment, 'Обязательное поле');} else {setSuccessForBriefing(bsegment);}
     if(bdesignValue != '' && bassociationsValue != '' && bsegmentValue != ''){
+      // fetch('/ajax/sendMail.php', {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     title: regionValue,
+      //     body: phoneValue,
+      //     userId: usernameValue
+      //   }),
+      //   headers: {
+      //     "Content-type": "application/json; charset=UTF-8"
+      //   }
+      // });
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
       bformend.classList.add("active");
-      briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('unblock'));
+      document.querySelector('.briefing__head').innerText = 'СПАСИБО ЗА БРИФИНГ!';
+      document.querySelector('.briefing__desc').innerText = 'Мы свяжемся с вами по указанным в брифинге контактам в самое ближайшее время, чтобы обсудить проект.';
       bstepfive.classList.add("success");
     }
   }
