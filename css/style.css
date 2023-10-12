@@ -4729,7 +4729,7 @@ html.has-scroll-dragging {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: right;
+  text-align: center;
   -webkit-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear;
 }
@@ -4981,6 +4981,7 @@ html.has-scroll-dragging {
   display: flex;
   width: 100%;
   padding: 80px;
+  align-items: center;
   gap: 160px;
   position: relative;
 }
@@ -5363,7 +5364,6 @@ html.has-scroll-dragging {
 }
 
 .briefing__input:focus ~ .briefing__label {
-  font-size: 14px;
   color: var(--text-gray);
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -5640,7 +5640,6 @@ html.has-scroll-dragging {
   .services__list_left,
   .services__list_right {
     width: calc(50% - 60px);
-    gap: 30px;
   }
   .services_top__image,
   .briefing__form_end {
@@ -6021,6 +6020,7 @@ html.has-scroll-dragging {
   .services__flex {
     padding: 40px 30px;
     flex-direction: column;
+    align-items: flex-start;
     gap: 60px;
   }
   .services__buttons {
