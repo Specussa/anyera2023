@@ -5164,11 +5164,18 @@ html.has-scroll-dragging {
   display: block;
   width: 100%;
   height: 43px;
+  max-height: 43px;
   padding: 14px 10px 10px 0;
   border: none;
   background: transparent;
   position: relative;
   z-index: 2;
+  -webkit-transition: max-height 0.3s linear;
+  transition: max-height 0.3s linear;
+}
+
+.briefing__input:focus {
+  max-height: 500px;
 }
 
 .briefing__input:focus {
