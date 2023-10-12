@@ -5175,7 +5175,7 @@ html.has-scroll-dragging {
 }
 
 textarea.briefing__input {
-  padding: 14px 20px 10px 0;
+  padding: 14px 22px 10px 0;
 }
 
 .briefing__input:focus {
@@ -5193,17 +5193,24 @@ textarea.briefing__input {
 
 .briefing__pencil,
 .briefing__close {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 0;
-  bottom: 28px;
+  bottom: 18px;
 }
 
 .briefing__pencil {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
 }
 
 .briefing__close {
   display: none;
+  z-index: 2;
 }
 
 .briefing__pencil svg,
@@ -5217,7 +5224,9 @@ textarea.briefing__input {
 }
 
 .briefing__input:focus ~ .briefing__close {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .briefing__bar,
