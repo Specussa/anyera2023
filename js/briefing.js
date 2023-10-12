@@ -164,7 +164,11 @@ if(!briefing){} else {
     if(busernameValue === '') {setErrorForBriefing(busername, 'Обязательное поле');} else {setSuccessForBriefing(busername);}
     if(bphoneValue === '') {setErrorForBriefing(bphone, 'Введите корректный телефон');} else {setSuccessForBriefing(bphone);}
     if(bemailValue === '') {setErrorForBriefing(bemail, 'Введите корректный email');} else {setSuccessForBriefing(bemail);}
-    if(busernameValue != '' && bphoneValue != '' && bemailValue != ''){
+    if(
+      busernameValue != '' &&
+      bphoneValue != '' &&
+      bemailValue != ''
+    ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -173,7 +177,6 @@ if(!briefing){} else {
       bstepstwo.classList.add("active");
       bsteptwo.classList.add("active");
       bsteptwo.classList.add("unblock");
-      bstepone.classList.add("success");
     }
   }
 
@@ -218,7 +221,13 @@ if(!briefing){} else {
     if(bknowValue === '') {setErrorForBriefing(bknow, 'Обязательное поле');} else {setSuccessForBriefing(bknow);}
     if(baudienceValue === '') {setErrorForBriefing(baudience, 'Обязательное поле');} else {setSuccessForBriefing(baudience);}
     if(bchoiceValue === '') {setErrorForBriefing(bchoice, 'Обязательное поле');} else {setSuccessForBriefing(bchoice);}
-    if(bbasictermsValue != '' && btargetValue != '' && bknowValue != '' && baudienceValue != '' && bchoiceValue != ''){
+    if(
+      bbasictermsValue != '' &&
+      btargetValue != '' &&
+      bknowValue != '' &&
+      baudienceValue != '' &&
+      bchoiceValue != ''
+    ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -227,7 +236,6 @@ if(!briefing){} else {
       bstepsthree.classList.add("active");
       bstepthree.classList.add("active");
       bstepthree.classList.add("unblock");
-      bsteptwo.classList.add("success");
     }
   }
   // END validate briefing__form_two
@@ -253,7 +261,15 @@ if(!briefing){} else {
     if(bimpressionValue === '') {setErrorForBriefing(bimpression, 'Обязательное поле');} else {setSuccessForBriefing(bimpression);}
     if(bimportantValue === '') {setErrorForBriefing(bimportant, 'Обязательное поле');} else {setSuccessForBriefing(bimportant);}
     if(blikeValue === '') {setErrorForBriefing(blike, 'Обязательное поле');} else {setSuccessForBriefing(blike);}
-    if(blinkValue != '' && btopicsValue != '' && bnotopicsValue != '' && bpriceValue != '' && bimpressionValue != '' && bimportantValue != '' && blikeValue != ''){
+    if(
+      blinkValue != '' &&
+      btopicsValue != '' &&
+      bnotopicsValue != '' &&
+      bpriceValue != '' &&
+      bimpressionValue != '' &&
+      bimportantValue != '' &&
+      blikeValue != ''
+    ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -262,7 +278,6 @@ if(!briefing){} else {
       bstepsfour.classList.add("active");
       bstepfour.classList.add("active");
       bstepfour.classList.add("unblock");
-      bstepthree.classList.add("success");
     }
   }
   // END validate briefing__form_three
@@ -286,7 +301,15 @@ if(!briefing){} else {
     if(bneedsValue === '') {setErrorForBriefing(bneeds, 'Обязательное поле');} else {setSuccessForBriefing(bneeds);}
     if(bbarriersValue === '') {setErrorForBriefing(bbarriers, 'Обязательное поле');} else {setSuccessForBriefing(bbarriers);}
     if(bstriveValue === '') {setErrorForBriefing(bstrive, 'Обязательное поле');} else {setSuccessForBriefing(bstrive);}
-    if(bproblemsValue != '' && btriggersValue != '' && binfoballValue != '' && bneedsValue != '' && bbarriersValue != '' && bbarriersValue != '' && bstriveValue != ''){
+    if(
+      bproblemsValue != '' &&
+      btriggersValue != '' &&
+      binfoballValue != '' &&
+      bneedsValue != '' &&
+      bbarriersValue != '' &&
+      bbarriersValue != '' &&
+      bstriveValue != ''
+    ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -295,7 +318,6 @@ if(!briefing){} else {
       bstepsfive.classList.add("active");
       bstepfive.classList.add("active");
       bstepfive.classList.add("unblock");
-      bstepfour.classList.add("success");
     }
   }
   // END validate briefing__form_four
@@ -306,6 +328,63 @@ if(!briefing){} else {
     checkfiveInputs();
   });
   function checkfiveInputs() {
+    const busernameValue = busername.value.trim();
+    const bphoneValue = bphone.value.trim();
+    const bemailValue = bemail.value.trim();
+    
+    if(busernameValue != '' && bphoneValue != '' && bemailValue != ''){
+      bstepone.classList.remove("error");
+      bstepone.classList.add("success");
+    } else {
+      bstepone.classList.remove("success");
+      bstepone.classList.add("error");
+    }
+
+    const bbasictermsValue = bbasicterms.value.trim();
+    const btargetValue = btarget.value.trim();
+    const bknowValue = bknow.value.trim();
+    const baudienceValue = baudience.value.trim();
+    const bchoiceValue = bchoice.value.trim();
+
+    if(bbasictermsValue != '' && btargetValue != '' && bknowValue != '' && baudienceValue != '' && bchoiceValue != ''){
+      bsteptwo.classList.remove("error");
+      bsteptwo.classList.add("success");
+    } else {
+      bsteptwo.classList.remove("success");
+      bsteptwo.classList.add("error");
+    }
+
+    const blinkValue = blink.value.trim();
+    const btopicsValue = btopics.value.trim();
+    const bnotopicsValue = bnotopics.value.trim();
+    const bpriceValue = bprice.value.trim();
+    const bimpressionValue = bimpression.value.trim();
+    const bimportantValue = bimportant.value.trim();
+    const blikeValue = blike.value.trim();
+
+    if(blinkValue != '' && btopicsValue != '' && bnotopicsValue != '' && bpriceValue != '' && bimpressionValue != '' && bimportantValue != '' && blikeValue != ''){
+      bstepthree.classList.remove("error");
+      bstepthree.classList.add("success");
+    } else {
+      bstepthree.classList.remove("success");
+      bstepthree.classList.add("error");
+    }
+
+    const bproblemsValue = bproblems.value.trim();
+    const btriggersValue = btriggers.value.trim();
+    const binfoballValue = binfoball.value.trim();
+    const bneedsValue = bneeds.value.trim();
+    const bbarriersValue = bbarriers.value.trim();
+    const bstriveValue = bstrive.value.trim();
+
+    if(bproblemsValue != '' && btriggersValue != '' && binfoballValue != '' && bneedsValue != '' && bbarriersValue != '' && bbarriersValue != '' && bstriveValue != ''){
+      bstepfour.classList.remove("error");
+      bstepfour.classList.add("success");
+    } else {
+      bstepfour.classList.remove("success");
+      bstepfour.classList.add("error");
+    }
+
     const bdesignValue = bdesign.value.trim();
     const bassociationsValue = bassociations.value.trim();
     const bsegmentValue = bsegment.value.trim();
@@ -313,7 +392,37 @@ if(!briefing){} else {
     if(bdesignValue === '') {setErrorForBriefing(bdesign, 'Обязательное поле');} else {setSuccessForBriefing(bdesign);}
     if(bassociationsValue === '') {setErrorForBriefing(bassociations, 'Обязательное поле');} else {setSuccessForBriefing(bassociations);}
     if(bsegmentValue === '') {setErrorForBriefing(bsegment, 'Обязательное поле');} else {setSuccessForBriefing(bsegment);}
-    if(bdesignValue != '' && bassociationsValue != '' && bsegmentValue != ''){
+    if(
+      busernameValue != '' &&
+      bphoneValue != '' &&
+      bemailValue != '' &&
+
+      bbasictermsValue != '' &&
+      btargetValue != '' &&
+      bknowValue != '' &&
+      baudienceValue != '' &&
+      bchoiceValue != '' &&
+
+      blinkValue != '' &&
+      btopicsValue != '' &&
+      bnotopicsValue != '' &&
+      bpriceValue != '' &&
+      bimpressionValue != '' &&
+      bimportantValue != '' &&
+      blikeValue != '' &&
+      
+      bproblemsValue != '' &&
+      btriggersValue != '' &&
+      binfoballValue != '' &&
+      bneedsValue != '' &&
+      bbarriersValue != '' &&
+      bbarriersValue != '' &&
+      bstriveValue != '' &&
+
+      bdesignValue != '' &&
+      bassociationsValue != '' &&
+      bsegmentValue != ''
+    ){
       // fetch('/ajax/sendMail.php', {
       //   method: 'POST',
       //   body: JSON.stringify({

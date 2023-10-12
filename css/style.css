@@ -5123,6 +5123,10 @@ html.has-scroll-dragging {
   background-color: var(--green);
 }
 
+.briefing__step.error span{
+  background-color: var(--error);
+}
+
 .briefing__control {
   display: -webkit-box;
   display: -ms-flexbox;
