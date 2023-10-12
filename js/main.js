@@ -29,13 +29,6 @@
 // preventSelection(document);
 // end right mouse
 
-var ImagesL = document.querySelectorAll("img");
-for (var i = 0; i < ImagesL.length; i++) {
-    ImagesL[i].onmousedown = function (e) {
-        return false;
-    }
-}
-
 // start height
 let oldWidth = window.innerWidth;
 const docheight = document.documentElement

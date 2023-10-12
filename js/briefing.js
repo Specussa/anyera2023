@@ -47,6 +47,10 @@ if(!briefing){} else {
   const bformend = document.querySelector('.briefing__form_end');
   const totop = document.querySelector('#top');
 
+  // start autosize textarea
+    autosize(document.querySelectorAll('textarea'));
+  // end autosize textarea
+
   // START step
   const briefingform = document.querySelectorAll(".briefing__right .briefing__form");
   const briefingsteps = document.querySelectorAll(".briefing__left .briefing__steps");

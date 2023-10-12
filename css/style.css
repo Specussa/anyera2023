@@ -1453,8 +1453,8 @@ html.has-scroll-dragging {
   height: 50%;
   z-index: 1001;
   background-color: var(--white);
-  -webkit-transition: top 0.3s linear;
-  transition: top 0.3s linear;
+  -webkit-transition: top 0.5s linear;
+  transition: top 0.5s linear;
 }
 
 .preloader__bottom {
@@ -1464,8 +1464,8 @@ html.has-scroll-dragging {
   height: 50%;
   z-index: 1001;
   background-color: var(--white);
-  -webkit-transition: top 0.3s linear;
-  transition: top 0.3s linear;
+  -webkit-transition: top 0.5s linear;
+  transition: top 0.5s linear;
 }
 
 .dark .preloader__top,
