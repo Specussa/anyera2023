@@ -201,6 +201,7 @@ b,
 strong,
 input,
 input::placeholder,
+textarea,
 [data-select-title],
 [data-select-item] {
   font-size: 16px;
@@ -217,6 +218,7 @@ li,
 label,
 input,
 input::placeholder,
+textarea,
 [data-select-title],
 [data-select-item] {
   font-weight: 300;
@@ -5486,6 +5488,7 @@ textarea.briefing__input {
   strong,
   input,
   input::placeholder,
+  textarea,
   [data-select-title],
   [data-select-item] {
     font-size: 16px;
@@ -5781,6 +5784,7 @@ textarea.briefing__input {
   b,
   strong,
   input,
+  textarea,
   input::placeholder,
   [data-select-title],
   [data-select-item] {
@@ -6231,6 +6235,7 @@ textarea.briefing__input {
   strong,
   input,
   input::placeholder,
+  textarea,
   [data-select-title],
   [data-select-item] {
     font-size: 16px;
@@ -6661,6 +6666,7 @@ textarea.briefing__input {
   strong,
   input,
   input::placeholder,
+  textarea,
   [data-select-title],
   [data-select-item] {
     font-size: 16px;
