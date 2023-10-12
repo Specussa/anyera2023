@@ -5046,6 +5046,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: calc(100% - 80px);
+  overflow: hidden;
 }
 
 .briefing__left {
@@ -5061,7 +5062,7 @@ html.has-scroll-dragging {
   gap: 40px;
 }
 
-.briefing__steps {
+.briefing__steps_block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5069,19 +5070,11 @@ html.has-scroll-dragging {
   gap: 30px;
 }
 
-.briefing__steps_one,
-.briefing__steps_two,
-.briefing__steps_three,
-.briefing__steps_four,
-.briefing__steps_five {
+.briefing__steps {
   display: none;
 }
 
-.briefing__steps_one.active,
-.briefing__steps_two.active,
-.briefing__steps_three.active,
-.briefing__steps_four.active,
-.briefing__steps_five.active {
+.briefing__steps.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5100,9 +5093,14 @@ html.has-scroll-dragging {
   height: 10px;
   position: relative;
   background-color: var(--border);
+  pointer-events: none;
 }
 
-.briefing__step::after {
+.briefing__step.unblock {
+  pointer-events: all;
+}
+
+.briefing__step span {
   content: "";
   width: 0px;
   height: 100%;
@@ -5111,12 +5109,16 @@ html.has-scroll-dragging {
   left: 0;
   z-index: 1;
   background-color: var(--purple);
-  -webkit-transition: width 0.2s linear;
-  transition: width 0.2s linear;
+  -webkit-transition: width 0.2s linear, background-color 0.2s linear;
+  transition: width 0.2s linear, background-color 0.2s linear;
 }
 
-.briefing__step.active::after {
+.briefing__step.active span {
   width: 100%;
+}
+
+.briefing__step.success span{
+  background-color: var(--green);
 }
 
 .briefing__control {
@@ -5248,11 +5250,67 @@ html.has-scroll-dragging {
   margin: 0 0 5px;
 }
 
+.briefing__form .briefing__form_head,
+.briefing__form .briefing__check_head,
+.briefing__form .briefing__controls,
+.briefing__form .briefing__checks,
+.briefing__form .briefing__bottom {
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.briefing__form.active .briefing__form_head,
+.briefing__form.active .briefing__check_head,
+.briefing__form.active .briefing__controls,
+.briefing__form.active .briefing__checks,
+.briefing__form.active .briefing__bottom {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: calc(var(--inc-step)*0.07s);
+  transition-delay: calc(var(--inc-step)*0.07s);
+}
+
+.briefing__forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200%;
+}
+
 .briefing__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  height: 100%;
+  max-height: 0px;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 40px;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition: max-height 0s linear, transform 0s linear;
+  transition: max-height 0s linear, transform 0s linear;
+  overflow: hidden;
+}
+
+.briefing__form.active {
+  max-height: 2000px;
+  flex: 0 0 auto;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition: max-height 0s linear 0.3s, transform 0s linear;
+  transition: max-height 0s linear 0.3s, transform 0s linear;
+}
+
+.briefing__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   flex-direction: column;
   gap: 40px;
 }
@@ -5261,8 +5319,9 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .briefing__necessarily span,
@@ -5578,7 +5637,7 @@ html.has-scroll-dragging {
   .briefing__right {
     width: calc(100% - 60px);
   }
-  .briefing__steps {
+  .briefing__steps_block {
     gap: 20px;
   }
   .swiper-pagination-bullet {

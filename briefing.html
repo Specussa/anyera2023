@@ -134,25 +134,25 @@
               <h1 class="briefing__head">БРИФИНГ</h1>
               <p class="briefing__desc">Это необходимо, чтобы детально представлять минимальные требования и пожелания к сайту, поможет выстроить правильные взаимоотношения на основе которых мы будем составлять техническое задание, а так же чтобы грамотно сделать для вас коммерческое предложение.</p>
             </div>
-            <div class="briefing__steps">
+            <div class="briefing__steps_block">
               <h4 class="briefing__steps_head">
-                <span class="briefing__steps_one active">Шаг 1 - Общая информация</span>
-                <span class="briefing__steps_two">Шаг 2 - О продукте</span>
-                <span class="briefing__steps_three">Шаг 3 - Конкуренты и референсы</span>
-                <span class="briefing__steps_four">Шаг 4 - Аудитория</span>
-                <span class="briefing__steps_five">Шаг 5 - Дополнительно</span>
+                <span class="briefing__steps briefing__steps_one active">Шаг 1 - Общая информация</span>
+                <span class="briefing__steps briefing__steps_two">Шаг 2 - О продукте</span>
+                <span class="briefing__steps briefing__steps_three">Шаг 3 - Конкуренты и референсы</span>
+                <span class="briefing__steps briefing__steps_four">Шаг 4 - Аудитория</span>
+                <span class="briefing__steps briefing__steps_five">Шаг 5 - Дополнительно</span>
               </h4>
               <div class="briefing__steps_flex">
-                <button class="briefing__step briefing__step_one active"></button>
-                <button class="briefing__step briefing__step_two"></button>
-                <button class="briefing__step briefing__step_three"></button>
-                <button class="briefing__step briefing__step_four"></button>
-                <button class="briefing__step briefing__step_five"></button>
+                <button class="briefing__step briefing__step_one active unblock"><span></span></button>
+                <button class="briefing__step briefing__step_two unblock"><span></span></button>
+                <button class="briefing__step briefing__step_three"><span></span></button>
+                <button class="briefing__step briefing__step_four"><span></span></button>
+                <button class="briefing__step briefing__step_five"><span></span></button>
               </div>
             </div>
           </div>
-          <div class="briefing__right">
-            <form id="briefing__form_one" class="briefing__form briefing__form_one">
+          <div class="briefing__right"> 
+            <form id="briefing__form_one" class="briefing__form briefing__form_one active">
               <h4 class="briefing__form_head">Контактные данные</h4>
               <div class="briefing__controls">
                 <div class="briefing__control">
@@ -194,11 +194,64 @@
                 <label class="btn briefing__check"><span class="button__text">900 тыс. - 1 млн.</span><span class="button__hover"></span><input class="briefing__check_input" name="sum" type="radio"></label>
                 <label class="btn briefing__check"><span class="button__text">более 1 млн.</span><span class="button__hover"></span><input class="briefing__check_input" name="sum" type="radio"></label>
               </div>
-              <div class="briefing__buttons">
+              <div class="briefing__bottom">
                 <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
                 <div class="btn btn__input briefing__button">
                   <input type="submit" name="submit" value="Продолжить" class="button__text">
                   <span class="button__hover"></span>
+                </div>
+              </div>
+            </form>
+            <form id="briefing__form_two" class="briefing__form briefing__form_two">
+              <h4 class="briefing__form_head">О продукте</h4>
+              <div class="briefing__controls">
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__basicterms" />
+                  <label class="briefing__label" for="briefing__basicterms">Опишите ваш проект в основных чертах <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__target" />
+                  <label class="briefing__label" for="briefing__target">Какие главные цели должны решаться с помощью вашего сайта? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__know" />
+                  <label class="briefing__label" for="briefing__know">Что важно знать пользователям сайта о вас и вашем продукте? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__audience" />
+                  <label class="briefing__label" for="briefing__audience">Какая главная целевая аудитория по вашему мнению? Примерный портрет пользователя <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+                <div class="briefing__control">
+                  <input class="briefing__input" type="text" minlength="4" maxlength="300" id="briefing__choice" />
+                  <label class="briefing__label" for="briefing__choice">Почему пользователи должны сделать выбор в вашу пользу, а не в пользу конкурентов? <span>*</span></label>
+                  <span class="briefing__bar"></span>
+                  <span class="briefing__border"></span>
+                  <small>Error message</small>
+                </div>
+              </div>
+              <div class="briefing__bottom">
+                <p class="briefing__necessarily"><span>*</span> поля, обязательные для заполнения</p>
+                <div class="briefing__buttons">
+                  <button class="btn briefing__button_two">
+                    <span class="button__text">Назад</span>
+                    <span class="button__hover"></span>
+                  </button>
+                  <div class="btn btn__input briefing__button">
+                    <input type="submit" name="submit" value="Продолжить" class="button__text">
+                    <span class="button__hover"></span>
+                  </div>
                 </div>
               </div>
             </form>

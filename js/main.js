@@ -226,9 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // start year
 const year = document.querySelector('.footer__year');
 if(!year){} else {
-const currentYear = new Date().getFullYear();
-year.insertAdjacentText('beforebegin', currentYear);
-year.remove();
+  const currentYear = new Date().getFullYear();
+  year.insertAdjacentText('beforebegin', currentYear);
+  year.remove();
 }
 // end year
 
