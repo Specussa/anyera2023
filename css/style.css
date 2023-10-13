@@ -3555,6 +3555,8 @@ html.has-scroll-dragging {
   gap: 10px;
   border-bottom: 1px solid var(--gray-border);
   color: var(--text);
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   -webkit-transition: max-height 0.5s linear, padding 0.5s linear;
   transition: max-height 0.5s linear, padding 0.5s linear;
@@ -3563,6 +3565,7 @@ html.has-scroll-dragging {
 
 .expertise__panel.active {
   padding: 0 0 20px;
+  max-height: 2000px;
   transition-delay: 0s, 0s;
 }
 
