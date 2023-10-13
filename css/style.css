@@ -5275,7 +5275,7 @@ textarea.briefing__input {
 .briefing__bar::before,
 .briefing__bar::after {
   width: 0;
-  background-color: var(--purple);
+  background-color: var(--text);
 }
 
 .briefing__border::before,
@@ -5308,6 +5308,8 @@ textarea.briefing__input {
   right: 50%;
 }
 
+.briefing__input:hover ~ .briefing__bar::before,
+.briefing__input:hover ~ .briefing__bar::after,
 .briefing__input:focus ~ .briefing__bar::before,
 .briefing__input:focus ~ .briefing__bar::after {
   width: 50%;
@@ -5448,6 +5450,40 @@ textarea.briefing__input {
   border-radius: 15px;
   background-color: var(--button-gray);
   border: 1px solid var(--button-gray);
+}
+
+.briefing__check .button__text {
+  color: var(--text);
+}
+
+.briefing__check .button__hover,
+.briefing__check .button__hover:after {
+  background-color: var(--border);
+}
+
+.briefing__check.active .button__hover,
+.briefing__check.active .button__hover:after {
+  display: none;
+}
+
+.briefing__check:hover {
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.briefing__check.active:hover {
+  color: var(--bg);
+  border: 1px solid var(--text);
+}
+
+.briefing__check:hover .button__text,
+.briefing__check:hover .button__count small {
+  color: var(--text);
+}
+
+.briefing__check.active:hover .button__text,
+.briefing__check.active:hover .button__count small {
+  color: var(--bg);
 }
 
 /* end briefing */
