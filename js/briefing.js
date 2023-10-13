@@ -53,35 +53,66 @@ if(!briefing){} else {
   // end autosize textarea
   
   // start maxleight
-  busername.oninput = function(){this.value = this.value.substr(0, 40);}
-  bphone.oninput = function(){this.value = this.value.substr(0, 11);}
-  bemail.oninput = function(){this.value = this.value.substr(0, 40);}
+  busername.oninput = function(){this.value = this.value.substr(0, busername.getAttribute('maxlength'));}
+  bphone.oninput = function(){this.value = this.value.substr(0, bphone.getAttribute('maxlength'));}
+  bemail.oninput = function(){this.value = this.value.substr(0, bemail.getAttribute('maxlength'));}
 
-  bbasicterms.oninput = function(){this.value = this.value.substr(0, 300);}
-  btarget.oninput = function(){this.value = this.value.substr(0, 300);}
-  bknow.oninput = function(){this.value = this.value.substr(0, 300);}
-  baudience.oninput = function(){this.value = this.value.substr(0, 300);}
-  bchoice.oninput = function(){this.value = this.value.substr(0, 300);}
+  bbasicterms.oninput = function(){this.value = this.value.substr(0, bbasicterms.getAttribute('maxlength'));}
+  btarget.oninput = function(){this.value = this.value.substr(0, btarget.getAttribute('maxlength'));}
+  bknow.oninput = function(){this.value = this.value.substr(0, bknow.getAttribute('maxlength'));}
+  baudience.oninput = function(){this.value = this.value.substr(0, baudience.getAttribute('maxlength'));}
+  bchoice.oninput = function(){this.value = this.value.substr(0, bchoice.getAttribute('maxlength'));}
 
-  blink.oninput = function(){this.value = this.value.substr(0, 300);}
-  btopics.oninput = function(){this.value = this.value.substr(0, 300);}
-  bnotopics.oninput = function(){this.value = this.value.substr(0, 300);}
-  bprice.oninput = function(){this.value = this.value.substr(0, 300);}
-  bimpression.oninput = function(){this.value = this.value.substr(0, 300);}
-  bimportant.oninput = function(){this.value = this.value.substr(0, 300);}
-  blike.oninput = function(){this.value = this.value.substr(0, 300);}
+  blink.oninput = function(){this.value = this.value.substr(0, blink.getAttribute('maxlength'));}
+  btopics.oninput = function(){this.value = this.value.substr(0, btopics.getAttribute('maxlength'));}
+  bnotopics.oninput = function(){this.value = this.value.substr(0, bnotopics.getAttribute('maxlength'));}
+  bprice.oninput = function(){this.value = this.value.substr(0, bprice.getAttribute('maxlength'));}
+  bimpression.oninput = function(){this.value = this.value.substr(0, bimpression.getAttribute('maxlength'));}
+  bimportant.oninput = function(){this.value = this.value.substr(0, bimportant.getAttribute('maxlength'));}
+  blike.oninput = function(){this.value = this.value.substr(0, blike.getAttribute('maxlength'));}
 
-  bproblems.oninput = function(){this.value = this.value.substr(0, 300);}
-  btriggers.oninput = function(){this.value = this.value.substr(0, 300);}
-  binfoball.oninput = function(){this.value = this.value.substr(0, 300);}
-  bneeds.oninput = function(){this.value = this.value.substr(0, 300);}
-  bbarriers.oninput = function(){this.value = this.value.substr(0, 300);}
-  bstrive.oninput = function(){this.value = this.value.substr(0, 300);}
+  bproblems.oninput = function(){this.value = this.value.substr(0, bproblems.getAttribute('maxlength'));}
+  btriggers.oninput = function(){this.value = this.value.substr(0, btriggers.getAttribute('maxlength'));}
+  binfoball.oninput = function(){this.value = this.value.substr(0, binfoball.getAttribute('maxlength'));}
+  bneeds.oninput = function(){this.value = this.value.substr(0, bneeds.getAttribute('maxlength'));}
+  bbarriers.oninput = function(){this.value = this.value.substr(0, bbarriers.getAttribute('maxlength'));}
+  bstrive.oninput = function(){this.value = this.value.substr(0, bstrive.getAttribute('maxlength'));}
 
-  bdesign.oninput = function(){this.value = this.value.substr(0, 300);}
-  bassociations.oninput = function(){this.value = this.value.substr(0, 300);}
-  bsegment.oninput = function(){this.value = this.value.substr(0, 300);}
+  bdesign.oninput = function(){this.value = this.value.substr(0, bdesign.getAttribute('maxlength'));}
+  bassociations.oninput = function(){this.value = this.value.substr(0, bassociations.getAttribute('maxlength'));}
+  bsegment.oninput = function(){this.value = this.value.substr(0, bsegment.getAttribute('maxlength'));}
   // end maxleight
+
+  // start mask phone
+  document.addEventListener("DOMContentLoaded", function () {
+    var eventCalllback = function (e) {
+      var el = e.target,
+        clearVal = el.dataset.phoneClear,
+        pattern = el.dataset.phonePattern,
+        matrix_def = "+7(___) ___-__-__",
+        matrix = pattern ? pattern : matrix_def,
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = e.target.value.replace(/\D/g, "");
+      if (clearVal !== 'false' && e.type === 'blur') {
+        if (val.length < matrix.match(/([\_\d])/g).length) {
+          e.target.value = '';
+          return;
+        }
+      }
+      if (def.length >= val.length) val = def;
+      e.target.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+      });
+    }
+    var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+    for (let elem of phone_inputs) {
+      for (let ev of ['input', 'blur', 'focus']) {
+        elem.addEventListener(ev, eventCalllback);
+      }
+    }
+  });
+  // end mask phone
 
   // START step
   const briefingform = document.querySelectorAll(".briefing__right .briefing__form");
