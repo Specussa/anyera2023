@@ -208,7 +208,7 @@ if(!briefing){} else {
     const bphoneValue = bphone.value.trim();
     const bemailValue = bemail.value.trim();
 
-    if(busernameValue !== '' && busernameValue.length >= 4 && busernameValue.length <= 40) {
+    if(busernameValue !== '' && busernameValue.length >= busername.getAttribute('minlength') && busernameValue.length <= busername.getAttribute('maxlength')) {
       setSuccessForBriefing(busername);
       bstepone.classList.remove("error");
       scroll.scrollTo(totop);
@@ -218,7 +218,7 @@ if(!briefing){} else {
       scroll.scrollTo(totop);
     }
 
-    if(bphoneValue !== '' && bphoneValue.length >= 4 && bphoneValue.length <= 11) {
+    if(bphoneValue !== '' && bphoneValue.length >= bphone.getAttribute('minlength') && bphoneValue.length <= bphone.getAttribute('maxlength')) {
       setSuccessForBriefing(bphone);
       bstepone.classList.remove("error");
       scroll.scrollTo(totop);
@@ -232,7 +232,7 @@ if(!briefing){} else {
       setErrorForBriefing(bemail, 'Введите корректный email');
       bstepone.classList.add("error");
       scroll.scrollTo(totop);
-    } else if (bemailValue !== '' && bemailValue.length >= 4 && bemailValue.length <= 40) {
+    } else if (bemailValue !== '' && bemailValue.length >= bemail.getAttribute('minlength') && bemailValue.length <= bemail.getAttribute('maxlength')) {
       setSuccessForBriefing(bemail);
       bstepone.classList.remove("error");
       scroll.scrollTo(totop);
@@ -246,14 +246,14 @@ if(!briefing){} else {
       scroll.scrollTo(totop);
     } else if (
       busernameValue !== '' &&
-      busernameValue.length >= 4 &&
-      busernameValue.length <= 40 &&
+      busernameValue.length >= busername.getAttribute('minlength') &&
+      busernameValue.length <= busername.getAttribute('maxlength') &&
       bphoneValue !== '' &&
-      bphoneValue.length >= 4 &&
-      bphoneValue.length <= 11 &&
+      bphoneValue.length >= bphone.getAttribute('minlength') &&
+      bphoneValue.length <= bphone.getAttribute('maxlength') &&
       bemailValue !== '' &&
-      bemailValue.length >= 4 &&
-      bemailValue.length <= 40
+      bemailValue.length >= bemail.getAttribute('minlength') &&
+      bemailValue.length <= bemail.getAttribute('maxlength')
     ) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -303,7 +303,7 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue !== '' && bbasictermsValue.length >= 4 && bbasictermsValue.length <= 300) {
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasicterms.getAttribute('minlength') && bbasictermsValue.length <= bbasicterms.getAttribute('maxlength')) {
       setSuccessForBriefing(bbasicterms);
       bsteptwo.classList.remove("error");
       scroll.scrollTo(totop);
@@ -312,7 +312,7 @@ if(!briefing){} else {
       bsteptwo.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(btargetValue !== '' && btargetValue.length >= 4 && btargetValue.length <= 300) {
+    if(btargetValue !== '' && btargetValue.length >= btarget.getAttribute('minlength') && btargetValue.length <= btarget.getAttribute('maxlength')) {
       setSuccessForBriefing(btarget);
       bsteptwo.classList.remove("error");
       scroll.scrollTo(totop);
@@ -321,7 +321,7 @@ if(!briefing){} else {
       bsteptwo.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bknowValue !== '' && bknowValue.length >= 4 && bknowValue.length <= 300) {
+    if(bknowValue !== '' && bknowValue.length >= bknow.getAttribute('minlength') && bknowValue.length <= bknow.getAttribute('maxlength')) {
       setSuccessForBriefing(bknow);
       bsteptwo.classList.remove("error");
       scroll.scrollTo(totop);
@@ -330,7 +330,7 @@ if(!briefing){} else {
       bsteptwo.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(baudienceValue !== '' && baudienceValue.length >= 4 && baudienceValue.length <= 300) {
+    if(baudienceValue !== '' && baudienceValue.length >= baudience.getAttribute('minlength') && baudienceValue.length <= baudience.getAttribute('maxlength')) {
       setSuccessForBriefing(baudience);
       bsteptwo.classList.remove("error");
       scroll.scrollTo(totop);
@@ -339,7 +339,7 @@ if(!briefing){} else {
       bsteptwo.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bchoiceValue !== '' && bchoiceValue.length >= 4 && bchoiceValue.length <= 300) {
+    if(bchoiceValue !== '' && bchoiceValue.length >= bchoice.getAttribute('minlength') && bchoiceValue.length <= bchoice.getAttribute('maxlength')) {
       setSuccessForBriefing(bchoice);
       bsteptwo.classList.remove("error");
       scroll.scrollTo(totop);
@@ -350,20 +350,20 @@ if(!briefing){} else {
     }
     if(
       bbasictermsValue != '' &&
-      bbasictermsValue.length >= 4 &&
-      bbasictermsValue.length <= 300 &&
+      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
+      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
       btargetValue != '' &&
-      btargetValue.length >= 4 &&
-      btargetValue.length <= 300 &&
+      btargetValue.length >= btarget.getAttribute('minlength') &&
+      btargetValue.length <= btarget.getAttribute('maxlength') &&
       bknowValue != '' &&
-      bknowValue.length >= 4 &&
-      bknowValue.length <= 300 &&
+      bknowValue.length >= bknow.getAttribute('minlength') &&
+      bknowValue.length <= bknow.getAttribute('maxlength') &&
       baudienceValue != '' &&
-      baudienceValue.length >= 4 &&
-      baudienceValue.length <= 300 &&
+      baudienceValue.length >= baudience.getAttribute('minlength') &&
+      baudienceValue.length <= baudience.getAttribute('maxlength') &&
       bchoiceValue != '' &&
-      bchoiceValue.length >= 4 &&
-      bchoiceValue.length <= 300
+      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
+      bchoiceValue.length <= bchoice.getAttribute('maxlength')
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -392,7 +392,7 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue !== '' && blinkValue.length >= 4 && blinkValue.length <= 300) {
+    if(blinkValue !== '' && blinkValue.length >= blink.getAttribute('minlength') && blinkValue.length <= blink.getAttribute('maxlength')) {
       setSuccessForBriefing(blink);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -401,7 +401,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(btopicsValue !== '' && btopicsValue.length >= 4 && btopicsValue.length <= 300) {
+    if(btopicsValue !== '' && btopicsValue.length >= btopics.getAttribute('minlength') && btopicsValue.length <= btopics.getAttribute('maxlength')) {
       setSuccessForBriefing(btopics);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -410,7 +410,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bnotopicsValue !== '' && bnotopicsValue.length >= 4 && bnotopicsValue.length <= 300) {
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopics.getAttribute('minlength') && bnotopicsValue.length <= bnotopics.getAttribute('maxlength')) {
       setSuccessForBriefing(bnotopics);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -419,7 +419,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bpriceValue !== '' && bpriceValue.length >= 4 && bpriceValue.length <= 300) {
+    if(bpriceValue !== '' && bpriceValue.length >= bprice.getAttribute('minlength') && bpriceValue.length <= bprice.getAttribute('maxlength')) {
       setSuccessForBriefing(bprice);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -428,7 +428,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bimpressionValue !== '' && bimpressionValue.length >= 4 && bimpressionValue.length <= 300) {
+    if(bimpressionValue !== '' && bimpressionValue.length >= bimpression.getAttribute('minlength') && bimpressionValue.length <= bimpression.getAttribute('maxlength')) {
       setSuccessForBriefing(bimpression);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -437,7 +437,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bimportantValue !== '' && bimportantValue.length >= 4 && bimportantValue.length <= 300) {
+    if(bimportantValue !== '' && bimportantValue.length >= bimportant.getAttribute('minlength') && bimportantValue.length <= bimportant.getAttribute('maxlength')) {
       setSuccessForBriefing(bimportant);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -446,7 +446,7 @@ if(!briefing){} else {
       bstepthree.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(blikeValue !== '' && blikeValue.length >= 4 && blikeValue.length <= 300) {
+    if(blikeValue !== '' && blikeValue.length >= blike.getAttribute('minlength') && blikeValue.length <= blike.getAttribute('maxlength')) {
       setSuccessForBriefing(blike);
       bstepthree.classList.remove("error");
       scroll.scrollTo(totop);
@@ -457,26 +457,26 @@ if(!briefing){} else {
     }
     if(
       blinkValue != '' &&
-      blinkValue.length >= 4 &&
-      blinkValue.length <= 300 &&
+      blinkValue.length >= blink.getAttribute('minlength') &&
+      blinkValue.length <= blink.getAttribute('maxlength') &&
       btopicsValue != '' &&
-      btopicsValue.length >= 4 &&
-      btopicsValue.length <= 300 &&
+      btopicsValue.length >= btopics.getAttribute('minlength') &&
+      btopicsValue.length <= btopics.getAttribute('maxlength') &&
       bnotopicsValue != '' &&
-      bnotopicsValue.length >= 4 &&
-      bnotopicsValue.length <= 300 &&
+      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
+      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
       bpriceValue != '' &&
-      bpriceValue.length >= 4 &&
-      bpriceValue.length <= 300 &&
+      bpriceValue.length >= bprice.getAttribute('minlength') &&
+      bpriceValue.length <= bprice.getAttribute('maxlength') &&
       bimpressionValue != '' &&
-      bimpressionValue.length >= 4 &&
-      bimpressionValue.length <= 300 &&
+      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
+      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
       bimportantValue != '' &&
-      bimportantValue.length >= 4 &&
-      bimportantValue.length <= 300 &&
+      bimportantValue.length >= bimportant.getAttribute('minlength') &&
+      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
       blikeValue != '' &&
-      blikeValue.length >= 4 &&
-      blikeValue.length <= 300
+      blikeValue.length >= blike.getAttribute('minlength') &&
+      blikeValue.length <= blike.getAttribute('maxlength')
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -504,7 +504,7 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue !== '' && bproblemsValue.length >= 4 && bproblemsValue.length <= 300) {
+    if(bproblemsValue !== '' && bproblemsValue.length >= bproblems.getAttribute('minlength') && bproblemsValue.length <= bproblems.getAttribute('maxlength')) {
       setSuccessForBriefing(bproblems);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -513,7 +513,7 @@ if(!briefing){} else {
       bstepfour.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(btriggersValue !== '' && btriggersValue.length >= 4 && btriggersValue.length <= 300) {
+    if(btriggersValue !== '' && btriggersValue.length >= btriggers.getAttribute('minlength') && btriggersValue.length <= btriggers.getAttribute('maxlength')) {
       setSuccessForBriefing(btriggers);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -522,7 +522,7 @@ if(!briefing){} else {
       bstepfour.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(binfoballValue !== '' && binfoballValue.length >= 4 && binfoballValue.length <= 300) {
+    if(binfoballValue !== '' && binfoballValue.length >= binfoball.getAttribute('minlength') && binfoballValue.length <= binfoball.getAttribute('maxlength')) {
       setSuccessForBriefing(binfoball);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -531,7 +531,7 @@ if(!briefing){} else {
       bstepfour.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bneedsValue !== '' && bneedsValue.length >= 4 && bneedsValue.length <= 300) {
+    if(bneedsValue !== '' && bneedsValue.length >= bneeds.getAttribute('minlength') && bneedsValue.length <= bneeds.getAttribute('maxlength')) {
       setSuccessForBriefing(bneeds);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -540,7 +540,7 @@ if(!briefing){} else {
       bstepfour.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bbarriersValue !== '' && bbarriersValue.length >= 4 && bbarriersValue.length <= 300) {
+    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriers.getAttribute('minlength') && bbarriersValue.length <= bbarriers.getAttribute('maxlength')) {
       setSuccessForBriefing(bbarriers);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -549,7 +549,7 @@ if(!briefing){} else {
       bstepfour.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bstriveValue !== '' && bstriveValue.length >= 4 && bstriveValue.length <= 300) {
+    if(bstriveValue !== '' && bstriveValue.length >= bstrive.getAttribute('minlength') && bstriveValue.length <= bstrive.getAttribute('maxlength')) {
       setSuccessForBriefing(bstrive);
       bstepfour.classList.remove("error");
       scroll.scrollTo(totop);
@@ -560,23 +560,23 @@ if(!briefing){} else {
     }
     if(
       bproblemsValue != '' &&
-      bproblemsValue.length >= 4 &&
-      bproblemsValue.length <= 300 &&
+      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
+      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
       btriggersValue != '' &&
-      btriggersValue.length >= 4 &&
-      btriggersValue.length <= 300 &&
+      btriggersValue.length >= btriggers.getAttribute('minlength') &&
+      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
       binfoballValue != '' &&
-      binfoballValue.length >= 4 &&
-      binfoballValue.length <= 300 &&
+      binfoballValue.length >= binfoball.getAttribute('minlength') &&
+      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
       bneedsValue != '' &&
-      bneedsValue.length >= 4 &&
-      bneedsValue.length <= 300 &&
+      bneedsValue.length >= bneeds.getAttribute('minlength') &&
+      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
       bbarriersValue != '' &&
-      bbarriersValue.length >= 4 &&
-      bbarriersValue.length <= 300 &&
+      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
+      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
       bstriveValue != '' &&
-      bstriveValue.length >= 4 &&
-      bstriveValue.length <= 300
+      bstriveValue.length >= bstrive.getAttribute('minlength') &&
+      bstriveValue.length <= bstrive.getAttribute('maxlength')
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -604,13 +604,13 @@ if(!briefing){} else {
     const bemailValue = bemail.value.trim();
 
 
-    if(busernameValue !== '' && busernameValue.length >= 4 && busernameValue.length <= 40) {
+    if(busernameValue !== '' && busernameValue.length >= busername.getAttribute('minlength') && busernameValue.length <= busername.getAttribute('maxlength')) {
       setSuccessForBriefing(busername);
     } else {
       setErrorForBriefing(busername, 'Обязательное поле');
     }
 
-    if(bphoneValue !== '' && bphoneValue.length >= 4 && bphoneValue.length <= 11) {
+    if(bphoneValue !== '' && bphoneValue.length >= bphone.getAttribute('minlength') && bphoneValue.length <= bphone.getAttribute('maxlength')) {
       setSuccessForBriefing(bphone);
     } else {
       setErrorForBriefing(bphone, 'Введите корректный телефон');
@@ -618,7 +618,7 @@ if(!briefing){} else {
 
     if(!isEmail(bemailValue)) {
       setErrorForBriefing(bemail, 'Введите корректный email');
-    } else if (bemailValue !== '' && bemailValue.length >= 4 && bemailValue.length <= 40) {
+    } else if (bemailValue !== '' && bemailValue.length >= bemail.getAttribute('minlength') && bemailValue.length <= bemail.getAttribute('maxlength')) {
       setSuccessForBriefing(bemail);
     } else {
       setErrorForBriefing(bemail, 'Введите корректный email');
@@ -629,14 +629,14 @@ if(!briefing){} else {
       bstepone.classList.add("error");
     } else if (
       busernameValue != '' &&
-      busernameValue.length >= 4 &&
-      busernameValue.length <= 40 &&
+      busernameValue.length >= busername.getAttribute('minlength') &&
+      busernameValue.length <= busername.getAttribute('maxlength') &&
       bphoneValue != '' &&
-      bphoneValue.length >= 4 &&
-      bphoneValue.length <= 11 &&
+      bphoneValue.length >= bphone.getAttribute('minlength') &&
+      bphoneValue.length <= bphone.getAttribute('maxlength') &&
       bemailValue != '' &&
-      bemailValue.length >= 4 &&
-      bemailValue.length <= 40
+      bemailValue.length >= bemail.getAttribute('minlength') &&
+      bemailValue.length <= bemail.getAttribute('maxlength')
     ) {
       bstepone.classList.remove("error");
       bstepone.classList.add("success");
@@ -651,47 +651,47 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue !== '' && bbasictermsValue.length >= 4 && bbasictermsValue.length <= 300) {
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasicterms.getAttribute('minlength') && bbasictermsValue.length <= bbasicterms.getAttribute('maxlength')) {
       setSuccessForBriefing(bbasicterms);
     } else {
       setErrorForBriefing(bbasicterms, 'Обязательное поле');
     }
-    if(btargetValue !== '' && btargetValue.length >= 4 && btargetValue.length <= 300) {
+    if(btargetValue !== '' && btargetValue.length >= btarget.getAttribute('minlength') && btargetValue.length <= btarget.getAttribute('maxlength')) {
       setSuccessForBriefing(btarget);
     } else {
       setErrorForBriefing(btarget, 'Обязательное поле');
     }
-    if(bknowValue !== '' && bknowValue.length >= 4 && bknowValue.length <= 300) {
+    if(bknowValue !== '' && bknowValue.length >= bknow.getAttribute('minlength') && bknowValue.length <= bknow.getAttribute('maxlength')) {
       setSuccessForBriefing(bknow);
     } else {
       setErrorForBriefing(bknow, 'Обязательное поле');
     }
-    if(baudienceValue !== '' && baudienceValue.length >= 4 && baudienceValue.length <= 300) {
+    if(baudienceValue !== '' && baudienceValue.length >= baudience.getAttribute('minlength') && baudienceValue.length <= baudience.getAttribute('maxlength')) {
       setSuccessForBriefing(baudience);
     } else {
       setErrorForBriefing(baudience, 'Обязательное поле');
     }
-    if(bchoiceValue !== '' && bchoiceValue.length >= 4 && bchoiceValue.length <= 300) {
+    if(bchoiceValue !== '' && bchoiceValue.length >= bchoice.getAttribute('minlength') && bchoiceValue.length <= bchoice.getAttribute('maxlength')) {
       setSuccessForBriefing(bchoice);
     } else {
       setErrorForBriefing(bchoice, 'Обязательное поле');
     }
     if(
       bbasictermsValue != '' &&
-      bbasictermsValue.length >= 4 &&
-      bbasictermsValue.length <= 300 &&
+      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
+      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
       btargetValue != '' &&
-      btargetValue.length >= 4 &&
-      btargetValue.length <= 300 &&
+      btargetValue.length >= btarget.getAttribute('minlength') &&
+      btargetValue.length <= btarget.getAttribute('maxlength') &&
       bknowValue != '' &&
-      bknowValue.length >= 4 &&
-      bknowValue.length <= 300 &&
+      bknowValue.length >= bknow.getAttribute('minlength') &&
+      bknowValue.length <= bknow.getAttribute('maxlength') &&
       baudienceValue != '' &&
-      baudienceValue.length >= 4 &&
-      baudienceValue.length <= 300 &&
+      baudienceValue.length >= baudience.getAttribute('minlength') &&
+      baudienceValue.length <= baudience.getAttribute('maxlength') &&
       bchoiceValue != '' &&
-      bchoiceValue.length >= 4 &&
-      bchoiceValue.length <= 300
+      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
+      bchoiceValue.length <= bchoice.getAttribute('maxlength')
     ){
       bsteptwo.classList.remove("error");
       bsteptwo.classList.add("success");
@@ -708,63 +708,63 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue !== '' && blinkValue.length >= 4 && blinkValue.length <= 300) {
+    if(blinkValue !== '' && blinkValue.length >= blink.getAttribute('minlength') && blinkValue.length <= blink.getAttribute('maxlength')) {
       setSuccessForBriefing(blink);
     } else {
       setErrorForBriefing(blink, 'Обязательное поле');
     }
-    if(btopicsValue !== '' && btopicsValue.length >= 4 && btopicsValue.length <= 300) {
+    if(btopicsValue !== '' && btopicsValue.length >= btopics.getAttribute('minlength') && btopicsValue.length <= btopics.getAttribute('maxlength')) {
       setSuccessForBriefing(btopics);
     } else {
       setErrorForBriefing(btopics, 'Обязательное поле');
     }
-    if(bnotopicsValue !== '' && bnotopicsValue.length >= 4 && bnotopicsValue.length <= 300) {
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopics.getAttribute('minlength') && bnotopicsValue.length <= bnotopics.getAttribute('maxlength')) {
       setSuccessForBriefing(bnotopics);
     } else {
       setErrorForBriefing(bnotopics, 'Обязательное поле');
     }
-    if(bpriceValue !== '' && bpriceValue.length >= 4 && bpriceValue.length <= 300) {
+    if(bpriceValue !== '' && bpriceValue.length >= bprice.getAttribute('minlength') && bpriceValue.length <= bprice.getAttribute('maxlength')) {
       setSuccessForBriefing(bprice);
     } else {
       setErrorForBriefing(bprice, 'Обязательное поле');
     }
-    if(bimpressionValue !== '' && bimpressionValue.length >= 4 && bimpressionValue.length <= 300) {
+    if(bimpressionValue !== '' && bimpressionValue.length >= bimpression.getAttribute('minlength') && bimpressionValue.length <= bimpression.getAttribute('maxlength')) {
       setSuccessForBriefing(bimpression);
     } else {
       setErrorForBriefing(bimpression, 'Обязательное поле');
     }
-    if(bimportantValue !== '' && bimportantValue.length >= 4 && bimportantValue.length <= 300) {
+    if(bimportantValue !== '' && bimportantValue.length >= bimportant.getAttribute('minlength') && bimportantValue.length <= bimportant.getAttribute('maxlength')) {
       setSuccessForBriefing(bimportant);
     } else {
       setErrorForBriefing(bimportant, 'Обязательное поле');
     }
-    if(blikeValue !== '' && blikeValue.length >= 4 && blikeValue.length <= 300) {
+    if(blikeValue !== '' && blikeValue.length >= blike.getAttribute('minlength') && blikeValue.length <= blike.getAttribute('maxlength')) {
       setSuccessForBriefing(blike);
     } else {
       setErrorForBriefing(blike, 'Обязательное поле');
     }
     if(
       blinkValue != '' &&
-      blinkValue.length >= 4 &&
-      blinkValue.length <= 300 &&
+      blinkValue.length >= blink.getAttribute('minlength') &&
+      blinkValue.length <= blink.getAttribute('maxlength') &&
       btopicsValue != '' &&
-      btopicsValue.length >= 4 &&
-      btopicsValue.length <= 300 &&
+      btopicsValue.length >= btopics.getAttribute('minlength') &&
+      btopicsValue.length <= btopics.getAttribute('maxlength') &&
       bnotopicsValue != '' &&
-      bnotopicsValue.length >= 4 &&
-      bnotopicsValue.length <= 300 &&
+      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
+      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
       bpriceValue != '' &&
-      bpriceValue.length >= 4 &&
-      bpriceValue.length <= 300 &&
+      bpriceValue.length >= bprice.getAttribute('minlength') &&
+      bpriceValue.length <= bprice.getAttribute('maxlength') &&
       bimpressionValue != '' &&
-      bimpressionValue.length >= 4 &&
-      bimpressionValue.length <= 300 &&
+      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
+      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
       bimportantValue != '' &&
-      bimportantValue.length >= 4 &&
-      bimportantValue.length <= 300 &&
+      bimportantValue.length >= bimportant.getAttribute('minlength') &&
+      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
       blikeValue != '' &&
-      blikeValue.length >= 4 &&
-      blikeValue.length <= 300
+      blikeValue.length >= blike.getAttribute('minlength') &&
+      blikeValue.length <= blike.getAttribute('maxlength')
     ){
       bstepthree.classList.remove("error");
       bstepthree.classList.add("success");
@@ -780,55 +780,55 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue !== '' && bproblemsValue.length >= 4 && bproblemsValue.length <= 300) {
+    if(bproblemsValue !== '' && bproblemsValue.length >= bproblems.getAttribute('minlength') && bproblemsValue.length <= bproblems.getAttribute('maxlength')) {
       setSuccessForBriefing(bproblems);
     } else {
       setErrorForBriefing(bproblems, 'Обязательное поле');
     }
-    if(btriggersValue !== '' && btriggersValue.length >= 4 && btriggersValue.length <= 300) {
+    if(btriggersValue !== '' && btriggersValue.length >= btriggers.getAttribute('minlength') && btriggersValue.length <= btriggers.getAttribute('maxlength')) {
       setSuccessForBriefing(btriggers);
     } else {
       setErrorForBriefing(btriggers, 'Обязательное поле');
     }
-    if(binfoballValue !== '' && binfoballValue.length >= 4 && binfoballValue.length <= 300) {
+    if(binfoballValue !== '' && binfoballValue.length >= binfoball.getAttribute('minlength') && binfoballValue.length <= binfoball.getAttribute('maxlength')) {
       setSuccessForBriefing(binfoball);
     } else {
       setErrorForBriefing(binfoball, 'Обязательное поле');
     }
-    if(bneedsValue !== '' && bneedsValue.length >= 4 && bneedsValue.length <= 300) {
+    if(bneedsValue !== '' && bneedsValue.length >= bneeds.getAttribute('minlength') && bneedsValue.length <= bneeds.getAttribute('maxlength')) {
       setSuccessForBriefing(bneeds);
     } else {
       setErrorForBriefing(bneeds, 'Обязательное поле');
     }
-    if(bbarriersValue !== '' && bbarriersValue.length >= 4 && bbarriersValue.length <= 300) {
+    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriers.getAttribute('minlength') && bbarriersValue.length <= bbarriers.getAttribute('maxlength')) {
       setSuccessForBriefing(bbarriers);
     } else {
       setErrorForBriefing(bbarriers, 'Обязательное поле');
     }
-    if(bstriveValue !== '' && bstriveValue.length >= 4 && bstriveValue.length <= 300) {
+    if(bstriveValue !== '' && bstriveValue.length >= bstrive.getAttribute('minlength') && bstriveValue.length <= bstrive.getAttribute('maxlength')) {
       setSuccessForBriefing(bstrive);
     } else {
       setErrorForBriefing(bstrive, 'Обязательное поле');
     }
     if(
       bproblemsValue != '' &&
-      bproblemsValue.length >= 4 &&
-      bproblemsValue.length <= 300 &&
+      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
+      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
       btriggersValue != '' &&
-      btriggersValue.length >= 4 &&
-      btriggersValue.length <= 300 &&
+      btriggersValue.length >= btriggers.getAttribute('minlength') &&
+      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
       binfoballValue != '' &&
-      binfoballValue.length >= 4 &&
-      binfoballValue.length <= 300 &&
+      binfoballValue.length >= binfoball.getAttribute('minlength') &&
+      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
       bneedsValue != '' &&
-      bneedsValue.length >= 4 &&
-      bneedsValue.length <= 300 &&
+      bneedsValue.length >= bneeds.getAttribute('minlength') &&
+      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
       bbarriersValue != '' &&
-      bbarriersValue.length >= 4 &&
-      bbarriersValue.length <= 300 &&
+      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
+      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
       bstriveValue != '' &&
-      bstriveValue.length >= 4 &&
-      bstriveValue.length <= 300
+      bstriveValue.length >= bstrive.getAttribute('minlength') &&
+      bstriveValue.length <= bstrive.getAttribute('maxlength')
     ){
       bstepfour.classList.remove("error");
       bstepfour.classList.add("success");
@@ -841,7 +841,7 @@ if(!briefing){} else {
     const bassociationsValue = bassociations.value.trim();
     const bsegmentValue = bsegment.value.trim();
 
-    if(bdesignValue !== '' && bdesignValue.length >= 4 && bdesignValue.length <= 300) {
+    if(bdesignValue !== '' && bdesignValue.length >= bdesign.getAttribute('minlength') && bdesignValue.length <= bdesign.getAttribute('maxlength')) {
       setSuccessForBriefing(bdesign);
       bstepfive.classList.remove("error");
       scroll.scrollTo(totop);
@@ -850,7 +850,7 @@ if(!briefing){} else {
       bstepfive.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bassociationsValue !== '' && bassociationsValue.length >= 4 && bassociationsValue.length <= 300) {
+    if(bassociationsValue !== '' && bassociationsValue.length >= bassociations.getAttribute('minlength') && bassociationsValue.length <= bassociations.getAttribute('maxlength')) {
       setSuccessForBriefing(bassociations);
       bstepfive.classList.remove("error");
       scroll.scrollTo(totop);
@@ -859,7 +859,7 @@ if(!briefing){} else {
       bstepfive.classList.add("error");
       scroll.scrollTo(totop);
     }
-    if(bsegmentValue !== '' && bsegmentValue.length >= 4 && bsegmentValue.length <= 300) {
+    if(bsegmentValue !== '' && bsegmentValue.length >= bsegment.getAttribute('minlength') && bsegmentValue.length <= bsegment.getAttribute('maxlength')) {
       setSuccessForBriefing(bsegment);
       bstepfive.classList.remove("error");
       scroll.scrollTo(totop);
@@ -874,81 +874,81 @@ if(!briefing){} else {
       scroll.scrollTo(totop);
     } else if (
       busernameValue !== '' &&
-      busernameValue.length >= 4 &&
-      busernameValue.length <= 40 &&
+      busernameValue.length >= busername.getAttribute('minlength') &&
+      busernameValue.length <= busername.getAttribute('maxlength') &&
       bphoneValue !== '' &&
-      bphoneValue.length >= 4 &&
-      bphoneValue.length <= 11 &&
+      bphoneValue.length >= bphone.getAttribute('minlength') &&
+      bphoneValue.length <= bphone.getAttribute('maxlength') &&
       bemailValue !== '' &&
-      bemailValue.length >= 4 &&
-      bemailValue.length <= 40 &&
+      bemailValue.length >= bemail.getAttribute('minlength') &&
+      bemailValue.length <= bemail.getAttribute('maxlength') &&
 
       bbasictermsValue !== '' &&
-      bbasictermsValue.length >= 4 &&
-      bbasictermsValue.length <= 300 &&
+      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
+      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
       btargetValue !== '' &&
-      btargetValue.length >= 4 &&
-      btargetValue.length <= 300 &&
+      btargetValue.length >= btarget.getAttribute('minlength') &&
+      btargetValue.length <= btarget.getAttribute('maxlength') &&
       bknowValue !== '' &&
-      bknowValue.length >= 4 &&
-      bknowValue.length <= 300 &&
+      bknowValue.length >= bknow.getAttribute('minlength') &&
+      bknowValue.length <= bknow.getAttribute('maxlength') &&
       baudienceValue !== '' &&
-      baudienceValue.length >= 4 &&
-      baudienceValue.length <= 300 &&
+      baudienceValue.length >= baudience.getAttribute('minlength') &&
+      baudienceValue.length <= baudience.getAttribute('maxlength') &&
       bchoiceValue !== '' &&
-      bchoiceValue.length >= 4 &&
-      bchoiceValue.length <= 300 &&
+      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
+      bchoiceValue.length <= bchoice.getAttribute('maxlength') &&
 
       blinkValue !== '' &&
-      blinkValue.length >= 4 &&
-      blinkValue.length <= 300 &&
+      blinkValue.length >= blink.getAttribute('minlength') &&
+      blinkValue.length <= blink.getAttribute('maxlength') &&
       btopicsValue !== '' &&
-      btopicsValue.length >= 4 &&
-      btopicsValue.length <= 300 &&
+      btopicsValue.length >= btopics.getAttribute('minlength') &&
+      btopicsValue.length <= btopics.getAttribute('maxlength') &&
       bnotopicsValue !== '' &&
-      bnotopicsValue.length >= 4 &&
-      bnotopicsValue.length <= 300 &&
+      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
+      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
       bpriceValue !== '' &&
-      bpriceValue.length >= 4 &&
-      bpriceValue.length <= 300 &&
+      bpriceValue.length >= bprice.getAttribute('minlength') &&
+      bpriceValue.length <= bprice.getAttribute('maxlength') &&
       bimpressionValue !== '' &&
-      bimpressionValue.length >= 4 &&
-      bimpressionValue.length <= 300 &&
+      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
+      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
       bimportantValue !== '' &&
-      bimportantValue.length >= 4 &&
-      bimportantValue.length <= 300 &&
+      bimportantValue.length >= bimportant.getAttribute('minlength') &&
+      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
       blikeValue !== '' &&
-      blikeValue.length >= 4 &&
-      blikeValue.length <= 300 &&
+      blikeValue.length >= blike.getAttribute('minlength') &&
+      blikeValue.length <= blike.getAttribute('maxlength') &&
       
       bproblemsValue !== '' &&
-      bproblemsValue.length >= 4 &&
-      bproblemsValue.length <= 300 &&
+      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
+      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
       btriggersValue !== '' &&
-      btriggersValue.length >= 4 &&
-      btriggersValue.length <= 300 &&
+      btriggersValue.length >= btriggers.getAttribute('minlength') &&
+      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
       binfoballValue !== '' &&
-      binfoballValue.length >= 4 &&
-      binfoballValue.length <= 300 &&
+      binfoballValue.length >= binfoball.getAttribute('minlength') &&
+      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
       bneedsValue !== '' &&
-      bneedsValue.length >= 4 &&
-      bneedsValue.length <= 300 &&
+      bneedsValue.length >= bneeds.getAttribute('minlength') &&
+      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
       bbarriersValue !== '' &&
-      bbarriersValue.length >= 4 &&
-      bbarriersValue.length <= 300 &&
+      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
+      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
       bstriveValue !== '' &&
-      bstriveValue.length >= 4 &&
-      bstriveValue.length <= 300 &&
+      bstriveValue.length >= bstrive.getAttribute('minlength') &&
+      bstriveValue.length <= bstrive.getAttribute('maxlength') &&
 
       bdesignValue !== '' &&
-      bdesignValue.length >= 4 &&
-      bdesignValue.length <= 300 &&
+      bdesignValue.length >= bdesign.getAttribute('minlength') &&
+      bdesignValue.length <= bdesign.getAttribute('maxlength') &&
       bassociationsValue !== '' &&
-      bassociationsValue.length >= 4 &&
-      bassociationsValue.length <= 300 &&
+      bassociationsValue.length >= bassociations.getAttribute('minlength') &&
+      bassociationsValue.length <= bassociations.getAttribute('maxlength') &&
       bsegmentValue !== '' &&
-      bsegmentValue.length >= 4 &&
-      bsegmentValue.length <= 300
+      bsegmentValue.length >= bsegment.getAttribute('minlength') &&
+      bsegmentValue.length <= bsegment.getAttribute('maxlength')
     ) {
       // fetch('/ajax/sendMail.php', {
       //   method: 'POST',
