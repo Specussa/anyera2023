@@ -126,7 +126,7 @@ if(!briefing){} else {
 
   function updateValue() {
     this.nextElementSibling.children[0].textContent = Math.max(1, Math.min(this.getAttribute('maxl'), this.value.length));
-    if (this.value.length < this.getAttribute('minl') && this.value.length > this.getAttribute('maxl')) {
+    if (this.value.length < this.getAttribute('minl')) {
       this.parentElement.classList.add('error');
       this.parentElement.classList.remove('success');
       this.nextElementSibling.classList.remove('success');
@@ -140,7 +140,7 @@ if(!briefing){} else {
   bemail.addEventListener('input', function () {
     const bemailValid = bemail.value.trim();
     this.nextElementSibling.children[0].textContent = Math.max(1, Math.min(this.getAttribute('maxl'), this.value.length));
-    if (this.value.length < this.getAttribute('minl') && this.value.length > this.getAttribute('maxl')) {
+    if (this.value.length < this.getAttribute('minl')) {
       this.parentElement.classList.add('error');
       this.parentElement.classList.remove('success');
       this.nextElementSibling.classList.remove('success');
