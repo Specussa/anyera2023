@@ -227,6 +227,7 @@ textarea,
 }
 
 input,
+textarea,
 [data-select-title],
 [data-select-item] {
   color: var(--text);
@@ -1026,6 +1027,11 @@ section {
   border-radius: 15px;
   background-color: var(--button-gray);
   border: 1px solid var(--button-gray);
+}
+
+.checkbox.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .dark .checkbox {
@@ -5255,7 +5261,7 @@ html.has-scroll-dragging {
   margin: 0;
 }
 
-.briefing__control small {
+.briefing__control .briefing__error {
   height: 12px;
   margin: 5px 0 0;
   position: absolute;
@@ -5267,9 +5273,26 @@ html.has-scroll-dragging {
   transition: transform 0.3s linear;
 }
 
-.briefing__control.error small {
+.briefing__control.error .briefing__error {
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
+}
+
+.briefing__input:focus ~ .briefing__counter {
+  display: block;
+}
+
+.briefing__counter {
+  display: none;
+  height: 12px;
+  margin: 5px 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.briefing__counter.success {
+  color: var(--text);
 }
 
 .briefing__input {

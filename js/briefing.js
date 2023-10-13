@@ -51,36 +51,143 @@ if(!briefing){} else {
   // start autosize textarea
     autosize(document.querySelectorAll('textarea'));
   // end autosize textarea
+
+  // start Min Max
+  const busernameMin = busername.getAttribute('minl');
+  const busernameMax = busername.getAttribute('maxl');
+  const bphoneMin = bphone.getAttribute('minl');
+  const bphoneMax = bphone.getAttribute('maxl');
+  const bemailMin = bemail.getAttribute('minl');
+  const bemailMax = bemail.getAttribute('maxl');
+  const bbasictermsMin = bbasicterms.getAttribute('minl');
+  const bbasictermsMax = bbasicterms.getAttribute('maxl');
+  const btargetMin = btarget.getAttribute('minl');
+  const btargetMax = btarget.getAttribute('maxl');
+  const bknowMin = bknow.getAttribute('minl');
+  const bknowMax = bknow.getAttribute('maxl');
+  const baudienceMin = baudience.getAttribute('minl');
+  const baudienceMax = baudience.getAttribute('maxl');
+  const bchoiceMin = bchoice.getAttribute('minl');
+  const bchoiceMax = bchoice.getAttribute('maxl');
+  const blinkMin = blink.getAttribute('minl');
+  const blinkMax = blink.getAttribute('maxl');
+  const btopicsMin = btopics.getAttribute('minl');
+  const btopicsMax = btopics.getAttribute('maxl');
+  const bnotopicsMin = bnotopics.getAttribute('minl');
+  const bnotopicsMax = bnotopics.getAttribute('maxl');
+  const bpriceMin = bprice.getAttribute('minl');
+  const bpriceMax = bprice.getAttribute('maxl');
+  const bimpressionMin = bimpression.getAttribute('minl');
+  const bimpressionMax = bimpression.getAttribute('maxl');
+  const bimportantMin = bimportant.getAttribute('minl');
+  const bimportantMax = bimportant.getAttribute('maxl');
+  const blikeMin = blike.getAttribute('minl');
+  const blikeMax = blike.getAttribute('maxl');
+  const bproblemsMin = bproblems.getAttribute('minl');
+  const bproblemsMax = bproblems.getAttribute('maxl');
+  const btriggersMin = btriggers.getAttribute('minl');
+  const btriggersMax = btriggers.getAttribute('maxl');
+  const binfoballMin = binfoball.getAttribute('minl');
+  const binfoballMax = binfoball.getAttribute('maxl');
+  const bneedsMin = bneeds.getAttribute('minl');
+  const bneedsMax = bneeds.getAttribute('maxl');
+  const bbarriersMin = bbarriers.getAttribute('minl');
+  const bbarriersMax = bbarriers.getAttribute('maxl');
+  const bstriveMin = bstrive.getAttribute('minl');
+  const bstriveMax = bstrive.getAttribute('maxl');
+  const bdesignMin = bdesign.getAttribute('minl');
+  const bdesignMax = bdesign.getAttribute('maxl');
+  const bassociationsMin = bassociations.getAttribute('minl');
+  const bassociationsMax = bassociations.getAttribute('maxl');
+  const bsegmentMin = bsegment.getAttribute('minl');
+  const bsegmentMax = bsegment.getAttribute('maxl');
+  // end Min Max
+
+  // start counter
+  function valid() {
+    this.nextElementSibling.children[0].textContent = 0 + this.value.length
+    if (this.value.length < this.getAttribute('minl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  }
+
+  const binputs = document.querySelectorAll(".briefing__input");
+
+  for (i = 0; i < binputs.length; i++) {
+    binputs[i].addEventListener("input", updateValue);
+    binputs[i].nextElementSibling.children[1].textContent = binputs[i].getAttribute('maxl');
+  }
+
+  function updateValue() {
+    this.nextElementSibling.children[0].textContent = Math.max(1, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl') && this.value.length > this.getAttribute('maxl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  }
+
+  bemail.addEventListener('input', function () {
+    const bemailValid = bemail.value.trim();
+    this.nextElementSibling.children[0].textContent = Math.max(1, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl') && this.value.length > this.getAttribute('maxl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else if (!isEmailValid(bemailValid)) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  })
+  function isEmailValid(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
+  // end counter
   
   // start maxleight
-  busername.oninput = function(){this.value = this.value.substr(0, busername.getAttribute('maxlength'));}
-  bphone.oninput = function(){this.value = this.value.substr(0, bphone.getAttribute('maxlength'));}
-  bemail.oninput = function(){this.value = this.value.substr(0, bemail.getAttribute('maxlength'));}
+  busername.oninput = function(){this.value = this.value.substr(0, busernameMax);}
+  bphone.oninput = function(){this.value = this.value.substr(0, bphoneMax);}
+  bemail.oninput = function(){this.value = this.value.substr(0, bemailMax);}
 
-  bbasicterms.oninput = function(){this.value = this.value.substr(0, bbasicterms.getAttribute('maxlength'));}
-  btarget.oninput = function(){this.value = this.value.substr(0, btarget.getAttribute('maxlength'));}
-  bknow.oninput = function(){this.value = this.value.substr(0, bknow.getAttribute('maxlength'));}
-  baudience.oninput = function(){this.value = this.value.substr(0, baudience.getAttribute('maxlength'));}
-  bchoice.oninput = function(){this.value = this.value.substr(0, bchoice.getAttribute('maxlength'));}
+  bbasicterms.oninput = function(){this.value = this.value.substr(0, bbasictermsMax);}
+  btarget.oninput = function(){this.value = this.value.substr(0, btargetMax);}
+  bknow.oninput = function(){this.value = this.value.substr(0, bknowMax);}
+  baudience.oninput = function(){this.value = this.value.substr(0, baudienceMax);}
+  bchoice.oninput = function(){this.value = this.value.substr(0, bchoiceMax);}
 
-  blink.oninput = function(){this.value = this.value.substr(0, blink.getAttribute('maxlength'));}
-  btopics.oninput = function(){this.value = this.value.substr(0, btopics.getAttribute('maxlength'));}
-  bnotopics.oninput = function(){this.value = this.value.substr(0, bnotopics.getAttribute('maxlength'));}
-  bprice.oninput = function(){this.value = this.value.substr(0, bprice.getAttribute('maxlength'));}
-  bimpression.oninput = function(){this.value = this.value.substr(0, bimpression.getAttribute('maxlength'));}
-  bimportant.oninput = function(){this.value = this.value.substr(0, bimportant.getAttribute('maxlength'));}
-  blike.oninput = function(){this.value = this.value.substr(0, blike.getAttribute('maxlength'));}
+  blink.oninput = function(){this.value = this.value.substr(0, blinkMax);}
+  btopics.oninput = function(){this.value = this.value.substr(0, btopicsMax);}
+  bnotopics.oninput = function(){this.value = this.value.substr(0, bnotopicsMax);}
+  bprice.oninput = function(){this.value = this.value.substr(0, bpriceMax);}
+  bimpression.oninput = function(){this.value = this.value.substr(0, bimpressionMax);}
+  bimportant.oninput = function(){this.value = this.value.substr(0, bimportantMax);}
+  blike.oninput = function(){this.value = this.value.substr(0, blikeMax);}
 
-  bproblems.oninput = function(){this.value = this.value.substr(0, bproblems.getAttribute('maxlength'));}
-  btriggers.oninput = function(){this.value = this.value.substr(0, btriggers.getAttribute('maxlength'));}
-  binfoball.oninput = function(){this.value = this.value.substr(0, binfoball.getAttribute('maxlength'));}
-  bneeds.oninput = function(){this.value = this.value.substr(0, bneeds.getAttribute('maxlength'));}
-  bbarriers.oninput = function(){this.value = this.value.substr(0, bbarriers.getAttribute('maxlength'));}
-  bstrive.oninput = function(){this.value = this.value.substr(0, bstrive.getAttribute('maxlength'));}
+  bproblems.oninput = function(){this.value = this.value.substr(0, bproblemsMax);}
+  btriggers.oninput = function(){this.value = this.value.substr(0, btriggersMax);}
+  binfoball.oninput = function(){this.value = this.value.substr(0, binfoballMax);}
+  bneeds.oninput = function(){this.value = this.value.substr(0, bneedsMax);}
+  bbarriers.oninput = function(){this.value = this.value.substr(0, bbarriersMax);}
+  bstrive.oninput = function(){this.value = this.value.substr(0, bstriveMax);}
 
-  bdesign.oninput = function(){this.value = this.value.substr(0, bdesign.getAttribute('maxlength'));}
-  bassociations.oninput = function(){this.value = this.value.substr(0, bassociations.getAttribute('maxlength'));}
-  bsegment.oninput = function(){this.value = this.value.substr(0, bsegment.getAttribute('maxlength'));}
+  bdesign.oninput = function(){this.value = this.value.substr(0, bdesignMax);}
+  bassociations.oninput = function(){this.value = this.value.substr(0, bassociationsMax);}
+  bsegment.oninput = function(){this.value = this.value.substr(0, bsegmentMax);}
   // end maxleight
 
   // start mask phone
@@ -119,11 +226,10 @@ if(!briefing){} else {
   const briefingsteps = document.querySelectorAll(".briefing__left .briefing__steps");
   const briefingstep = document.querySelectorAll(".briefing__left .briefing__step");
 
-  function setErrorForBriefing(input, message) {
+  function setErrorForBriefing(input) {
     const bformoneControl = input.parentElement;
-    const small = bformoneControl.querySelector('small');
+    const briefingerror = bformoneControl.querySelector('.briefing__error');
     bformoneControl.className = 'briefing__control error';
-    small.innerText = message;
   }
 
   function setSuccessForBriefing(input) {
@@ -249,6 +355,7 @@ if(!briefing){} else {
 
   // START validate briefing__form_one
   bformone.addEventListener('submit', e => {
+    scroll.scrollTo(totop);
     e.preventDefault();
     checkoneInputs();
   });
@@ -257,52 +364,46 @@ if(!briefing){} else {
     const bphoneValue = bphone.value.trim();
     const bemailValue = bemail.value.trim();
 
-    if(busernameValue !== '' && busernameValue.length >= busername.getAttribute('minlength') && busernameValue.length <= busername.getAttribute('maxlength')) {
+    if(busernameValue !== '' && busernameValue.length >= busernameMin && busernameValue.length <= busernameMax) {
       setSuccessForBriefing(busername);
       bstepone.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(busername, 'Обязательное поле');
+      setErrorForBriefing(busername);
       bstepone.classList.add("error");
-      scroll.scrollTo(totop);
     }
 
-    if(bphoneValue !== '' && bphoneValue.length >= bphone.getAttribute('minlength') && bphoneValue.length <= bphone.getAttribute('maxlength')) {
+    if(bphoneValue !== '' && bphoneValue.length >= bphoneMin && bphoneValue.length <= bphoneMax) {
       setSuccessForBriefing(bphone);
       bstepone.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bphone, 'Введите корректный телефон');
+      setErrorForBriefing(bphone);
       bstepone.classList.add("error");
-      scroll.scrollTo(totop);
     }
 
     if(!isEmail(bemailValue)) {
-      setErrorForBriefing(bemail, 'Введите корректный email');
+      setErrorForBriefing(bemail);
       bstepone.classList.add("error");
       scroll.scrollTo(totop);
-    } else if (bemailValue !== '' && bemailValue.length >= bemail.getAttribute('minlength') && bemailValue.length <= bemail.getAttribute('maxlength')) {
+    } else if (bemailValue !== '' && bemailValue.length >= bemailMin && bemailValue.length <= bemailMax) {
       setSuccessForBriefing(bemail);
       bstepone.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bemail, 'Введите корректный email');
+      setErrorForBriefing(bemail);
       bstepone.classList.add("error");
-      scroll.scrollTo(totop);
     }
 
     if(!isEmail(bemailValue)){
       scroll.scrollTo(totop);
     } else if (
       busernameValue !== '' &&
-      busernameValue.length >= busername.getAttribute('minlength') &&
-      busernameValue.length <= busername.getAttribute('maxlength') &&
+      busernameValue.length >= busernameMin &&
+      busernameValue.length <= busernameMax &&
       bphoneValue !== '' &&
-      bphoneValue.length >= bphone.getAttribute('minlength') &&
-      bphoneValue.length <= bphone.getAttribute('maxlength') &&
+      bphoneValue.length >= bphoneMin &&
+      bphoneValue.length <= bphoneMax &&
       bemailValue !== '' &&
-      bemailValue.length >= bemail.getAttribute('minlength') &&
-      bemailValue.length <= bemail.getAttribute('maxlength')
+      bemailValue.length >= bemailMin &&
+      bemailValue.length <= bemailMax
     ) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -314,7 +415,6 @@ if(!briefing){} else {
       bsteptwo.classList.add("active");
       bsteptwo.classList.add("unlock");
       bsteptwo.classList.add("border");
-      scroll.scrollTo(totop);
     }
   }
 
@@ -344,6 +444,7 @@ if(!briefing){} else {
 
   // START validate briefing__form_two
   bformtwo.addEventListener('submit', e => {
+    scroll.scrollTo(totop);
     e.preventDefault();
     checktwoInputs();
   });
@@ -354,67 +455,57 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasicterms.getAttribute('minlength') && bbasictermsValue.length <= bbasicterms.getAttribute('maxlength')) {
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasictermsMin && bbasictermsValue.length <= bbasictermsMax) {
       setSuccessForBriefing(bbasicterms);
       bsteptwo.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bbasicterms, 'Обязательное поле');
+      setErrorForBriefing(bbasicterms);
       bsteptwo.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(btargetValue !== '' && btargetValue.length >= btarget.getAttribute('minlength') && btargetValue.length <= btarget.getAttribute('maxlength')) {
+    if(btargetValue !== '' && btargetValue.length >= btargetMin && btargetValue.length <= btargetMax) {
       setSuccessForBriefing(btarget);
       bsteptwo.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(btarget, 'Обязательное поле');
+      setErrorForBriefing(btarget);
       bsteptwo.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bknowValue !== '' && bknowValue.length >= bknow.getAttribute('minlength') && bknowValue.length <= bknow.getAttribute('maxlength')) {
+    if(bknowValue !== '' && bknowValue.length >= bknowMin && bknowValue.length <= bknowMax) {
       setSuccessForBriefing(bknow);
       bsteptwo.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bknow, 'Обязательное поле');
+      setErrorForBriefing(bknow);
       bsteptwo.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(baudienceValue !== '' && baudienceValue.length >= baudience.getAttribute('minlength') && baudienceValue.length <= baudience.getAttribute('maxlength')) {
+    if(baudienceValue !== '' && baudienceValue.length >= baudienceMin && baudienceValue.length <= baudienceMax) {
       setSuccessForBriefing(baudience);
       bsteptwo.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(baudience, 'Обязательное поле');
+      setErrorForBriefing(baudience);
       bsteptwo.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bchoiceValue !== '' && bchoiceValue.length >= bchoice.getAttribute('minlength') && bchoiceValue.length <= bchoice.getAttribute('maxlength')) {
+    if(bchoiceValue !== '' && bchoiceValue.length >= bchoiceMin && bchoiceValue.length <= bchoiceMax) {
       setSuccessForBriefing(bchoice);
       bsteptwo.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bchoice, 'Обязательное поле');
+      setErrorForBriefing(bchoice);
       bsteptwo.classList.add("error");
-      scroll.scrollTo(totop);
     }
     if(
       bbasictermsValue != '' &&
-      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
-      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
+      bbasictermsValue.length >= bbasictermsMin &&
+      bbasictermsValue.length <= bbasictermsMax &&
       btargetValue != '' &&
-      btargetValue.length >= btarget.getAttribute('minlength') &&
-      btargetValue.length <= btarget.getAttribute('maxlength') &&
+      btargetValue.length >= btargetMin &&
+      btargetValue.length <= btargetMax &&
       bknowValue != '' &&
-      bknowValue.length >= bknow.getAttribute('minlength') &&
-      bknowValue.length <= bknow.getAttribute('maxlength') &&
+      bknowValue.length >= bknowMin &&
+      bknowValue.length <= bknowMax &&
       baudienceValue != '' &&
-      baudienceValue.length >= baudience.getAttribute('minlength') &&
-      baudienceValue.length <= baudience.getAttribute('maxlength') &&
+      baudienceValue.length >= baudienceMin &&
+      baudienceValue.length <= baudienceMax &&
       bchoiceValue != '' &&
-      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
-      bchoiceValue.length <= bchoice.getAttribute('maxlength')
+      bchoiceValue.length >= bchoiceMin &&
+      bchoiceValue.length <= bchoiceMax
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -426,13 +517,13 @@ if(!briefing){} else {
       bstepthree.classList.add("active");
       bstepthree.classList.add("unlock");
       bstepthree.classList.add("border");
-      scroll.scrollTo(totop);
     }
   }
   // END validate briefing__form_two
 
   // START validate briefing__form_three
   bformthree.addEventListener('submit', e => {
+    scroll.scrollTo(totop);
     e.preventDefault();
     checkthreeInputs();
   });
@@ -445,91 +536,77 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue !== '' && blinkValue.length >= blink.getAttribute('minlength') && blinkValue.length <= blink.getAttribute('maxlength')) {
+    if(blinkValue !== '' && blinkValue.length >= blinkMin && blinkValue.length <= blinkMax) {
       setSuccessForBriefing(blink);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(blink, 'Обязательное поле');
+      setErrorForBriefing(blink);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(btopicsValue !== '' && btopicsValue.length >= btopics.getAttribute('minlength') && btopicsValue.length <= btopics.getAttribute('maxlength')) {
+    if(btopicsValue !== '' && btopicsValue.length >= btopicsMin && btopicsValue.length <= btopicsMax) {
       setSuccessForBriefing(btopics);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(btopics, 'Обязательное поле');
+      setErrorForBriefing(btopics);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopics.getAttribute('minlength') && bnotopicsValue.length <= bnotopics.getAttribute('maxlength')) {
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopicsMin && bnotopicsValue.length <= bnotopicsMax) {
       setSuccessForBriefing(bnotopics);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bnotopics, 'Обязательное поле');
+      setErrorForBriefing(bnotopics);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bpriceValue !== '' && bpriceValue.length >= bprice.getAttribute('minlength') && bpriceValue.length <= bprice.getAttribute('maxlength')) {
+    if(bpriceValue !== '' && bpriceValue.length >= bpriceMin && bpriceValue.length <= bpriceMax) {
       setSuccessForBriefing(bprice);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bprice, 'Обязательное поле');
+      setErrorForBriefing(bprice);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bimpressionValue !== '' && bimpressionValue.length >= bimpression.getAttribute('minlength') && bimpressionValue.length <= bimpression.getAttribute('maxlength')) {
+    if(bimpressionValue !== '' && bimpressionValue.length >= bimpressionMin && bimpressionValue.length <= bimpressionMax) {
       setSuccessForBriefing(bimpression);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bimpression, 'Обязательное поле');
+      setErrorForBriefing(bimpression);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bimportantValue !== '' && bimportantValue.length >= bimportant.getAttribute('minlength') && bimportantValue.length <= bimportant.getAttribute('maxlength')) {
+    if(bimportantValue !== '' && bimportantValue.length >= bimportantMin && bimportantValue.length <= bimportantMax) {
       setSuccessForBriefing(bimportant);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bimportant, 'Обязательное поле');
+      setErrorForBriefing(bimportant);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(blikeValue !== '' && blikeValue.length >= blike.getAttribute('minlength') && blikeValue.length <= blike.getAttribute('maxlength')) {
+    if(blikeValue !== '' && blikeValue.length >= blikeMin && blikeValue.length <= blikeMax) {
       setSuccessForBriefing(blike);
       bstepthree.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(blike, 'Обязательное поле');
+      setErrorForBriefing(blike);
       bstepthree.classList.add("error");
-      scroll.scrollTo(totop);
     }
     if(
       blinkValue != '' &&
-      blinkValue.length >= blink.getAttribute('minlength') &&
-      blinkValue.length <= blink.getAttribute('maxlength') &&
+      blinkValue.length >= blinkMin &&
+      blinkValue.length <= blinkMax &&
       btopicsValue != '' &&
-      btopicsValue.length >= btopics.getAttribute('minlength') &&
-      btopicsValue.length <= btopics.getAttribute('maxlength') &&
+      btopicsValue.length >= btopicsMin &&
+      btopicsValue.length <= btopicsMax &&
       bnotopicsValue != '' &&
-      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
-      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
+      bnotopicsValue.length >= bnotopicsMin &&
+      bnotopicsValue.length <= bnotopicsMax &&
       bpriceValue != '' &&
-      bpriceValue.length >= bprice.getAttribute('minlength') &&
-      bpriceValue.length <= bprice.getAttribute('maxlength') &&
+      bpriceValue.length >= bpriceMin &&
+      bpriceValue.length <= bpriceMax &&
       bimpressionValue != '' &&
-      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
-      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
+      bimpressionValue.length >= bimpressionMin &&
+      bimpressionValue.length <= bimpressionMax &&
       bimportantValue != '' &&
-      bimportantValue.length >= bimportant.getAttribute('minlength') &&
-      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
+      bimportantValue.length >= bimportantMin &&
+      bimportantValue.length <= bimportantMax &&
       blikeValue != '' &&
-      blikeValue.length >= blike.getAttribute('minlength') &&
-      blikeValue.length <= blike.getAttribute('maxlength')
+      blikeValue.length >= blikeMin &&
+      blikeValue.length <= blikeMax
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -541,13 +618,13 @@ if(!briefing){} else {
       bstepfour.classList.add("active");
       bstepfour.classList.add("unlock");
       bstepfour.classList.add("border");
-      scroll.scrollTo(totop);
     }
   }
   // END validate briefing__form_three
 
   // START validate briefing__form_four
   bformfour.addEventListener('submit', e => {
+    scroll.scrollTo(totop);
     e.preventDefault();
     checkfourInputs();
   });
@@ -559,79 +636,67 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue !== '' && bproblemsValue.length >= bproblems.getAttribute('minlength') && bproblemsValue.length <= bproblems.getAttribute('maxlength')) {
+    if(bproblemsValue !== '' && bproblemsValue.length >= bproblemsMin && bproblemsValue.length <= bproblemsMax) {
       setSuccessForBriefing(bproblems);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bproblems, 'Обязательное поле');
+      setErrorForBriefing(bproblems);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(btriggersValue !== '' && btriggersValue.length >= btriggers.getAttribute('minlength') && btriggersValue.length <= btriggers.getAttribute('maxlength')) {
+    if(btriggersValue !== '' && btriggersValue.length >= btriggersMin && btriggersValue.length <= btriggersMax) {
       setSuccessForBriefing(btriggers);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(btriggers, 'Обязательное поле');
+      setErrorForBriefing(btriggers);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(binfoballValue !== '' && binfoballValue.length >= binfoball.getAttribute('minlength') && binfoballValue.length <= binfoball.getAttribute('maxlength')) {
+    if(binfoballValue !== '' && binfoballValue.length >= binfoballMin && binfoballValue.length <= binfoballMax) {
       setSuccessForBriefing(binfoball);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(binfoball, 'Обязательное поле');
+      setErrorForBriefing(binfoball);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bneedsValue !== '' && bneedsValue.length >= bneeds.getAttribute('minlength') && bneedsValue.length <= bneeds.getAttribute('maxlength')) {
+    if(bneedsValue !== '' && bneedsValue.length >= bneedsMin && bneedsValue.length <= bneedsMax) {
       setSuccessForBriefing(bneeds);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bneeds, 'Обязательное поле');
+      setErrorForBriefing(bneeds);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriers.getAttribute('minlength') && bbarriersValue.length <= bbarriers.getAttribute('maxlength')) {
+    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriersMin && bbarriersValue.length <= bbarriersMax) {
       setSuccessForBriefing(bbarriers);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bbarriers, 'Обязательное поле');
+      setErrorForBriefing(bbarriers);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bstriveValue !== '' && bstriveValue.length >= bstrive.getAttribute('minlength') && bstriveValue.length <= bstrive.getAttribute('maxlength')) {
+    if(bstriveValue !== '' && bstriveValue.length >= bstriveMin && bstriveValue.length <= bstriveMax) {
       setSuccessForBriefing(bstrive);
       bstepfour.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bstrive, 'Обязательное поле');
+      setErrorForBriefing(bstrive);
       bstepfour.classList.add("error");
-      scroll.scrollTo(totop);
     }
     if(
       bproblemsValue != '' &&
-      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
-      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
+      bproblemsValue.length >= bproblemsMin &&
+      bproblemsValue.length <= bproblemsMax &&
       btriggersValue != '' &&
-      btriggersValue.length >= btriggers.getAttribute('minlength') &&
-      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
+      btriggersValue.length >= btriggersMin &&
+      btriggersValue.length <= btriggersMax &&
       binfoballValue != '' &&
-      binfoballValue.length >= binfoball.getAttribute('minlength') &&
-      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
+      binfoballValue.length >= binfoballMin &&
+      binfoballValue.length <= binfoballMax &&
       bneedsValue != '' &&
-      bneedsValue.length >= bneeds.getAttribute('minlength') &&
-      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
+      bneedsValue.length >= bneedsMin &&
+      bneedsValue.length <= bneedsMax &&
       bbarriersValue != '' &&
-      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
-      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
+      bbarriersValue.length >= bbarriersMin &&
+      bbarriersValue.length <= bbarriersMax &&
       bstriveValue != '' &&
-      bstriveValue.length >= bstrive.getAttribute('minlength') &&
-      bstriveValue.length <= bstrive.getAttribute('maxlength')
+      bstriveValue.length >= bstriveMin &&
+      bstriveValue.length <= bstriveMax
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -643,15 +708,13 @@ if(!briefing){} else {
       bstepfive.classList.add("active");
       bstepfive.classList.add("unlock");
       bstepfive.classList.add("border");
-      scroll.scrollTo(totop);
-    } else {
-      scroll.scrollTo(totop);
     }
   }
   // END validate briefing__form_four
 
   // START validate briefing__form_five
   bformfive.addEventListener('submit', e => {
+    scroll.scrollTo(totop);
     e.preventDefault();
     checkfiveInputs();
   });
@@ -661,24 +724,24 @@ if(!briefing){} else {
     const bemailValue = bemail.value.trim();
 
 
-    if(busernameValue !== '' && busernameValue.length >= busername.getAttribute('minlength') && busernameValue.length <= busername.getAttribute('maxlength')) {
+    if(busernameValue !== '' && busernameValue.length >= busernameMin && busernameValue.length <= busernameMax) {
       setSuccessForBriefing(busername);
     } else {
-      setErrorForBriefing(busername, 'Обязательное поле');
+      setErrorForBriefing(busername);
     }
 
-    if(bphoneValue !== '' && bphoneValue.length >= bphone.getAttribute('minlength') && bphoneValue.length <= bphone.getAttribute('maxlength')) {
+    if(bphoneValue !== '' && bphoneValue.length >= bphoneMin && bphoneValue.length <= bphoneMax) {
       setSuccessForBriefing(bphone);
     } else {
-      setErrorForBriefing(bphone, 'Введите корректный телефон');
+      setErrorForBriefing(bphone);
     }
 
     if(!isEmail(bemailValue)) {
-      setErrorForBriefing(bemail, 'Введите корректный email');
-    } else if (bemailValue !== '' && bemailValue.length >= bemail.getAttribute('minlength') && bemailValue.length <= bemail.getAttribute('maxlength')) {
+      setErrorForBriefing(bemail);
+    } else if (bemailValue !== '' && bemailValue.length >= bemailMin && bemailValue.length <= bemailMax) {
       setSuccessForBriefing(bemail);
     } else {
-      setErrorForBriefing(bemail, 'Введите корректный email');
+      setErrorForBriefing(bemail);
     }
 
     if(!isEmail(bemailValue)){
@@ -686,14 +749,14 @@ if(!briefing){} else {
       bstepone.classList.add("error");
     } else if (
       busernameValue != '' &&
-      busernameValue.length >= busername.getAttribute('minlength') &&
-      busernameValue.length <= busername.getAttribute('maxlength') &&
+      busernameValue.length >= busernameMin &&
+      busernameValue.length <= busernameMax &&
       bphoneValue != '' &&
-      bphoneValue.length >= bphone.getAttribute('minlength') &&
-      bphoneValue.length <= bphone.getAttribute('maxlength') &&
+      bphoneValue.length >= bphoneMin &&
+      bphoneValue.length <= bphoneMax &&
       bemailValue != '' &&
-      bemailValue.length >= bemail.getAttribute('minlength') &&
-      bemailValue.length <= bemail.getAttribute('maxlength')
+      bemailValue.length >= bemailMin &&
+      bemailValue.length <= bemailMax
     ) {
       bstepone.classList.remove("error");
       bstepone.classList.add("success");
@@ -708,47 +771,47 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasicterms.getAttribute('minlength') && bbasictermsValue.length <= bbasicterms.getAttribute('maxlength')) {
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= bbasictermsMin && bbasictermsValue.length <= bbasictermsMax) {
       setSuccessForBriefing(bbasicterms);
     } else {
-      setErrorForBriefing(bbasicterms, 'Обязательное поле');
+      setErrorForBriefing(bbasicterms);
     }
-    if(btargetValue !== '' && btargetValue.length >= btarget.getAttribute('minlength') && btargetValue.length <= btarget.getAttribute('maxlength')) {
+    if(btargetValue !== '' && btargetValue.length >= btargetMin && btargetValue.length <= btargetMax) {
       setSuccessForBriefing(btarget);
     } else {
-      setErrorForBriefing(btarget, 'Обязательное поле');
+      setErrorForBriefing(btarget);
     }
-    if(bknowValue !== '' && bknowValue.length >= bknow.getAttribute('minlength') && bknowValue.length <= bknow.getAttribute('maxlength')) {
+    if(bknowValue !== '' && bknowValue.length >= bknowMin && bknowValue.length <= bknowMax) {
       setSuccessForBriefing(bknow);
     } else {
-      setErrorForBriefing(bknow, 'Обязательное поле');
+      setErrorForBriefing(bknow);
     }
-    if(baudienceValue !== '' && baudienceValue.length >= baudience.getAttribute('minlength') && baudienceValue.length <= baudience.getAttribute('maxlength')) {
+    if(baudienceValue !== '' && baudienceValue.length >= baudienceMin && baudienceValue.length <= baudienceMax) {
       setSuccessForBriefing(baudience);
     } else {
-      setErrorForBriefing(baudience, 'Обязательное поле');
+      setErrorForBriefing(baudience);
     }
-    if(bchoiceValue !== '' && bchoiceValue.length >= bchoice.getAttribute('minlength') && bchoiceValue.length <= bchoice.getAttribute('maxlength')) {
+    if(bchoiceValue !== '' && bchoiceValue.length >= bchoiceMin && bchoiceValue.length <= bchoiceMax) {
       setSuccessForBriefing(bchoice);
     } else {
-      setErrorForBriefing(bchoice, 'Обязательное поле');
+      setErrorForBriefing(bchoice);
     }
     if(
       bbasictermsValue != '' &&
-      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
-      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
+      bbasictermsValue.length >= bbasictermsMin &&
+      bbasictermsValue.length <= bbasictermsMax &&
       btargetValue != '' &&
-      btargetValue.length >= btarget.getAttribute('minlength') &&
-      btargetValue.length <= btarget.getAttribute('maxlength') &&
+      btargetValue.length >= btargetMin &&
+      btargetValue.length <= btargetMax &&
       bknowValue != '' &&
-      bknowValue.length >= bknow.getAttribute('minlength') &&
-      bknowValue.length <= bknow.getAttribute('maxlength') &&
+      bknowValue.length >= bknowMin &&
+      bknowValue.length <= bknowMax &&
       baudienceValue != '' &&
-      baudienceValue.length >= baudience.getAttribute('minlength') &&
-      baudienceValue.length <= baudience.getAttribute('maxlength') &&
+      baudienceValue.length >= baudienceMin &&
+      baudienceValue.length <= baudienceMax &&
       bchoiceValue != '' &&
-      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
-      bchoiceValue.length <= bchoice.getAttribute('maxlength')
+      bchoiceValue.length >= bchoiceMin &&
+      bchoiceValue.length <= bchoiceMax
     ){
       bsteptwo.classList.remove("error");
       bsteptwo.classList.add("success");
@@ -765,63 +828,63 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue !== '' && blinkValue.length >= blink.getAttribute('minlength') && blinkValue.length <= blink.getAttribute('maxlength')) {
+    if(blinkValue !== '' && blinkValue.length >= blinkMin && blinkValue.length <= blinkMax) {
       setSuccessForBriefing(blink);
     } else {
-      setErrorForBriefing(blink, 'Обязательное поле');
+      setErrorForBriefing(blink);
     }
-    if(btopicsValue !== '' && btopicsValue.length >= btopics.getAttribute('minlength') && btopicsValue.length <= btopics.getAttribute('maxlength')) {
+    if(btopicsValue !== '' && btopicsValue.length >= btopicsMin && btopicsValue.length <= btopicsMax) {
       setSuccessForBriefing(btopics);
     } else {
-      setErrorForBriefing(btopics, 'Обязательное поле');
+      setErrorForBriefing(btopics);
     }
-    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopics.getAttribute('minlength') && bnotopicsValue.length <= bnotopics.getAttribute('maxlength')) {
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= bnotopicsMin && bnotopicsValue.length <= bnotopicsMax) {
       setSuccessForBriefing(bnotopics);
     } else {
-      setErrorForBriefing(bnotopics, 'Обязательное поле');
+      setErrorForBriefing(bnotopics);
     }
-    if(bpriceValue !== '' && bpriceValue.length >= bprice.getAttribute('minlength') && bpriceValue.length <= bprice.getAttribute('maxlength')) {
+    if(bpriceValue !== '' && bpriceValue.length >= bpriceMin && bpriceValue.length <= bpriceMax) {
       setSuccessForBriefing(bprice);
     } else {
-      setErrorForBriefing(bprice, 'Обязательное поле');
+      setErrorForBriefing(bprice);
     }
-    if(bimpressionValue !== '' && bimpressionValue.length >= bimpression.getAttribute('minlength') && bimpressionValue.length <= bimpression.getAttribute('maxlength')) {
+    if(bimpressionValue !== '' && bimpressionValue.length >= bimpressionMin && bimpressionValue.length <= bimpressionMax) {
       setSuccessForBriefing(bimpression);
     } else {
-      setErrorForBriefing(bimpression, 'Обязательное поле');
+      setErrorForBriefing(bimpression);
     }
-    if(bimportantValue !== '' && bimportantValue.length >= bimportant.getAttribute('minlength') && bimportantValue.length <= bimportant.getAttribute('maxlength')) {
+    if(bimportantValue !== '' && bimportantValue.length >= bimportantMin && bimportantValue.length <= bimportantMax) {
       setSuccessForBriefing(bimportant);
     } else {
-      setErrorForBriefing(bimportant, 'Обязательное поле');
+      setErrorForBriefing(bimportant);
     }
-    if(blikeValue !== '' && blikeValue.length >= blike.getAttribute('minlength') && blikeValue.length <= blike.getAttribute('maxlength')) {
+    if(blikeValue !== '' && blikeValue.length >= blikeMin && blikeValue.length <= blikeMax) {
       setSuccessForBriefing(blike);
     } else {
-      setErrorForBriefing(blike, 'Обязательное поле');
+      setErrorForBriefing(blike);
     }
     if(
       blinkValue != '' &&
-      blinkValue.length >= blink.getAttribute('minlength') &&
-      blinkValue.length <= blink.getAttribute('maxlength') &&
+      blinkValue.length >= blinkMin &&
+      blinkValue.length <= blinkMax &&
       btopicsValue != '' &&
-      btopicsValue.length >= btopics.getAttribute('minlength') &&
-      btopicsValue.length <= btopics.getAttribute('maxlength') &&
+      btopicsValue.length >= btopicsMin &&
+      btopicsValue.length <= btopicsMax &&
       bnotopicsValue != '' &&
-      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
-      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
+      bnotopicsValue.length >= bnotopicsMin &&
+      bnotopicsValue.length <= bnotopicsMax &&
       bpriceValue != '' &&
-      bpriceValue.length >= bprice.getAttribute('minlength') &&
-      bpriceValue.length <= bprice.getAttribute('maxlength') &&
+      bpriceValue.length >= bpriceMin &&
+      bpriceValue.length <= bpriceMax &&
       bimpressionValue != '' &&
-      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
-      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
+      bimpressionValue.length >= bimpressionMin &&
+      bimpressionValue.length <= bimpressionMax &&
       bimportantValue != '' &&
-      bimportantValue.length >= bimportant.getAttribute('minlength') &&
-      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
+      bimportantValue.length >= bimportantMin &&
+      bimportantValue.length <= bimportantMax &&
       blikeValue != '' &&
-      blikeValue.length >= blike.getAttribute('minlength') &&
-      blikeValue.length <= blike.getAttribute('maxlength')
+      blikeValue.length >= blikeMin &&
+      blikeValue.length <= blikeMax
     ){
       bstepthree.classList.remove("error");
       bstepthree.classList.add("success");
@@ -837,55 +900,55 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue !== '' && bproblemsValue.length >= bproblems.getAttribute('minlength') && bproblemsValue.length <= bproblems.getAttribute('maxlength')) {
+    if(bproblemsValue !== '' && bproblemsValue.length >= bproblemsMin && bproblemsValue.length <= bproblemsMax) {
       setSuccessForBriefing(bproblems);
     } else {
-      setErrorForBriefing(bproblems, 'Обязательное поле');
+      setErrorForBriefing(bproblems);
     }
-    if(btriggersValue !== '' && btriggersValue.length >= btriggers.getAttribute('minlength') && btriggersValue.length <= btriggers.getAttribute('maxlength')) {
+    if(btriggersValue !== '' && btriggersValue.length >= btriggersMin && btriggersValue.length <= btriggersMax) {
       setSuccessForBriefing(btriggers);
     } else {
-      setErrorForBriefing(btriggers, 'Обязательное поле');
+      setErrorForBriefing(btriggers);
     }
-    if(binfoballValue !== '' && binfoballValue.length >= binfoball.getAttribute('minlength') && binfoballValue.length <= binfoball.getAttribute('maxlength')) {
+    if(binfoballValue !== '' && binfoballValue.length >= binfoballMin && binfoballValue.length <= binfoballMax) {
       setSuccessForBriefing(binfoball);
     } else {
-      setErrorForBriefing(binfoball, 'Обязательное поле');
+      setErrorForBriefing(binfoball);
     }
-    if(bneedsValue !== '' && bneedsValue.length >= bneeds.getAttribute('minlength') && bneedsValue.length <= bneeds.getAttribute('maxlength')) {
+    if(bneedsValue !== '' && bneedsValue.length >= bneedsMin && bneedsValue.length <= bneedsMax) {
       setSuccessForBriefing(bneeds);
     } else {
-      setErrorForBriefing(bneeds, 'Обязательное поле');
+      setErrorForBriefing(bneeds);
     }
-    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriers.getAttribute('minlength') && bbarriersValue.length <= bbarriers.getAttribute('maxlength')) {
+    if(bbarriersValue !== '' && bbarriersValue.length >= bbarriersMin && bbarriersValue.length <= bbarriersMax) {
       setSuccessForBriefing(bbarriers);
     } else {
-      setErrorForBriefing(bbarriers, 'Обязательное поле');
+      setErrorForBriefing(bbarriers);
     }
-    if(bstriveValue !== '' && bstriveValue.length >= bstrive.getAttribute('minlength') && bstriveValue.length <= bstrive.getAttribute('maxlength')) {
+    if(bstriveValue !== '' && bstriveValue.length >= bstriveMin && bstriveValue.length <= bstriveMax) {
       setSuccessForBriefing(bstrive);
     } else {
-      setErrorForBriefing(bstrive, 'Обязательное поле');
+      setErrorForBriefing(bstrive);
     }
     if(
       bproblemsValue != '' &&
-      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
-      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
+      bproblemsValue.length >= bproblemsMin &&
+      bproblemsValue.length <= bproblemsMax &&
       btriggersValue != '' &&
-      btriggersValue.length >= btriggers.getAttribute('minlength') &&
-      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
+      btriggersValue.length >= btriggersMin &&
+      btriggersValue.length <= btriggersMax &&
       binfoballValue != '' &&
-      binfoballValue.length >= binfoball.getAttribute('minlength') &&
-      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
+      binfoballValue.length >= binfoballMin &&
+      binfoballValue.length <= binfoballMax &&
       bneedsValue != '' &&
-      bneedsValue.length >= bneeds.getAttribute('minlength') &&
-      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
+      bneedsValue.length >= bneedsMin &&
+      bneedsValue.length <= bneedsMax &&
       bbarriersValue != '' &&
-      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
-      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
+      bbarriersValue.length >= bbarriersMin &&
+      bbarriersValue.length <= bbarriersMax &&
       bstriveValue != '' &&
-      bstriveValue.length >= bstrive.getAttribute('minlength') &&
-      bstriveValue.length <= bstrive.getAttribute('maxlength')
+      bstriveValue.length >= bstriveMin &&
+      bstriveValue.length <= bstriveMax
     ){
       bstepfour.classList.remove("error");
       bstepfour.classList.add("success");
@@ -898,32 +961,26 @@ if(!briefing){} else {
     const bassociationsValue = bassociations.value.trim();
     const bsegmentValue = bsegment.value.trim();
 
-    if(bdesignValue !== '' && bdesignValue.length >= bdesign.getAttribute('minlength') && bdesignValue.length <= bdesign.getAttribute('maxlength')) {
+    if(bdesignValue !== '' && bdesignValue.length >= bdesignMin && bdesignValue.length <= bdesignMax) {
       setSuccessForBriefing(bdesign);
       bstepfive.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bdesign, 'Обязательное поле');
+      setErrorForBriefing(bdesign);
       bstepfive.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bassociationsValue !== '' && bassociationsValue.length >= bassociations.getAttribute('minlength') && bassociationsValue.length <= bassociations.getAttribute('maxlength')) {
+    if(bassociationsValue !== '' && bassociationsValue.length >= bassociationsMin && bassociationsValue.length <= bassociationsMax) {
       setSuccessForBriefing(bassociations);
       bstepfive.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bassociations, 'Обязательное поле');
+      setErrorForBriefing(bassociations);
       bstepfive.classList.add("error");
-      scroll.scrollTo(totop);
     }
-    if(bsegmentValue !== '' && bsegmentValue.length >= bsegment.getAttribute('minlength') && bsegmentValue.length <= bsegment.getAttribute('maxlength')) {
+    if(bsegmentValue !== '' && bsegmentValue.length >= bsegmentMin && bsegmentValue.length <= bsegmentMax) {
       setSuccessForBriefing(bsegment);
       bstepfive.classList.remove("error");
-      scroll.scrollTo(totop);
     } else {
-      setErrorForBriefing(bsegment, 'Обязательное поле');
+      setErrorForBriefing(bsegment);
       bstepfive.classList.add("error");
-      scroll.scrollTo(totop);
     }
     if(
       !isEmail(bemailValue)
@@ -931,81 +988,81 @@ if(!briefing){} else {
       scroll.scrollTo(totop);
     } else if (
       busernameValue !== '' &&
-      busernameValue.length >= busername.getAttribute('minlength') &&
-      busernameValue.length <= busername.getAttribute('maxlength') &&
+      busernameValue.length >= busernameMin &&
+      busernameValue.length <= busernameMax &&
       bphoneValue !== '' &&
-      bphoneValue.length >= bphone.getAttribute('minlength') &&
-      bphoneValue.length <= bphone.getAttribute('maxlength') &&
+      bphoneValue.length >= bphoneMin &&
+      bphoneValue.length <= bphoneMax &&
       bemailValue !== '' &&
-      bemailValue.length >= bemail.getAttribute('minlength') &&
-      bemailValue.length <= bemail.getAttribute('maxlength') &&
+      bemailValue.length >= bemailMin &&
+      bemailValue.length <= bemailMax &&
 
       bbasictermsValue !== '' &&
-      bbasictermsValue.length >= bbasicterms.getAttribute('minlength') &&
-      bbasictermsValue.length <= bbasicterms.getAttribute('maxlength') &&
+      bbasictermsValue.length >= bbasictermsMin &&
+      bbasictermsValue.length <= bbasictermsMax &&
       btargetValue !== '' &&
-      btargetValue.length >= btarget.getAttribute('minlength') &&
-      btargetValue.length <= btarget.getAttribute('maxlength') &&
+      btargetValue.length >= btargetMin &&
+      btargetValue.length <= btargetMax &&
       bknowValue !== '' &&
-      bknowValue.length >= bknow.getAttribute('minlength') &&
-      bknowValue.length <= bknow.getAttribute('maxlength') &&
+      bknowValue.length >= bknowMin &&
+      bknowValue.length <= bknowMax &&
       baudienceValue !== '' &&
-      baudienceValue.length >= baudience.getAttribute('minlength') &&
-      baudienceValue.length <= baudience.getAttribute('maxlength') &&
+      baudienceValue.length >= baudienceMin &&
+      baudienceValue.length <= baudienceMax &&
       bchoiceValue !== '' &&
-      bchoiceValue.length >= bchoice.getAttribute('minlength') &&
-      bchoiceValue.length <= bchoice.getAttribute('maxlength') &&
+      bchoiceValue.length >= bchoiceMin &&
+      bchoiceValue.length <= bchoiceMax &&
 
       blinkValue !== '' &&
-      blinkValue.length >= blink.getAttribute('minlength') &&
-      blinkValue.length <= blink.getAttribute('maxlength') &&
+      blinkValue.length >= blinkMin &&
+      blinkValue.length <= blinkMax &&
       btopicsValue !== '' &&
-      btopicsValue.length >= btopics.getAttribute('minlength') &&
-      btopicsValue.length <= btopics.getAttribute('maxlength') &&
+      btopicsValue.length >= btopicsMin &&
+      btopicsValue.length <= btopicsMax &&
       bnotopicsValue !== '' &&
-      bnotopicsValue.length >= bnotopics.getAttribute('minlength') &&
-      bnotopicsValue.length <= bnotopics.getAttribute('maxlength') &&
+      bnotopicsValue.length >= bnotopicsMin &&
+      bnotopicsValue.length <= bnotopicsMax &&
       bpriceValue !== '' &&
-      bpriceValue.length >= bprice.getAttribute('minlength') &&
-      bpriceValue.length <= bprice.getAttribute('maxlength') &&
+      bpriceValue.length >= bpriceMin &&
+      bpriceValue.length <= bpriceMax &&
       bimpressionValue !== '' &&
-      bimpressionValue.length >= bimpression.getAttribute('minlength') &&
-      bimpressionValue.length <= bimpression.getAttribute('maxlength') &&
+      bimpressionValue.length >= bimpressionMin &&
+      bimpressionValue.length <= bimpressionMax &&
       bimportantValue !== '' &&
-      bimportantValue.length >= bimportant.getAttribute('minlength') &&
-      bimportantValue.length <= bimportant.getAttribute('maxlength') &&
+      bimportantValue.length >= bimportantMin &&
+      bimportantValue.length <= bimportantMax &&
       blikeValue !== '' &&
-      blikeValue.length >= blike.getAttribute('minlength') &&
-      blikeValue.length <= blike.getAttribute('maxlength') &&
+      blikeValue.length >= blikeMin &&
+      blikeValue.length <= blikeMax &&
       
       bproblemsValue !== '' &&
-      bproblemsValue.length >= bproblems.getAttribute('minlength') &&
-      bproblemsValue.length <= bproblems.getAttribute('maxlength') &&
+      bproblemsValue.length >= bproblemsMin &&
+      bproblemsValue.length <= bproblemsMax &&
       btriggersValue !== '' &&
-      btriggersValue.length >= btriggers.getAttribute('minlength') &&
-      btriggersValue.length <= btriggers.getAttribute('maxlength') &&
+      btriggersValue.length >= btriggersMin &&
+      btriggersValue.length <= btriggersMax &&
       binfoballValue !== '' &&
-      binfoballValue.length >= binfoball.getAttribute('minlength') &&
-      binfoballValue.length <= binfoball.getAttribute('maxlength') &&
+      binfoballValue.length >= binfoballMin &&
+      binfoballValue.length <= binfoballMax &&
       bneedsValue !== '' &&
-      bneedsValue.length >= bneeds.getAttribute('minlength') &&
-      bneedsValue.length <= bneeds.getAttribute('maxlength') &&
+      bneedsValue.length >= bneedsMin &&
+      bneedsValue.length <= bneedsMax &&
       bbarriersValue !== '' &&
-      bbarriersValue.length >= bbarriers.getAttribute('minlength') &&
-      bbarriersValue.length <= bbarriers.getAttribute('maxlength') &&
+      bbarriersValue.length >= bbarriersMin &&
+      bbarriersValue.length <= bbarriersMax &&
       bstriveValue !== '' &&
-      bstriveValue.length >= bstrive.getAttribute('minlength') &&
-      bstriveValue.length <= bstrive.getAttribute('maxlength') &&
+      bstriveValue.length >= bstriveMin &&
+      bstriveValue.length <= bstriveMax &&
 
       bdesignValue !== '' &&
-      bdesignValue.length >= bdesign.getAttribute('minlength') &&
-      bdesignValue.length <= bdesign.getAttribute('maxlength') &&
+      bdesignValue.length >= bdesignMin &&
+      bdesignValue.length <= bdesignMax &&
       bassociationsValue !== '' &&
-      bassociationsValue.length >= bassociations.getAttribute('minlength') &&
-      bassociationsValue.length <= bassociations.getAttribute('maxlength') &&
+      bassociationsValue.length >= bassociationsMin &&
+      bassociationsValue.length <= bassociationsMax &&
       bsegmentValue !== '' &&
-      bsegmentValue.length >= bsegment.getAttribute('minlength') &&
-      bsegmentValue.length <= bsegment.getAttribute('maxlength')
+      bsegmentValue.length >= bsegmentMin &&
+      bsegmentValue.length <= bsegmentMax
     ) {
       // fetch('/ajax/sendMail.php', {
       //   method: 'POST',
@@ -1053,9 +1110,6 @@ if(!briefing){} else {
       document.querySelector('.briefing__head').innerText = 'СПАСИБО ЗА БРИФИНГ!';
       document.querySelector('.briefing__desc').innerText = 'Мы свяжемся с вами по указанным в брифинге контактам в самое ближайшее время, чтобы обсудить проект.';
       bstepfive.classList.add("success");
-      scroll.scrollTo(totop);
-    } else {
-      scroll.scrollTo(totop);
     }
   }
   // END validate briefing__form_five
