@@ -5556,6 +5556,14 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
+.briefing__home {
+  display: none;
+}
+
+.briefing__home.active {
+  display: inline-flex;
+}
+
 /* end briefing */
 
 /* start 1440px */

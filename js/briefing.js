@@ -47,6 +47,7 @@ if(!briefing){} else {
   const bformend = document.querySelector('.briefing__form_end');
   const bstepsend = document.querySelector('.briefing__steps_end');
   const totop = document.querySelector('#top');
+  const briefinghome = document.querySelector('.briefing__home');
 
   // start autosize textarea
     autosize(document.querySelectorAll('textarea'));
@@ -1110,6 +1111,7 @@ if(!briefing){} else {
       document.querySelector('.briefing__head').innerText = 'СПАСИБО ЗА БРИФИНГ!';
       document.querySelector('.briefing__desc').innerText = 'Мы свяжемся с вами по указанным в брифинге контактам в самое ближайшее время, чтобы обсудить проект.';
       bstepfive.classList.add("success");
+      briefinghome.classList.add("active");
     }
   }
   // END validate briefing__form_five
