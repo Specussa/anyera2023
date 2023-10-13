@@ -45,11 +45,43 @@ if(!briefing){} else {
   const bassociations = document.getElementById('briefing__associations');
   const bsegment = document.getElementById('briefing__segment');
   const bformend = document.querySelector('.briefing__form_end');
+  const bstepsend = document.querySelector('.briefing__steps_end');
   const totop = document.querySelector('#top');
 
   // start autosize textarea
     autosize(document.querySelectorAll('textarea'));
   // end autosize textarea
+  
+  // start maxleight
+  busername.oninput = function(){this.value = this.value.substr(0, 40);}
+  bphone.oninput = function(){this.value = this.value.substr(0, 11);}
+  bemail.oninput = function(){this.value = this.value.substr(0, 40);}
+
+  bbasicterms.oninput = function(){this.value = this.value.substr(0, 300);}
+  btarget.oninput = function(){this.value = this.value.substr(0, 300);}
+  bknow.oninput = function(){this.value = this.value.substr(0, 300);}
+  baudience.oninput = function(){this.value = this.value.substr(0, 300);}
+  bchoice.oninput = function(){this.value = this.value.substr(0, 300);}
+
+  blink.oninput = function(){this.value = this.value.substr(0, 300);}
+  btopics.oninput = function(){this.value = this.value.substr(0, 300);}
+  bnotopics.oninput = function(){this.value = this.value.substr(0, 300);}
+  bprice.oninput = function(){this.value = this.value.substr(0, 300);}
+  bimpression.oninput = function(){this.value = this.value.substr(0, 300);}
+  bimportant.oninput = function(){this.value = this.value.substr(0, 300);}
+  blike.oninput = function(){this.value = this.value.substr(0, 300);}
+
+  bproblems.oninput = function(){this.value = this.value.substr(0, 300);}
+  btriggers.oninput = function(){this.value = this.value.substr(0, 300);}
+  binfoball.oninput = function(){this.value = this.value.substr(0, 300);}
+  bneeds.oninput = function(){this.value = this.value.substr(0, 300);}
+  bbarriers.oninput = function(){this.value = this.value.substr(0, 300);}
+  bstrive.oninput = function(){this.value = this.value.substr(0, 300);}
+
+  bdesign.oninput = function(){this.value = this.value.substr(0, 300);}
+  bassociations.oninput = function(){this.value = this.value.substr(0, 300);}
+  bsegment.oninput = function(){this.value = this.value.substr(0, 300);}
+  // end maxleight
 
   // START step
   const briefingform = document.querySelectorAll(".briefing__right .briefing__form");
@@ -71,7 +103,7 @@ if(!briefing){} else {
   [...briefingform].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 
   bstepone.addEventListener('click', function() {
-    if (!bformone.classList.contains("active") && bstepone.classList.contains("unblock")) {
+    if (!bformone.classList.contains("active") && bstepone.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -82,7 +114,7 @@ if(!briefing){} else {
     }
   })
   bsteptwo.addEventListener('click', function() {
-    if (!bformtwo.classList.contains("active") && bsteptwo.classList.contains("unblock")) {
+    if (!bformtwo.classList.contains("active") && bsteptwo.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -93,7 +125,7 @@ if(!briefing){} else {
     }
   })
   bstepthree.addEventListener('click', function() {
-    if (!bformthree.classList.contains("active") && bstepthree.classList.contains("unblock")) {
+    if (!bformthree.classList.contains("active") && bstepthree.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -104,7 +136,7 @@ if(!briefing){} else {
     }
   })
   bstepfour.addEventListener('click', function() {
-    if (!bformfour.classList.contains("active") && bstepfour.classList.contains("unblock")) {
+    if (!bformfour.classList.contains("active") && bstepfour.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -115,7 +147,7 @@ if(!briefing){} else {
     }
   })
   bstepfive.addEventListener('click', function() {
-    if (!bformfive.classList.contains("active") && bstepfive.classList.contains("unblock")) {
+    if (!bformfive.classList.contains("active") && bstepfive.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -176,14 +208,53 @@ if(!briefing){} else {
     const bphoneValue = bphone.value.trim();
     const bemailValue = bemail.value.trim();
 
-    if(busernameValue === '') {setErrorForBriefing(busername, 'Обязательное поле');bstepone.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(busername);bstepone.classList.remove("error");scroll.scrollTo(totop);}
-    if(bphoneValue === '') {setErrorForBriefing(bphone, 'Введите корректный телефон');bstepone.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bphone);bstepone.classList.remove("error");scroll.scrollTo(totop);}
-    if(bemailValue === '') {setErrorForBriefing(bemail, 'Введите корректный email');bstepone.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bemail);bstepone.classList.remove("error");scroll.scrollTo(totop);}
-    if(
-      busernameValue != '' &&
-      bphoneValue != '' &&
-      bemailValue != ''
-    ){
+    if(busernameValue !== '' && busernameValue.length >= 4 && busernameValue.length <= 40) {
+      setSuccessForBriefing(busername);
+      bstepone.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(busername, 'Обязательное поле');
+      bstepone.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+
+    if(bphoneValue !== '' && bphoneValue.length >= 4 && bphoneValue.length <= 11) {
+      setSuccessForBriefing(bphone);
+      bstepone.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bphone, 'Введите корректный телефон');
+      bstepone.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+
+    if(!isEmail(bemailValue)) {
+      setErrorForBriefing(bemail, 'Введите корректный email');
+      bstepone.classList.add("error");
+      scroll.scrollTo(totop);
+    } else if (bemailValue !== '' && bemailValue.length >= 4 && bemailValue.length <= 40) {
+      setSuccessForBriefing(bemail);
+      bstepone.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bemail, 'Введите корректный email');
+      bstepone.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+
+    if(!isEmail(bemailValue)){
+      scroll.scrollTo(totop);
+    } else if (
+      busernameValue !== '' &&
+      busernameValue.length >= 4 &&
+      busernameValue.length <= 40 &&
+      bphoneValue !== '' &&
+      bphoneValue.length >= 4 &&
+      bphoneValue.length <= 11 &&
+      bemailValue !== '' &&
+      bemailValue.length >= 4 &&
+      bemailValue.length <= 40
+    ) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
@@ -191,14 +262,14 @@ if(!briefing){} else {
       bformtwo.classList.add("active");
       bstepstwo.classList.add("active");
       bsteptwo.classList.add("active");
-      bsteptwo.classList.add("unblock");
+      bsteptwo.classList.add("unlock");
       scroll.scrollTo(totop);
     }
   }
 
-  // function iscontrol(control) {
-  // 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(control);
-  // }
+  function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
 
   const bcitype = [...document.querySelectorAll('.briefing__checks_type .briefing__check_input')];
   const bcisum = [...document.querySelectorAll('.briefing__checks_sum .briefing__check_input')];
@@ -232,17 +303,67 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue === '') {setErrorForBriefing(bbasicterms, 'Обязательное поле');bsteptwo.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bbasicterms);bsteptwo.classList.remove("error");scroll.scrollTo(totop);}
-    if(btargetValue === '') {setErrorForBriefing(btarget, 'Обязательное поле');bsteptwo.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(btarget);bsteptwo.classList.remove("error");scroll.scrollTo(totop);}
-    if(bknowValue === '') {setErrorForBriefing(bknow, 'Обязательное поле');bsteptwo.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bknow);bsteptwo.classList.remove("error");scroll.scrollTo(totop);}
-    if(baudienceValue === '') {setErrorForBriefing(baudience, 'Обязательное поле');bsteptwo.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(baudience);bsteptwo.classList.remove("error");scroll.scrollTo(totop);}
-    if(bchoiceValue === '') {setErrorForBriefing(bchoice, 'Обязательное поле');bsteptwo.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bchoice);bsteptwo.classList.remove("error");scroll.scrollTo(totop);}
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= 4 && bbasictermsValue.length <= 300) {
+      setSuccessForBriefing(bbasicterms);
+      bsteptwo.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bbasicterms, 'Обязательное поле');
+      bsteptwo.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(btargetValue !== '' && btargetValue.length >= 4 && btargetValue.length <= 300) {
+      setSuccessForBriefing(btarget);
+      bsteptwo.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(btarget, 'Обязательное поле');
+      bsteptwo.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bknowValue !== '' && bknowValue.length >= 4 && bknowValue.length <= 300) {
+      setSuccessForBriefing(bknow);
+      bsteptwo.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bknow, 'Обязательное поле');
+      bsteptwo.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(baudienceValue !== '' && baudienceValue.length >= 4 && baudienceValue.length <= 300) {
+      setSuccessForBriefing(baudience);
+      bsteptwo.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(baudience, 'Обязательное поле');
+      bsteptwo.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bchoiceValue !== '' && bchoiceValue.length >= 4 && bchoiceValue.length <= 300) {
+      setSuccessForBriefing(bchoice);
+      bsteptwo.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bchoice, 'Обязательное поле');
+      bsteptwo.classList.add("error");
+      scroll.scrollTo(totop);
+    }
     if(
       bbasictermsValue != '' &&
+      bbasictermsValue.length >= 4 &&
+      bbasictermsValue.length <= 300 &&
       btargetValue != '' &&
+      btargetValue.length >= 4 &&
+      btargetValue.length <= 300 &&
       bknowValue != '' &&
+      bknowValue.length >= 4 &&
+      bknowValue.length <= 300 &&
       baudienceValue != '' &&
-      bchoiceValue != ''
+      baudienceValue.length >= 4 &&
+      baudienceValue.length <= 300 &&
+      bchoiceValue != '' &&
+      bchoiceValue.length >= 4 &&
+      bchoiceValue.length <= 300
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -251,7 +372,7 @@ if(!briefing){} else {
       bformthree.classList.add("active");
       bstepsthree.classList.add("active");
       bstepthree.classList.add("active");
-      bstepthree.classList.add("unblock");
+      bstepthree.classList.add("unlock");
       scroll.scrollTo(totop);
     }
   }
@@ -271,21 +392,91 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue === '') {setErrorForBriefing(blink, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(blink);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(btopicsValue === '') {setErrorForBriefing(btopics, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(btopics);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(bnotopicsValue === '') {setErrorForBriefing(bnotopics, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bnotopics);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(bpriceValue === '') {setErrorForBriefing(bprice, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bprice);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(bimpressionValue === '') {setErrorForBriefing(bimpression, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bimpression);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(bimportantValue === '') {setErrorForBriefing(bimportant, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bimportant);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
-    if(blikeValue === '') {setErrorForBriefing(blike, 'Обязательное поле');bstepthree.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(blike);bstepthree.classList.remove("error");scroll.scrollTo(totop);}
+    if(blinkValue !== '' && blinkValue.length >= 4 && blinkValue.length <= 300) {
+      setSuccessForBriefing(blink);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(blink, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(btopicsValue !== '' && btopicsValue.length >= 4 && btopicsValue.length <= 300) {
+      setSuccessForBriefing(btopics);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(btopics, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= 4 && bnotopicsValue.length <= 300) {
+      setSuccessForBriefing(bnotopics);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bnotopics, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bpriceValue !== '' && bpriceValue.length >= 4 && bpriceValue.length <= 300) {
+      setSuccessForBriefing(bprice);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bprice, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bimpressionValue !== '' && bimpressionValue.length >= 4 && bimpressionValue.length <= 300) {
+      setSuccessForBriefing(bimpression);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bimpression, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bimportantValue !== '' && bimportantValue.length >= 4 && bimportantValue.length <= 300) {
+      setSuccessForBriefing(bimportant);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bimportant, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(blikeValue !== '' && blikeValue.length >= 4 && blikeValue.length <= 300) {
+      setSuccessForBriefing(blike);
+      bstepthree.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(blike, 'Обязательное поле');
+      bstepthree.classList.add("error");
+      scroll.scrollTo(totop);
+    }
     if(
       blinkValue != '' &&
+      blinkValue.length >= 4 &&
+      blinkValue.length <= 300 &&
       btopicsValue != '' &&
+      btopicsValue.length >= 4 &&
+      btopicsValue.length <= 300 &&
       bnotopicsValue != '' &&
+      bnotopicsValue.length >= 4 &&
+      bnotopicsValue.length <= 300 &&
       bpriceValue != '' &&
+      bpriceValue.length >= 4 &&
+      bpriceValue.length <= 300 &&
       bimpressionValue != '' &&
+      bimpressionValue.length >= 4 &&
+      bimpressionValue.length <= 300 &&
       bimportantValue != '' &&
-      blikeValue != ''
+      bimportantValue.length >= 4 &&
+      bimportantValue.length <= 300 &&
+      blikeValue != '' &&
+      blikeValue.length >= 4 &&
+      blikeValue.length <= 300
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -294,7 +485,7 @@ if(!briefing){} else {
       bformfour.classList.add("active");
       bstepsfour.classList.add("active");
       bstepfour.classList.add("active");
-      bstepfour.classList.add("unblock");
+      bstepfour.classList.add("unlock");
       scroll.scrollTo(totop);
     }
   }
@@ -313,19 +504,79 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue === '') {setErrorForBriefing(bproblems, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bproblems);bstepfour.classList.remove("error");scroll.scrollTo(totop);}
-    if(btriggersValue === '') {setErrorForBriefing(btriggers, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(btriggers);bstepfour.classList.remove("error");scroll.scrollTo(totop);}
-    if(binfoballValue === '') {setErrorForBriefing(binfoball, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(binfoball);bstepfour.classList.remove("error");scroll.scrollTo(totop);}
-    if(bneedsValue === '') {setErrorForBriefing(bneeds, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bneeds);scroll.scrollTo(totop);}
-    if(bbarriersValue === '') {setErrorForBriefing(bbarriers, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bbarriers);scroll.scrollTo(totop);}
-    if(bstriveValue === '') {setErrorForBriefing(bstrive, 'Обязательное поле');bstepfour.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bstrive);scroll.scrollTo(totop);}
+    if(bproblemsValue !== '' && bproblemsValue.length >= 4 && bproblemsValue.length <= 300) {
+      setSuccessForBriefing(bproblems);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bproblems, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(btriggersValue !== '' && btriggersValue.length >= 4 && btriggersValue.length <= 300) {
+      setSuccessForBriefing(btriggers);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(btriggers, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(binfoballValue !== '' && binfoballValue.length >= 4 && binfoballValue.length <= 300) {
+      setSuccessForBriefing(binfoball);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(binfoball, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bneedsValue !== '' && bneedsValue.length >= 4 && bneedsValue.length <= 300) {
+      setSuccessForBriefing(bneeds);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bneeds, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bbarriersValue !== '' && bbarriersValue.length >= 4 && bbarriersValue.length <= 300) {
+      setSuccessForBriefing(bbarriers);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bbarriers, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bstriveValue !== '' && bstriveValue.length >= 4 && bstriveValue.length <= 300) {
+      setSuccessForBriefing(bstrive);
+      bstepfour.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bstrive, 'Обязательное поле');
+      bstepfour.classList.add("error");
+      scroll.scrollTo(totop);
+    }
     if(
       bproblemsValue != '' &&
+      bproblemsValue.length >= 4 &&
+      bproblemsValue.length <= 300 &&
       btriggersValue != '' &&
+      btriggersValue.length >= 4 &&
+      btriggersValue.length <= 300 &&
       binfoballValue != '' &&
+      binfoballValue.length >= 4 &&
+      binfoballValue.length <= 300 &&
       bneedsValue != '' &&
+      bneedsValue.length >= 4 &&
+      bneedsValue.length <= 300 &&
       bbarriersValue != '' &&
-      bstriveValue != ''
+      bbarriersValue.length >= 4 &&
+      bbarriersValue.length <= 300 &&
+      bstriveValue != '' &&
+      bstriveValue.length >= 4 &&
+      bstriveValue.length <= 300
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
@@ -334,7 +585,9 @@ if(!briefing){} else {
       bformfive.classList.add("active");
       bstepsfive.classList.add("active");
       bstepfive.classList.add("active");
-      bstepfive.classList.add("unblock");
+      bstepfive.classList.add("unlock");
+      scroll.scrollTo(totop);
+    } else {
       scroll.scrollTo(totop);
     }
   }
@@ -349,15 +602,42 @@ if(!briefing){} else {
     const busernameValue = busername.value.trim();
     const bphoneValue = bphone.value.trim();
     const bemailValue = bemail.value.trim();
-    
-    if(busernameValue === '') {setErrorForBriefing(busername, 'Обязательное поле');} else {setSuccessForBriefing(busername);}
-    if(bphoneValue === '') {setErrorForBriefing(bphone, 'Введите корректный телефон');} else {setSuccessForBriefing(bphone);}
-    if(bemailValue === '') {setErrorForBriefing(bemail, 'Введите корректный email');} else {setSuccessForBriefing(bemail);}
-    if(
+
+
+    if(busernameValue !== '' && busernameValue.length >= 4 && busernameValue.length <= 40) {
+      setSuccessForBriefing(busername);
+    } else {
+      setErrorForBriefing(busername, 'Обязательное поле');
+    }
+
+    if(bphoneValue !== '' && bphoneValue.length >= 4 && bphoneValue.length <= 11) {
+      setSuccessForBriefing(bphone);
+    } else {
+      setErrorForBriefing(bphone, 'Введите корректный телефон');
+    }
+
+    if(!isEmail(bemailValue)) {
+      setErrorForBriefing(bemail, 'Введите корректный email');
+    } else if (bemailValue !== '' && bemailValue.length >= 4 && bemailValue.length <= 40) {
+      setSuccessForBriefing(bemail);
+    } else {
+      setErrorForBriefing(bemail, 'Введите корректный email');
+    }
+
+    if(!isEmail(bemailValue)){
+      bstepone.classList.remove("success");
+      bstepone.classList.add("error");
+    } else if (
       busernameValue != '' &&
+      busernameValue.length >= 4 &&
+      busernameValue.length <= 40 &&
       bphoneValue != '' &&
-      bemailValue != ''
-    ){
+      bphoneValue.length >= 4 &&
+      bphoneValue.length <= 11 &&
+      bemailValue != '' &&
+      bemailValue.length >= 4 &&
+      bemailValue.length <= 40
+    ) {
       bstepone.classList.remove("error");
       bstepone.classList.add("success");
     } else {
@@ -371,17 +651,47 @@ if(!briefing){} else {
     const baudienceValue = baudience.value.trim();
     const bchoiceValue = bchoice.value.trim();
 
-    if(bbasictermsValue === '') {setErrorForBriefing(bbasicterms, 'Обязательное поле');} else {setSuccessForBriefing(bbasicterms);}
-    if(btargetValue === '') {setErrorForBriefing(btarget, 'Обязательное поле');} else {setSuccessForBriefing(btarget);}
-    if(bknowValue === '') {setErrorForBriefing(bknow, 'Обязательное поле');} else {setSuccessForBriefing(bknow);}
-    if(baudienceValue === '') {setErrorForBriefing(baudience, 'Обязательное поле');} else {setSuccessForBriefing(baudience);}
-    if(bchoiceValue === '') {setErrorForBriefing(bchoice, 'Обязательное поле');} else {setSuccessForBriefing(bchoice);}
+    if(bbasictermsValue !== '' && bbasictermsValue.length >= 4 && bbasictermsValue.length <= 300) {
+      setSuccessForBriefing(bbasicterms);
+    } else {
+      setErrorForBriefing(bbasicterms, 'Обязательное поле');
+    }
+    if(btargetValue !== '' && btargetValue.length >= 4 && btargetValue.length <= 300) {
+      setSuccessForBriefing(btarget);
+    } else {
+      setErrorForBriefing(btarget, 'Обязательное поле');
+    }
+    if(bknowValue !== '' && bknowValue.length >= 4 && bknowValue.length <= 300) {
+      setSuccessForBriefing(bknow);
+    } else {
+      setErrorForBriefing(bknow, 'Обязательное поле');
+    }
+    if(baudienceValue !== '' && baudienceValue.length >= 4 && baudienceValue.length <= 300) {
+      setSuccessForBriefing(baudience);
+    } else {
+      setErrorForBriefing(baudience, 'Обязательное поле');
+    }
+    if(bchoiceValue !== '' && bchoiceValue.length >= 4 && bchoiceValue.length <= 300) {
+      setSuccessForBriefing(bchoice);
+    } else {
+      setErrorForBriefing(bchoice, 'Обязательное поле');
+    }
     if(
       bbasictermsValue != '' &&
+      bbasictermsValue.length >= 4 &&
+      bbasictermsValue.length <= 300 &&
       btargetValue != '' &&
+      btargetValue.length >= 4 &&
+      btargetValue.length <= 300 &&
       bknowValue != '' &&
+      bknowValue.length >= 4 &&
+      bknowValue.length <= 300 &&
       baudienceValue != '' &&
-      bchoiceValue != ''
+      baudienceValue.length >= 4 &&
+      baudienceValue.length <= 300 &&
+      bchoiceValue != '' &&
+      bchoiceValue.length >= 4 &&
+      bchoiceValue.length <= 300
     ){
       bsteptwo.classList.remove("error");
       bsteptwo.classList.add("success");
@@ -398,21 +708,63 @@ if(!briefing){} else {
     const bimportantValue = bimportant.value.trim();
     const blikeValue = blike.value.trim();
 
-    if(blinkValue === '') {setErrorForBriefing(blink, 'Обязательное поле');} else {setSuccessForBriefing(blink);}
-    if(btopicsValue === '') {setErrorForBriefing(btopics, 'Обязательное поле');} else {setSuccessForBriefing(btopics);}
-    if(bnotopicsValue === '') {setErrorForBriefing(bnotopics, 'Обязательное поле');} else {setSuccessForBriefing(bnotopics);}
-    if(bpriceValue === '') {setErrorForBriefing(bprice, 'Обязательное поле');} else {setSuccessForBriefing(bprice);}
-    if(bimpressionValue === '') {setErrorForBriefing(bimpression, 'Обязательное поле');} else {setSuccessForBriefing(bimpression);}
-    if(bimportantValue === '') {setErrorForBriefing(bimportant, 'Обязательное поле');} else {setSuccessForBriefing(bimportant);}
-    if(blikeValue === '') {setErrorForBriefing(blike, 'Обязательное поле');} else {setSuccessForBriefing(blike);}
+    if(blinkValue !== '' && blinkValue.length >= 4 && blinkValue.length <= 300) {
+      setSuccessForBriefing(blink);
+    } else {
+      setErrorForBriefing(blink, 'Обязательное поле');
+    }
+    if(btopicsValue !== '' && btopicsValue.length >= 4 && btopicsValue.length <= 300) {
+      setSuccessForBriefing(btopics);
+    } else {
+      setErrorForBriefing(btopics, 'Обязательное поле');
+    }
+    if(bnotopicsValue !== '' && bnotopicsValue.length >= 4 && bnotopicsValue.length <= 300) {
+      setSuccessForBriefing(bnotopics);
+    } else {
+      setErrorForBriefing(bnotopics, 'Обязательное поле');
+    }
+    if(bpriceValue !== '' && bpriceValue.length >= 4 && bpriceValue.length <= 300) {
+      setSuccessForBriefing(bprice);
+    } else {
+      setErrorForBriefing(bprice, 'Обязательное поле');
+    }
+    if(bimpressionValue !== '' && bimpressionValue.length >= 4 && bimpressionValue.length <= 300) {
+      setSuccessForBriefing(bimpression);
+    } else {
+      setErrorForBriefing(bimpression, 'Обязательное поле');
+    }
+    if(bimportantValue !== '' && bimportantValue.length >= 4 && bimportantValue.length <= 300) {
+      setSuccessForBriefing(bimportant);
+    } else {
+      setErrorForBriefing(bimportant, 'Обязательное поле');
+    }
+    if(blikeValue !== '' && blikeValue.length >= 4 && blikeValue.length <= 300) {
+      setSuccessForBriefing(blike);
+    } else {
+      setErrorForBriefing(blike, 'Обязательное поле');
+    }
     if(
       blinkValue != '' &&
+      blinkValue.length >= 4 &&
+      blinkValue.length <= 300 &&
       btopicsValue != '' &&
+      btopicsValue.length >= 4 &&
+      btopicsValue.length <= 300 &&
       bnotopicsValue != '' &&
+      bnotopicsValue.length >= 4 &&
+      bnotopicsValue.length <= 300 &&
       bpriceValue != '' &&
+      bpriceValue.length >= 4 &&
+      bpriceValue.length <= 300 &&
       bimpressionValue != '' &&
+      bimpressionValue.length >= 4 &&
+      bimpressionValue.length <= 300 &&
       bimportantValue != '' &&
-      blikeValue != ''
+      bimportantValue.length >= 4 &&
+      bimportantValue.length <= 300 &&
+      blikeValue != '' &&
+      blikeValue.length >= 4 &&
+      blikeValue.length <= 300
     ){
       bstepthree.classList.remove("error");
       bstepthree.classList.add("success");
@@ -428,19 +780,55 @@ if(!briefing){} else {
     const bbarriersValue = bbarriers.value.trim();
     const bstriveValue = bstrive.value.trim();
 
-    if(bproblemsValue === '') {setErrorForBriefing(bproblems, 'Обязательное поле');} else {setSuccessForBriefing(bproblems);}
-    if(btriggersValue === '') {setErrorForBriefing(btriggers, 'Обязательное поле');} else {setSuccessForBriefing(btriggers);}
-    if(binfoballValue === '') {setErrorForBriefing(binfoball, 'Обязательное поле');} else {setSuccessForBriefing(binfoball);}
-    if(bneedsValue === '') {setErrorForBriefing(bneeds, 'Обязательное поле');} else {setSuccessForBriefing(bneeds);}
-    if(bbarriersValue === '') {setErrorForBriefing(bbarriers, 'Обязательное поле');} else {setSuccessForBriefing(bbarriers);}
-    if(bstriveValue === '') {setErrorForBriefing(bstrive, 'Обязательное поле');} else {setSuccessForBriefing(bstrive);}
+    if(bproblemsValue !== '' && bproblemsValue.length >= 4 && bproblemsValue.length <= 300) {
+      setSuccessForBriefing(bproblems);
+    } else {
+      setErrorForBriefing(bproblems, 'Обязательное поле');
+    }
+    if(btriggersValue !== '' && btriggersValue.length >= 4 && btriggersValue.length <= 300) {
+      setSuccessForBriefing(btriggers);
+    } else {
+      setErrorForBriefing(btriggers, 'Обязательное поле');
+    }
+    if(binfoballValue !== '' && binfoballValue.length >= 4 && binfoballValue.length <= 300) {
+      setSuccessForBriefing(binfoball);
+    } else {
+      setErrorForBriefing(binfoball, 'Обязательное поле');
+    }
+    if(bneedsValue !== '' && bneedsValue.length >= 4 && bneedsValue.length <= 300) {
+      setSuccessForBriefing(bneeds);
+    } else {
+      setErrorForBriefing(bneeds, 'Обязательное поле');
+    }
+    if(bbarriersValue !== '' && bbarriersValue.length >= 4 && bbarriersValue.length <= 300) {
+      setSuccessForBriefing(bbarriers);
+    } else {
+      setErrorForBriefing(bbarriers, 'Обязательное поле');
+    }
+    if(bstriveValue !== '' && bstriveValue.length >= 4 && bstriveValue.length <= 300) {
+      setSuccessForBriefing(bstrive);
+    } else {
+      setErrorForBriefing(bstrive, 'Обязательное поле');
+    }
     if(
       bproblemsValue != '' &&
+      bproblemsValue.length >= 4 &&
+      bproblemsValue.length <= 300 &&
       btriggersValue != '' &&
+      btriggersValue.length >= 4 &&
+      btriggersValue.length <= 300 &&
       binfoballValue != '' &&
+      binfoballValue.length >= 4 &&
+      binfoballValue.length <= 300 &&
       bneedsValue != '' &&
+      bneedsValue.length >= 4 &&
+      bneedsValue.length <= 300 &&
       bbarriersValue != '' &&
-      bstriveValue != ''
+      bbarriersValue.length >= 4 &&
+      bbarriersValue.length <= 300 &&
+      bstriveValue != '' &&
+      bstriveValue.length >= 4 &&
+      bstriveValue.length <= 300
     ){
       bstepfour.classList.remove("error");
       bstepfour.classList.add("success");
@@ -453,39 +841,115 @@ if(!briefing){} else {
     const bassociationsValue = bassociations.value.trim();
     const bsegmentValue = bsegment.value.trim();
 
-    if(bdesignValue === '') {setErrorForBriefing(bdesign, 'Обязательное поле');bstepfive.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bdesign);bstepfive.classList.remove("error");scroll.scrollTo(totop);}
-    if(bassociationsValue === '') {setErrorForBriefing(bassociations, 'Обязательное поле');bstepfive.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bassociations);bstepfive.classList.remove("error");scroll.scrollTo(totop);}
-    if(bsegmentValue === '') {setErrorForBriefing(bsegment, 'Обязательное поле');bstepfive.classList.add("error");scroll.scrollTo(totop);} else {setSuccessForBriefing(bsegment);bstepfive.classList.remove("error");scroll.scrollTo(totop);}
+    if(bdesignValue !== '' && bdesignValue.length >= 4 && bdesignValue.length <= 300) {
+      setSuccessForBriefing(bdesign);
+      bstepfive.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bdesign, 'Обязательное поле');
+      bstepfive.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bassociationsValue !== '' && bassociationsValue.length >= 4 && bassociationsValue.length <= 300) {
+      setSuccessForBriefing(bassociations);
+      bstepfive.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bassociations, 'Обязательное поле');
+      bstepfive.classList.add("error");
+      scroll.scrollTo(totop);
+    }
+    if(bsegmentValue !== '' && bsegmentValue.length >= 4 && bsegmentValue.length <= 300) {
+      setSuccessForBriefing(bsegment);
+      bstepfive.classList.remove("error");
+      scroll.scrollTo(totop);
+    } else {
+      setErrorForBriefing(bsegment, 'Обязательное поле');
+      bstepfive.classList.add("error");
+      scroll.scrollTo(totop);
+    }
     if(
-      busernameValue != '' &&
-      bphoneValue != '' &&
-      bemailValue != '' &&
+      !isEmail(bemailValue)
+    ) {
+      scroll.scrollTo(totop);
+    } else if (
+      busernameValue !== '' &&
+      busernameValue.length >= 4 &&
+      busernameValue.length <= 40 &&
+      bphoneValue !== '' &&
+      bphoneValue.length >= 4 &&
+      bphoneValue.length <= 11 &&
+      bemailValue !== '' &&
+      bemailValue.length >= 4 &&
+      bemailValue.length <= 40 &&
 
-      bbasictermsValue != '' &&
-      btargetValue != '' &&
-      bknowValue != '' &&
-      baudienceValue != '' &&
-      bchoiceValue != '' &&
+      bbasictermsValue !== '' &&
+      bbasictermsValue.length >= 4 &&
+      bbasictermsValue.length <= 300 &&
+      btargetValue !== '' &&
+      btargetValue.length >= 4 &&
+      btargetValue.length <= 300 &&
+      bknowValue !== '' &&
+      bknowValue.length >= 4 &&
+      bknowValue.length <= 300 &&
+      baudienceValue !== '' &&
+      baudienceValue.length >= 4 &&
+      baudienceValue.length <= 300 &&
+      bchoiceValue !== '' &&
+      bchoiceValue.length >= 4 &&
+      bchoiceValue.length <= 300 &&
 
-      blinkValue != '' &&
-      btopicsValue != '' &&
-      bnotopicsValue != '' &&
-      bpriceValue != '' &&
-      bimpressionValue != '' &&
-      bimportantValue != '' &&
-      blikeValue != '' &&
+      blinkValue !== '' &&
+      blinkValue.length >= 4 &&
+      blinkValue.length <= 300 &&
+      btopicsValue !== '' &&
+      btopicsValue.length >= 4 &&
+      btopicsValue.length <= 300 &&
+      bnotopicsValue !== '' &&
+      bnotopicsValue.length >= 4 &&
+      bnotopicsValue.length <= 300 &&
+      bpriceValue !== '' &&
+      bpriceValue.length >= 4 &&
+      bpriceValue.length <= 300 &&
+      bimpressionValue !== '' &&
+      bimpressionValue.length >= 4 &&
+      bimpressionValue.length <= 300 &&
+      bimportantValue !== '' &&
+      bimportantValue.length >= 4 &&
+      bimportantValue.length <= 300 &&
+      blikeValue !== '' &&
+      blikeValue.length >= 4 &&
+      blikeValue.length <= 300 &&
       
-      bproblemsValue != '' &&
-      btriggersValue != '' &&
-      binfoballValue != '' &&
-      bneedsValue != '' &&
-      bbarriersValue != '' &&
-      bstriveValue != '' &&
+      bproblemsValue !== '' &&
+      bproblemsValue.length >= 4 &&
+      bproblemsValue.length <= 300 &&
+      btriggersValue !== '' &&
+      btriggersValue.length >= 4 &&
+      btriggersValue.length <= 300 &&
+      binfoballValue !== '' &&
+      binfoballValue.length >= 4 &&
+      binfoballValue.length <= 300 &&
+      bneedsValue !== '' &&
+      bneedsValue.length >= 4 &&
+      bneedsValue.length <= 300 &&
+      bbarriersValue !== '' &&
+      bbarriersValue.length >= 4 &&
+      bbarriersValue.length <= 300 &&
+      bstriveValue !== '' &&
+      bstriveValue.length >= 4 &&
+      bstriveValue.length <= 300 &&
 
-      bdesignValue != '' &&
-      bassociationsValue != '' &&
-      bsegmentValue != ''
-    ){
+      bdesignValue !== '' &&
+      bdesignValue.length >= 4 &&
+      bdesignValue.length <= 300 &&
+      bassociationsValue !== '' &&
+      bassociationsValue.length >= 4 &&
+      bassociationsValue.length <= 300 &&
+      bsegmentValue !== '' &&
+      bsegmentValue.length >= 4 &&
+      bsegmentValue.length <= 300
+    ) {
       // fetch('/ajax/sendMail.php', {
       //   method: 'POST',
       //   body: JSON.stringify({
@@ -525,18 +989,16 @@ if(!briefing){} else {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingform.forEach(n => n.style.maxHeight = null);
+      bstepsend.classList.add("active");
       bformend.classList.add("active");
-      briefingstep.forEach(n => n.classList.remove('unblock'));
+      briefingstep.forEach(n => n.classList.remove('unlock'));
       document.querySelector('.briefing__head').innerText = 'СПАСИБО ЗА БРИФИНГ!';
       document.querySelector('.briefing__desc').innerText = 'Мы свяжемся с вами по указанным в брифинге контактам в самое ближайшее время, чтобы обсудить проект.';
       bstepfive.classList.add("success");
       scroll.scrollTo(totop);
+    } else {
+      scroll.scrollTo(totop);
     }
   }
   // END validate briefing__form_five
-
-  // function updateInput(ish){
-  //   document.getElementById("fieldname").value = ish;
-  // }
-  // onchange="updateInput(this.value)"
 }

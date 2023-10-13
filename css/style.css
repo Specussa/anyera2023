@@ -5110,7 +5110,7 @@ html.has-scroll-dragging {
   pointer-events: none;
 }
 
-.briefing__step.unblock {
+.briefing__step.unlock {
   pointer-events: all;
 }
 
