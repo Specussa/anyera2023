@@ -752,13 +752,10 @@ section {
   padding: 0;
 }
 
-.btn__input {
-  padding: 0 60px;
-}
-
 .btn__input .button__text {
   width: 100%;
   height: 100%;
+  padding: 0 60px;
   color: var(--text-gray);
   background: transparent;
   border: none;
@@ -1014,6 +1011,92 @@ section {
 
 .btn__side_hover svg {
   color: var(--text);
+}
+
+.checkbox__input {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.checkbox {
+  padding: 0 20px;
+  border-radius: 15px;
+  background-color: var(--button-gray);
+  border: 1px solid var(--button-gray);
+}
+
+.dark .checkbox {
+  background-color: var(--gray-border);
+  border: 1px solid var(--gray-border);
+}
+
+.checkbox .button__text {
+  color: var(--text);
+}
+
+.checkbox .button__hover,
+.checkbox .button__hover:after {
+  background-color: var(--border);
+}
+
+.checkbox.active .button__hover,
+.checkbox.active .button__hover:after {
+  display: none;
+}
+
+.checkbox:hover {
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.checkbox.active:hover {
+  color: var(--bg);
+  border: 1px solid var(--text);
+}
+
+.dark .checkbox.active {
+  background-color: var(--text);
+}
+
+.dark .checkbox.active .button__text,
+.dark .checkbox.active .button__count small {
+  color: var(--bg);
+}
+
+.dark .checkbox:hover .button__text,
+.dark .checkbox:hover .button__count small {
+  color: var(--text);
+}
+
+.dark .checkbox.active:hover {
+  color: var(--text);
+  border: 1px solid var(--bg);
+}
+
+.checkbox:hover .button__text,
+.checkbox:hover .button__count small {
+  color: var(--text);
+}
+
+.checkbox.active:hover .button__text,
+.checkbox.active:hover .button__count small {
+  color: var(--bg);
+}
+
+.dark .checkbox.active:hover .button__text,
+.dark .checkbox.active:hover .button__count small {
+  color: var(--bg);
+}
+
+.dark .checkbox .button__hover,
+.dark .checkbox .button__hover:after {
+  background-color: var(--text-gray);
+}
+
+.dark .checkbox:hover,
+.dark .checkbox.active:hover {
+  border: 1px solid var(--text-gray);
 }
 
 /* end buttons */
@@ -5432,53 +5515,6 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
-.briefing__check_input {
-  position: absolute;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.briefing__check {
-  padding: 0 20px;
-  border-radius: 15px;
-  background-color: var(--button-gray);
-  border: 1px solid var(--button-gray);
-}
-
-.briefing__check .button__text {
-  color: var(--text);
-}
-
-.briefing__check .button__hover,
-.briefing__check .button__hover:after {
-  background-color: var(--border);
-}
-
-.briefing__check.active .button__hover,
-.briefing__check.active .button__hover:after {
-  display: none;
-}
-
-.briefing__check:hover {
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.briefing__check.active:hover {
-  color: var(--bg);
-  border: 1px solid var(--text);
-}
-
-.briefing__check:hover .button__text,
-.briefing__check:hover .button__count small {
-  color: var(--text);
-}
-
-.briefing__check.active:hover .button__text,
-.briefing__check.active:hover .button__count small {
-  color: var(--bg);
-}
-
 /* end briefing */
 
 /* start 1440px */
@@ -6729,6 +6765,12 @@ html.has-scroll-dragging {
   }
   .btn {
     height: 40px;
+    padding: 0 30px;
+  }
+  .btn__input {
+    padding: 0;
+  }
+  .btn__input .button__text {
     padding: 0 30px;
   }
   .button__project,
