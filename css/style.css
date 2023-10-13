@@ -226,7 +226,7 @@ textarea,
   color: var(--text-gray);
 }
 
-input:focus {
+input {
   color: var(--text);
 }
 
@@ -5208,8 +5208,8 @@ textarea.briefing__input {
   align-items: center;
   justify-content: center;
   position: absolute;
+  top: 0;
   right: 0;
-  bottom: 18px;
 }
 
 .briefing__pencil {
