@@ -752,10 +752,13 @@ section {
   padding: 0;
 }
 
+.btn__input {
+  padding: 0 60px;
+}
+
 .btn__input .button__text {
   width: 100%;
   height: 100%;
-  padding: 0 60px;
   color: var(--text-gray);
   background: transparent;
   border: none;
@@ -5730,6 +5733,14 @@ textarea.briefing__input {
     width: 9px;
     height: 9px;
   }
+  .briefing__checks {
+    gap: 10px;
+  }
+  .briefing__check {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -6111,6 +6122,10 @@ textarea.briefing__input {
   .swiper-pagination-bullet::after {
     width: 8px;
     height: 8px;
+  }
+  .briefing__form,
+  .briefing__bottom {
+    gap: 30px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -6825,6 +6840,9 @@ textarea.briefing__input {
     position: absolute;
     right: 20px;
     bottom: 30px;
+  }
+  .briefing__check {
+    padding: 0 15px;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
