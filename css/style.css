@@ -5200,8 +5200,6 @@ html.has-scroll-dragging {
   padding: 0 0 4px;
   position: relative;
   pointer-events: none;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s linear;
 }
 
 .briefing__step::after {
@@ -5217,8 +5215,21 @@ html.has-scroll-dragging {
   pointer-events: all;
 }
 
-.briefing__step.border {
-  border-bottom: 2px solid var(--text);
+.briefing__step::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--text);
+  -webkit-transition: width 0.2s linear;
+  transition: width 0.2s linear;
+}
+
+.briefing__step.border::before {
+  width: 100%;
 }
 
 .briefing__step span {
