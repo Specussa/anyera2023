@@ -126,7 +126,7 @@ if(!briefing){} else {
   }
 
   function updateValue() {
-    this.nextElementSibling.children[0].textContent = Math.max(1, Math.min(this.getAttribute('maxl'), this.value.length));
+    this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
     if (this.value.length < this.getAttribute('minl')) {
       this.parentElement.classList.add('error');
       this.parentElement.classList.remove('success');
