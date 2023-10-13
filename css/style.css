@@ -247,7 +247,7 @@ strong {
 
 button,
 .btn,
-.btn__input {
+.btn input {
   font-family: var(--title-font);
   font-size: 12px;
   font-weight: 400;
@@ -5185,10 +5185,6 @@ html.has-scroll-dragging {
   transition: max-height 0.3s linear;
 }
 
-textarea.briefing__input {
-  padding: 14px 22px 10px 0;
-}
-
 .briefing__input:focus {
   max-height: 500px;
 }
@@ -5313,10 +5309,6 @@ textarea.briefing__input {
 .briefing__input:focus ~ .briefing__bar::before,
 .briefing__input:focus ~ .briefing__bar::after {
   width: 50%;
-}
-
-.header__form_name {
-  margin: 0 0 5px;
 }
 
 .briefing__form .briefing__form_head,
@@ -5535,7 +5527,7 @@ textarea.briefing__input {
   }
   button,
   .btn,
-  .btn__input,
+  .btn input,
   .header__link,
   .footer__link,
   .footer__bottom p,
@@ -5840,7 +5832,7 @@ textarea.briefing__input {
   }
   button,
   .btn,
-  .btn__input,
+  .btn input,
   .header__link,
   .footer__link,
   .footer__bottom p,
@@ -6218,7 +6210,7 @@ textarea.briefing__input {
   button,
   .btn,
   a,
-  .btn__input .button__text,
+  .btn input .button__text,
   .button__close,
   .c-scrollbar_thumb,
   .has-scroll-dragging .c-scrollbar_thumb,
@@ -6294,7 +6286,7 @@ textarea.briefing__input {
   }
   button,
   .btn,
-  .btn__input,
+  .btn input,
   .header__link,
   .footer__link,
   .footer__bottom p,
@@ -6725,7 +6717,7 @@ textarea.briefing__input {
   }
   button,
   .btn,
-  .btn__input,
+  .btn input,
   .header__link,
   .footer__link,
   .footer__bottom p,
