@@ -226,7 +226,9 @@ textarea,
   color: var(--text-gray);
 }
 
-input {
+input,
+[data-select-title],
+[data-select-item] {
   color: var(--text);
 }
 
@@ -2199,22 +2201,24 @@ html.has-scroll-dragging {
   padding: 10px 20px;
   color: var(--bg);
   border-bottom: 1px solid var(--gray-border);
-  background-color: var(--purple);
+  background-color: var(--text);
   cursor: none;
 }
 
 .dark .header__select_list_item{
   color: var(--text);
+  background-color: var(--gray-border);
+  border-bottom: 1px solid var(--bg);
 }
 
 .dark .header__select_list_item:hover {
   color: var(--text);
-  background-color: var(--bg);
+  background-color: var(--purple);
 }
 
 .header__select_list_item:hover {
   color: var(--bg);
-  background-color: var(--text);
+  background-color: var(--purple);
 }
 
 .header__select_input {
@@ -5187,20 +5191,34 @@ html.has-scroll-dragging {
 
 .briefing__step {
   width: calc(20% - 4px);
+  padding: 0 0 4px;
+  position: relative;
+  pointer-events: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s linear;
+}
+
+.briefing__step::after {
+  content: "";
+  display: block;
+  width: 100%;
   height: 10px;
   position: relative;
   background-color: var(--border);
-  pointer-events: none;
 }
 
 .briefing__step.unlock {
   pointer-events: all;
 }
 
+.briefing__step.border {
+  border-bottom: 2px solid var(--text);
+}
+
 .briefing__step span {
   content: "";
   width: 0px;
-  height: 100%;
+  height: 10px;
   position: absolute;
   top: 0;
   left: 0;

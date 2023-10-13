@@ -137,10 +137,12 @@ if(!briefing){} else {
     if (!bformone.classList.contains("active") && bstepone.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformone.style.maxHeight = bformone.scrollHeight + "px");
       bformone.classList.add("active");
       bstepsone.classList.add("active");
+      bstepone.classList.add("border");
       scroll.scrollTo(totop);
     }
   })
@@ -148,10 +150,12 @@ if(!briefing){} else {
     if (!bformtwo.classList.contains("active") && bsteptwo.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformtwo.style.maxHeight = bformtwo.scrollHeight + "px");
       bformtwo.classList.add("active");
       bstepstwo.classList.add("active");
+      bsteptwo.classList.add("border");
       scroll.scrollTo(totop);
     }
   })
@@ -159,10 +163,12 @@ if(!briefing){} else {
     if (!bformthree.classList.contains("active") && bstepthree.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformthree.style.maxHeight = bformthree.scrollHeight + "px");
       bformthree.classList.add("active");
       bstepsthree.classList.add("active");
+      bstepthree.classList.add("border");
       scroll.scrollTo(totop);
     }
   })
@@ -170,10 +176,12 @@ if(!briefing){} else {
     if (!bformfour.classList.contains("active") && bstepfour.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformfour.style.maxHeight = bformfour.scrollHeight + "px");
       bformfour.classList.add("active");
       bstepsfour.classList.add("active");
+      bstepfour.classList.add("border");
       scroll.scrollTo(totop);
     }
   })
@@ -181,10 +189,12 @@ if(!briefing){} else {
     if (!bformfive.classList.contains("active") && bstepfive.classList.contains("unlock")) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformfive.style.maxHeight = bformfive.scrollHeight + "px");
       bformfive.classList.add("active");
       bstepsfive.classList.add("active");
+      bstepfive.classList.add("border");
       scroll.scrollTo(totop);
     }
   })
@@ -194,37 +204,45 @@ if(!briefing){} else {
   bbuttontwo.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
     briefingsteps.forEach(n => n.classList.remove('active'));
+    briefingstep.forEach(n => n.classList.remove('border'));
     briefingform.forEach(n => n.style.maxHeight = null);
     briefingform.forEach(n => bformone.style.maxHeight = bformone.scrollHeight + "px");
     bformone.classList.add("active");
     bstepsone.classList.add("active");
+    bstepone.classList.add("border");
     scroll.scrollTo(totop);
   })
   bbuttonthree.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
     briefingsteps.forEach(n => n.classList.remove('active'));
+    briefingstep.forEach(n => n.classList.remove('border'));
     briefingform.forEach(n => n.style.maxHeight = null);
     briefingform.forEach(n => bformtwo.style.maxHeight = bformtwo.scrollHeight + "px");
     bformtwo.classList.add("active");
     bstepstwo.classList.add("active");
+    bsteptwo.classList.add("border");
     scroll.scrollTo(totop);
   })
   bbuttonfour.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
     briefingsteps.forEach(n => n.classList.remove('active'));
+    briefingstep.forEach(n => n.classList.remove('border'));
     briefingform.forEach(n => n.style.maxHeight = null);
     briefingform.forEach(n => bformthree.style.maxHeight = bformthree.scrollHeight + "px");
     bformthree.classList.add("active");
     bstepsthree.classList.add("active");
+    bstepthree.classList.add("border");
     scroll.scrollTo(totop);
   })
   bbuttonfive.addEventListener('click', function() {
     briefingform.forEach(n => n.classList.remove('active'));
     briefingsteps.forEach(n => n.classList.remove('active'));
+    briefingstep.forEach(n => n.classList.remove('border'));
     briefingform.forEach(n => n.style.maxHeight = null);
     briefingform.forEach(n => bformfour.style.maxHeight = bformfour.scrollHeight + "px");
     bformfour.classList.add("active");
     bstepsfour.classList.add("active");
+    bstepfour.classList.add("border");
     scroll.scrollTo(totop);
   })
   // END back
@@ -288,12 +306,14 @@ if(!briefing){} else {
     ) {
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformtwo.style.maxHeight = bformtwo.scrollHeight + "px");
       bformtwo.classList.add("active");
       bstepstwo.classList.add("active");
       bsteptwo.classList.add("active");
       bsteptwo.classList.add("unlock");
+      bsteptwo.classList.add("border");
       scroll.scrollTo(totop);
     }
   }
@@ -398,12 +418,14 @@ if(!briefing){} else {
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformthree.style.maxHeight = bformthree.scrollHeight + "px");
       bformthree.classList.add("active");
       bstepsthree.classList.add("active");
       bstepthree.classList.add("active");
       bstepthree.classList.add("unlock");
+      bstepthree.classList.add("border");
       scroll.scrollTo(totop);
     }
   }
@@ -511,12 +533,14 @@ if(!briefing){} else {
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformfour.style.maxHeight = bformfour.scrollHeight + "px");
       bformfour.classList.add("active");
       bstepsfour.classList.add("active");
       bstepfour.classList.add("active");
       bstepfour.classList.add("unlock");
+      bstepfour.classList.add("border");
       scroll.scrollTo(totop);
     }
   }
@@ -611,12 +635,14 @@ if(!briefing){} else {
     ){
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       briefingform.forEach(n => bformfive.style.maxHeight = bformfive.scrollHeight + "px");
       bformfive.classList.add("active");
       bstepsfive.classList.add("active");
       bstepfive.classList.add("active");
       bstepfive.classList.add("unlock");
+      bstepfive.classList.add("border");
       scroll.scrollTo(totop);
     } else {
       scroll.scrollTo(totop);
@@ -1019,6 +1045,7 @@ if(!briefing){} else {
       // });
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
+      briefingstep.forEach(n => n.classList.remove('border'));
       briefingform.forEach(n => n.style.maxHeight = null);
       bstepsend.classList.add("active");
       bformend.classList.add("active");
