@@ -984,6 +984,24 @@ if(!briefing){} else {
       bstepfive.classList.add("error");
     }
     if(
+      bdesignValue !== '' &&
+      bdesignValue.length >= bdesignMin &&
+      bdesignValue.length <= bdesignMax &&
+      bassociationsValue !== '' &&
+      bassociationsValue.length >= bassociationsMin &&
+      bassociationsValue.length <= bassociationsMax &&
+      bsegmentValue !== '' &&
+      bsegmentValue.length >= bsegmentMin &&
+      bsegmentValue.length <= bsegmentMax
+    ) {
+      setSuccessForBriefing(bsegment);
+      bstepfive.classList.remove("error");
+    } else {
+      setErrorForBriefing(bsegment);
+      bstepfive.classList.add("error");
+    }
+
+    if(
       !isEmail(bemailValue)
     ) {
       scroll.scrollTo(totop);
