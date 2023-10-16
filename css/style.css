@@ -3927,6 +3927,11 @@ html.has-scroll-dragging {
   text-align: left;
 }
 
+.projects__item:nth-child(2n) .btn__side svg {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 .projects__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5032,6 +5037,10 @@ html.has-scroll-dragging {
 
 /* start services */
 
+.services {
+  border-top: 1px solid var(--border);
+}
+
 .services_top__block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5072,7 +5081,6 @@ html.has-scroll-dragging {
 }
 
 .services__block {
-  background-color: var(--bg);
   border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 1;
@@ -5086,11 +5094,13 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: calc(100% - 4px);
   padding: 80px;
+  margin: 0 2px;
   align-items: center;
   gap: 160px;
   position: relative;
+  background-color: var(--bg);
 }
 
 .services__left {
@@ -6532,13 +6542,18 @@ html.has-scroll-dragging {
     bottom: 10px;
   }
   .projects__item:nth-child(1n) .projects__arrow {
-    right: 10px;
+    right: auto;
+    left: 10px;
   }
   .projects__item:nth-child(2n) .projects__arrow {
     left: 10px;
   }
   .projects__item:nth-child(1n) {
     text-align: left;
+  }
+  .projects__item:nth-child(2n) .btn__side svg {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   .project__info {
     flex-direction: column;
