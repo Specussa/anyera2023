@@ -741,9 +741,10 @@ section {
   width: fit-content;
   height: 50px;
   padding: 0 60px;
+  flex: 0 0 auto;
   align-items: center;
   border: 1px solid var(--border);
-  flex: 0 0 auto;
+  background-color: var(--bg);
   position: relative;
   z-index: 1;
   -webkit-transition: border 0.3s linear, background-color 0.2s linear;
@@ -3600,9 +3601,10 @@ html.has-scroll-dragging {
 .team_slider__desc,
 .services_top__desc,
 .services__desc,
-.briefing__desc {
+.briefing__desc,
+.error_page__desc {
   max-width: 430px;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 40px;
   position: relative;
 }
 
@@ -3615,7 +3617,8 @@ html.has-scroll-dragging {
 .team_slider__desc::before,
 .services_top__desc::before,
 .services__desc::before,
-.briefing__desc::before {
+.briefing__desc::before,
+.error_page__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -5590,6 +5593,61 @@ html.has-scroll-dragging {
 
 /* end briefing */
 
+/* start error_page */
+
+.error_page {
+  position: relative;
+}
+
+.error_page img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+  object-position: bottom center;
+}
+
+.error_page__container {
+  height: calc(var(--height) - 80px);
+}
+
+.error_page__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.error_page__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 160px 80px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error_page__head,
+.error_page__desc {
+  text-shadow: 0.4px 0 0.4px var(--bg),
+              0 0.4px 0.4px var(--bg),
+              -0.4px 0 0.4px var(--bg),
+              0 -0.4px 0.4px var(--bg);
+}
+
+
+/* end error_page */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -5879,6 +5937,9 @@ html.has-scroll-dragging {
     padding: 0 15px;
     border-radius: 10px;
   }
+  .error_page__flex {
+    padding: 120px 60px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -6062,6 +6123,21 @@ html.has-scroll-dragging {
   }
   .expertise__head {
     padding: 0;
+  }
+  .expertise__panel p,
+  .expertise__panel ul,
+  .expertise__panel span,
+  .expertise__desc,
+  .projects__desc,
+  .project__desc,
+  .team__top_desc,
+  .team__bottom_desc,
+  .team_slider__desc,
+  .services_top__desc,
+  .services__desc,
+  .briefing__desc,
+  .error_page__desc {
+    padding: 0 0 0 30px;
   }
   .articles__block,
   .footer__block {
@@ -6264,6 +6340,9 @@ html.has-scroll-dragging {
   .briefing__form,
   .briefing__bottom {
     gap: 30px;
+  }
+  .error_page__flex {
+    padding: 60px 30px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -6641,7 +6720,8 @@ html.has-scroll-dragging {
   .team_slider__desc,
   .services_top__desc,
   .services__desc,
-  .briefing__desc {
+  .briefing__desc,
+  .error_page__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -6758,6 +6838,9 @@ html.has-scroll-dragging {
     padding: 40px 20px;
     flex-direction: column;
     gap: 40px;
+  }
+  .error_page__flex {
+    padding: 40px 20px;
   }
   .footer__flex {
     padding: 0 0 130px;
@@ -6904,7 +6987,8 @@ html.has-scroll-dragging {
   .team_slider__desc,
   .services_top__desc,
   .services__desc,
-  .briefing__desc {
+  .briefing__desc,
+  .error_page__desc {
     max-width: 100%;
   }
   .digital__head {
