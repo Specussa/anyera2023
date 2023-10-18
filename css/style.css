@@ -7084,6 +7084,9 @@ html.has-scroll-dragging {
     position: absolute;
     bottom: 30px;
   }
+  .footer__button_up {
+    padding: 0;
+  }
   .footer__social {
     width: 100%;
     justify-content: space-between;
