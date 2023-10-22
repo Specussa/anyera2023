@@ -744,7 +744,7 @@ section {
   flex: 0 0 auto;
   align-items: center;
   border: 1px solid var(--border);
-  background-color: var(--bg);
+  background-color: transparent;
   position: relative;
   z-index: 1;
   -webkit-transition: border 0.3s linear, background-color 0.2s linear;
