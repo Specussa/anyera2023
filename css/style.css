@@ -3618,7 +3618,8 @@ html.has-scroll-dragging {
 .services_top__desc,
 .services__desc,
 .briefing__desc,
-.error_page__desc {
+.error_page__desc,
+.policy__desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3634,7 +3635,8 @@ html.has-scroll-dragging {
 .services_top__desc::before,
 .services__desc::before,
 .briefing__desc::before,
-.error_page__desc::before {
+.error_page__desc::before,
+.policy__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -5686,23 +5688,54 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: calc(50% - 80px);
+  width: 50%;
   position: absolute;
   top: 0;
-  left: calc(50% + 80px);
+  left: 50%;
 }
 
 .policy_top__image svg,
 .policy_top__image img {
   width: 100%;
+  max-width: 840px;
   height: auto;
   object-fit: cover;
 }
 
 .policy_top__head {
+  width: 100%;
   max-width: 840px;
   padding: 120px 80px 80px;
   margin: 0 0 0 auto;
+}
+
+.policy__flex {
+  display: flex;
+  padding: 80px 0;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.policy__list {
+  display: flex;
+}
+
+.policy__item {
+  display: flex;
+  width: 50%;
+  padding: 0 80px;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.policy__block {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.policy__desc {
+  max-width: 100%;
 }
 
 /* end policy */
@@ -6195,7 +6228,8 @@ html.has-scroll-dragging {
   .services_top__desc,
   .services__desc,
   .briefing__desc,
-  .error_page__desc {
+  .error_page__desc,
+  .policy__desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -6780,7 +6814,8 @@ html.has-scroll-dragging {
   .services_top__desc,
   .services__desc,
   .briefing__desc,
-  .error_page__desc {
+  .error_page__desc,
+  .policy__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -7047,7 +7082,8 @@ html.has-scroll-dragging {
   .services_top__desc,
   .services__desc,
   .briefing__desc,
-  .error_page__desc {
+  .error_page__desc,
+  .policy__desc {
     max-width: 100%;
   }
   .digital__head {
