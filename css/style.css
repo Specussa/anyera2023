@@ -5676,8 +5676,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  max-width: 50%;
+  width: 50%;
   flex-direction: column;
   gap: 40px;
   border-top: 1px solid var(--border);
@@ -5696,14 +5695,14 @@ html.has-scroll-dragging {
 
 .policy_top__image svg,
 .policy_top__image img {
-  width: 100%;
+  width: calc(100% - 160px);
   max-width: 840px;
   height: auto;
   object-fit: cover;
 }
 
 .policy_top__head {
-  width: 100%;
+  width: calc(100% - 160px);
   max-width: 840px;
   padding: 120px 80px 80px;
   margin: 0 0 0 auto;
@@ -6031,6 +6030,22 @@ html.has-scroll-dragging {
   }
   .error_page__flex {
     padding: 120px 60px;
+  }
+  .policy_top__image svg,
+  .policy_top__image img,
+  .policy_top__head {
+    width: calc(100% - 120px);
+  }
+  .policy_top__head {
+    padding: 120px 60px 60px;
+  }
+  .policy__flex {
+    padding: 60px 0;
+    gap: 60px;
+  }
+  .policy__item {
+    padding: 0 60px;
+    gap: 60px;
   }
   .footer__list,
   .footer__social {
@@ -6436,6 +6451,39 @@ html.has-scroll-dragging {
   }
   .error_page__flex {
     padding: 60px 30px;
+  }
+  .policy_top__image svg,
+  .policy_top__image img,
+  .policy_top__head {
+    width: calc(100% - 120px);
+  }
+  .policy_top__head {
+    width: 100%;
+    max-width: 100%;
+    padding: 60px;
+    margin: 0;
+  }
+  .policy__flex {
+    padding: 40px 0;
+    gap: 40px;
+  }
+  .policy__item {
+    width: 100%;
+    padding: 0 30px;
+    gap: 40px;
+  }
+  .policy_top__image {
+    display: none;
+  }
+  .policy_top__info {
+    width: 100%;
+  }
+  .policy__block {
+    gap: 30px;
+  }
+  .policy__list {
+    flex-direction: column;
+    gap: 40px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -7171,6 +7219,15 @@ html.has-scroll-dragging {
   }
   .briefing__check {
     padding: 0 15px;
+  }
+  .policy_top__head {
+    padding: 60px 40px 40px;
+  }
+  .policy__item {
+    padding: 0 20px;
+  }
+  .policy__block {
+    gap: 20px;
   }
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
