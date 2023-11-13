@@ -5768,9 +5768,16 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 50%;
-  padding: 160px 80px 80px;
   flex-direction: column;
   gap: 30px;
+}
+
+.contacts__head {
+  padding: 160px 80px 80px;
+}
+
+.contacts__info {
+  padding: 160px 40px 80px;
 }
 
 .contacts__divider {
@@ -6155,9 +6162,11 @@ html.has-scroll-dragging {
     padding: 0 60px;
     gap: 60px;
   }
-  .contacts__head,
-  .contacts__info {
+  .contacts__head {
     padding: 140px 60px 20px;
+  }
+  .contacts__info {
+    padding: 140px 30px 20px;
   }
   .contacts__social_list {
     padding: 90px 60px;
