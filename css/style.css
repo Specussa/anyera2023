@@ -5866,6 +5866,7 @@ html.has-scroll-dragging {
 
 .career_top {
   height: calc(var(--height) - 77px);
+  min-height: 400px;
   max-height: 1024px;
 }
 
@@ -5878,7 +5879,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  padding: 180px 0 100px;
+  padding: 100px 0;
   gap: 80px;
 }
 
@@ -6036,6 +6037,61 @@ html.has-scroll-dragging {
 
 .career_bottom__list b {
   color: var(--text);
+}
+
+.career_popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: var(--height);
+  flex-direction: column;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: 102;
+  background-color: var(--bg);
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: -webkit-transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s, opacity 0s linear 1.4s, top 0s linear 1.4s;
+  transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.15s, opacity 0s linear 1.4s, top 0s linear 1.4s;
+  overflow: hidden;
+}
+
+.career_popup.active {
+  top: 0px;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s, opacity 0s linear 0s, top 0s linear 0.2s;
+  transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0s, opacity 0.2s linear 0s, top 0s linear 0.2s;
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.career_popup__container {
+  height: 100%;
+}
+
+.career_popup__blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: max-content;
+  min-height: calc(100vh - 80px);
+  padding: 80px 0;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.career_popup__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  gap: 0 44px;
 }
 
 /* end career */
@@ -6203,6 +6259,10 @@ html.has-scroll-dragging {
   }
   .project_top__block {
     padding: 200px 0 80px;
+    gap: 60px;
+  }
+  .career_top__block {
+    padding: 120px 0 80px;
     gap: 60px;
   }
   .project_top__image {
@@ -6655,6 +6715,10 @@ html.has-scroll-dragging {
   }
   .project_top__block {
     padding: 160px 0 60px;
+    gap: 40px;
+  }
+  .career_top__block {
+    padding: 90px 0 60px;
     gap: 40px;
   }
   .project_top__image {
@@ -7180,6 +7244,10 @@ html.has-scroll-dragging {
     height: 100%;
     flex-direction: column;
     padding: 110px 0 40px;
+    gap: 20px;
+  }
+  .career_top__block {
+    padding: 40px 0;
     gap: 20px;
   }
   .project_top__image {

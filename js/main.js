@@ -50,9 +50,11 @@ new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-
 
 const hn_scroll = document.querySelector('.header__nav_scroll');
 const hc_scroll = document.querySelector('.header__consultation_scroll');
+const cp_scroll = document.querySelector('.career_popup__scroll');
 
 Scrollbar.init(hn_scroll);
 Scrollbar.init(hc_scroll);
+if (cp_scroll) {Scrollbar.init(cp_scroll);}
 
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
@@ -241,7 +243,7 @@ const contactssb = document.querySelector('.contacts__social_button');
 const burger_ctwo = document.querySelector('.button__project_two');
 
 // кнопка header__burger
-document.querySelector('.header__burger').addEventListener('click', function() {
+burger.addEventListener('click', function() {
   if (burger.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
     menu.classList.remove("active");
@@ -337,6 +339,30 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
   }
 })
 // end header__project
+
+// кнопка header__burger
+const careerpopup = document.querySelector('.career_popup');
+if(careerpopup) {
+  var careerbutton = document.getElementsByClassName("career_bottom__button");
+  for (i = 0; i < careerbutton.length; i++) {
+    careerbutton[i].onclick = function(e) {
+      if (careerpopup.classList.contains("active")) {
+        bodyoverlay.classList.remove("active");
+        careerpopup.classList.remove("active");
+        document.body.style.overflow = "visible";
+        document.body.style.height = "100%";
+        scroll.start();
+      } else {
+        bodyoverlay.classList.add("active");
+        careerpopup.classList.add("active");
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100vh";
+        scroll.stop();
+      }
+    };
+  }
+}
+// end header__burger
 
 // start text rotate
 let textblock = document.querySelectorAll('.text');
