@@ -293,14 +293,10 @@ section {
 }
 
 .overlay.active {
-  /* background-color: var(--bg);
-  opacity: 0.95; */
+  background-color: rgba(108, 108, 108, 0.3);
+  opacity: 1;
   visibility: visible;
 }
-
-/* .dark .overlay.active {
-  opacity: 0.9;
-} */
 
 /* start cursor */
 
@@ -655,7 +651,7 @@ section {
 .text {
   display: -ms-flexbox;
   display: -webkit-box;
-  display: flex;
+  display: inline-flex;
   height: 1em;
   width: fit-content;
   flex-direction: column;
@@ -2038,6 +2034,7 @@ html.has-scroll-dragging {
 .header__form_policy a:active,
 .header__form_policy a:focus {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .header__forms_form_input {
@@ -6044,11 +6041,11 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  max-width: 640px;
   height: var(--height);
   flex-direction: column;
   position: fixed;
   top: 0px;
-  left: 0;
   right: 0;
   z-index: 102;
   background-color: var(--bg);
@@ -6092,6 +6089,32 @@ html.has-scroll-dragging {
   display: flex;
   justify-content: center;
   gap: 0 44px;
+}
+
+.career_popup__forms_form {
+  width: 100%;
+}
+
+.career_popup__form_bottom {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 40px;
+}
+
+.career_popup__container {
+  padding: 0 60px;
+}
+
+.career_popup__form_policy a,
+.career_popup__form_policy a:hover,
+.career_popup__form_policy a:active,
+.career_popup__form_policy a:focus {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.career_bottom__block .expertise__panel:last-child {
+  border-bottom: none;
 }
 
 /* end career */

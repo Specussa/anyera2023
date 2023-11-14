@@ -340,7 +340,7 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
 })
 // end header__project
 
-// кнопка header__burger
+// кнопка career_popup
 const careerpopup = document.querySelector('.career_popup');
 if(careerpopup) {
   var careerbutton = document.getElementsByClassName("career_bottom__button");
@@ -349,20 +349,47 @@ if(careerpopup) {
       if (careerpopup.classList.contains("active")) {
         bodyoverlay.classList.remove("active");
         careerpopup.classList.remove("active");
-        document.body.style.overflow = "visible";
-        document.body.style.height = "100%";
+        document.body.style.overflow = null;
+        document.body.style.height = null;
+        bodyoverlay.style.zIndex = null;
         scroll.start();
       } else {
         bodyoverlay.classList.add("active");
         careerpopup.classList.add("active");
         document.body.style.overflow = "hidden";
         document.body.style.height = "100vh";
+        bodyoverlay.style.zIndex = "101";
         scroll.stop();
       }
     };
   }
 }
-// end header__burger
+// end career_popup
+
+// кнопка career_popup
+bodyoverlay.addEventListener('click', function() {
+  if (bodyoverlay.classList.contains("active")) {
+    bodyoverlay.classList.remove("active");
+    header.classList.remove("active");
+    header.classList.remove("hidden");
+    headerlinks.classList.remove("hidden");
+    headerbuttons.classList.remove("active");
+    menu.classList.remove("active");
+    burger.classList.remove("active");
+    document.body.style.overflow = null;
+    document.body.style.height = null;
+    if(menu_c){
+      menu_c.classList.remove("active");
+      burger_c.classList.remove("active");
+    }
+    if(careerpopup){
+      careerpopup.classList.remove("active");
+      bodyoverlay.style.zIndex = null;
+    }
+    scroll.start();
+  }
+})
+// end career_popup
 
 // start text rotate
 let textblock = document.querySelectorAll('.text');
