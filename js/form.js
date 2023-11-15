@@ -39,3 +39,25 @@ if(!form){} else {
   }
 }
 // end validate form header
+
+// start validate form header
+  function updateformValue() {
+    this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  }
+
+  const finputs = document.querySelectorAll(".form__input");
+
+  for (i = 0; i < finputs.length; i++) {
+    finputs[i].addEventListener("input", updateformValue);
+    finputs[i].nextElementSibling.children[1].textContent = finputs[i].getAttribute('maxl');
+  }
+// end validate form header

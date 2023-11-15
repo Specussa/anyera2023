@@ -733,6 +733,8 @@ section {
 }
 
 .btn {
+  display: -ms-flexbox;
+  display: -webkit-box;
   display: inline-flex;
   width: fit-content;
   height: 50px;
@@ -804,6 +806,11 @@ section {
 }
 
 .button__text {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--title-font);
   color: var(--text-gray);
   position: relative;
@@ -811,6 +818,11 @@ section {
   z-index: 1;
   -webkit-transition: color 0.2s linear;
   transition: color 0.2s linear;
+}
+
+.button__text svg {
+  width: 24px;
+  height: 24px;
 }
 
 .header.header__transparent .button__text {
@@ -2012,10 +2024,12 @@ html.has-scroll-dragging {
 }
 
 .header__form_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  padding: 20px 0 0;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .header__form_button .button__hover,
@@ -2023,18 +2037,57 @@ html.has-scroll-dragging {
   height: 120%;
 }
 
-.header__form_policy,
-.header__form_policy a {
-  display: inline-block;
-  text-align: right;
+.form__policy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
 }
 
-.header__form_policy a,
-.header__form_policy a:hover,
-.header__form_policy a:active,
-.header__form_policy a:focus {
+.form__policy a,
+.form__policy a:hover,
+.form__policy a:active,
+.form__policy a:focus {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.form__policy_check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.form__policy input,
+.form__input_file,
+.career_popup__input {
+  display: none;
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form__policy_check svg {
+  width: 12px;
+  height: 8px;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.form__policy input:checked ~ .form__policy_check svg {
+  opacity: 1;
+}
+
+.form__policy input ~ .form__policy_check svg {
+  opacity: 0;
 }
 
 .header__forms_form_input {
@@ -2140,7 +2193,7 @@ html.has-scroll-dragging {
   z-index: 0;
 }
 
-.header__select_box {
+.form__select_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2148,7 +2201,7 @@ html.has-scroll-dragging {
   flex-wrap: wrap;
 }
 
-.header__select {
+.form__select {
   position: relative;
   width: 100%;
   -webkit-touch-callout: none;
@@ -2156,7 +2209,7 @@ html.has-scroll-dragging {
   user-select: none;
 }
 
-.header__select_selected_item {
+.form__select_selected_item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2170,22 +2223,22 @@ html.has-scroll-dragging {
   cursor: none;
 }
 
-.header__select_arrow {
+.form__select_arrow {
   width: 30px;
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
 }
 
-.header__select_arrow {
+.form__select_arrow {
   stroke: var(--text);
 }
 
-.header__select_arrow_rotate {
+.form__select_arrow_rotate {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
-.header__select_list {
+.form__select_list {
   width: 100%;
   max-height: 0;
   -webkit-transition: max-height 0.4s linear, visibility 0.4s ease-out;
@@ -2200,7 +2253,7 @@ html.has-scroll-dragging {
   transition-delay: 0s, 0.4s;
 }
 
-.header__select_list_opened {
+.form__select_list_opened {
   max-height: 300px;
   border-color: var(--gray-border);
   visibility: visible;
@@ -2209,15 +2262,15 @@ html.has-scroll-dragging {
   z-index: 11;
 }
 
-.header__select_list::-webkit-scrollbar {
+.form__select_list::-webkit-scrollbar {
   display: none;
 }
 
-.header__select_list::-webkit-scrollbar-thumb {
+.form__select_list::-webkit-scrollbar-thumb {
   display: none;
 }
 
-.header__select_list_item {
+.form__select_list_item {
   padding: 10px 20px;
   color: var(--bg);
   border-bottom: 1px solid var(--gray-border);
@@ -2225,23 +2278,23 @@ html.has-scroll-dragging {
   cursor: none;
 }
 
-.dark .header__select_list_item{
+.dark .form__select_list_item{
   color: var(--text);
   background-color: var(--gray-border);
   border-bottom: 1px solid var(--bg);
 }
 
-.dark .header__select_list_item:hover {
+.dark .form__select_list_item:hover {
   color: var(--text);
   background-color: var(--purple);
 }
 
-.header__select_list_item:hover {
+.form__select_list_item:hover {
   color: var(--bg);
   background-color: var(--purple);
 }
 
-.header__select_input {
+.form__select_input {
   display: none;
 }
 
@@ -5302,7 +5355,8 @@ html.has-scroll-dragging {
   background-color: var(--error);
 }
 
-.briefing__control {
+.briefing__control,
+.form__control {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5313,11 +5367,13 @@ html.has-scroll-dragging {
   overflow: hidden;
 }
 
-.briefing__control:last-child {
+.briefing__control:last-child,
+.form__control:last-child {
   margin: 0;
 }
 
-.briefing__control .briefing__error {
+.briefing__control .briefing__error,
+.form__control .form__error {
   height: 12px;
   margin: 5px 0 0;
   position: absolute;
@@ -5329,16 +5385,19 @@ html.has-scroll-dragging {
   transition: transform 0.3s linear;
 }
 
-.briefing__control.error .briefing__error {
+.briefing__control.error .briefing__error,
+.form__control.error .form__error {
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
 }
 
-.briefing__input:focus ~ .briefing__counter {
+.briefing__input:focus ~ .briefing__counter,
+.form__input:focus ~ .form__counter {
   display: block;
 }
 
-.briefing__counter {
+.briefing__counter,
+.form__counter {
   display: none;
   height: 12px;
   margin: 5px 0 0;
@@ -5347,11 +5406,13 @@ html.has-scroll-dragging {
   right: 0;
 }
 
-.briefing__counter.success {
+.briefing__counter.success,
+.form__counter.success {
   color: var(--text);
 }
 
-.briefing__input {
+.briefing__input,
+.form__input {
   display: block;
   width: 100%;
   height: 43px;
@@ -5365,21 +5426,26 @@ html.has-scroll-dragging {
   transition: max-height 0.3s linear;
 }
 
-.briefing__input:focus {
+.briefing__input:focus,
+.form__input:focus {
   max-height: 500px;
 }
 
-.briefing__input:focus {
+.briefing__input:focus,
+.form__input:focus {
   outline: none;
 }
 
-.briefing__textarea {
+.briefing__textarea,
+.form__textarea {
   resize: none;
   overflow: hidden;
 }
 
 .briefing__pencil,
-.briefing__close {
+.briefing__close,
+.form__pencil,
+.form__close {
   padding: 10px;
   align-items: center;
   justify-content: center;
@@ -5388,36 +5454,44 @@ html.has-scroll-dragging {
   right: 0;
 }
 
-.briefing__pencil {
+.briefing__pencil,
+.form__pencil {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   z-index: 0;
 }
 
-.briefing__close {
+.briefing__close,
+.form__close {
   display: none;
   z-index: 2;
 }
 
 .briefing__pencil svg,
-.briefing__close svg {
+.briefing__close svg,
+.form__pencil svg,
+.form__close svg {
   width: 12px;
   height: 12px;
 }
 
-.briefing__input:focus ~ .briefing__pencil {
+.briefing__input:focus ~ .briefing__pencil,
+.form__input:focus ~ .form__pencil {
   display: none;
 }
 
-.briefing__input:focus ~ .briefing__close {
+.briefing__input:focus ~ .briefing__close,
+.form__input:focus ~ .form__close {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .briefing__bar,
-.briefing__border {
+.briefing__border,
+.form__bar,
+.form__border {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5428,18 +5502,24 @@ html.has-scroll-dragging {
   bottom: 16px;
 }
 
-.briefing__bar {
+.briefing__bar,
+.form__bar {
   z-index: 1;
 }
 
-.briefing__border {
+.briefing__border,
+.form__border {
   z-index: 0;
 }
 
 .briefing__bar::before,
 .briefing__bar::after,
 .briefing__border::before,
-.briefing__border::after {
+.briefing__border::after,
+.form__bar::before,
+.form__bar::after,
+.form__border::before,
+.form__border::after {
   content: '';
   height: 1px;
   position: absolute;
@@ -5449,13 +5529,17 @@ html.has-scroll-dragging {
 }
 
 .briefing__bar::before,
-.briefing__bar::after {
+.briefing__bar::after,
+.form__bar::before,
+.form__bar::after {
   width: 0;
   background-color: var(--text);
 }
 
 .briefing__border::before,
-.briefing__border::after {
+.briefing__border::after,
+.form__border::before,
+.form__border::after {
   width: 50%;
   background-color: var(--border);
   -webkit-transition: background-color 0.3s ease;
@@ -5465,29 +5549,41 @@ html.has-scroll-dragging {
 }
 
 .briefing__control.success .briefing__border::before,
-.briefing__control.success .briefing__border::after {
+.briefing__control.success .briefing__border::after,
+.form__control.success .form__border::before,
+.form__control.success .form__border::after {
   background-color: var(--green);
 }
 
+.briefing__control.error .briefing__border::before,
+.briefing__control.error .briefing__border::after,
 .briefing__control.error .briefing__border::before,
 .briefing__control.error .briefing__border::after {
   background-color: var(--error);
 }
 
 .briefing__bar::before,
-.briefing__border::before {
+.briefing__border::before,
+.form__bar::before,
+.form__border::before {
   left: 50%;
 }
 
 .briefing__bar:after,
-.briefing__border::after {
+.briefing__border::after,
+.form__bar:after,
+.form__border::after {
   right: 50%;
 }
 
 .briefing__input:hover ~ .briefing__bar::before,
 .briefing__input:hover ~ .briefing__bar::after,
 .briefing__input:focus ~ .briefing__bar::before,
-.briefing__input:focus ~ .briefing__bar::after {
+.briefing__input:focus ~ .briefing__bar::after,
+.form__input:hover ~ .form__bar::before,
+.form__input:hover ~ .form__bar::after,
+.form__input:focus ~ .form__bar::before,
+.form__input:focus ~ .form__bar::after {
   width: 50%;
 }
 
@@ -5584,11 +5680,13 @@ html.has-scroll-dragging {
 }
 
 .briefing__necessarily span,
-.briefing__label span {
+.briefing__label span,
+.form__label span {
   color: var(--error);
 }
 
-.briefing__label {
+.briefing__label,
+.form__label {
   min-height: 24px;
   padding: 0 30px 0 0;
   color: var(--text);
@@ -5598,10 +5696,51 @@ html.has-scroll-dragging {
   transition: transform 0.2s linear, font-size 0.2s linear, color 0.2s linear;
 }
 
-.briefing__input:focus ~ .briefing__label {
+.briefing__input:focus ~ .briefing__label,
+.form__input:focus ~ .form__label {
   color: var(--text-gray);
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
+}
+
+.form__file {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__file_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form__file_item {
+  display: flex;
+  height: 40px;
+  padding: 10px 20px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.form__file_item button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form__file_name {
+  display: block;
+  width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .briefing__checks {
@@ -6097,7 +6236,8 @@ html.has-scroll-dragging {
 
 .career_popup__form_bottom {
   display: flex;
-  flex-direction: column-reverse;
+  padding: 20px 0 0;
+  flex-direction: column;
   gap: 40px;
 }
 
@@ -6115,6 +6255,10 @@ html.has-scroll-dragging {
 
 .career_bottom__block .expertise__panel:last-child {
   border-bottom: none;
+}
+
+.career_popup__head {
+  padding: 0 0 50px;
 }
 
 /* end career */
@@ -7007,8 +7151,8 @@ html.has-scroll-dragging {
   .button__close,
   .c-scrollbar_thumb,
   .has-scroll-dragging .c-scrollbar_thumb,
-  .header__select_selected_item,
-  .header__select_list_item,
+  .form__select_selected_item,
+  .form__select_list_item,
   #showreel__video,
   .spec,
   .spec__button,

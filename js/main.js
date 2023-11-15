@@ -354,6 +354,7 @@ if(careerpopup) {
         bodyoverlay.style.zIndex = null;
         scroll.start();
       } else {
+        document.querySelector('.career_popup__vacancy').innerText = this.closest('.expertise__panel').previousElementSibling.children[0].children[0].children[0].children[0].innerText;
         bodyoverlay.classList.add("active");
         careerpopup.classList.add("active");
         document.body.style.overflow = "hidden";
@@ -479,19 +480,19 @@ class Select {
   }
 
   isOpened() {
-    return this.selectList.classList.contains('header__select_list_opened')
+    return this.selectList.classList.contains('form__select_list_opened')
   }
 
   openSelectList() {
     this.selectList.style.maxHeight = this.selectList.scrollHeight + "px";
-    this.selectList.classList.add('header__select_list_opened')
-    this.selectArrow.classList.add('header__select_arrow_rotate')
+    this.selectList.classList.add('form__select_list_opened')
+    this.selectArrow.classList.add('form__select_arrow_rotate')
   }
 
   closeSelectList() {
     this.selectList.style.maxHeight = null;
-    this.selectList.classList.remove('header__select_list_opened')
-    this.selectArrow.classList.remove('header__select_arrow_rotate')
+    this.selectList.classList.remove('form__select_list_opened')
+    this.selectArrow.classList.remove('form__select_arrow_rotate')
   }
 
   addSelectedValue(element) {
@@ -1272,6 +1273,44 @@ if(projectsfilters) {
   [...projectsfs].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 // end accordion projects__filter
+
+// start mask phone
+const phone_input = document.querySelector('[data-phone-pattern]');
+if (phone_input) {
+  document.addEventListener("DOMContentLoaded", function () {
+    var eventCalllback = function (e) {
+      var el = e.target,
+        clearVal = el.dataset.phoneClear,
+        pattern = el.dataset.phonePattern,
+        matrix_def = "+7(___) ___-__-__",
+        matrix = pattern ? pattern : matrix_def,
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = e.target.value.replace(/\D/g, "");
+      if (clearVal !== 'false' && e.type === 'blur') {
+        if (val.length < matrix.match(/([\_\d])/g).length) {
+          e.target.value = '';
+          return;
+        }
+      }
+      if (def.length >= val.length) val = def;
+      e.target.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+      });
+    }
+    var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+    for (let elem of phone_inputs) {
+      for (let ev of ['input', 'blur', 'focus']) {
+        elem.addEventListener(ev, eventCalllback);
+      }
+    }
+  });
+}
+// end mask phone
+
+// start autosize textarea
+  autosize(document.querySelectorAll('textarea'));
+// end autosize textarea
 
 // start index animation
 let digital = document.querySelector('.digital');

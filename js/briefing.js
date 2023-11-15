@@ -49,10 +49,6 @@ if(!briefing){} else {
   const totop = document.querySelector('#top');
   const briefinghome = document.querySelector('.briefing__home');
 
-  // start autosize textarea
-    autosize(document.querySelectorAll('textarea'));
-  // end autosize textarea
-
   // start Min Max
   const busernameMin = busername.getAttribute('minl');
   const busernameMax = busername.getAttribute('maxl');
@@ -105,19 +101,6 @@ if(!briefing){} else {
   // end Min Max
 
   // start counter
-  function valid() {
-    this.nextElementSibling.children[0].textContent = 0 + this.value.length
-    if (this.value.length < this.getAttribute('minl')) {
-      this.parentElement.classList.add('error');
-      this.parentElement.classList.remove('success');
-      this.nextElementSibling.classList.remove('success');
-    } else {
-      this.parentElement.classList.remove('error');
-      this.parentElement.classList.add('success');
-      this.nextElementSibling.classList.add('success');
-    }
-  }
-
   const binputs = document.querySelectorAll(".briefing__input");
 
   for (i = 0; i < binputs.length; i++) {
@@ -155,6 +138,7 @@ if(!briefing){} else {
       this.nextElementSibling.classList.add('success');
     }
   })
+
   function isEmailValid(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   }
@@ -190,37 +174,6 @@ if(!briefing){} else {
   bassociations.oninput = function(){this.value = this.value.substr(0, bassociationsMax);}
   bsegment.oninput = function(){this.value = this.value.substr(0, bsegmentMax);}
   // end maxleight
-
-  // start mask phone
-  document.addEventListener("DOMContentLoaded", function () {
-    var eventCalllback = function (e) {
-      var el = e.target,
-        clearVal = el.dataset.phoneClear,
-        pattern = el.dataset.phonePattern,
-        matrix_def = "+7(___) ___-__-__",
-        matrix = pattern ? pattern : matrix_def,
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = e.target.value.replace(/\D/g, "");
-      if (clearVal !== 'false' && e.type === 'blur') {
-        if (val.length < matrix.match(/([\_\d])/g).length) {
-          e.target.value = '';
-          return;
-        }
-      }
-      if (def.length >= val.length) val = def;
-      e.target.value = matrix.replace(/./g, function (a) {
-        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-      });
-    }
-    var phone_inputs = document.querySelectorAll('[data-phone-pattern]');
-    for (let elem of phone_inputs) {
-      for (let ev of ['input', 'blur', 'focus']) {
-        elem.addEventListener(ev, eventCalllback);
-      }
-    }
-  });
-  // end mask phone
 
   // START step
   const briefingform = document.querySelectorAll(".briefing__right .briefing__form");
