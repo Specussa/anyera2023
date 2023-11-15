@@ -835,54 +835,6 @@
                   </a>
                   <ul id="form__file_container" class="form__file_list"></ul>
                 </div>
-                <script>
-                  var filesToUpload = [];
-                  const fileInput = document.querySelector('.form__input_file');
-                  const fileContainer = document.getElementById('form__file_container');
-
-                  function domObserver(el, callback){
-                      var done = function (){ callback(el); };
-                      var observer = new MutationObserver(done);
-                      observer.observe(el, { childList: true });
-                  };
-
-                  fileInput.addEventListener('change', (e) => {
-                    console.log(e.target.files.length);
-                    domObserver(fileContainer, function (el){
-                      if (fileContainer.children[1]) {
-                        fileContainer.children[0].remove();
-                      }
-                    });
-                    for (let i = 0; i < e.target.files.length; i++) {
-                      let myFile = e.target.files[i];
-                      let myFileID = "FID" + (1000 + Math.random() * 9000).toFixed(0);
-
-                      filesToUpload.push({
-                        file: myFile,
-                        FID: myFileID
-                      });
-                    };
-                    displayFiles();
-                    // e.target.value = null;
-                  });
-
-                  const removeFile = (x) => {
-                    for (let i = 0; i < filesToUpload.length; i++) {
-                      if (filesToUpload[i].FID === x) {
-                        filesToUpload.splice(i, 1);
-                      }
-                    }
-                    displayFiles();
-                  }
-
-                  const displayFiles = () => {
-                    console.log(fileContainer.innerHTML);
-                    fileContainer.innerHTML = "";
-                    for (let i = 0; i < filesToUpload.length; i++) {
-                      fileContainer.innerHTML += `<li class="form__file_item"><span class="form__file_name">${filesToUpload[i].file.name}</span><button onclick="removeFile('${filesToUpload[i].FID}')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L12 12M12 12L17 7.00001M12 12L7 7M12 12L17 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>`;
-                    }
-                  }
-                </script>
               </div>
               <div class="career_popup__form_bottom">
                 <label class="form__policy">
