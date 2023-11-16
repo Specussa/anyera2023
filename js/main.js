@@ -344,6 +344,7 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
 const careerpopup = document.querySelector('.career_popup');
 if(careerpopup) {
   var careerbutton = document.getElementsByClassName("career_bottom__button");
+  const careerpopupclose = document.querySelector('.career_popup__close');
   for (i = 0; i < careerbutton.length; i++) {
     careerbutton[i].onclick = function(e) {
       if (careerpopup.classList.contains("active")) {
@@ -364,10 +365,18 @@ if(careerpopup) {
       }
     };
   }
+  careerpopupclose.addEventListener('click', function() {
+    bodyoverlay.classList.remove("active");
+    careerpopup.classList.remove("active");
+    document.body.style.overflow = null;
+    document.body.style.height = null;
+    bodyoverlay.style.zIndex = null;
+    scroll.start();
+  })
 }
 // end career_popup
 
-// кнопка career_popup
+// кнопка overlay
 bodyoverlay.addEventListener('click', function() {
   if (bodyoverlay.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
@@ -390,7 +399,7 @@ bodyoverlay.addEventListener('click', function() {
     scroll.start();
   }
 })
-// end career_popup
+// end overlay
 
 // start text rotate
 let textblock = document.querySelectorAll('.text');

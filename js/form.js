@@ -17,61 +17,177 @@ function updateformValue() {
   }
 }
 
+function isFormEmailValid(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function setErrorFor(input) {
+  const formControl = input.parentElement;
+  const small = formControl.querySelector('small');
+  formControl.className = 'form__control error';
+}
+
+function setSuccessFor(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form__control success';
+}
+
 // start validate form header
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const phone = document.getElementById('phone');
 const text = document.getElementById('text');
 
-if(!form){} else {
+if(form) {
   form.addEventListener('submit', e => {
-  e.preventDefault();
-  
-  checkInputs();
+    e.preventDefault();
+    checkFormInputs();
   });
-  function checkInputs() {
+  function checkFormInputs() {
   // trim to remove the whitespaces
   const usernameValue = username.value.trim();
   const phoneValue = phone.value.trim();
   const textValue = text.value.trim();
   
   if(usernameValue === '') {
-      setErrorFor(username, 'Обязательное поле'); } else { setSuccessFor(username);
+      setErrorFor(username); } else { setSuccessFor(username);
   }
   if(phoneValue === '') {
-      setErrorFor(phone, 'Обязательное поле'); } else { setSuccessFor(phone);
+      setErrorFor(phone); } else { setSuccessFor(phone);
   }
   if(textValue === '') {
-      setErrorFor(text, 'Обязательное поле'); } else { setSuccessFor(text);
+      setErrorFor(text); } else { setSuccessFor(text);
     }
-  }
-  
-  function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'header__forms_form_control error';
-    small.innerText = message;
-  }
-  
-  function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'header__forms_form_control success';
   }
 }
 // end validate form header
 
 // start validate form header
+const formcareer = document.getElementById('form__career');
+if(formcareer) {
+  const careerusername = document.getElementById('career__username');
+  const careeremail = document.getElementById('career__email');
+  const careerlink = document.getElementById('career__link');
+  const careersocial = document.getElementById('career__social');
+  const careerfile = document.getElementById('career__file');
+  const careerusernameMin = careerusername.getAttribute('minl');
+  const careerusernameMax = careerusername.getAttribute('maxl');
+  const careeremailMin = careeremail.getAttribute('minl');
+  const careeremailMax = careeremail.getAttribute('maxl');
+  const careerlinkMin = careerlink.getAttribute('minl');
+  const careerlinkMax = careerlink.getAttribute('maxl');
+  const careersocialMin = careersocial.getAttribute('minl');
+  const careersocialMax = careersocial.getAttribute('maxl');
+  careerusername.oninput = function(){this.value = this.value.substr(0, careerusernameMax);}
+  careeremail.oninput = function(){this.value = this.value.substr(0, careeremailMax);}
+  careerlink.oninput = function(){this.value = this.value.substr(0, careerlinkMax);}
+  careersocial.oninput = function(){this.value = this.value.substr(0, careersocialMax);}
+
+  careeremail.addEventListener('input', function () {
+    const careeremailValid = careeremail.value.trim();
+    this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else if (!isFormEmailValid(careeremailValid)) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  })
+
+  formcareer.addEventListener('submit', e => {
+    e.preventDefault();
+    checkCareerInputs();
+  });
+
+  function checkCareerInputs() {
+    const careerusernameValue = careerusername.value.trim();
+    const careeremailValue = careeremail.value.trim();
+    const careerlinkValue = careerlink.value.trim();
+    const careersocialValue = careersocial.value.trim();
+    const careerfileValue = careerfile.value.trim();
+  
+    if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax) {
+      setSuccessFor(careerusername);
+    } else {
+      setErrorFor(careerusername);
+    }
+    if(!isFormEmailValid(careeremailValue)) {
+      setErrorFor(careeremail);
+    } else if (careeremailValue !== '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax) {
+      setSuccessFor(careeremail);
+    } else {
+      setErrorFor(careeremail);
+    }
+    if(careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax) {
+      setSuccessFor(careersocial);
+    } else {
+      setErrorFor(careersocial);
+    }
+    if(careerlinkValue !== '' && careerlinkValue.length >= careerlinkMin && careerlinkValue.length <= careerlinkMax) {
+      setSuccessFor(careerlink);
+    } else if(careerfileValue !== '') {
+      setSuccessFor(careerlink);
+    } else {
+      setErrorFor(careerlink);
+    }
+  
+    if(!isFormEmailValid(careeremailValue)) {
+      setErrorFor(careeremail);
+    } else if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax && 
+    careeremailValue === '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax && 
+    careerlinkValue !== '' && careerlinkValue.length >= careerlinkMin && careerlinkValue.length <= careerlinkMax && 
+    careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax) {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: careerusernameValue,
+          two: careeremailValue,
+          three: careerlinkValue,
+          four: careersocialValue,
+          five: careerfileValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    } else if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax && 
+    careeremailValue !== '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax &&  
+    careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax && 
+    careerfileValue !== '') {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: careerusernameValue,
+          two: careeremailValue,
+          three: careerlinkValue,
+          four: careersocialValue,
+          five: careerfileValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    }
+  }
 
   var filesToUpload = [];
-  const fileInput = document.querySelector('.form__input_file');
+  const fileInput = document.getElementById('career__file');
   const fileContainer = document.getElementById('form__file_container');
 
-  function domObserver(el, callback){
-      var done = function (){ callback(el); };
+  function filesObserver(el, callback){
+      var done = function (){callback(el);};
       var observer = new MutationObserver(done);
-      observer.observe(el, { childList: true });
+      observer.observe(el, {childList: true, characterDataOldValue: true});
   };
-  domObserver(fileContainer, function (el){
+
+  filesObserver(fileContainer, function (){
     if (fileContainer.children[1]) {
       fileContainer.children[0].remove();
     }
@@ -90,7 +206,6 @@ if(!form){} else {
   }
 
   fileInput.addEventListener('change', (e) => {
-    console.log(e.target.files.length);
     for (let i = 0; i < e.target.files.length; i++) {
       let myFile = e.target.files[i];
       let myFileID = "FID" + (1000 + Math.random() * 9000).toFixed(0);
@@ -106,20 +221,22 @@ if(!form){} else {
     // e.target.value = null;
   });
 
-  const removeFile = (x) => {
-    for (let i = 0; i < filesToUpload.length; i++) {
-      if (filesToUpload[i].FID === x) {
-        filesToUpload.splice(i, 1);
-      }
-    }
-    displayFiles();
+  function removeFile(x) {
+    fileInput.value = "";
+    fileContainer.children[0].remove();
+    // for (let i = 0; i < filesToUpload.length; i++) {
+    //   if (filesToUpload[i].FID === x) {
+    //     filesToUpload.splice(i, 1);
+    //   }
+    // }
+    // displayFiles();
   }
 
-  const displayFiles = () => {
-    console.log(fileContainer.innerHTML);
+  function displayFiles() {
     fileContainer.innerHTML = "";
     for (let i = 0; i < filesToUpload.length; i++) {
-      fileContainer.innerHTML += `<li class="form__file_item"><span class="form__file_name">${filesToUpload[i].file.name}</span><span class="form__file_size">${filesToUpload[i].filesize}</span><button onclick="removeFile('${filesToUpload[i].FID}')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L12 12M12 12L17 7.00001M12 12L7 7M12 12L17 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>`;
+      fileContainer.innerHTML += `<li class="form__file_item"><span class="form__file_name">${filesToUpload[i].file.name}</span><span class="form__file_size">${filesToUpload[i].filesize}</span><a onclick="removeFile('${filesToUpload[i].FID}')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L12 12M12 12L17 7.00001M12 12L7 7M12 12L17 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>`;
     }
   }
+}
 // end validate form header

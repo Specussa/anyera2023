@@ -784,9 +784,14 @@
   <div class="career_popup">
     <div class="career_popup__scroll" data-scrollbar>
       <div class="container career_popup__container">
+        <button class="career_popup__close" aria-label="Закрыть меню">
+          <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"></path>
+          </svg>
+        </button>
         <div class="career_popup__blocks">
           <div class="career_popup__block">
-            <form id="career" class="career_popup__forms_form">
+            <form id="form__career" class="career_popup__forms_form">
               <h4 class="career_popup__head">Отклик на вакансию «<span class="career_popup__vacancy"></span>»</h4>
               <input type="text" class="career_popup__input">
               <div class="header__forms_form_controls">
@@ -807,24 +812,24 @@
                   <small class="form__error">Введите корректный email</small>
                 </div>
                 <div class="form__control">
-                  <input class="form__input" type="text" minl="4" maxl="40" id="career__link" />
+                  <input class="form__input" type="text" minl="4" maxl="40" id="career__social" />
                   <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">0</span></small>
-                  <label class="form__label" for="career__link">Telegram</label>
+                  <label class="form__label" for="career__social">Telegram</label>
                   <span class="form__bar"></span>
                   <span class="form__border"></span>
                   <small class="form__error">Введите telegram</small>
                 </div>
                 <div class="form__control">
-                  <input class="form__input" type="text" minl="4" maxl="40" id="career__social" />
+                  <input class="form__input" type="text" minl="4" maxl="40" id="career__link" />
                   <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">0</span></small>
-                  <label class="form__label" for="career__social">Ссылка на резюме</label>
+                  <label class="form__label" for="career__link">Ссылка на резюме</label>
                   <span class="form__bar"></span>
                   <span class="form__border"></span>
-                  <small class="form__error">Введите cсылка на резюме</small>
+                  <small class="form__error">Введите cсылку или загрузите файл</small>
                 </div>
                 <div class="form__file">
-                  <input type="file" class="form__input_file" hidden>
-                  <a class="btn checkbox form__file_button" onclick="fileInput.click()">
+                  <input type="file" class="form__input_file" id="career__file" hidden>
+                  <label class="btn checkbox form__file_button" for="career__file">
                     <span class="button__text">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 3L6 3M12 7L12 21M12 7L18 13M12 7L6 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -832,7 +837,7 @@
                       Загрузить резюме
                     </span>
                     <span class="button__hover"></span>
-                  </a>
+                  </label>
                   <ul id="form__file_container" class="form__file_list"></ul>
                 </div>
               </div>
