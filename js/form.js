@@ -62,7 +62,7 @@ if(form) {
 }
 // end validate form header
 
-// start validate form header
+// start validate form career
 const formcareer = document.getElementById('form__career');
 if(formcareer) {
   const careerusername = document.getElementById('career__username');
@@ -239,4 +239,65 @@ if(formcareer) {
     }
   }
 }
-// end validate form header
+// end validate form career
+
+// start validate form feedback
+const formfeedback = document.getElementById('form__feedback');
+if(formfeedback) {
+  const feedbackusername = document.getElementById('feedback__username');
+  const feedbackphone = document.getElementById('feedback__phone');
+  const feedbacksocial = document.getElementById('feedback__social');
+  const feedbackusernameMin = feedbackusername.getAttribute('minl');
+  const feedbackusernameMax = feedbackusername.getAttribute('maxl');
+  const feedbackphoneMin = feedbackphone.getAttribute('minl');
+  const feedbackphoneMax = feedbackphone.getAttribute('maxl');
+  const feedbacksocialMin = feedbacksocial.getAttribute('minl');
+  const feedbacksocialMax = feedbacksocial.getAttribute('maxl');
+  feedbackusername.oninput = function(){this.value = this.value.substr(0, feedbackusernameMax);}
+  feedbackphone.oninput = function(){this.value = this.value.substr(0, feedbackphoneMax);}
+  feedbacksocial.oninput = function(){this.value = this.value.substr(0, feedbacksocialMax);}
+
+  formfeedback.addEventListener('submit', e => {
+    e.preventDefault();
+    checkfeedbackInputs();
+  });
+
+  function checkfeedbackInputs() {
+    const feedbackusernameValue = feedbackusername.value.trim();
+    const feedbackphoneValue = feedbackphone.value.trim();
+    const feedbacksocialValue = feedbacksocial.value.trim();
+  
+    if(feedbackusernameValue !== '' && feedbackusernameValue.length >= feedbackusernameMin && feedbackusernameValue.length <= feedbackusernameMax) {
+      setSuccessFor(feedbackusername);
+    } else {
+      setErrorFor(feedbackusername);
+    }
+    if(feedbackphoneValue !== '' && feedbackphoneValue.length >= feedbackphoneMin && feedbackphoneValue.length <= feedbackphoneMax) {
+      setSuccessFor(feedbackphone);
+    } else {
+      setErrorFor(feedbackphone);
+    }
+    if(feedbacksocialValue !== '' && feedbacksocialValue.length >= feedbacksocialMin && feedbacksocialValue.length <= feedbacksocialMax) {
+      setSuccessFor(feedbacksocial);
+    } else {
+      setErrorFor(feedbacksocial);
+    }
+  
+    if(feedbackusernameValue !== '' && feedbackusernameValue.length >= feedbackusernameMin && feedbackusernameValue.length <= feedbackusernameMax && 
+    feedbackphoneValue !== '' && feedbackphoneValue.length >= feedbackphoneMin && feedbackphoneValue.length <= feedbackphoneMax && 
+    feedbacksocialValue !== '' && feedbacksocialValue.length >= feedbacksocialMin && feedbacksocialValue.length <= feedbacksocialMax) {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: feedbackusernameValue,
+          two: feedbackphoneValue,
+          three: feedbacksocialValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    }
+  }
+}
+// end validate form feedback

@@ -6173,7 +6173,8 @@ html.has-scroll-dragging {
   color: var(--text);
 }
 
-.career_popup {
+.career_popup,
+.feedback_popup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6194,7 +6195,8 @@ html.has-scroll-dragging {
   overflow: hidden;
 }
 
-.career_popup.active {
+.career_popup.active,
+.feedback_popup.active {
   top: 0px;
   opacity: 1;
   -webkit-transition: -webkit-transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s, opacity 0s linear 0s, top 0s linear 0.2s;
@@ -6203,11 +6205,14 @@ html.has-scroll-dragging {
   transform: translateX(0%);
 }
 
-.career_popup__container {
+.career_popup__container,
+.feedback_popup__container {
   height: 100%;
+  padding: 0 60px;
 }
 
-.career_popup__blocks {
+.career_popup__blocks,
+.feedback_popup__blocks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6220,7 +6225,8 @@ html.has-scroll-dragging {
   position: relative;
 }
 
-.career_popup__block {
+.career_popup__block,
+.feedback_popup__block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6228,38 +6234,43 @@ html.has-scroll-dragging {
   gap: 0 44px;
 }
 
-.career_popup__forms_form {
+.career_popup__forms_form,
+.feedback_popup__forms_form {
   width: 100%;
 }
 
-.career_popup__form_bottom {
+.career_popup__form_bottom,
+.feedback_popup__form_bottom {
   display: flex;
   padding: 20px 0 0;
   flex-direction: column;
   gap: 40px;
 }
 
-.career_popup__container {
-  padding: 0 60px;
-}
-
 .career_popup__form_policy a,
 .career_popup__form_policy a:hover,
 .career_popup__form_policy a:active,
-.career_popup__form_policy a:focus {
+.career_popup__form_policy a:focus,
+.feedback_popup__form_policy a,
+.feedback_popup__form_policy a:hover,
+.feedback_popup__form_policy a:active,
+.feedback_popup__form_policy a:focus {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.career_bottom__block .expertise__panel:last-child {
+.career_bottom__block .expertise__panel:last-child,
+.feedback_bottom__block .expertise__panel:last-child {
   border-bottom: none;
 }
 
-.career_popup__head {
+.career_popup__head,
+.feedback_popup__head {
   padding: 0 0 50px;
 }
 
-.career_popup__close {
+.career_popup__close,
+.feedback_popup__close {
   display: block;
   width: 48px;
   height: 48px;
@@ -6271,7 +6282,8 @@ html.has-scroll-dragging {
   z-index: 1;
 }
 
-.career_popup__close svg {
+.career_popup__close svg,
+.feedback_popup__close svg {
   height: 20px;
   width: 20px;
   position: absolute;
@@ -6284,7 +6296,8 @@ html.has-scroll-dragging {
   transition: transform 0.3s linear, color 0.3s linear;
 }
 
-.career_popup__close:hover svg {
+.career_popup__close:hover svg,
+.feedback_popup__close:hover svg {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
   transform: translate(-50%, -50%) rotate(90deg);
 }
@@ -6623,10 +6636,12 @@ html.has-scroll-dragging {
   .career_bottom__list {
     padding: 0 60px 40px;
   }
-  .career_popup__blocks {
+  .career_popup__blocks,
+  .feedback_popup__blocks {
     padding: 80px 0px;
   }
-  .career_popup__container {
+  .career_popup__container,
+  .feedback_popup__container {
     padding: 0px 60px;
   }
   .footer__list,
@@ -7126,13 +7141,16 @@ html.has-scroll-dragging {
   .career_bottom__list ul {
     padding: 0;
   }
-  .career_popup__blocks {
+  .career_popup__blocks,
+  .feedback_popup__blocks {
     padding: 70px 0px;
   }
-  .career_popup__container {
+  .career_popup__container,
+  .feedback_popup__container {
     padding: 0px 50px;
   }
-  .career_bottom__button span {
+  .career_bottom__button span,
+  .feedback_bottom__button span {
     padding: 0;
   }
   .footer__flex {
@@ -7681,6 +7699,9 @@ html.has-scroll-dragging {
   .career_bottom__button {
     margin: 20px 0 0;
   }
+  .career_bottom__button span {
+    padding: 0;
+  }
   .career__container:nth-last-child(2) .career__block {
     padding: 30px 20px;
     flex-direction: column;
@@ -7691,14 +7712,13 @@ html.has-scroll-dragging {
     width: 100%;
     padding: 0;
   }
-  .career_popup__container {
+  .career_popup__container,
+  .feedback_popup__container {
     padding: 0px 40px;
   }
-  .career_popup__head {
+  .career_popup__head,
+  .feedback_popup__head {
     padding: 0px 0px 40px;
-  }
-  .career_bottom__button span {
-    padding: 0;
   }
   .footer__flex {
     padding: 0 0 130px;
@@ -7986,10 +8006,12 @@ html.has-scroll-dragging {
     width: 100%;
     padding: 0;
   }
-  .career_popup__blocks {
+  .career_popup__blocks,
+  .feedback_popup__blocks {
     padding: 80px 0px;
   }
-  .career_popup__container {
+  .career_popup__container,
+  .feedback_popup__container {
     padding: 0px 30px;
   }
   .career_bottom__button span {

@@ -51,10 +51,12 @@ new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-
 const hn_scroll = document.querySelector('.header__nav_scroll');
 const hc_scroll = document.querySelector('.header__consultation_scroll');
 const cp_scroll = document.querySelector('.career_popup__scroll');
+const fp_scroll = document.querySelector('.feedback_popup__scroll');
 
 Scrollbar.init(hn_scroll);
 Scrollbar.init(hc_scroll);
 if (cp_scroll) {Scrollbar.init(cp_scroll);}
+if (fp_scroll) {Scrollbar.init(fp_scroll);}
 
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
@@ -376,6 +378,41 @@ if(careerpopup) {
 }
 // end career_popup
 
+// кнопка feedback_popup
+const feedbackpopup = document.querySelector('.feedback_popup');
+if(feedbackpopup) {
+  var feedbackbutton = document.getElementsByClassName("footer_popup__button");
+  const feedbackpopupclose = document.querySelector('.feedback_popup__close');
+  for (i = 0; i < feedbackbutton.length; i++) {
+    feedbackbutton[i].onclick = function(e) {
+      if (feedbackpopup.classList.contains("active")) {
+        bodyoverlay.classList.remove("active");
+        feedbackpopup.classList.remove("active");
+        document.body.style.overflow = null;
+        document.body.style.height = null;
+        bodyoverlay.style.zIndex = null;
+        scroll.start();
+      } else {
+        bodyoverlay.classList.add("active");
+        feedbackpopup.classList.add("active");
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100vh";
+        bodyoverlay.style.zIndex = "101";
+        scroll.stop();
+      }
+    };
+  }
+  feedbackpopupclose.addEventListener('click', function() {
+    bodyoverlay.classList.remove("active");
+    feedbackpopup.classList.remove("active");
+    document.body.style.overflow = null;
+    document.body.style.height = null;
+    bodyoverlay.style.zIndex = null;
+    scroll.start();
+  })
+}
+// end feedback_popup
+
 // кнопка overlay
 bodyoverlay.addEventListener('click', function() {
   if (bodyoverlay.classList.contains("active")) {
@@ -394,6 +431,10 @@ bodyoverlay.addEventListener('click', function() {
     }
     if(careerpopup){
       careerpopup.classList.remove("active");
+      bodyoverlay.style.zIndex = null;
+    }
+    if(feedbackpopup){
+      feedbackpopup.classList.remove("active");
       bodyoverlay.style.zIndex = null;
     }
     scroll.start();

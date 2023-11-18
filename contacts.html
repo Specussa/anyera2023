@@ -102,7 +102,7 @@
               <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
               <span class="button__hover"></span>
             </button>
-            <button class="btn button__briefing">
+            <button class="btn footer__button footer_popup__button">
               <span class="button__text">ОБРАТНАЯ СВЯЗЬ</span>
               <span class="button__hover"></span>
             </button>
@@ -545,6 +545,65 @@
                   <span class="button__hover"></span>
                 </div>
                 <p class="header__form_policy">Нажимая на кнопку, вы соглашаетесь с условиями <a href="policy.html" class="text text__middle"><span>политики конфиденциальности</span></a>.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feedback_popup">
+    <div class="feedback_popup__scroll" data-scrollbar>
+      <div class="container feedback_popup__container">
+        <button class="feedback_popup__close" aria-label="Закрыть меню">
+          <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 21.3241L21.3241 1M1.42335 1L21.7475 21.3241" stroke="currentColor"></path>
+          </svg>
+        </button>
+        <div class="feedback_popup__blocks">
+          <div class="feedback_popup__block">
+            <form id="form__feedback" class="feedback_popup__forms_form">
+              <h4 class="feedback_popup__head">Обратная связь</h4>
+              <div class="header__forms_form_controls">
+                <div class="form__control">
+                  <input class="form__input" type="text" minl="4" maxl="40" id="feedback__username" />
+                  <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">0</span></small>
+                  <label class="form__label" for="feedback__username">Имя <span>*</span></label>
+                  <span class="form__bar"></span>
+                  <span class="form__border"></span>
+                  <small class="form__error">Введите имя</small>
+                </div>
+                <div class="form__control">
+                  <input class="form__input" data-phone-pattern type="text" minl="17" maxl="17" id="feedback__phone" />
+                  <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">0</span></small>
+                  <label class="form__label" for="feedback__phone">Номер для связи <span>*</span></label>
+                  <span class="form__bar"></span>
+                  <span class="form__border"></span>
+                  <small class="form__error">Введите корректный телефон</small>
+                </div>
+                <div class="form__control">
+                  <input class="form__input" type="text" minl="4" maxl="40" id="feedback__social" />
+                  <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">0</span></small>
+                  <label class="form__label" for="feedback__social">Telegram</label>
+                  <span class="form__bar"></span>
+                  <span class="form__border"></span>
+                  <small class="form__error">Введите telegram</small>
+                </div>
+              </div>
+              <div class="feedback_popup__form_bottom">
+                <label class="form__policy">
+                  <input class="form__policy_input" type="checkbox" checked>
+                  <span class="form__policy_check">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.3335 3.73301L4.8335 7.33301L10.6668 1.33301" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Я даю свое согласие на <a href="policy.html" class="text text__middle"><span>обработку персональных данных</span></a>.</span>
+                </label>
+                <div class="btn btn__input feedback__form_button">
+                  <input type="submit" name="submit" value="Отправить" class="button__text">
+                  <span class="button__hover"></span>
+                </div>
               </div>
             </form>
           </div>
