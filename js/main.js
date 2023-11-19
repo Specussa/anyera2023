@@ -548,6 +548,8 @@ class Select {
   addSelectedValue(element) {
     this.selectTitle.innerHTML = element.innerHTML;
     this.selectInput.value = element.innerHTML;
+    element.parentNode.parentNode.classList.add("success");
+    element.parentNode.parentNode.classList.remove("error");
     this.selectInput.setAttribute('value', this.selectInput.value);
   }
 

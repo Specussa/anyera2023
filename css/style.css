@@ -1487,16 +1487,12 @@ html.has-scroll-dragging {
   padding: 0;
 }
 
-.button__project_two {
-  display: none;
-}
-
-.button__briefing {
+.button__feedback {
   width: 184px;
   padding: 0;
 }
 
-.button__feedback {
+.button__briefing {
   width: 124px;
   padding: 0;
 }
@@ -1670,6 +1666,10 @@ html.has-scroll-dragging {
 .header__nav_block {
   height: calc(var(--height) - 80px);
   position: relative;
+}
+
+.header__nav_buttons {
+  display: none;
 }
 
 .header__nav_container {
@@ -1979,6 +1979,10 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
+.header__consultation_description {
+  max-width: 540px;
+}
+
 .header__forms_form {
   width: 50%;
   max-width: 515px;
@@ -2219,7 +2223,6 @@ html.has-scroll-dragging {
   color: var(--text);
   background: var(--bg);
   border: none;
-  border-bottom: 1px solid var(--gray-border);
   cursor: none;
 }
 
@@ -2296,6 +2299,10 @@ html.has-scroll-dragging {
 
 .form__select_input {
   display: none;
+}
+
+.form__select_label {
+  color: var(--text);
 }
 
 .header__consultation_burger_flex {
@@ -3676,7 +3683,8 @@ html.has-scroll-dragging {
 .policy__desc,
 .career_top__desc,
 .career__desc,
-.career_bottom__desc {
+.career_bottom__desc,
+.header__consultation_desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3696,7 +3704,8 @@ html.has-scroll-dragging {
 .policy__desc::before,
 .career_top__desc::before,
 .career__desc::before,
-.career_bottom__desc::before {
+.career_bottom__desc::before,
+.header__consultation_desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -5488,7 +5497,9 @@ html.has-scroll-dragging {
 .briefing__bar,
 .briefing__border,
 .form__bar,
-.form__border {
+.form__border,
+.form__select_bar,
+.form__select_border {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5499,13 +5510,20 @@ html.has-scroll-dragging {
   bottom: 16px;
 }
 
+.form__select_bar,
+.form__select_border {
+  bottom: -1px;
+}
+
 .briefing__bar,
-.form__bar {
+.form__bar,
+.form__select_bar {
   z-index: 1;
 }
 
 .briefing__border,
-.form__border {
+.form__border,
+.form__select_border {
   z-index: 0;
 }
 
@@ -5516,7 +5534,11 @@ html.has-scroll-dragging {
 .form__bar::before,
 .form__bar::after,
 .form__border::before,
-.form__border::after {
+.form__border::after,
+.form__select_bar::before,
+.form__select_bar::after,
+.form__select_border::before,
+.form__select_border::after {
   content: '';
   height: 1px;
   position: absolute;
@@ -5528,7 +5550,9 @@ html.has-scroll-dragging {
 .briefing__bar::before,
 .briefing__bar::after,
 .form__bar::before,
-.form__bar::after {
+.form__bar::after,
+.form__select_bar::before,
+.form__select_bar::after {
   width: 0;
   background-color: var(--text);
 }
@@ -5536,7 +5560,9 @@ html.has-scroll-dragging {
 .briefing__border::before,
 .briefing__border::after,
 .form__border::before,
-.form__border::after {
+.form__border::after,
+.form__select_border::before,
+.form__select_border::after {
   width: 50%;
   background-color: var(--border);
   -webkit-transition: background-color 0.3s ease;
@@ -5548,28 +5574,36 @@ html.has-scroll-dragging {
 .briefing__control.success .briefing__border::before,
 .briefing__control.success .briefing__border::after,
 .form__control.success .form__border::before,
-.form__control.success .form__border::after {
+.form__control.success .form__border::after,
+.form__select.success .form__select_border::before,
+.form__select.success .form__select_border::after {
   background-color: var(--green);
 }
 
 .briefing__control.error .briefing__border::before,
 .briefing__control.error .briefing__border::after,
-.briefing__control.error .briefing__border::before,
-.briefing__control.error .briefing__border::after {
+.form__control.error .form__border::before,
+.form__control.error .form__border::after,
+.form__select.error .form__select_border::before,
+.form__select.error .form__select_border::after {
   background-color: var(--error);
 }
 
 .briefing__bar::before,
 .briefing__border::before,
 .form__bar::before,
-.form__border::before {
+.form__border::before,
+.form__select_bar::before,
+.form__select_border::before {
   left: 50%;
 }
 
 .briefing__bar:after,
 .briefing__border::after,
 .form__bar:after,
-.form__border::after {
+.form__border::after,
+.form__select_bar:after,
+.form__select_border::after {
   right: 50%;
 }
 
@@ -5580,7 +5614,11 @@ html.has-scroll-dragging {
 .form__input:hover ~ .form__bar::before,
 .form__input:hover ~ .form__bar::after,
 .form__input:focus ~ .form__bar::before,
-.form__input:focus ~ .form__bar::after {
+.form__input:focus ~ .form__bar::after,
+.form__select_selected_item:hover ~ .form__select_bar::before,
+.form__select_selected_item:hover ~ .form__select_bar::after,
+.form__select_list.form__select_list_opened ~ .form__select_bar::before,
+.form__select_list.form__select_list_opened ~ .form__select_bar::after {
   width: 50%;
 }
 
@@ -6392,6 +6430,9 @@ html.has-scroll-dragging {
   .footer__block {
     padding: 60px 0;
   }
+  .header__consultation_blocks {
+    padding: 60px 0;
+  }
   .showreel__container {
     max-width: 100%;
   }
@@ -6844,7 +6885,8 @@ html.has-scroll-dragging {
   .policy__desc,
   .career_top__desc,
   .career__desc,
-  .career_bottom__desc {
+  .career_bottom__desc,
+  .header__consultation_desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -7305,9 +7347,6 @@ html.has-scroll-dragging {
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
-  .button__project_two {
-    display: inline-flex;
-  }
   .header__burger {
     width: 36px;
     height: 36px;
@@ -7351,6 +7390,31 @@ html.has-scroll-dragging {
     position: absolute;
     left: 30px;
     bottom: 0;
+  }
+  .button__project,
+  .button__briefing,
+  .button__feedback {
+    display: none;
+  }
+  .header__buttons,
+  .header__buttons.active {
+    width: auto;
+  }
+  .header__consultation_block {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .header__consultation_info,
+  .header__forms_form {
+    width: 100%;
+    max-width: 100%;
+  }
+  .header__nav_buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   .main__border {
     width: calc(100% - 40px);
@@ -7539,7 +7603,8 @@ html.has-scroll-dragging {
   .policy__desc,
   .career_top__desc,
   .career__desc,
-  .career_bottom__desc {
+  .career_bottom__desc,
+  .header__consultation_desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -7870,8 +7935,22 @@ html.has-scroll-dragging {
   .policy__desc,
   .career_top__desc,
   .career__desc,
-  .career_bottom__desc {
+  .career_bottom__desc,
+  .header__consultation_desc {
     max-width: 100%;
+  }
+  .header__consultation_blocks {
+    padding: 40px 0;
+  }
+  .header__consultation_info,
+  .header__forms_form,
+  .header__consultation_block {
+    gap: 20px;
+  }
+  .button__project_two,
+  .button__briefing_two,
+  .button__feedback_two {
+    width: 100%;
   }
   .digital__head {
     height: 66px;

@@ -23,7 +23,6 @@ function isFormEmailValid(email) {
 
 function setErrorFor(input) {
   const formControl = input.parentElement;
-  const small = formControl.querySelector('small');
   formControl.className = 'form__control error';
 }
 
@@ -32,31 +31,87 @@ function setSuccessFor(input) {
   formControl.className = 'form__control success';
 }
 
+function setSelectErrorFor(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form__select error';
+}
+
+function setSelectSuccessFor(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form__select success';
+}
+
 // start validate form header
 const form = document.getElementById('form');
-const username = document.getElementById('username');
-const phone = document.getElementById('phone');
-const text = document.getElementById('text');
 
 if(form) {
+  const username = document.getElementById('username');
+  const phone = document.getElementById('phone');
+  const text = document.getElementById('text');
+  const price = document.getElementById('price');
+  const сommunication = document.getElementById('сommunication');
+  const usernameMin = username.getAttribute('minl');
+  const usernameMax = username.getAttribute('maxl');
+  const phoneMin = phone.getAttribute('minl');
+  const phoneMax = phone.getAttribute('maxl');
+  const textMin = text.getAttribute('minl');
+  const textMax = text.getAttribute('maxl');
+  username.oninput = function(){this.value = this.value.substr(0, usernameMax);}
+  phone.oninput = function(){this.value = this.value.substr(0, phoneMax);}
+  text.oninput = function(){this.value = this.value.substr(0, textMax);}
   form.addEventListener('submit', e => {
     e.preventDefault();
     checkFormInputs();
   });
   function checkFormInputs() {
-  // trim to remove the whitespaces
-  const usernameValue = username.value.trim();
-  const phoneValue = phone.value.trim();
-  const textValue = text.value.trim();
-  
-  if(usernameValue === '') {
-      setErrorFor(username); } else { setSuccessFor(username);
-  }
-  if(phoneValue === '') {
-      setErrorFor(phone); } else { setSuccessFor(phone);
-  }
-  if(textValue === '') {
-      setErrorFor(text); } else { setSuccessFor(text);
+    const usernameValue = username.value.trim();
+    const phoneValue = phone.value.trim();
+    const textValue = text.value.trim();
+    const priceValue = price.value.trim();
+    const сommunicationValue = сommunication.value.trim();
+    
+    if(usernameValue !== '' && usernameValue.length >= usernameMin && usernameValue.length <= usernameMax) {
+      setSuccessFor(username);
+    } else {
+      setErrorFor(username);
+    }
+    if(phoneValue !== '' && phoneValue.length >= phoneMin && phoneValue.length <= phoneMax) {
+      setSuccessFor(phone);
+    } else {
+      setErrorFor(phone);
+    }
+    if(textValue !== '' && textValue.length >= textMin && textValue.length <= textMax) {
+      setSuccessFor(text);
+    } else {
+      setErrorFor(text);
+    }
+    if(priceValue !== '') {
+      setSelectSuccessFor(price);
+    } else {
+      setSelectErrorFor(price);
+    }
+    if(сommunicationValue !== '') {
+      setSelectSuccessFor(сommunication);
+    } else {
+      setSelectErrorFor(сommunication);
+    }
+    if(usernameValue !== '' && usernameValue.length >= usernameMin && usernameValue.length <= usernameMax && 
+    phoneValue !== '' && phoneValue.length >= phoneMin && phoneValue.length <= phoneMax && 
+    textValue !== '' && textValue.length >= textMin && textValue.length <= textMax &&
+    priceValue !== '' && сommunicationValue !== '') {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: usernameValue,
+          two: phoneValue,
+          three: textValue,
+          four: priceValue,
+          five: сommunicationValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
     }
   }
 }

@@ -103,11 +103,11 @@
               <span class="button__hover"></span>
             </button>
             <button class="btn button__briefing">
-              <span class="button__text">ОБРАТНАЯ СВЯЗЬ</span>
+              <span class="button__text">БРИФИНГ</span>
               <span class="button__hover"></span>
             </button>
             <a href="briefing.html" class="btn button__feedback">
-              <span class="button__text">БРИФИНГ</span>
+              <span class="button__text">КАЛЬКУЛЯТОР</span>
               <span class="button__hover"></span>
             </a>
             <div class="header__consultation_burger_flex">
@@ -607,10 +607,20 @@
                   </a>
                 </li>
               </ul>
-              <button class="btn button__project_two">
-                <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
-                <span class="button__hover"></span>
-              </button>
+              <div class="header__nav_buttons">
+                <button class="btn button__project_two">
+                  <span class="button__text">ОБСУДИТЬ ПРОЕКТ</span>
+                  <span class="button__hover"></span>
+                </button>
+                <a href="briefing.html" class="btn button__briefing_two">
+                  <span class="button__text">БРИФИНГ</span>
+                  <span class="button__hover"></span>
+                </a>
+                <a href="" class="btn button__feedback_two">
+                  <span class="button__text">КАЛЬКУЛЯТОР</span>
+                  <span class="button__hover"></span>
+                </a>
+              </div>
               <ul class="header__nav_bottom_social" data-scroll data-scroll-speed="0">
                 <li>
                   <a href="https://t.me/anyera" target="_blank" class="header__nav_bottom_link">
@@ -688,7 +698,7 @@
                 <h2 class="header__consultation_head">РАССКАЖИТЕ О ВАШЕМ ПРОЕКТЕ</h2>
                 <p class="header__consultation_desc">Опишите свою задачу и мы свяжемся с вами в ближайшее рабочее время.</p>
               </div>
-              <div class="header__consultation_contacts"></div>
+              <div class="header__consultation_contacts"><p class="header__consultation_description">Вы всегда можете написать нам на почту <a href="mailto://career@anyera.ru">career@anyera.ru</a> и задать любые интересующие вопросы</p></div>
             </div>
             <form id="form" class="header__forms_form">
               <div class="header__forms_form_controls">
@@ -708,10 +718,11 @@
                   <span class="form__border"></span>
                   <small class="form__error">Введите корректный телефон</small>
                 </div>
+                <p class="form__select_label">Способ связи</p>
                 <div class="form__select_box">
                   <div class="form__select" data-select>
                     <div class="form__select_selected_item" data-select-action data-select-open>
-                      <div class="form__select_selected-title" data-select-title>Способ связи</div>
+                      <div class="form__select_selected-title" data-select-title>Выбрать</div>
                       <svg class="form__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 1L6.05 6L1 1" stroke="currentColor"/>
                       </svg>
@@ -721,13 +732,16 @@
                       <div class="form__select_list_item" data-select-action data-select-item>Написать на почту</div>
                       <div class="form__select_list_item" data-select-action data-select-item>Написать в телеграм</div>
                     </div>
-                    <input class="form__select_input" type="text" data-select-input>
+                    <input class="form__select_input" type="text" id="сommunication" data-select-input>
+                    <span class="form__select_bar"></span>
+                    <span class="form__select_border"></span>
                   </div>
                 </div>
+                <p class="form__select_label">Бюджет проекта</p>
                 <div class="form__select_box">
                   <div class="form__select" data-select>
                     <div class="form__select_selected_item" data-select-action data-select-open>
-                      <div class="form__select_selected-title" data-select-title>Бюджет проекта</div>
+                      <div class="form__select_selected-title" data-select-title>Выбрать</div>
                       <svg class="form__select_arrow" data-select-arrow width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 1L6.05 6L1 1" stroke="currentColor"/>
                       </svg>
@@ -738,7 +752,9 @@
                       <div class="form__select_list_item" data-select-action data-select-item>от 500 до 1 млн</div>
                       <div class="form__select_list_item" data-select-action data-select-item>от 1 млн</div>
                     </div>
-                    <input class="form__select_input" type="text" data-select-input>
+                    <input class="form__select_input" type="text" id="price" data-select-input>
+                    <span class="form__select_bar"></span>
+                    <span class="form__select_border"></span>
                   </div>
                 </div>
                 <div class="form__control">
