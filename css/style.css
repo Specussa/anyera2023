@@ -1479,7 +1479,8 @@ html.has-scroll-dragging {
 }
 
 .header__buttons.active {
-  width: 596px;
+  /* width: 596px; */
+  width: 387px;
 }
 
 .button__project {
