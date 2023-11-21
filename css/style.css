@@ -3685,7 +3685,8 @@ html.has-scroll-dragging {
 .career_top__desc,
 .career__desc,
 .career_bottom__desc,
-.header__consultation_desc {
+.header__consultation_desc,
+.price__desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3706,7 +3707,8 @@ html.has-scroll-dragging {
 .career_top__desc::before,
 .career__desc::before,
 .career_bottom__desc::before,
-.header__consultation_desc::before {
+.header__consultation_desc::before,
+.price__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -4246,6 +4248,8 @@ html.has-scroll-dragging {
 .project_top {
   height: calc(var(--height) + 1px);
   max-height: 1024px;
+  margin: 0 0 1px;
+  border-bottom: 1px solid var(--border);
 }
 
 .project_top__container {
@@ -4281,28 +4285,28 @@ html.has-scroll-dragging {
   gap: 20px;
 }
 
-.project_top .button__text {
-  color: var(--white);
-}
-
-.project_top.project_top__white .button__text {
+.project_top__info .btn .button__text {
   color: var(--black);
 }
 
-.project_top.project_top__bg .button__text {
+.project_top__info.project_top__white .btn .button__text {
+  color: var(--white);
+}
+
+.project_top__info.project_top__bg .btn .button__text {
   color: var(--text-gray);
 }
 
-.project_top .btn {
+.project_top__info .btn {
   padding: 0 60px;
-  border: 1px solid var(--white);
-}
-
-.project_top.project_top__white .btn {
   border: 1px solid var(--black);
 }
 
-.project_top.project_top__bg .btn {
+.project_top__info.project_top__white .btn {
+  border: 1px solid var(--white);
+}
+
+.project_top__bg .btn {
   border: 1px solid var(--border);
 }
 
@@ -4329,12 +4333,12 @@ html.has-scroll-dragging {
 
 .project_top__desc,
 .project_top__head {
-  color: var(--white);
+  color: var(--black);
 }
 
 .project_top__white .project_top__desc,
 .project_top__white .project_top__head {
-  color: var(--black);
+  color: var(--white);
 }
 
 .project_top__bg .project_top__desc,
@@ -6280,6 +6284,8 @@ html.has-scroll-dragging {
 
 .career_popup__form_bottom,
 .feedback_popup__form_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 20px 0 0;
   flex-direction: column;
@@ -6342,6 +6348,145 @@ html.has-scroll-dragging {
 }
 
 /* end career */
+
+/* start price */
+
+.price__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  padding: 160px 80px 80px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.price__divider {
+  border-bottom: 1px solid var(--border);
+}
+
+.price__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 2px;
+  padding: 100px 80px;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--bg);
+}
+
+.price__item {
+  
+}
+
+.price__sublist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price__item:first-child .price__sublist {
+  margin: 0 0 -20px;
+}
+
+.price__item_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.price__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+.price__subitem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.price__subitem:nth-child(1) {
+  width: 23%;
+}
+
+.price__subitem:nth-child(2) {
+  width: 17%;
+}
+
+.price__info svg {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.price__info_absolute {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 230px;
+  padding: 16px;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  z-index: 1;
+  opacity: 0;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0px 2px 7px 0px rgba(22, 21, 21, 0.12);
+  border-radius: 4px;
+  visibility: hidden;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: opacity 0.3s linear, visibility 0s linear;
+  transition: opacity 0.3s linear, visibility 0s linear;
+  -webkit-transition-delay: 0s, 0.3s;
+  transition-delay: 0s, 0.3s;
+}
+
+ .price__info_absolute::before,
+ .price__info_absolute::after {
+  content: ''; 
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 10px solid var(--border);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+ }
+
+ .price__info_absolute::after {
+  border-top: 10px solid var(--bg);
+  bottom: -19px; 
+ }
+
+.dark .price__info_absolute {
+  box-shadow: 0px 2px 7px 0px rgba(255, 255, 255, 0.12);
+}
+
+.price__info svg:hover ~ .price__info_absolute {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-delay: 0s, 0s;
+  transition-delay: 0s, 0s;
+}
+
+/* end price */
 
 /* start 1440px */
 @media (max-width: 1919px) {
@@ -6887,7 +7032,8 @@ html.has-scroll-dragging {
   .career_top__desc,
   .career__desc,
   .career_bottom__desc,
-  .header__consultation_desc {
+  .header__consultation_desc,
+  .price__desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -7605,7 +7751,8 @@ html.has-scroll-dragging {
   .career_top__desc,
   .career__desc,
   .career_bottom__desc,
-  .header__consultation_desc {
+  .header__consultation_desc,
+  .price__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -7937,7 +8084,8 @@ html.has-scroll-dragging {
   .career_top__desc,
   .career__desc,
   .career_bottom__desc,
-  .header__consultation_desc {
+  .header__consultation_desc,
+  .price__desc {
     max-width: 100%;
   }
   .header__consultation_blocks {

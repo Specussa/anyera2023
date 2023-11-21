@@ -60,12 +60,15 @@ if (fp_scroll) {Scrollbar.init(fp_scroll);}
 
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
+const projecttopinfo = document.querySelector('.project_top__info');
 
-if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)" && projecttop.style.backgroundColor !=  "var(--bg)"){
+if(projecttop && projecttop.style.background !=  "rgb(255, 255, 255)" && projecttop.style.background !=  "var(--bg)"){
   header.classList.add('header__transparent');
   header.classList.add('project_top__white');
-} else if (projecttop && projecttop.style.backgroundColor ==  "var(--bg)") {
+  projecttopinfo.classList.add('project_top__white');
+} else if (projecttop && projecttop.style.background ==  "var(--bg)") {
   header.classList.add('project_top__bg');
+  projecttopinfo.classList.add('project_top__bg');
 }
 
 const headerprogress = document.querySelector('.header__progress_bar');
@@ -77,7 +80,7 @@ scroll.on('scroll', (args) => {
   headerprogress.style.flexBasis = scrollheader + '%';
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
-  if(projecttop && projecttop.style.backgroundColor !=  "rgb(255, 255, 255)" && projecttop.style.backgroundColor !=  "var(--bg)"){
+  if(projecttop && projecttop.style.background !=  "rgb(255, 255, 255)" && projecttop.style.background !=  "var(--bg)"){
     if (Math.round(args["scroll"]["y"]) <= 50) {
       header.classList.add('header__transparent');
     } else {
@@ -1361,8 +1364,22 @@ if (phone_input) {
 // end mask phone
 
 // start autosize textarea
-  autosize(document.querySelectorAll('textarea'));
+autosize(document.querySelectorAll('textarea'));
 // end autosize textarea
+
+// start price-list
+
+document.addEventListener("DOMContentLoaded", () => {
+  const pricelist = document.querySelector("[price-list]");
+  if (pricelist) {
+    const pricelists = document.querySelectorAll("[price-list]");
+    for (i = 0; i < pricelists.length; i++) {
+      pricelists[i].textContent = pricelists[i].parentElement.parentElement.children[1].children[1].textContent - (pricelists[i].parentElement.parentElement.children[1].children[1].textContent / 100 * pricelists[i].previousElementSibling.textContent.replace(/\%/, ""));
+    }
+  }
+});
+
+// end price-list
 
 // start index animation
 let digital = document.querySelector('.digital');
