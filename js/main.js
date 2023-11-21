@@ -1368,17 +1368,36 @@ autosize(document.querySelectorAll('textarea'));
 // end autosize textarea
 
 // start price-list
-
-document.addEventListener("DOMContentLoaded", () => {
-  const pricelist = document.querySelector("[price-list]");
-  if (pricelist) {
-    const pricelists = document.querySelectorAll("[price-list]");
+const pricelist = document.querySelector("[price-list]");
+if (pricelist) {
+  const pricelists = document.querySelectorAll("[price-list]");
+  document.addEventListener("DOMContentLoaded", () => {
     for (i = 0; i < pricelists.length; i++) {
-      pricelists[i].textContent = pricelists[i].parentElement.parentElement.children[1].children[1].textContent - (pricelists[i].parentElement.parentElement.children[1].children[1].textContent / 100 * pricelists[i].previousElementSibling.textContent.replace(/\%/, ""));
+      pricelists[i].textContent = pricelists[i].parentElement.parentElement.children[0].children[1].textContent - (pricelists[i].parentElement.parentElement.children[0].children[1].textContent / 100 * pricelists[i].previousElementSibling.textContent.replace(/\%/, ""));
     }
-  }
-});
-
+  });
+  document.querySelectorAll('.price__sublist').forEach(n => {
+    const priceswiper = new Swiper(n.querySelector('.price__swiper'), {
+      slidesPerView: 1,
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+      breakpoints: {
+        1440: {
+          slidesPerView: 'auto',
+        },
+        1024: {
+          slidesPerView: 'auto',
+        },
+        580: {
+          slidesPerView: 2,
+        },
+        390: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+}
 // end price-list
 
 // start index animation
