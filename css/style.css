@@ -1622,6 +1622,44 @@ html.has-scroll-dragging {
   display: none;
 }
 
+.animation__trackpad {
+  width: 80px;
+  margin: 0 0 0 auto;
+  color: var(--text);
+}
+
+.animation__trackpad svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.animation__hand {
+  -webkit-animation: slide 1.5s linear infinite;
+  animation: slide 1.5s linear infinite;
+}
+
+.animation__tap { 
+  -webkit-animation: slide 1.5s linear infinite;
+  animation: slide 1.5s linear infinite;
+}
+
+@-webkit-keyframes slide {
+  0% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+  25% {-webkit-transform:translateX(-25px);transform:translateX(-25px);}
+  50% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+  75% {-webkit-transform:translateX(25px);transform:translateX(25px);}
+  100% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+}
+
+@keyframes slide {
+  0% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+  25% {-webkit-transform:translateX(-25px);transform:translateX(-25px);}
+  50% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+  75% {-webkit-transform:translateX(25px);transform:translateX(25px);}
+  100% {-webkit-transform:translateX(0px);transform:translateX(0px);}
+}
+
 /* end preloader */
 
 /* start header__nav */
@@ -6486,6 +6524,14 @@ html.has-scroll-dragging {
   width: 80%;
 }
 
+.price__item:not(:first-child) .price__item_hour {
+  display: none;
+}
+
+.price__list .animation__trackpad {
+  display: none;
+}
+
 /* end price */
 
 /* start 1440px */
@@ -7969,12 +8015,32 @@ html.has-scroll-dragging {
   .feedback_popup__head {
     padding: 0px 0px 40px;
   }
+  .price__block {
+    width: 100%;
+    padding: 40px 20px;
+  }
+  .price__list {
+    padding: 30px 20px;
+  }
   .price__subitem:nth-child(1),
   .price__swiper {
     width: 50%;
   }
   .price__swiper .price__subitem {
     text-align: right;
+  }
+  .price__item_block .price__item_head {
+    width: min-content;
+  }
+  .price__info {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  .price__item:not(:first-child) .price__item_hour {
+    display: block;
+  }
+  .price__list .animation__trackpad {
+    display: block;
   }
   .footer__flex {
     padding: 0 0 130px;

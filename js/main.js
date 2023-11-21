@@ -150,22 +150,23 @@ document.addEventListener("DOMContentLoaded", () => {
       cursorBlock.classList.remove("active");
     };
   })
-
-  sliders.forEach(item => {
-    item.onmouseenter = () => {
-      cursor.classList.add("cursor__slider");
-    };
-    item.onmouseleave = () => {
-      cursor.classList.remove("cursor__slider");
-      cursorBlock.classList.remove("active");
-    };
-    item.onpointerdown = () => {
-      cursorBlock.classList.add("active");
-    }
-    item.onpointerup = () => {
-      cursorBlock.classList.remove("active");
-    };
-  })
+  if (!document.querySelector(".price__swiper")) {
+    sliders.forEach(item => {
+      item.onmouseenter = () => {
+        cursor.classList.add("cursor__slider");
+      };
+      item.onmouseleave = () => {
+        cursor.classList.remove("cursor__slider");
+        cursorBlock.classList.remove("active");
+      };
+      item.onpointerdown = () => {
+        cursorBlock.classList.add("active");
+      }
+      item.onpointerup = () => {
+        cursorBlock.classList.remove("active");
+      };
+    })
+  }
 
   a.forEach(item => {
     item.addEventListener('mouseover', () => {
@@ -1382,11 +1383,11 @@ if (pricelist) {
       touchRatio: 0.2,
       slideToClickedSlide: true,
       breakpoints: {
-        1440: {
-          slidesPerView: 'auto',
-        },
         1024: {
           slidesPerView: 'auto',
+        },
+        768: {
+          slidesPerView: 3,
         },
         580: {
           slidesPerView: 2,
