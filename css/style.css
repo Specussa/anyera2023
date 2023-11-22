@@ -6421,6 +6421,10 @@ html.has-scroll-dragging {
   justify-content: space-between;
 }
 
+.price__sublist .price__subitem:first-child {
+  z-index: 2;
+}
+
 .price__item_block {
   display: -webkit-box;
   display: -ms-flexbox;
