@@ -3724,7 +3724,8 @@ html.has-scroll-dragging {
 .career__desc,
 .career_bottom__desc,
 .header__consultation_desc,
-.price__desc {
+.price__desc,
+.certificates__desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3746,7 +3747,8 @@ html.has-scroll-dragging {
 .career__desc::before,
 .career_bottom__desc::before,
 .header__consultation_desc::before,
-.price__desc::before {
+.price__desc::before,
+.certificates__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -6538,6 +6540,64 @@ html.has-scroll-dragging {
 
 /* end price */
 
+/* start certificates */
+
+.certificates__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  padding: 160px 80px 80px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.certificates__divider {
+  border-bottom: 1px solid var(--border);
+}
+
+.certificates__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 2px;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+.certificates__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  padding: 80px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.certificates__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  padding: 80px 40px;
+}
+
+.certificates__image img {
+  height: 166px;
+  object-fit: contain;
+}
+
+.certificates__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* end certificates */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -6905,6 +6965,15 @@ html.has-scroll-dragging {
   .price__swiper .price__subitem {
     width: 17.5%;
   }
+  .certificates__block {
+    padding: 140px 60px 60px;
+  }
+  .certificates__info {
+    padding: 40px 60px;
+  }
+  .certificates__image {
+    padding: 40px 30px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -7107,7 +7176,8 @@ html.has-scroll-dragging {
   .career__desc,
   .career_bottom__desc,
   .header__consultation_desc,
-  .price__desc {
+  .price__desc,
+  .certificates__desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -7427,6 +7497,24 @@ html.has-scroll-dragging {
   }
   .price__swiper {
     width: 60%;
+  }
+  .certificates__block {
+    width: 100%;
+    padding: 60px 30px;
+    gap: 30px;
+  }
+  .certificates__flex {
+    justify-content: space-between;
+  }
+  .certificates__info,
+  .certificates__image {
+    padding: 40px 30px;
+  }
+  .certificates__image {
+    width: auto;
+  }
+  .certificates__image img {
+    height: 105px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -7838,7 +7926,8 @@ html.has-scroll-dragging {
   .career__desc,
   .career_bottom__desc,
   .header__consultation_desc,
-  .price__desc {
+  .price__desc,
+  .certificates__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -8198,7 +8287,8 @@ html.has-scroll-dragging {
   .career__desc,
   .career_bottom__desc,
   .header__consultation_desc,
-  .price__desc {
+  .price__desc,
+  .certificates__desc {
     max-width: 100%;
   }
   .header__consultation_blocks {
@@ -8362,6 +8452,21 @@ html.has-scroll-dragging {
     flex-direction: column;
     align-items: flex-start;
   }
+  .certificates__block {
+    padding: 40px 20px 20px;
+    gap: 20px;
+  }
+  .certificates__flex {
+    padding: 30px 20px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .certificates__info,
+  .certificates__image {
+    width: 100%;
+    padding: 0;
+  }
   .footer__button_up {
     padding: 0;
   }
@@ -8386,6 +8491,10 @@ html.has-scroll-dragging {
 @media (max-width: 389px) {
   .project_desktop__container {
     display: none;
+  }
+  .certificates__image img {
+    width: 100%;
+    height: auto;
   }
 }
 /* end 389px */
