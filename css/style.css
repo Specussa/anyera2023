@@ -3725,7 +3725,9 @@ html.has-scroll-dragging {
 .career_bottom__desc,
 .header__consultation_desc,
 .price__desc,
-.certificates__desc {
+.certificates__desc,
+.competencies__desc,
+.competencies__description {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3748,7 +3750,9 @@ html.has-scroll-dragging {
 .career_bottom__desc::before,
 .header__consultation_desc::before,
 .price__desc::before,
-.certificates__desc::before {
+.certificates__desc::before,
+.competencies__desc::before,
+.competencies__description::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -6598,6 +6602,76 @@ html.has-scroll-dragging {
 
 /* end certificates */
 
+/* start certificates */
+
+.competencies__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 160px 80px 80px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.competencies__divider {
+  border-bottom: 1px solid var(--border);
+}
+
+.competencies__description {
+  max-width: 100%;
+}
+
+.competencies__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 80px 0;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.competencies__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.competencies__hedading {
+  width: 50%;
+  padding: 0 80px;
+}
+
+.competencies__button {
+  margin: 0 80px;
+}
+
+.competencies__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  padding: 0 80px;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.competencies__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  height: max-content;
+  padding: 0 80px;
+  flex-wrap: wrap;
+  gap: 30px 80px;
+}
+
+.competencies__item {
+  width: calc(50% - 40px);
+}
+
+/* end certificates */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -6974,6 +7048,32 @@ html.has-scroll-dragging {
   .certificates__image {
     padding: 40px 30px;
   }
+  .competencies__block {
+    padding: 140px 60px 60px;
+    gap: 30px;
+  }
+  .competencies__hedading {
+    padding: 0 60px;
+  }
+  .competencies__button {
+    margin: 0 60px;
+  }
+  .competencies__bottom {
+    padding: 40px 0;
+    gap: 40px;
+  }
+  .competencies__info {
+    padding: 0 60px;
+    gap: 40px;
+  }
+  .competencies__list {
+    padding: 0 60px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .competencies__item {
+    width: 100%;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -7177,7 +7277,9 @@ html.has-scroll-dragging {
   .career_bottom__desc,
   .header__consultation_desc,
   .price__desc,
-  .certificates__desc {
+  .certificates__desc,
+  .competencies__desc,
+  .competencies__description {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -7515,6 +7617,23 @@ html.has-scroll-dragging {
   }
   .certificates__image img {
     height: 105px;
+  }
+  .competencies__block {
+    padding: 60px 30px;
+  }
+  .competencies__bottom {
+    padding: 30px 0;
+  }
+  .competencies__hedading,
+  .competencies__info,
+  .competencies__list {
+    padding: 0 30px;
+  }
+  .competencies__hedading {
+    width: 100%;
+  }
+  .competencies__button {
+    margin: 0 30px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -7927,7 +8046,9 @@ html.has-scroll-dragging {
   .career_bottom__desc,
   .header__consultation_desc,
   .price__desc,
-  .certificates__desc {
+  .certificates__desc,
+  .competencies__desc,
+  .competencies__description {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -8288,7 +8409,9 @@ html.has-scroll-dragging {
   .career_bottom__desc,
   .header__consultation_desc,
   .price__desc,
-  .certificates__desc {
+  .certificates__desc,
+  .competencies__desc,
+  .competencies__description {
     max-width: 100%;
   }
   .header__consultation_blocks {
@@ -8466,6 +8589,26 @@ html.has-scroll-dragging {
   .certificates__image {
     width: 100%;
     padding: 0;
+  }
+  .competencies__block {
+    padding: 40px 20px;
+  }
+  .competencies__bottom {
+    padding: 20px;
+    gap: 20px;
+  }
+  .competencies__flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .competencies__info,
+  .competencies__list,
+  .competencies__hedading {
+    padding: 0;
+    width: 100%;
+  }
+  .competencies__button {
+    margin: 10px 0 0;
   }
   .footer__button_up {
     padding: 0;
