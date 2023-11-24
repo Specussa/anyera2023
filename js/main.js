@@ -720,6 +720,25 @@ if(projectdesktopSlider){
 }
 // end project desktop
 
+// start project tab
+const projecttabSlider = document.querySelector('.project_tab__swiper');
+if(projecttabSlider){
+  var ptabSlider = new Swiper('.project_tab__swiper', {
+    loop: true,
+    slideToClickedSlide: false,
+    allowTouchMove: true,
+    watchSlidesProgress: true,
+    slidesPerView: 1,
+    loopedSlides: 1,
+    spaceBetween: 0,
+    pagination: {
+      el: '.project_tab__pagination',
+      clickable: true,
+    },
+  });
+}
+// end project tab
+
 // start project phone slider
 const elsliderphone = document.querySelector('.project_phone');
 if(elsliderphone) {
