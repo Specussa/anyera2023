@@ -3727,7 +3727,8 @@ html.has-scroll-dragging {
 .price__desc,
 .certificates__desc,
 .competencies__desc,
-.competencies__description {
+.competencies__description,
+.article__desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3752,7 +3753,8 @@ html.has-scroll-dragging {
 .price__desc::before,
 .certificates__desc::before,
 .competencies__desc::before,
-.competencies__description::before {
+.competencies__description::before,
+.article__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -4291,9 +4293,23 @@ html.has-scroll-dragging {
 
 .project_top {
   height: calc(var(--height) + 1px);
+  min-height: 400px;
   max-height: 1024px;
   margin: 0 0 1px;
   border-bottom: 1px solid var(--border);
+  background-size: cover;
+  background-position: center top;
+}
+
+.project_top__shadow::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(22, 22, 22, 0.5);
 }
 
 .project_top__container {
@@ -4304,6 +4320,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
   padding: 180px 0 100px;
   gap: 80px;
 }
@@ -4319,6 +4336,17 @@ html.has-scroll-dragging {
   gap: 20px;
   position: relative;
   z-index: 1;
+}
+
+.project_top__shadow .project_top__info {
+  height: 100%;
+  width: 100%;
+  max-width: 920px;
+}
+
+.project_top__shadow .project_top__info_block {
+  height: 100%;
+  justify-content: space-between;
 }
 
 .project_top__info_block {
@@ -4742,122 +4770,6 @@ html.has-scroll-dragging {
 }
 
 /* end articles */
-
-/* start article */
-
-.article {
-  margin-bottom: 25px;
-}
-
-.article__image {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 15px;
-  height: 240px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.article__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.article__description {
-  margin-bottom: 30px;
-}
-
-.article__description p {
-  margin-bottom: 15px;
-}
-
-.privacy-page {
-  margin-top: 30px;
-}
-
-.article__title,
-.article__list {
-  margin-bottom: 30px;
-}
-
-.article__title {
-  word-break: break-word;
-}
-
-.article__desc a {
-  color: var(--purple);
-}
-
-.article__item:not(:last-child) {
-  margin-bottom: 45px;
-}
-
-/* end article */
-
-/* start breadcrumbs */
-
-.breadcrumbs__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  row-gap: 15px;
-  margin: 15px 0;
-}
-
-.breadcrumbs__item:not(:last-child):after {
-  content: "/";
-  margin: 0 10px;
-}
-
-.breadcrumbs__item,
-.breadcrumbs__link {
-  display: inline-flex;
-  align-items: center;
-}
-
-.breadcrumbs__item {
-  opacity: 0;
-  -webkit-transform: translateY(-50px);
-  transform: translateY(-50px);
-  -webkit-transition: -webkit-transform 0.3s linear, opacity 0.3s linear;
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: transform 0.3s linear, opacity 0.3s linear;
-  transition: transform 0.3s linear, opacity 0.3s linear, -webkit-transform 0.3s linear;
-  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
-  transition-delay: calc(var(--inc-step)*0.1s);
-}
-
-.loaded .breadcrumbs__list.animate .breadcrumbs__item {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-
-.breadcrumbs__tag_list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.breadcrumbs___name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90px;
-  height: 30px;
-  background: var(--purple);
-  color: var(--white);
-  text-transform: uppercase;
-  clip-path: polygon(100% 0, 100% calc(100% - 11px), calc(100% - 8px) 100%, 0 100%, 0 0);
-}
-
-/* end breadcrumbs */
 
 /* start team */
 
@@ -6724,6 +6636,67 @@ html.has-scroll-dragging {
 
 /* end certificates */
 
+/* start article */
+
+.article__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.article__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.article__info_left,
+.article__info_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.article__info_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 120px 80px 80px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article__info_right {
+  padding: 0 40px 80px;
+}
+
+.article__info_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 80px 0 0;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.article__divider {
+  border-bottom: 1px solid var(--border);
+}
+
+.article__desc {
+  max-width: 100%;
+}
+
+.article__image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* end article */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -7137,6 +7110,9 @@ html.has-scroll-dragging {
   .competencies__item {
     width: 100%;
   }
+  .article__info_block {
+    padding: 100px 60px 80px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
@@ -7342,7 +7318,8 @@ html.has-scroll-dragging {
   .price__desc,
   .certificates__desc,
   .competencies__desc,
-  .competencies__description {
+  .competencies__description,
+  .article__desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -7708,6 +7685,20 @@ html.has-scroll-dragging {
   }
   .competencies__button {
     margin: 0 30px;
+  }
+  .article__info {
+    padding: 60px 30px;
+  }
+  .article__info_left {
+    display: none;
+  }
+  .article__info_right {
+    width: 100%;
+    padding: 0;
+    gap: 40px;
+  }
+  .article__info_flex {
+    padding: 0;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -8134,7 +8125,8 @@ html.has-scroll-dragging {
   .price__desc,
   .certificates__desc,
   .competencies__desc,
-  .competencies__description {
+  .competencies__description,
+  .article__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -8342,6 +8334,16 @@ html.has-scroll-dragging {
   .price__list .animation__trackpad {
     display: block;
   }
+  .article__info {
+    padding: 80px 20px;
+  }
+  .article__info_right {
+    gap: 80px;
+  }
+  .article__image {
+    width: calc(100% + 80px);
+    margin: 0 -40px;
+  }
   .footer__flex {
     padding: 0 0 130px;
   }
@@ -8497,7 +8499,8 @@ html.has-scroll-dragging {
   .price__desc,
   .certificates__desc,
   .competencies__desc,
-  .competencies__description {
+  .competencies__description,
+  .article__desc {
     max-width: 100%;
   }
   .header__consultation_blocks {
@@ -8710,6 +8713,12 @@ html.has-scroll-dragging {
   }
   .competencies__button {
     margin: 10px 0 0;
+  }
+  .article__info {
+    padding: 40px 20px;
+  }
+  .article__info_right {
+    gap: 40px;
   }
   .footer__button_up {
     padding: 0;
