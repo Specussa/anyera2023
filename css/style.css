@@ -3736,7 +3736,8 @@ html.has-scroll-dragging {
 .certificates__desc,
 .competencies__desc,
 .competencies__description,
-.article__desc {
+.article__desc,
+.articles_page__desc {
   max-width: 430px;
   padding: 0 0 0 40px;
   position: relative;
@@ -3762,7 +3763,8 @@ html.has-scroll-dragging {
 .certificates__desc::before,
 .competencies__desc::before,
 .competencies__description::before,
-.article__desc::before {
+.article__desc::before,
+.articles_page__desc::before {
   content: "";
   display: inline-block;
   width: 2px;
@@ -4301,7 +4303,7 @@ html.has-scroll-dragging {
 
 .project_top {
   height: calc(var(--height) + 1px);
-  min-height: 400px;
+  min-height: 600px;
   max-height: 1024px;
   margin: 0 0 1px;
   border-bottom: 1px solid var(--border);
@@ -4725,7 +4727,7 @@ html.has-scroll-dragging {
 
 .articles__head {
   display: -webkit-box;
-  height: 60px;
+  /* height: 60px; */
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -6705,6 +6707,32 @@ html.has-scroll-dragging {
 
 /* end article */
 
+/* start article */
+
+.articles_page__container {
+  max-width: 50vw;
+  margin: 0 auto 0 0;
+  padding: 0;
+}
+
+.articles_page__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 0 0 auto;
+  padding: 160px 80px 80px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.articles_page__divider {
+  border-bottom: 1px solid var(--border);
+}
+
+/* end article */
+
 /* start 1440px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -7327,7 +7355,8 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc {
+  .article__desc,
+  .articles_page__desc {
     padding: 0 0 0 30px;
   }
   .articles__block,
@@ -8134,7 +8163,8 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc {
+  .article__desc,
+  .articles_page__desc {
     padding: 0 0 0 20px;
   }
   .expertise__button {
@@ -8508,7 +8538,8 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc {
+  .article__desc,
+  .articles_page__desc {
     max-width: 100%;
   }
   .header__consultation_blocks {
