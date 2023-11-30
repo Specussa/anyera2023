@@ -62,7 +62,11 @@ const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
 const projecttopinfo = document.querySelector('.project_top__info');
 
-if(projecttop && projecttop.style.background !=  "rgb(255, 255, 255)" && projecttop.style.background !=  "var(--bg)"){
+if(projecttop && 
+  projecttop.style.background !=  "rgb(255, 255, 255)" && 
+  projecttop.style.background !=  "rgb(255, 251, 239)" && 
+  projecttop.style.background !=  "rgb(233, 249, 249)" && 
+  projecttop.style.background !=  "var(--bg)"){
   header.classList.add('header__transparent');
   header.classList.add('project_top__white');
   projecttopinfo.classList.add('project_top__white');
@@ -80,7 +84,11 @@ scroll.on('scroll', (args) => {
   headerprogress.style.flexBasis = scrollheader + '%';
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
-  if(projecttop && projecttop.style.background !=  "rgb(255, 255, 255)" && projecttop.style.background !=  "var(--bg)"){
+  if(projecttop && 
+    projecttop.style.background !=  "rgb(255, 255, 255)" && 
+    projecttop.style.background !=  "rgb(255, 251, 239)" && 
+    projecttop.style.background !=  "rgb(233, 249, 249)" && 
+    projecttop.style.background !=  "var(--bg)"){
     if (Math.round(args["scroll"]["y"]) <= 50) {
       header.classList.add('header__transparent');
     } else {

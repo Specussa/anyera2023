@@ -4620,8 +4620,8 @@ html.has-scroll-dragging {
 .project_phone_block {
   position: absolute;
   width: calc(100% - 12%);
-  height: calc(100% - 5%);
-  top: 2.5%;
+  height: calc(100% - 10%);
+  top: 8%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
