@@ -356,3 +356,70 @@ if(formfeedback) {
   }
 }
 // end validate form feedback
+
+// start validate form subscription
+const formsubscription = document.getElementById('form__subscription');
+
+if(formsubscription) {
+  const subscriptionemail = document.getElementById('subscription__email');
+  const subscriptionemailMin = subscriptionemail.getAttribute('minl');
+  const subscriptionemailMax = subscriptionemail.getAttribute('maxl');
+  subscriptionemail.oninput = function(){this.value = this.value.substr(0, subscriptionemailMax);}
+
+  subscriptionemail.addEventListener('input', function () {
+    const subscriptionemailValid = subscriptionemail.value.trim();
+    this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else if (!isFormEmailValid(subscriptionemailValid)) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  })
+
+  formsubscription.addEventListener('submit', e => {
+    e.preventDefault();
+    checkFormSubscriptionInputs();
+  });
+  function checkFormSubscriptionInputs() {
+    const subscriptionemailValue = subscriptionemail.value.trim();
+    
+    if(!isFormEmailValid(subscriptionemailValue)) {
+      setErrorFor(subscriptionemail);
+    } else if (subscriptionemailValue !== '' && subscriptionemailValue.length >= subscriptionemailMin && subscriptionemailValue.length <= subscriptionemailMax) {
+      setSuccessFor(subscriptionemail);
+    } else {
+      setErrorFor(subscriptionemail);
+    }
+    if(!isFormEmailValid(subscriptionemailValue)) {
+    } else if (subscriptionemailValue !== '' && subscriptionemailValue.length >= subscriptionemailMin && subscriptionemailValue.length <= subscriptionemailMax) {
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: subscriptionemailValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    }
+  }
+
+  const apinput = [...document.querySelectorAll('.articles_page__checks .articles_page__check_input')];
+  const apcheck = document.querySelectorAll('.articles_page__checks .articles_page__check');
+
+  apinput.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      for(var i = 0;i < apcheck.length; i++) {apcheck[i].classList.remove('active');}
+      event.target.closest('.articles_page__check').classList.add('active');
+    }
+  }))
+}
+// end validate form subscription

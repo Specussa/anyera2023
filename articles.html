@@ -131,6 +131,16 @@
         <div class="articles_page__block">
           <h1 class="articles_page__head">СТАТЬИ</h1>
           <p class="articles_page__desc">Рассказываем о digital-трендах и о мире цифровизации. Делимся личным опытом и кейсами.</p>
+          <div class="articles_page__checks">
+            <label class="btn checkbox articles_page__check active"><span class="button__text">Все статьи</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio" checked=""></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Разработка</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Дизайн</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Аналитика</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Маркетинг</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Бизнес</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">E-commerce</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+            <label class="btn checkbox articles_page__check"><span class="button__text">Новости</span><span class="button__hover"></span><input class="checkbox__input articles_page__check_input" name="type" type="radio"></label>
+          </div>
         </div>
         <div class="articles_page__divider"></div>
       </div>
@@ -587,8 +597,10 @@
       <div class="container subscription__container">
         <div class="subscription__block">
           <form id="form__subscription" class="subscription__form">
-            <h2 class="subscription__head">Подпишитесь на нашу рассылку</h2>
-            <p class="subscription__desc">Обещаем, что мы не будем спамить, а будем отправлять только полезные материалы</p>
+            <div class="subscription__info">
+              <h2 class="subscription__head">Подпишитесь на нашу рассылку</h2>
+              <p class="subscription__desc">Обещаем, что мы не будем спамить, а будем отправлять только полезные материалы</p>
+            </div>
             <div class="subscription__form_controls">
               <div class="form__control">
                 <input class="form__input" type="text" minl="4" maxl="40" id="subscription__email">
@@ -599,7 +611,7 @@
                 <small class="form__error">Введите e-mail</small>
               </div>
             </div>
-            <div class="header__form_bottom">
+            <div class="subscription__bottom">
               <label class="form__policy">
                 <input class="form__policy_input" type="checkbox" checked="">
                 <span class="form__policy_check">
@@ -607,10 +619,10 @@
                     <path d="M1.3335 3.73301L4.8335 7.33301L10.6668 1.33301" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
                   </svg>
                 </span>
-                <span>Я даю свое согласие на <a href="policy.html" class="text text__middle">обработку персональных</a>.</span>
+                <span>Я даю свое согласие на <a href="policy.html" class="text text__middle">обработку персональных данных</a>.</span>
               </label>
               <div class="btn btn__input header__form_button">
-                <input type="submit" name="submit" value="Отправить" class="button__text">
+                <input type="submit" name="submit" value="Подписаться" class="button__text">
                 <span class="button__hover"></span>
               </div>
             </div>
