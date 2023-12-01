@@ -888,7 +888,7 @@ if(projectpresentSlider){
     slidesPerView: 1,
     loopedSlides: 10,
     spaceBetween: 0,
-    speed: 2000,
+    speed: 6000,
     autoplay: {
       delay: 1,
       disableOnInteraction: false
@@ -900,8 +900,8 @@ if(projectpresentSlider){
     },
     on: {
       slideChangeTransitionStart: function() {
-        projectpresentlist.style.transitionDuration = "4000ms";
-        this.params.speed = 4000;
+        projectpresentlist.style.transitionDuration = "6000ms";
+        this.params.speed = 6000;
         this.autoplay.start();
       },
       init: function() {
