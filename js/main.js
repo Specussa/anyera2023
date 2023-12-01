@@ -875,6 +875,55 @@ if(teamcommentsSlider){
 }
 // end team comments
 
+// start project present
+const projectpresentSlider = document.querySelector('.project_present__swiper');
+if(projectpresentSlider){
+  var transformValue;
+  var projectpresentlist = document.querySelector('.project_present__swiper .project_present__list');
+  var ppresentSlider = new Swiper('.project_present__swiper', {
+    loop: true,
+    slideToClickedSlide: false,
+    allowTouchMove: false,
+    watchSlidesProgress: true,
+    slidesPerView: 1,
+    loopedSlides: 10,
+    spaceBetween: 0,
+    speed: 2000,
+    autoplay: {
+      delay: 1,
+      disableOnInteraction: false
+    },
+    breakpoints: {
+      580: {
+        slidesPerView: 'auto',
+      },
+    },
+    on: {
+      slideChangeTransitionStart: function() {
+        projectpresentlist.style.transitionDuration = "4000ms";
+        this.params.speed = 4000;
+        this.autoplay.start();
+      },
+      init: function() {
+        projectpresentSlider.addEventListener('mouseenter', () => {
+          this.autoplay.stop();
+          transformValue = projectpresentlist.style.transform;
+          projectpresentlist.style.transitionDuration = "0ms";
+          this.params.speed = 0;
+          projectpresentlist.style.transform = "translate3d(" + this.getTranslate() + "px, 0px, 0px)";
+        });
+        projectpresentSlider.addEventListener('mouseleave', () => {
+          projectpresentlist.style.transitionDuration = "1000ms";
+          this.params.speed = 1000;
+          projectpresentlist.style.transform = transformValue;
+          this.autoplay.start();
+        });
+      }
+    }
+  });
+}
+// end project present
+
 // start video
 const preview = document.querySelector('.showreel__button');
 const showreelvideo = document.getElementById('showreel__video');
