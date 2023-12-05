@@ -1,32 +1,32 @@
 // start right mouse
-document.oncontextmenu = cmenu; function cmenu() { return false; }
-function preventSelection(element){
-  var preventSelection = false;
-  function addHandler(element, event, handler){
-  if (element.attachEvent) element.attachEvent('on' + event, handler);
-  else if (element.addEventListener) element.addEventListener(event, handler, false);  }
-  function removeSelection(){
-  if (window.getSelection) { window.getSelection().removeAllRanges(); }
-  else if (document.selection && document.selection.clear)
-  document.selection.clear();
-  }
+// document.oncontextmenu = cmenu; function cmenu() { return false; }
+// function preventSelection(element){
+//   var preventSelection = false;
+//   function addHandler(element, event, handler){
+//   if (element.attachEvent) element.attachEvent('on' + event, handler);
+//   else if (element.addEventListener) element.addEventListener(event, handler, false);  }
+//   function removeSelection(){
+//   if (window.getSelection) { window.getSelection().removeAllRanges(); }
+//   else if (document.selection && document.selection.clear)
+//   document.selection.clear();
+//   }
 
-  addHandler(element, 'mousemove', function(){ if(preventSelection) removeSelection(); });
-  addHandler(element, 'mousedown', function(event){ var event = event || window.event; var sender = event.target || event.srcElement; preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i) ;});
+//   addHandler(element, 'mousemove', function(){ if(preventSelection) removeSelection(); });
+//   addHandler(element, 'mousedown', function(event){ var event = event || window.event; var sender = event.target || event.srcElement; preventSelection = !sender.tagName.match(/INPUT|TEXTAREA/i) ;});
 
-  function killCtrlA(event){
-  var event = event || window.event;
-  var sender = event.target || event.srcElement;
-  if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
-  var key = event.keyCode || event.which;
-  if ((event.ctrlKey && key == 'U'.charCodeAt(0)) || (event.ctrlKey && key == 'A'.charCodeAt(0)) || (event.ctrlKey && key == 'S'.charCodeAt(0)))
-  { removeSelection();
-  if (event.preventDefault) event.preventDefault();
-  else event.returnValue = false;}}
-  addHandler(element, 'keydown', killCtrlA);
-  addHandler(element, 'keyup', killCtrlA);
-}
-preventSelection(document);
+//   function killCtrlA(event){
+//   var event = event || window.event;
+//   var sender = event.target || event.srcElement;
+//   if (sender.tagName.match(/INPUT|TEXTAREA/i)) return;
+//   var key = event.keyCode || event.which;
+//   if ((event.ctrlKey && key == 'U'.charCodeAt(0)) || (event.ctrlKey && key == 'A'.charCodeAt(0)) || (event.ctrlKey && key == 'S'.charCodeAt(0)))
+//   { removeSelection();
+//   if (event.preventDefault) event.preventDefault();
+//   else event.returnValue = false;}}
+//   addHandler(element, 'keydown', killCtrlA);
+//   addHandler(element, 'keyup', killCtrlA);
+// }
+// preventSelection(document);
 // end right mouse
 
 // start height
@@ -256,7 +256,7 @@ const contactssb = document.querySelector('.contacts__social_button');
 
 const burger_ctwo = document.querySelector('.button__project_two');
 
-// кнопка header__burger
+// button header__burger
 burger.addEventListener('click', function() {
   if (burger.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
@@ -286,7 +286,7 @@ burger.addEventListener('click', function() {
 })
 // end header__burger
 
-// кнопка header__project
+// button header__project
 burger_c.addEventListener('click', function() {
   if (!burger_c.classList.contains("active")) {
     bodyoverlay.classList.add("active");
@@ -337,7 +337,7 @@ burger_ctwo.addEventListener('click', function() {
     scroll.stop();
   }
 })
-// кнопка закрыть для header__project
+// button закрыть для header__project
 document.querySelector('.header__consultation_burger').addEventListener('click', function() {
   if (burger_c.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
@@ -354,7 +354,71 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
 })
 // end header__project
 
-// кнопка career_popup
+// start menu sublist
+const subnav = document.querySelectorAll('.header__subnav_list'); 
+[...subnav].forEach(function (li) { 
+  for (let [index, elem] of [...li.children].entries()){ 
+    elem.style.setProperty('--inc-step', index+1); 
+  } 
+});
+
+var hovermenu = document.querySelector('.header__nav_list'),
+elemHovermenu = false;
+hovermenu.addEventListener('mouseover', function(e) {
+  if(elemHovermenu) return;
+  var target = e.target.closest('.header__nav_item');
+  if(!target) return;
+  elemHovermenu = target;
+  var parent = target.closest('.header__nav_list'),
+  old = parent.querySelector('.active')
+  if(old) old.classList.remove('active')
+  target.classList.add('active')
+})
+hovermenu.addEventListener('mouseout', function(e) {
+  if(!elemHovermenu) return;
+  elemHovermenu = null;
+})
+
+var hnl = document.getElementsByClassName("header__nav_link");
+var i;
+
+for (i = 0; i < hnl.length; i++) {
+  hnl[i].onclick = function(e) {
+    if (!this.parentElement.classList.contains("open")) {
+      e.preventDefault();
+      console.log(this.parentElement)
+      var hsl = this.nextElementSibling;
+      if (hsl) {
+        var courseHsl = document.getElementsByClassName("header__subnav_list");
+        var courseHslActive = document.getElementsByClassName("header__nav_item open");
+        
+        if (hsl.style.maxHeight) {
+          hsl.style.maxHeight = null;
+          this.parentElement.classList.remove("open");
+          hsl.classList.remove("open");
+        } else {
+          for (var q = 0; q < courseHslActive.length; q++) {
+            courseHslActive[q].classList.remove("open");
+            courseHsl[q].classList.remove("open");
+          }
+          for (var p = 0; p < courseHsl.length; p++) {
+            this.parentElement.classList.remove("open");
+            courseHsl[p].classList.remove("open");
+            courseHsl[p].style.maxHeight = null;
+          }
+          hsl.style.maxHeight = (hsl.scrollHeight + 40) + "px";
+          hsl.classList.add("open");
+          this.parentElement.classList.add("open");
+        }
+      }
+    } else {
+      console.log(this)
+    }
+  };
+}
+// end menu sublist
+
+// button career_popup
 const careerpopup = document.querySelector('.career_popup');
 if(careerpopup) {
   var careerbutton = document.getElementsByClassName("career_bottom__button");
@@ -390,7 +454,7 @@ if(careerpopup) {
 }
 // end career_popup
 
-// кнопка feedback_popup
+// button feedback_popup
 const feedbackpopup = document.querySelector('.feedback_popup');
 if(feedbackpopup) {
   var feedbackbutton = document.getElementsByClassName("footer_popup__button");
@@ -425,7 +489,7 @@ if(feedbackpopup) {
 }
 // end feedback_popup
 
-// кнопка overlay
+// button overlay
 bodyoverlay.addEventListener('click', function() {
   if (bodyoverlay.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
@@ -636,11 +700,11 @@ toggleClrModeBtnArr.forEach((btn) => {
 // Change color mode end
 
 // start expertise
-var acc = document.getElementsByClassName("expertise__button");
+var expertisebutton = document.getElementsByClassName("expertise__button");
 var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function(e) {
+for (i = 0; i < expertisebutton.length; i++) {
+  expertisebutton[i].onclick = function(e) {
     var expertise = this.nextElementSibling;
     var courseExpertise = document.getElementsByClassName("expertise__panel");
     var courseExpertiseActive = document.getElementsByClassName("expertise__button active");
@@ -890,8 +954,9 @@ if(projectpresentSlider){
     spaceBetween: 0,
     speed: 6000,
     autoplay: {
+      enabled: true,
       delay: 1,
-      disableOnInteraction: false
+      pauseOnMouseEnter: false
     },
     breakpoints: {
       580: {
