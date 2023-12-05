@@ -1760,23 +1760,27 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  padding: 0 50px;
+  width: 561px;
   flex-direction: column;
   gap: 20px;
   position: relative;
+}
+
+.header__nav_item {
+  width: 260px;
 }
 
 .header__subnav_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 201px;
   height: 100%;
   flex-direction: column;
   gap: 15px;
   position: absolute;
   top: 0;
-  left: calc(100% + 70px);
+  right: -100px;
   opacity: 0;
   -webkit-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
@@ -1791,17 +1795,17 @@ html.has-scroll-dragging {
 
 .header__subnav_item {
   position: relative;
-  top: 10%;
   opacity: 0;
-  -webkit-transition: opacity 0.3s linear, top 0.2s linear;
-  transition: opacity 0.3s linear, top 0.2s linear;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
 .header__nav_item.active .header__subnav_item {
-  top: 0;
   opacity: 1;
-  -webkit-transition: opacity 0.3s linear, top 0.2s linear;
-  transition: opacity 0.3s linear, top 0.2s linear;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
   -webkit-transition-delay: calc(var(--inc-step)*0.1s);
   transition-delay: calc(var(--inc-step)*0.1s);
 }
@@ -1823,11 +1827,8 @@ html.has-scroll-dragging {
 }
 
 .header__nav_link {
+  width: max-content;
   text-transform: uppercase;
-}
-
-.header__set_block {
-  padding: 0 50px;
 }
 
 .header__set_mode {
@@ -7677,6 +7678,24 @@ html.has-scroll-dragging {
   }
   .header__nav_bottom_social {
     gap: 20px 40px;
+  }
+  .header__subnav_list {
+    width: auto;
+    max-height: 0;
+    padding: 0 5px;
+    position: relative;
+    right: 0;
+    gap: 10px;
+    -webkit-transition: max-height 0.3s linear, opacity 0.3s linear;
+    transition: max-height 0.3s linear, opacity 0.3s linear;
+  }
+  .header__subnav_list.active {
+    max-height: 300px;
+    border-color: var(--gray-border);
+    z-index: 11;
+  }
+  .header__subnav_item:first-child {
+    padding: 15px 0 0;
   }
   .showreel,
   .expertise,

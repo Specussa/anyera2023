@@ -362,17 +362,16 @@ const subnav = document.querySelectorAll('.header__subnav_list');
   } 
 });
 
-var hovermenu = document.querySelector('.header__nav_list'),
-elemHovermenu = false;
+var hovermenu = document.querySelector('.header__nav_list');
+var elemHovermenu = false;
 hovermenu.addEventListener('mouseover', function(e) {
-  if(elemHovermenu) return;
   var target = e.target.closest('.header__nav_item');
-  if(!target) return;
+  if (elemHovermenu || !target) {return};
   elemHovermenu = target;
-  var parent = target.closest('.header__nav_list'),
-  old = parent.querySelector('.active')
-  if(old) old.classList.remove('active')
-  target.classList.add('active')
+  var parent = target.closest('.header__nav_list');
+  var old = parent.querySelector('.active');
+  if (old) {old.classList.remove('active')};
+  target.classList.add('active');
 })
 hovermenu.addEventListener('mouseout', function(e) {
   if(!elemHovermenu) return;
