@@ -45,7 +45,8 @@ appHeight();
 // end height
 
 // start scroll
-scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.05,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
+// scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.05,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
+scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
 const hn_scroll = document.querySelector('.header__nav_scroll');
@@ -355,63 +356,61 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
 // end header__project
 
 // start menu sublist
-const subnav = document.querySelectorAll('.header__subnav_list'); 
-[...subnav].forEach(function (li) { 
-  for (let [index, elem] of [...li.children].entries()){ 
-    elem.style.setProperty('--inc-step', index+1); 
-  } 
+const subnav = document.querySelectorAll('.header__subnav_list');
+[...subnav].forEach(function (li) {
+  for (let [index, elem] of [...li.children].entries()){
+    elem.style.setProperty('--inc-step', index+1);
+  }
 });
 
-var hovermenu = document.querySelector('.header__nav_list');
-var elemHovermenu = false;
-hovermenu.addEventListener('mouseover', function(e) {
-  var target = e.target.closest('.header__nav_item');
-  if (elemHovermenu || !target) {return};
-  elemHovermenu = target;
-  var parent = target.closest('.header__nav_list');
-  var old = parent.querySelector('.active');
-  if (old) {old.classList.remove('active')};
-  target.classList.add('active');
-})
-hovermenu.addEventListener('mouseout', function(e) {
-  if(!elemHovermenu) return;
-  elemHovermenu = null;
-})
+if (document.documentElement.clientWidth > 1439) {
+  var hovermenu = document.querySelector('.header__nav_list');
+  var elemHovermenu = false;
+  hovermenu.addEventListener('mouseover', function(e) {
+    var target = e.target.closest('.header__nav_item');
+    if (elemHovermenu || !target) {return};
+    elemHovermenu = target;
+    var parent = target.closest('.header__nav_list');
+    var old = parent.querySelector('.header__nav_item.active');
+    if (old) {old.classList.remove('active')};
+    target.classList.add('active');
+  })
+  hovermenu.addEventListener('mouseout', function(e) {
+    if(!elemHovermenu) return;
+    elemHovermenu = null;
+  })
+};
 
 var hnl = document.getElementsByClassName("header__nav_link");
 var i;
-
 for (i = 0; i < hnl.length; i++) {
   hnl[i].onclick = function(e) {
-    if (!this.parentElement.classList.contains("open")) {
-      e.preventDefault();
-      console.log(this.parentElement)
+    if (!this.parentElement.classList.contains("active")) {
       var hsl = this.nextElementSibling;
       if (hsl) {
+        e.preventDefault();
         var courseHsl = document.getElementsByClassName("header__subnav_list");
-        var courseHslActive = document.getElementsByClassName("header__nav_item open");
-        
+        var courseHniActive = document.getElementsByClassName("header__nav_item active");
+
         if (hsl.style.maxHeight) {
           hsl.style.maxHeight = null;
-          this.parentElement.classList.remove("open");
-          hsl.classList.remove("open");
+          this.parentElement.classList.remove("active");
+          hsl.classList.remove("active");
         } else {
-          for (var q = 0; q < courseHslActive.length; q++) {
-            courseHslActive[q].classList.remove("open");
-            courseHsl[q].classList.remove("open");
+          for (var q = 0; q < courseHniActive.length; q++) {
+            courseHniActive[q].classList.remove("active");
+            courseHsl[q].classList.remove("active");
           }
           for (var p = 0; p < courseHsl.length; p++) {
-            this.parentElement.classList.remove("open");
-            courseHsl[p].classList.remove("open");
+            this.parentElement.classList.remove("active");
+            courseHsl[p].classList.remove("active");
             courseHsl[p].style.maxHeight = null;
           }
-          hsl.style.maxHeight = (hsl.scrollHeight + 40) + "px";
-          hsl.classList.add("open");
-          this.parentElement.classList.add("open");
+          hsl.style.maxHeight = hsl.scrollHeight + "px";
+          hsl.classList.add("active");
+          this.parentElement.classList.add("active");
         }
       }
-    } else {
-      console.log(this)
     }
   };
 }
@@ -517,6 +516,20 @@ bodyoverlay.addEventListener('click', function() {
 })
 // end overlay
 
+// button language
+const headerlangbutton = document.querySelector('.header__set_language_icon');
+const headerlang = document.querySelector('.header__set_language_control');
+headerlangbutton.addEventListener('click', function() {
+  if (headerlang.classList.contains("active")) {
+    headerlang.classList.remove("active");
+    headerlang.style.maxWidth = null;
+  } else {
+    headerlang.classList.add("active");
+    headerlang.style.maxWidth = headerlang.scrollWidth + "px";
+  }
+})
+// end language
+
 // start text rotate
 let textblock = document.querySelectorAll('.text');
 textblock.forEach(element => {
@@ -528,6 +541,7 @@ textblock.forEach(element => {
   
   for (let letter of innerText) {
     let span = document.createElement('span');
+    span.innerText = letter.trim() === '' ? span.classList.add('text__space') : letter;
     span.innerText = letter.trim() === '' ? '\xa0': letter;
     textContainer.appendChild(span);
   }
