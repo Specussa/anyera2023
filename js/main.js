@@ -256,6 +256,7 @@ const burger_c = document.querySelector('.button__project');
 const contactssb = document.querySelector('.contacts__social_button');
 
 const burger_ctwo = document.querySelector('.button__project_two');
+const menuItemActive = document.getElementsByClassName("header__nav_item active");
 
 // button header__burger
 burger.addEventListener('click', function() {
@@ -270,6 +271,9 @@ burger.addEventListener('click', function() {
       menu_c.classList.remove("active");
       burger_c.classList.remove("active");
     }
+    for (var i = 0; i < menuItemActive.length; i++) {
+      menuItemActive[i].classList.remove("active");
+    }
     scroll.start();
   } else {
     bodyoverlay.classList.add("active");
@@ -281,6 +285,9 @@ burger.addEventListener('click', function() {
     if(menu_c){
       menu_c.classList.remove("active");
       burger_c.classList.remove("active");
+    }
+    for (var i = 0; i < menuItemActive.length; i++) {
+      menuItemActive[i].classList.remove("active");
     }
     scroll.stop();
   }
@@ -360,6 +367,13 @@ const subnav = document.querySelectorAll('.header__subnav_list');
 [...subnav].forEach(function (li) {
   for (let [index, elem] of [...li.children].entries()){
     elem.style.setProperty('--inc-step', index+1);
+  }
+});
+
+const nav = document.querySelectorAll('.header__nav_list');
+[...nav].forEach(function (li) {
+  for (let [index, elem] of [...li.children].entries()){
+    elem.children[0].style.setProperty('--inc-step', index+1);
   }
 });
 
@@ -1556,10 +1570,10 @@ if (pricelist) {
 // end price-list
 
 // start index animation
-let digital = document.querySelector('.digital');
-let digitalinfo = document.querySelectorAll('.digital__info');
+const digital = document.querySelector('.digital');
+const digitalinfo = document.querySelectorAll('.digital__info');
 const digitalsl = document.querySelectorAll('.digital_social_list');
-if(!digital){} else {
+if(digital){
   let digitald = document.querySelectorAll('.digital');
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
   let digitaldopt = {threshold: [0]};
@@ -1578,9 +1592,9 @@ if(!digital){} else {
   [...digitalsl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
-let breadcrumb = document.querySelector('.breadcrumbs__item');
-let breadcrumbs = document.querySelectorAll('.breadcrumbs__list');
-if(!breadcrumb){} else {
+const breadcrumb = document.querySelector('.breadcrumbs__item');
+const breadcrumbs = document.querySelectorAll('.breadcrumbs__list');
+if(breadcrumb){
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
   let breadcrumbopt = {threshold: [0.5]};
   let breadcrumbserv = new IntersectionObserver(onEntry, breadcrumbopt);
@@ -1588,30 +1602,86 @@ if(!breadcrumb){} else {
   [...breadcrumbs].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
-// let footer = document.querySelector('.footer');
-// let footerlist = document.querySelectorAll('.footer__list');
-// let footerinfo = document.querySelectorAll('.footer__info');
-// let footercontacts = document.querySelectorAll('.footer__contacts_list');
-// let footersocial = document.querySelectorAll('.footer__social');
-// if(!footer){} else {
-//   let footerd = document.querySelectorAll('.footer');
-//   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
-//   let footerdopt = {threshold: [0]};
-//   let footerdserv = new IntersectionObserver(onEntry, footerdopt);
-//   for (let elm of footerd) {footerdserv.observe(elm);}
+const expertise = document.querySelector('.expertise');
+const expertiseleft = document.querySelectorAll('.expertise__left');
+const expertiseright = document.querySelectorAll('.expertise__right');
+if(expertise){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let expertiseleftopt = {threshold: [0.5]};
+  let expertiseleftserv = new IntersectionObserver(onEntry, expertiseleftopt);
+  for (let elm of expertiseleft) {expertiseleftserv.observe(elm);}
+  [...expertiseleft].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  let expertiserightopt = {threshold: [0.5]};
+  let expertiserightserv = new IntersectionObserver(onEntry, expertiserightopt);
+  for (let elm of expertiseright) {expertiserightserv.observe(elm);}
+}
+
+const projects = document.querySelector('.projects');
+const projectsflex = document.querySelectorAll('.projects__flex');
+const projectsitem = document.querySelectorAll('.projects__item');
+if(projects){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let projectsflexopt = {threshold: [0.5]};
+  let projectsflexserv = new IntersectionObserver(onEntry, projectsflexopt);
+  for (let elm of projectsflex) {projectsflexserv.observe(elm);}
+
+  let projectsitemopt = {threshold: [0.5]};
+  let projectsitemserv = new IntersectionObserver(onEntry, projectsitemopt);
+  for (let elm of projectsitem) {projectsitemserv.observe(elm);}
+  const projectslist = document.querySelectorAll('.projects__list');
+  [...projectslist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
+const articles = document.querySelector('.articles');
+const articlestop = document.querySelectorAll('.articles__top');
+const articlesitem = document.querySelectorAll('.articles__item');
+if(articles){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let articlestopopt = {threshold: [0.5]};
+  let articlestopserv = new IntersectionObserver(onEntry, articlestopopt);
+  for (let elm of articlestop) {articlestopserv.observe(elm);}
+
+  let articlesitemopt = {threshold: [0.5]};
+  let articlesitemserv = new IntersectionObserver(onEntry, articlesitemopt);
+  for (let elm of articlesitem) {articlesitemserv.observe(elm);}
+}
+
+const footer = document.querySelector('.footer');
+const footerlist = document.querySelectorAll('.footer__list');
+const footerleft = document.querySelectorAll('.footer__left');
+const footerrb = document.querySelectorAll('.footer__right_block');
+const footerbottom = document.querySelectorAll('.footer__bottom');
+const footerinfo = document.querySelectorAll('.footer__info');
+if(footer){
+  let footerd = document.querySelectorAll('.footer');
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+  let footerdopt = {threshold: [0]};
+  let footerdserv = new IntersectionObserver(onEntry, footerdopt);
+  for (let elm of footerd) {footerdserv.observe(elm);}
   
-//   let footerlistopt = {threshold: [0.5]};
-//   let footerlistserv = new IntersectionObserver(onEntry, footerlistopt);
-//   for (let elm of footerlist) {footerlistserv.observe(elm);}
+  let footerlistopt = {threshold: [0.5]};
+  let footerlistserv = new IntersectionObserver(onEntry, footerlistopt);
+  for (let elm of footerlist) {footerlistserv.observe(elm);}
   
-//   [...footerlist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
-//   let footerinfoopt = {threshold: [0.5]};
-//   let footerinfoserv = new IntersectionObserver(onEntry, footerinfoopt);
-//   for (let elm of footerinfo) {footerinfoserv.observe(elm);}
+  [...footerlist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+  let footerleftopt = {threshold: [0.5]};
+  let footerleftserv = new IntersectionObserver(onEntry, footerleftopt);
+  for (let elm of footerleft) {footerleftserv.observe(elm);}
   
-//   [...footersocial].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
-//   let footercontactsopt = {threshold: [0.5]};
-//   let footercontactsserv = new IntersectionObserver(onEntry, footercontactsopt);
-//   for (let elm of footercontacts) {footercontactsserv.observe(elm);}
-// }
+  let footerrbopt = {threshold: [0.5]};
+  let footerrbserv = new IntersectionObserver(onEntry, footerrbopt);
+  for (let elm of footerrb) {footerrbserv.observe(elm);}
+  
+  let footerbottomopt = {threshold: [0.5]};
+  let footerbottomserv = new IntersectionObserver(onEntry, footerbottomopt);
+  for (let elm of footerbottom) {footerbottomserv.observe(elm);}
+  
+  let footerinfoopt = {threshold: [0.5]};
+  let footerinfoserv = new IntersectionObserver(onEntry, footerinfoopt);
+  for (let elm of footerinfo) {footerinfoserv.observe(elm);}
+}
 // end index animation
