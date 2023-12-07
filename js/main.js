@@ -1620,19 +1620,25 @@ if(expertise){
 
 const projects = document.querySelector('.projects');
 const projectsflex = document.querySelectorAll('.projects__flex');
+const projectsallflex = document.querySelector('.projects__all_flex');
+const projectsallflexs = document.querySelectorAll('.projects__all_flex');
 const projectsitem = document.querySelectorAll('.projects__item');
 if(projects){
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  if (projectsallflex) {
+    let projectsallflexsopt = {threshold: [0.5]};
+    let projectsallflexsserv = new IntersectionObserver(onEntry, projectsallflexsopt);
+    for (let elm of projectsallflexs) {projectsallflexsserv.observe(elm);}
+  }
 
   let projectsflexopt = {threshold: [0.5]};
   let projectsflexserv = new IntersectionObserver(onEntry, projectsflexopt);
   for (let elm of projectsflex) {projectsflexserv.observe(elm);}
 
-  let projectsitemopt = {threshold: [0.5]};
+  let projectsitemopt = {threshold: [0.3]};
   let projectsitemserv = new IntersectionObserver(onEntry, projectsitemopt);
   for (let elm of projectsitem) {projectsitemserv.observe(elm);}
-  const projectslist = document.querySelectorAll('.projects__list');
-  [...projectslist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
 const articles = document.querySelector('.articles');
