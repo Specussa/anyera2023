@@ -2733,17 +2733,17 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.footer__list.animate .footer__item,
-.footer__left.animate .footer__mail_info,
-.footer__left.animate .footer__mail_send,
-.footer__left.animate .footer__contact_tel,
-.footer__left.animate .footer__contact_info,
-.footer__right_block.animate .footer__social,
-.footer__right_block.animate .footer__buttons,
-.footer__bottom.animate,
-.footer__info.animate .footer__copyright,
-.footer__info.animate .footer__privacy,
-.footer__info.animate .footer__button_up {
+.loaded .footer__list.animate .footer__item,
+.loaded .footer__left.animate .footer__mail_info,
+.loaded .footer__left.animate .footer__mail_send,
+.loaded .footer__left.animate .footer__contact_tel,
+.loaded .footer__left.animate .footer__contact_info,
+.loaded .footer__right_block.animate .footer__social,
+.loaded .footer__right_block.animate .footer__buttons,
+.loaded .footer__bottom.animate,
+.loaded .footer__info.animate .footer__copyright,
+.loaded .footer__info.animate .footer__privacy,
+.loaded .footer__info.animate .footer__button_up {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -2751,21 +2751,21 @@ html.has-scroll-dragging {
   transition-delay: calc(var(--inc-step)*0.1s);
 }
 
-.footer__left.animate .footer__mail_send,
-.footer__right_block.animate .footer__social,
-.footer__info.animate .footer__privacy {
+.loaded .footer__left.animate .footer__mail_send,
+.loaded .footer__right_block.animate .footer__social,
+.loaded .footer__info.animate .footer__privacy {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
 
-.footer__left.animate .footer__contact_tel,
-.footer__right_block.animate .footer__buttons,
-.footer__info.animate .footer__button_up {
+.loaded .footer__left.animate .footer__contact_tel,
+.loaded .footer__right_block.animate .footer__buttons,
+.loaded .footer__info.animate .footer__button_up {
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
 
-.footer__left.animate .footer__contact_info {
+.loaded .footer__left.animate .footer__contact_info {
   -webkit-transition-delay: 0.7s;
   transition-delay: 0.7s;
 }
@@ -3903,7 +3903,7 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.expertise__left.animate .expertise__button {
+.loaded .expertise__left.animate .expertise__button {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -4055,9 +4055,9 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.expertise__right.animate .expertise__head,
-.expertise__right.animate .expertise__desc,
-.expertise__right.animate .expertise__arrow {
+.loaded .expertise__right.animate .expertise__head,
+.loaded .expertise__right.animate .expertise__desc,
+.loaded .expertise__right.animate .expertise__arrow {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -4065,12 +4065,12 @@ html.has-scroll-dragging {
   transition-delay: 0.1s;
 }
 
-.expertise__right.animate .expertise__desc {
+.loaded .expertise__right.animate .expertise__desc {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
 
-.expertise__right.animate .expertise__arrow {
+.loaded .expertise__right.animate .expertise__arrow {
   -webkit-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
@@ -4338,8 +4338,8 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.projects__flex.animate .projects__head,
-.projects__flex.animate .projects__right {
+.loaded .projects__flex.animate .projects__head,
+.loaded .projects__flex.animate .projects__right {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -4347,7 +4347,7 @@ html.has-scroll-dragging {
   transition-delay: 0.1s;
 }
 
-.projects__flex.animate .projects__right {
+.loaded .projects__flex.animate .projects__right {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
@@ -4372,7 +4372,7 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.projects__item.animate {
+.loaded .projects__item.animate {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -5061,7 +5061,7 @@ html.has-scroll-dragging {
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.articles__item.animate {
+.loaded .articles__item.animate {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
