@@ -6570,23 +6570,51 @@ html.has-scroll-dragging {
   padding: 160px 80px 80px;
 }
 
+.contacts__head,
+.contacts__link,
+.contacts__social_item,
+.contacts__social_info_item,
+.contacts__social_head,
+.contacts__social_button {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+.loaded .contacts__block.animate .contacts__head,
+.loaded .contacts__block.animate .contacts__link,
+.loaded .contacts__social_list.animate .contacts__social_item,
+.loaded .contacts__social_info_list.animate .contacts__social_info_item,
+.loaded .contacts__social_project.animate .contacts__social_head,
+.loaded .contacts__social_project.animate .contacts__social_button {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
+  transition-delay: calc(var(--inc-step)*0.1s);
+}
+
+.loaded .contacts__block.animate .contacts__link:nth-child(1),
+.loaded .contacts__social_project.animate .contacts__social_button {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .contacts__block.animate .contacts__link:nth-child(2) {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
 .contacts__info {
   padding: 160px 40px 80px;
 }
 
 .contacts__divider {
   border-bottom: 1px solid var(--border);
-}
-
-.contacts__link h2,
-.contacts__link h3 {
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
-
-.contacts__link h2:hover,
-.contacts__link h3:hover {
-  color: var(--purple);
 }
 
 .contacts__social_block {

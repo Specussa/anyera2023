@@ -1755,6 +1755,33 @@ if(career){
   [...careerright].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
+const contacts = document.querySelector('.contacts');
+const contactsb = document.querySelectorAll('.contacts__block');
+const contactssl = document.querySelectorAll('.contacts__social_list');
+const contactssil = document.querySelectorAll('.contacts__social_info_list');
+const contactssp = document.querySelectorAll('.contacts__social_project');
+if(contacts){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let contactsbopt = {threshold: [0.5]};
+  let contactsbserv = new IntersectionObserver(onEntry, contactsbopt);
+  for (let elm of contactsb) {contactsbserv.observe(elm);}
+
+  let contactsslopt = {threshold: [0.5]};
+  let contactsslserv = new IntersectionObserver(onEntry, contactsslopt);
+  for (let elm of contactssl) {contactsslserv.observe(elm);}
+  [...contactssl].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  let contactssilopt = {threshold: [0.5]};
+  let contactssilserv = new IntersectionObserver(onEntry, contactssilopt);
+  for (let elm of contactssil) {contactssilserv.observe(elm);}
+  [...contactssil].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  let contactsspopt = {threshold: [0.5]};
+  let contactsspserv = new IntersectionObserver(onEntry, contactsspopt);
+  for (let elm of contactssp) {contactsspserv.observe(elm);}
+}
+
 const footer = document.querySelector('.footer');
 const footerlist = document.querySelectorAll('.footer__list');
 const footerleft = document.querySelectorAll('.footer__left');
