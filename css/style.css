@@ -7760,6 +7760,8 @@ html.has-scroll-dragging {
   }
   .header__nav_link svg {
     display: block;
+    width: 10px;
+    height: 18px;
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     color: var(--text);
@@ -8435,6 +8437,17 @@ html.has-scroll-dragging {
     font-size: 34px;
     line-height: 36px;
   }
+  .header__nav_link h3 {
+    font-size: 30px;
+    line-height: 45px;
+  }
+  .header__nav_link svg {
+    width: 7px;
+    height: 12px;
+  }
+  .header__nav_link {
+    gap: 10px;
+  }
   h4 {
     font-size: 16px;
     line-height: 20px;
@@ -8444,8 +8457,8 @@ html.has-scroll-dragging {
     line-height: 36px;
   }
   h6 {
-    font-size: 30px;
-    line-height: 45px;
+    font-size: 16px;
+    line-height: 20px;
   }
   a,
   p,
@@ -9121,6 +9134,10 @@ html.has-scroll-dragging {
     font-size: 29px;
     line-height: 30px;
   }
+  .header__nav_link h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
   h4 {
     font-size: 16px;
     line-height: 20px;
@@ -9130,8 +9147,8 @@ html.has-scroll-dragging {
     line-height: 36px;
   }
   h6 {
-    font-size: 30px;
-    line-height: 45px;
+    font-size: 16px;
+    line-height: 20px;
   }
   a,
   p,
@@ -9174,7 +9191,7 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .header__nav_container {
-    gap: 40px;
+    gap: 20px;
   }
   .header__nav_flex {
     padding: 0;
@@ -9187,7 +9204,7 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .header__nav__contact {
-    gap: 40px;
+    gap: 20px;
   }
   .header__nav_contact_item p,
   .header__nav_contact_item:not(:last-child) {
@@ -9203,12 +9220,22 @@ html.has-scroll-dragging {
   }
   .header__set {
     flex-direction: column-reverse;
-    gap: 40px;
+    gap: 20px;
   }
   .header__set_block,
   .header__set_language {
     width: 100%;
     padding: 0;
+  }
+  .header__nav_buttons {
+    gap: 10px;
+  }
+  .header__set_mode {
+    width: 100%;
+  }
+  .header__set_language_control {
+    max-width: 100%;
+    opacity: 1;
   }
   .expertise__panel p,
   .expertise__panel ul,
