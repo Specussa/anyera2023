@@ -6206,7 +6206,6 @@ html.has-scroll-dragging {
 
 .form__control,
 .form__select_label,
-.form__select_box,
 .header__form_bottom,
 .feedback_popup__head,
 .feedback_popup__form_bottom {
@@ -6222,13 +6221,29 @@ html.has-scroll-dragging {
 .header__consultation.active .form__control,
 .feedback_popup.active .form__control,
 .header__consultation.active .form__select_label,
-.header__consultation.active .form__select_box,
 .header__consultation.active .header__form_bottom,
 .feedback_popup.active .feedback_popup__head,
 .feedback_popup.active .feedback_popup__form_bottom {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
+  transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
+}
+
+.form__select_box {
+  opacity: 0;
+  position: relative;
+  top: 30px;
+  -webkit-transition: opacity 0.3s linear, top 0.2s linear;
+  transition: opacity 0.3s linear, top 0.2s linear;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+.header__consultation.active .form__select_box {
+  opacity: 1;
+  top: 0px;
   -webkit-transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
   transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
 }
