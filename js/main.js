@@ -345,7 +345,7 @@ burger_ctwo.addEventListener('click', function() {
     scroll.stop();
   }
 })
-// button закрыть для header__project
+// button закрыть для header__consultation
 document.querySelector('.header__consultation_burger').addEventListener('click', function() {
   if (burger_c.classList.contains("active")) {
     bodyoverlay.classList.remove("active");
@@ -360,7 +360,7 @@ document.querySelector('.header__consultation_burger').addEventListener('click',
     scroll.start();
   }
 })
-// end header__project
+// end header__consultation
 
 // start menu sublist
 const subnav = document.querySelectorAll('.header__subnav_list');
@@ -1648,6 +1648,22 @@ if(articles){
   let articlesitemopt = {threshold: [0.5]};
   let articlesitemserv = new IntersectionObserver(onEntry, articlesitemopt);
   for (let elm of articlesitem) {articlesitemserv.observe(elm);}
+}
+
+const headerform = document.querySelector('.header__forms_form_controls');
+const headerforms = document.querySelectorAll('.header__forms_form_controls');
+if(headerform){
+  // function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  // let headerformsopt = {threshold: [0.5]};
+  // let headerformsserv = new IntersectionObserver(onEntry, headerformsopt);
+  // for (let elm of headerforms) {headerformsserv.observe(elm);}
+
+  [...headerforms].forEach(function (li) {
+    for (let [index, elem] of [...li.children].entries()){
+      elem.style.setProperty('--inc-step', index+1);
+    }
+  });
 }
 
 const footer = document.querySelector('.footer');

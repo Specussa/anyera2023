@@ -1854,6 +1854,7 @@ html.has-scroll-dragging {
   transform: translateY(30px);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
   transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition-delay: 1s, 1s;
   transition-delay: 1s, 1s;
 }
 
@@ -2533,6 +2534,38 @@ html.has-scroll-dragging {
 .header__consultation_burger:hover svg {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.header__consultation_head,
+.header__consultation_desc,
+.header__consultation_contacts {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+.header__consultation.active .header__consultation_head,
+.header__consultation.active .header__consultation_desc,
+.header__consultation.active .header__consultation_contacts {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+
+.header__consultation.active .header__consultation_desc {
+  -webkit-transition-delay: 0.9s;
+  transition-delay: 0.9s;
+}
+
+.header__consultation.active .header__consultation_contacts {
+  -webkit-transition-delay: 1.1s;
+  transition-delay: 1.1s;
 }
 
 /* end header__consultation */
@@ -6169,6 +6202,41 @@ html.has-scroll-dragging {
 
 .briefing__home.active {
   display: inline-flex;
+}
+
+.form__control,
+.form__select_label,
+.form__select_box,
+.header__form_bottom,
+.feedback_popup__head,
+.feedback_popup__form_bottom {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+.header__consultation.active .form__control,
+.feedback_popup.active .form__control,
+.header__consultation.active .form__select_label,
+.header__consultation.active .form__select_box,
+.header__consultation.active .header__form_bottom,
+.feedback_popup.active .feedback_popup__head,
+.feedback_popup.active .feedback_popup__form_bottom {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
+  transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
+}
+
+.header__consultation.active .header__form_bottom,
+.feedback_popup.active .feedback_popup__form_bottom  {
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
 }
 
 /* end briefing */
