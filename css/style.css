@@ -6375,6 +6375,7 @@ html.has-scroll-dragging {
 .header__consultation.active .form__control,
 .feedback_popup.active .form__control,
 .career_popup.active .form__control,
+.loaded .subscription__block.animate .form__control,
 .header__consultation.active .form__select_label,
 .header__consultation.active .header__form_bottom,
 .feedback_popup.active .feedback_popup__head,
@@ -7455,6 +7456,38 @@ html.has-scroll-dragging {
   padding: 0 40px 40px 0;
 }
 
+.articles_page__item,
+.articles_page__check,
+.articles_page__head,
+.articles_page__desc {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .articles_page__item.animate,
+.loaded .articles_page__block.animate .articles_page__check,
+.loaded .articles_page__block.animate .articles_page__head,
+.loaded .articles_page__block.animate .articles_page__desc {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .articles_page__block.animate .articles_page__desc {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .articles_page__block.animate .articles_page__check {
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s + 0.5s);
+  transition-delay: calc(var(--inc-step)*0.1s + 0.5s);
+}
+
 .articles_page__info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7621,6 +7654,37 @@ html.has-scroll-dragging {
   background-color: var(--bg);
 }
 
+.subscription__head,
+.subscription__desc,
+.subscription__bottom {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .subscription__block.animate .subscription__head,
+.loaded .subscription__block.animate .subscription__desc,
+.loaded .subscription__block.animate .subscription__head,
+.loaded .subscription__block.animate .subscription__bottom {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .subscription__block.animate .form__control {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .subscription__block.animate .subscription__bottom {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
 .subscription__form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7641,6 +7705,22 @@ html.has-scroll-dragging {
   color: var(--text-gray);
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.subscription__image {
+  opacity: 0;
+  -webkit-transform: scale(0.5) translateY(-50%);
+  transform: scale(0.5) translateY(-50%);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .subscription__block.animate .subscription__image {
+  opacity: 1;
+  -webkit-transform: scale(1) translateY(-50%);
+  transform: scale(1) translateY(-50%);
+  -webkit-transition-delay: 0.7s;
+  transition-delay: 0.7s;
 }
 
 .subscription__image svg,

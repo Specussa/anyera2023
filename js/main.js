@@ -1782,6 +1782,33 @@ if(contacts){
   for (let elm of contactssp) {contactsspserv.observe(elm);}
 }
 
+const articlespage = document.querySelector('.articles_page');
+const articlespageitem = document.querySelectorAll('.articles_page__item');
+const articlespageblock = document.querySelectorAll('.articles_page__block');
+const articlespagechecks = document.querySelectorAll('.articles_page__checks');
+if(articlespage){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let articlespageitemopt = {threshold: [0.3]};
+  let articlespageitemserv = new IntersectionObserver(onEntry, articlespageitemopt);
+  for (let elm of articlespageitem) {articlespageitemserv.observe(elm);}
+
+  let articlespageblockopt = {threshold: [0.5]};
+  let articlespageblockserv = new IntersectionObserver(onEntry, articlespageblockopt);
+  for (let elm of articlespageblock) {articlespageblockserv.observe(elm);}
+  [...articlespagechecks].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
+const subscription = document.querySelector('.subscription');
+const subscriptionblock = document.querySelectorAll('.subscription__block');
+if(subscription){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let subscriptionblockopt = {threshold: [0.3]};
+  let subscriptionblockserv = new IntersectionObserver(onEntry, subscriptionblockopt);
+  for (let elm of subscriptionblock) {subscriptionblockserv.observe(elm);}
+}
+
 const footer = document.querySelector('.footer');
 const footerlist = document.querySelectorAll('.footer__list');
 const footerleft = document.querySelectorAll('.footer__left');
