@@ -9489,7 +9489,25 @@ html.has-scroll-dragging {
     gap: 20px;
   }
   .footer__flex {
+    padding: 0 0 180px;
     flex-direction: column;
+    gap: 30px;
+  }
+  .footer__button {
+    width: 100%;
+  }
+  .footer__bottom p {
+    padding: 40px 0 2px;
+  }
+  .footer__buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer__left,
+  .footer__mail,
+  .footer__contact {
+    gap: 30px;
   }
   .footer__list {
     flex-direction: row;
