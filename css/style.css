@@ -9271,6 +9271,9 @@ html.has-scroll-dragging {
   .header__consultation_block {
     gap: 20px;
   }
+  .header__nav__contact_list {
+    display: none;
+  }
   .button__project_two,
   .button__briefing_two,
   .button__feedback_two {
