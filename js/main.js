@@ -1718,6 +1718,43 @@ if(services){
   [...serviceslright].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 
+const careert = document.querySelector('.career_top');
+const careerti = document.querySelectorAll('.career_top__info');
+if(careert){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let careertiopt = {threshold: [0.5]};
+  let careertiserv = new IntersectionObserver(onEntry, careertiopt);
+  for (let elm of careerti) {careertiserv.observe(elm);}
+}
+
+const careerb = document.querySelector('.career_bottom');
+const careerbb = document.querySelectorAll('.career_bottom__block');
+if(careerb){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let careerbbopt = {threshold: [0.5]};
+  let careerbbserv = new IntersectionObserver(onEntry, careerbbopt);
+  for (let elm of careerbb) {careerbbserv.observe(elm);}
+  [...careerbb].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
+const career = document.querySelector('.career');
+const careerleft = document.querySelectorAll('.career__left');
+const careerright = document.querySelectorAll('.career__right');
+if(career){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let careerleftopt = {threshold: [0.5]};
+  let careerleftserv = new IntersectionObserver(onEntry, careerleftopt);
+  for (let elm of careerleft) {careerleftserv.observe(elm);}
+
+  let careerrightopt = {threshold: [0.5]};
+  let careerrightserv = new IntersectionObserver(onEntry, careerrightopt);
+  for (let elm of careerright) {careerrightserv.observe(elm);}
+  [...careerright].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
 const footer = document.querySelector('.footer');
 const footerlist = document.querySelectorAll('.footer__list');
 const footerleft = document.querySelectorAll('.footer__left');
