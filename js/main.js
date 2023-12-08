@@ -536,9 +536,11 @@ const headerlang = document.querySelector('.header__set_language_control');
 headerlangbutton.addEventListener('click', function() {
   if (headerlang.classList.contains("active")) {
     headerlang.classList.remove("active");
+    headerlangbutton.classList.add("active");
     headerlang.style.maxWidth = null;
   } else {
     headerlang.classList.add("active");
+    headerlangbutton.classList.remove("active");
     headerlang.style.maxWidth = headerlang.scrollWidth + "px";
   }
 })
@@ -1804,9 +1806,74 @@ const subscriptionblock = document.querySelectorAll('.subscription__block');
 if(subscription){
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
 
-  let subscriptionblockopt = {threshold: [0.3]};
+  let subscriptionblockopt = {threshold: [0.5]};
   let subscriptionblockserv = new IntersectionObserver(onEntry, subscriptionblockopt);
   for (let elm of subscriptionblock) {subscriptionblockserv.observe(elm);}
+}
+
+const teamtop = document.querySelector('.team__top');
+const teamtopblock = document.querySelectorAll('.team__top_block');
+if(teamtop){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let teamtopblockopt = {threshold: [0.5]};
+  let teamtopblockserv = new IntersectionObserver(onEntry, teamtopblockopt);
+  for (let elm of teamtopblock) {teamtopblockserv.observe(elm);}
+}
+
+const teambottom = document.querySelector('.team__bottom');
+const teambottominfo = document.querySelectorAll('.team__bottom_info');
+const teambottomtop = document.querySelectorAll('.team__bottom_top');
+const teambottombottom = document.querySelectorAll('.team__bottom_bottom');
+if(teambottom){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let teambottominfoopt = {threshold: [0.5]};
+  let teambottominfoserv = new IntersectionObserver(onEntry, teambottominfoopt);
+  for (let elm of teambottominfo) {teambottominfoserv.observe(elm);}
+
+  let teambottomtopopt = {threshold: [0.5]};
+  let teambottomtopserv = new IntersectionObserver(onEntry, teambottomtopopt);
+  for (let elm of teambottomtop) {teambottomtopserv.observe(elm);}
+
+  let teambottombottomopt = {threshold: [0.5]};
+  let teambottombottomserv = new IntersectionObserver(onEntry, teambottombottomopt);
+  for (let elm of teambottombottom) {teambottombottomserv.observe(elm);}
+}
+
+const teamslider = document.querySelector('.team_slider');
+const teamsliderswiper = document.querySelectorAll('.team_slider__swiper');
+const teamsliderinfo = document.querySelectorAll('.team_slider__info');
+const teamslideritem = document.querySelectorAll('.team_clients__item');
+if(teamslider){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let teamsliderswiperopt = {threshold: [0.5]};
+  let teamsliderswiperserv = new IntersectionObserver(onEntry, teamsliderswiperopt);
+  for (let elm of teamsliderswiper) {teamsliderswiperserv.observe(elm);}
+
+  let teamsliderinfoopt = {threshold: [0.5]};
+  let teamsliderinfoserv = new IntersectionObserver(onEntry, teamsliderinfoopt);
+  for (let elm of teamsliderinfo) {teamsliderinfoserv.observe(elm);}
+
+  let teamslideritemopt = {threshold: [0.5]};
+  let teamslideritemserv = new IntersectionObserver(onEntry, teamslideritemopt);
+  for (let elm of teamslideritem) {teamslideritemserv.observe(elm);}
+}
+
+const teamcomments = document.querySelector('.team_comments');
+const teamscommentsitem = document.querySelectorAll('.team_comments__item');
+const teamscommentsbuttons = document.querySelectorAll('.team_comments__buttons');
+if(teamcomments){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let teamscommentsitemopt = {threshold: [0.5]};
+  let teamscommentsitemserv = new IntersectionObserver(onEntry, teamscommentsitemopt);
+  for (let elm of teamscommentsitem) {teamscommentsitemserv.observe(elm);}
+
+  let teamscommentsbuttonsopt = {threshold: [0.5]};
+  let teamscommentsbuttonsserv = new IntersectionObserver(onEntry, teamscommentsbuttonsopt);
+  for (let elm of teamscommentsbuttons) {teamscommentsbuttonsserv.observe(elm);}
 }
 
 const footer = document.querySelector('.footer');
