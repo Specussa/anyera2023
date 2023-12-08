@@ -1876,6 +1876,32 @@ if(teamcomments){
   for (let elm of teamscommentsbuttons) {teamscommentsbuttonsserv.observe(elm);}
 }
 
+const errorpage = document.querySelector('.error_page');
+const errorpageflex = document.querySelectorAll('.error_page__flex');
+if(errorpage){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let errorpageflexopt = {threshold: [0.5]};
+  let errorpageflexserv = new IntersectionObserver(onEntry, errorpageflexopt);
+  for (let elm of errorpageflex) {errorpageflexserv.observe(elm);}
+}
+
+const article = document.querySelector('.article');
+const articleinfoblock = document.querySelectorAll('.article__info_block');
+const articleinfoflex = document.querySelectorAll('.article__info_flex');
+if(article){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let articleinfoblockopt = {threshold: [0.5]};
+  let articleinfoblockserv = new IntersectionObserver(onEntry, articleinfoblockopt);
+  for (let elm of articleinfoblock) {articleinfoblockserv.observe(elm);}
+  [...articleinfoblock].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+
+  let articleinfoflexopt = {threshold: [0.5]};
+  let articleinfoflexserv = new IntersectionObserver(onEntry, articleinfoflexopt);
+  for (let elm of articleinfoflex) {articleinfoflexserv.observe(elm);}
+}
+
 const footer = document.querySelector('.footer');
 const footerlist = document.querySelectorAll('.footer__list');
 const footerleft = document.querySelectorAll('.footer__left');
