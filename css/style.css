@@ -3818,8 +3818,8 @@ html.has-scroll-dragging {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background-color: var(--bg);
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
 }
@@ -3856,8 +3856,8 @@ html.has-scroll-dragging {
 
 .accredited__head,
 .accredited__desc {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
   -webkit-transition: -webkit-transform 0.3s linear, opacity 0.3s linear;
   transition: transform 0.3s linear, opacity 0.3s linear;
   opacity: 0;
@@ -4559,8 +4559,8 @@ html.has-scroll-dragging {
 
 .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
 .projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
 }
 
 .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_default,
@@ -4571,8 +4571,8 @@ html.has-scroll-dragging {
 
 .projects__navigation .btn__arrow:hover .btn__side_default,
 .projects__navigation .active .btn__arrow .btn__side_default {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
 }
 
 .projects__navigation .btn__side_hover {
@@ -4843,8 +4843,8 @@ html.has-scroll-dragging {
 
 .project_top__image {
   opacity: 0;
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
@@ -5637,8 +5637,8 @@ html.has-scroll-dragging {
 
 .team_comments__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
 .team_comments__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
 }
 
 .team_comments__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_default,
@@ -5649,8 +5649,8 @@ html.has-scroll-dragging {
 
 .team_comments__navigation .btn__arrow:hover .btn__side_default,
 .team_comments__navigation .active .btn__arrow .btn__side_default {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
 }
 
 .team_comments__navigation .btn__side_hover {
@@ -5939,8 +5939,8 @@ html.has-scroll-dragging {
 
 .services_top__image {
   opacity: 0;
-  -webkit-transform: scale(0.5) translateY(-50%);
-  transform: scale(0.5) translateY(-50%);
+  -webkit-transform: scale(0.8) translateY(-50%);
+  transform: scale(0.8) translateY(-50%);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
@@ -6344,22 +6344,22 @@ html.has-scroll-dragging {
 .briefing__form .briefing__checks,
 .briefing__form .briefing__bottom {
   opacity: 0;
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
   transition: opacity 0.3s linear, transform 0.2s linear;
 }
 
-.briefing__form.active .briefing__form_head,
-.briefing__form.active .briefing__check_head,
-.briefing__form.active .briefing__controls,
-.briefing__form.active .briefing__checks,
-.briefing__form.active .briefing__bottom {
+.loaded .briefing__form.active.animate .briefing__form_head,
+.loaded .briefing__form.active.animate .briefing__check_head,
+.loaded .briefing__form.active.animate .briefing__controls,
+.loaded .briefing__form.active.animate .briefing__checks,
+.loaded .briefing__form.active.animate .briefing__bottom {
   opacity: 1;
   -webkit-transform: translateY(0%);
   transform: translateY(0%);
-  -webkit-transition-delay: calc(var(--inc-step)*0.07s);
-  transition-delay: calc(var(--inc-step)*0.07s);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
+  transition-delay: calc(var(--inc-step)*0.1s);
 }
 
 .briefing__forms {
@@ -6509,6 +6509,36 @@ html.has-scroll-dragging {
 
 .briefing__home.active {
   display: inline-flex;
+}
+
+.briefing__head,
+.briefing__desc,
+.briefing__steps_block {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .briefing__left.animate .briefing__head,
+.loaded .briefing__left.animate .briefing__desc,
+.loaded .briefing__left.animate .briefing__steps_block {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .briefing__left.animate .briefing__desc {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .briefing__left.animate .briefing__steps_block {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .form__control,
@@ -6738,6 +6768,45 @@ html.has-scroll-dragging {
 
 .policy__desc {
   max-width: 100%;
+}
+
+.policy_top__head,
+.policy_top__image,
+.policy__head,
+.policy__desc {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.policy_top__image {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.loaded .policy_top__block.animate .policy_top__head,
+.loaded .policy_top__block.animate .policy_top__image,
+.loaded .policy__block.animate .policy__head,
+.loaded .policy__block.animate .policy__desc {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .policy_top__block.animate .policy_top__image {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.loaded .policy_top__block.animate .competencies__desc,
+.loaded .policy_top__block.animate .policy_top__image,
+.loaded .policy__block.animate .policy__desc {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
 /* end policy */
@@ -7380,6 +7449,31 @@ html.has-scroll-dragging {
   display: none;
 }
 
+.price__head,
+.price__desc,
+.price__item {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .price__block.animate .price__head,
+.loaded .price__block.animate .price__desc,
+.loaded .price__item.animate {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .price__block.animate .price__desc {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
 /* end price */
 
 /* start certificates */
@@ -7436,6 +7530,51 @@ html.has-scroll-dragging {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.certificates__head,
+.certificates__desc,
+.certificates__heading,
+.certificates__buttons,
+.certificates__image {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.certificates__image {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.loaded .certificates__block.animate .certificates__head,
+.loaded .certificates__block.animate .certificates__desc,
+.loaded .certificates__flex.animate .certificates__heading,
+.loaded .certificates__flex.animate .certificates__buttons,
+.loaded .certificates__flex.animate .certificates__image {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.loaded .certificates__flex.animate .certificates__image {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.loaded .certificates__block.animate .certificates__desc,
+.loaded .certificates__flex.animate .certificates__buttons {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .certificates__flex.animate .certificates__image {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 /* end certificates */
@@ -7506,6 +7645,43 @@ html.has-scroll-dragging {
 
 .competencies__item {
   width: calc(50% - 40px);
+}
+
+.competencies__hedading,
+.competencies__description,
+.competencies__item,
+.competencies__button,
+.competencies__head,
+.competencies__desc {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear, transform 0.2s linear;
+}
+
+.loaded .competencies__bottom.animate .competencies__hedading,
+.loaded .competencies__bottom.animate .competencies__description,
+.loaded .competencies__bottom.animate .competencies__item,
+.loaded .competencies__bottom.animate .competencies__button,
+.loaded .competencies__block.animate .competencies__head,
+.loaded .competencies__block.animate .competencies__desc {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition-delay: calc(var(--inc-step)*0.1s);
+  transition-delay: calc(var(--inc-step)*0.1s);
+}
+
+.loaded .competencies__bottom.animate .competencies__description,
+.loaded .competencies__block.animate .competencies__desc {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.loaded .competencies__bottom.animate .competencies__button {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 /* end certificates */
@@ -7952,8 +8128,8 @@ html.has-scroll-dragging {
 
 .subscription__image {
   opacity: 0;
-  -webkit-transform: scale(0.5) translateY(-50%);
-  transform: scale(0.5) translateY(-50%);
+  -webkit-transform: scale(0.8) translateY(-50%);
+  transform: scale(0.8) translateY(-50%);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
   transition: opacity 0.3s linear, transform 0.2s linear;
 }

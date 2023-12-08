@@ -1902,6 +1902,84 @@ if(article){
   for (let elm of articleinfoflex) {articleinfoflexserv.observe(elm);}
 }
 
+const briefingform = document.querySelector('.briefing__form');
+const briefingforms = document.querySelectorAll('.briefing__form');
+const briefingleft = document.querySelectorAll('.briefing__left');
+if(briefingform){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let briefingformsopt = {threshold: [0.1]};
+  let briefingformsserv = new IntersectionObserver(onEntry, briefingformsopt);
+  for (let elm of briefingforms) {briefingformsserv.observe(elm);}
+
+  let briefingleftopt = {threshold: [0.1]};
+  let briefingleftserv = new IntersectionObserver(onEntry, briefingleftopt);
+  for (let elm of briefingleft) {briefingleftserv.observe(elm);}
+}
+
+const certificates = document.querySelector('.certificates');
+const certificatesblock = document.querySelectorAll('.certificates__block');
+const certificatesflex = document.querySelectorAll('.certificates__flex');
+if(certificates){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let certificatesblockopt = {threshold: [0.5]};
+  let certificatesblockserv = new IntersectionObserver(onEntry, certificatesblockopt);
+  for (let elm of certificatesblock) {certificatesblockserv.observe(elm);}
+
+  let certificatesflexopt = {threshold: [0.5]};
+  let certificatesflexserv = new IntersectionObserver(onEntry, certificatesflexopt);
+  for (let elm of certificatesflex) {certificatesflexserv.observe(elm);}
+}
+
+const competencies = document.querySelector('.competencies');
+const competenciesblock = document.querySelectorAll('.competencies__block');
+const competenciesbottom = document.querySelectorAll('.competencies__bottom');
+const competencieslist = document.querySelectorAll('.competencies__list');
+if(competencies){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let competenciesblockopt = {threshold: [0.5]};
+  let competenciesblockserv = new IntersectionObserver(onEntry, competenciesblockopt);
+  for (let elm of competenciesblock) {competenciesblockserv.observe(elm);}
+
+  let competenciesbottomopt = {threshold: [0.5]};
+  let competenciesbottomserv = new IntersectionObserver(onEntry, competenciesbottomopt);
+  for (let elm of competenciesbottom) {competenciesbottomserv.observe(elm);}
+
+  [...competencieslist].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
+
+const policy = document.querySelector('.policy');
+const policytopblock = document.querySelectorAll('.policy_top__block');
+const policyblock = document.querySelectorAll('.policy__block');
+if(policy){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let policytopblockopt = {threshold: [0.5]};
+  let policytopblockserv = new IntersectionObserver(onEntry, policytopblockopt);
+  for (let elm of policytopblock) {policytopblockserv.observe(elm);}
+
+  let policyblockopt = {threshold: [0.3]};
+  let policyblockserv = new IntersectionObserver(onEntry, policyblockopt);
+  for (let elm of policyblock) {policyblockserv.observe(elm);}
+}
+
+const price = document.querySelector('.price');
+const priceblock = document.querySelectorAll('.price__block');
+const priceitem = document.querySelectorAll('.price__item');
+if(price){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let priceblockopt = {threshold: [0.5]};
+  let priceblockserv = new IntersectionObserver(onEntry, priceblockopt);
+  for (let elm of priceblock) {priceblockserv.observe(elm);}
+
+  let priceitemopt = {threshold: [0.3]};
+  let priceitemserv = new IntersectionObserver(onEntry, priceitemopt);
+  for (let elm of priceitem) {priceitemserv.observe(elm);}
+}
+
 const footer = document.querySelector('.footer');
 const footerlist = document.querySelectorAll('.footer__list');
 const footerleft = document.querySelectorAll('.footer__left');
