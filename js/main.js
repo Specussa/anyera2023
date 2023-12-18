@@ -433,7 +433,7 @@ for (i = 0; i < hnl.length; i++) {
 // button career_popup
 const careerpopup = document.querySelector('.career_popup');
 if(careerpopup) {
-  var careerbutton = document.getElementsByClassName("career_bottom__button");
+  const careerbutton = document.getElementsByClassName("career_bottom__button");
   const careerpopupclose = document.querySelector('.career_popup__close');
   for (i = 0; i < careerbutton.length; i++) {
     careerbutton[i].onclick = function(e) {

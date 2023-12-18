@@ -8260,6 +8260,10 @@ html.has-scroll-dragging {
   gap: 80px;
 }
 
+.generation__right {
+  gap: 0;
+}
+
 .generation__info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8281,14 +8285,38 @@ html.has-scroll-dragging {
 .generation__button,
 .generation__button:hover,
 .generation__button.active,
-.generation__button.active:hover {
+.generation__button.active:hover,
+.dark .generation__button:hover,
+.dark .generation__button.active:hover,
+.dark .generation__button.active {
   width: 100%;
   border: none;
   border-radius: 10px;
 }
 
+.dark .generation__button .button__hover,
+.dark .generation__button .button__hover:after {
+  background-color: var(--border);
+}
+
+.generation__button.active .button__hover:after {
+  -webkit-transform: skew(0,-8deg);
+  transform: skew(0,-8deg);
+}
+
+.generation__button.active .button__hover {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
 .generation__button {
   height: 72px;
+}
+
+.generation__button svg {
+  color: var(--text);
 }
 
 .generation__button.active {
@@ -8347,6 +8375,35 @@ html.has-scroll-dragging {
   transform: translateX(0px);
   -webkit-transition: max-height 0s linear 0.3s, transform 0s linear;
   transition: max-height 0s linear 0.3s, transform 0s linear;
+}
+
+.generation__added_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.generation__remove {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+}
+
+.generation__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
 }
 
 /* end generation */
@@ -8831,7 +8888,7 @@ html.has-scroll-dragging {
   }
   .generation__right {
     padding: 100px 30px;
-    gap: 60px;
+    gap: 0;
   }
   .footer__list,
   .footer__social {
@@ -9530,10 +9587,12 @@ html.has-scroll-dragging {
   .subscription__form {
     gap: 40px;
   }
-  .generation__left,
-  .generation__right {
+  .generation__left {
     padding: 60px 30px;
     gap: 40px;
+  }
+  .generation__right {
+    padding: 60px 30px;
   }
   .footer__flex {
     padding: 0 0 90px;
@@ -10301,6 +10360,9 @@ html.has-scroll-dragging {
     width: 100%;
     padding: 0;
     gap: 30px;
+  }
+  .generation__right {
+    gap: 0;
   }
   .generation__buttons {
     padding: 50px 0 0;

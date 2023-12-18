@@ -51,6 +51,7 @@ if (generation) {
   const gthorganization = document.getElementById('generation__three_organization');
   const gthcorrespondent = document.getElementById('generation__three_correspondent');
   const gthbik = document.getElementById('generation__three_bik');
+  const gthprice = document.getElementById('generation__three_price');
 
   // start Min Max
   const gousernameMin = gousername.getAttribute('minl');
@@ -277,6 +278,16 @@ if (generation) {
   function setSuccessForGeneration(input) {
     const gfControl = input.parentElement;
     gfControl.className = 'form__control success';
+  }
+
+  function setGSelectErrorFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form__select error';
+  }
+  
+  function setGSelectSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form__select success';
   }
 
   const generationcontrols = document.querySelectorAll('.generation__controls');
@@ -717,6 +728,7 @@ if (generation) {
     const gthorganizationValue = gthorganization.value.trim();
     const gthcorrespondentValue = gthcorrespondent.value.trim();
     const gthbikValue = gthbik.value.trim();
+    const gthpriceValue = gthprice.value.trim();
 
     if(gthusernameValue !== '' && gthusernameValue.lengthh >= gthusernameMin && gthusernameValue.lengthh <= gthusernameMax) {
       setSuccessForGeneration(gthusername);
@@ -805,6 +817,12 @@ if (generation) {
       setErrorForGeneration(gthbik);
     }
 
+    if(gthpriceValue !== '') {
+      setGSelectSuccessFor(gthprice);
+    } else {
+      setGSelectErrorFor(gthprice);
+    }
+
     if(!isEmailGValid(gthemailValue)){
       scroll.scrollTo(togr);
     } else if (
@@ -848,7 +866,8 @@ if (generation) {
       gthcorrespondentValue.lengthh <= gthcorrespondentMax &&
       gthbikValue !== '' &&
       gthbikValue.lengthh >= gthbikMin &&
-      gthbikValue.lengthh <= gthbikMax
+      gthbikValue.lengthh <= gthbikMax && 
+      gthpriceValue !== ''
     ) {
       fetch('/ajax/sendMail.php', {
         method: 'POST',
@@ -866,7 +885,8 @@ if (generation) {
           eleven: gthokvedValue,
           twelve: gthorganizationValue,
           thirteen: gthcorrespondentValue,
-          fourteen: gthbikValue
+          fourteen: gthbikValue,
+          fiveteen: gthpriceValue
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
@@ -874,5 +894,110 @@ if (generation) {
       });
     }
   }
+  function GenerationAdd() {
+    var generationadded = document.getElementById("generation__added");
+  
+    var generationat = document.createElement("div");
+    generationat.className = "generation__added_top";
+  
+    var generationah = document.createElement("h4");
+    generationah.className = "generation__added_head";
+    generationah.innerHTML = 'Добавление услуги';
+    generationat.appendChild(generationah);
+    
+    var generationr = document.createElement("a");
+    generationr.className = "generation__remove";
+    generationr.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.25 12C4.25 11.5858 4.58579 11.25 5 11.25H19C19.4142 11.25 19.75 11.5858 19.75 12C19.75 12.4142 19.4142 12.75 19 12.75H5C4.58579 12.75 4.25 12.4142 4.25 12Z" fill="currentColor"/>
+      </svg>
+      Удалить услугу
+    `;
+    generationat.appendChild(generationr);
+    GenerationRemove();
+  
+    var generationformone = document.createElement("div");
+    generationformone.className = "form__control";
+    generationformone.innerHTML = `
+      <textarea class="form__input" type="text" minl="4" maxl="300" id="text1"></textarea>
+      <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">300</span></small>
+      <span class="form__pencil">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99376 2.1613L10.8391 5.00662M7.99376 2.1613L1.98697 8.16808C1.57655 8.57851 1.31031 9.11098 1.22822 9.68558L1.00692 11.2347C0.94369 11.6773 1.32307 12.0567 1.76567 11.9935L3.31479 11.7722C3.88939 11.6901 4.42186 11.4238 4.83229 11.0134L10.8391 5.00662M7.99376 2.1613L8.74047 1.41459C9.52152 0.63354 10.7963 0.641985 11.5773 1.42303C12.3584 2.20408 12.3668 3.47886 11.5858 4.25991L10.8391 5.00662" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="form__close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 11L6.00001 6M6.00001 6L11 1.00001M6.00001 6L1 1M6.00001 6L11 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <label class="form__label" for="text1">Название услуги <span>*</span></label>
+      <span class="form__bar"></span>
+      <span class="form__border"></span>
+      <small class="form__error">Введите название услуги</small>
+    `;
+  
+    var generationformtwo = document.createElement("div");
+    generationformtwo.className = "form__control";
+    generationformtwo.innerHTML = `
+      <textarea class="form__input" type="text" minl="4" maxl="300" id="text2"></textarea>
+      <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">300</span></small>
+      <span class="form__pencil">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99376 2.1613L10.8391 5.00662M7.99376 2.1613L1.98697 8.16808C1.57655 8.57851 1.31031 9.11098 1.22822 9.68558L1.00692 11.2347C0.94369 11.6773 1.32307 12.0567 1.76567 11.9935L3.31479 11.7722C3.88939 11.6901 4.42186 11.4238 4.83229 11.0134L10.8391 5.00662M7.99376 2.1613L8.74047 1.41459C9.52152 0.63354 10.7963 0.641985 11.5773 1.42303C12.3584 2.20408 12.3668 3.47886 11.5858 4.25991L10.8391 5.00662" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="form__close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 11L6.00001 6M6.00001 6L11 1.00001M6.00001 6L1 1M6.00001 6L11 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <label class="form__label" for="text2">Стоимость часа <span>*</span></label>
+      <span class="form__bar"></span>
+      <span class="form__border"></span>
+      <small class="form__error">Введите стоимость часа</small>
+    `;
+  
+    var generationformthree = document.createElement("div");
+    generationformthree.className = "form__control";
+    generationformthree.innerHTML = `
+      <textarea class="form__input" type="text" minl="4" maxl="300" id="text3"></textarea>
+      <small class="form__counter"><span class="form__counter_min">0</span> из <span class="form__counter_max">300</span></small>
+      <span class="form__pencil">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99376 2.1613L10.8391 5.00662M7.99376 2.1613L1.98697 8.16808C1.57655 8.57851 1.31031 9.11098 1.22822 9.68558L1.00692 11.2347C0.94369 11.6773 1.32307 12.0567 1.76567 11.9935L3.31479 11.7722C3.88939 11.6901 4.42186 11.4238 4.83229 11.0134L10.8391 5.00662M7.99376 2.1613L8.74047 1.41459C9.52152 0.63354 10.7963 0.641985 11.5773 1.42303C12.3584 2.20408 12.3668 3.47886 11.5858 4.25991L10.8391 5.00662" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="form__close">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 11L6.00001 6M6.00001 6L11 1.00001M6.00001 6L1 1M6.00001 6L11 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <label class="form__label" for="text3">Количество часов <span>*</span></label>
+      <span class="form__bar"></span>
+      <span class="form__border"></span>
+      <small class="form__error">Введите количество часов</small>
+    `;
+  
+    var generationab = document.createElement("div");
+    generationab.className = "generation__added_block";
+    generationab.appendChild(generationat);
+    generationab.appendChild(generationformone);
+    generationab.appendChild(generationformtwo);
+    generationab.appendChild(generationformthree);
+  
+    generationadded.appendChild(generationab);
+    generationforms.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
+  }
+
+  function GenerationRemove() {
+    const generationremove = document.getElementsByClassName("generation__remove");
+    for (i = 0; i < generationremove.length; i++) {
+      generationremove[i].onclick = function(e) {
+        this.parentElement.parentElement.remove();
+      };
+    }
+  }
+  GenerationRemove();
   // END validate generation__form_three
 }
