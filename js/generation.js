@@ -914,7 +914,6 @@ if (generation) {
       Удалить услугу
     `;
     generationat.appendChild(generationr);
-    GenerationRemove();
   
     var generationformone = document.createElement("div");
     generationformone.className = "form__control";
@@ -987,6 +986,8 @@ if (generation) {
     generationab.appendChild(generationformthree);
   
     generationadded.appendChild(generationab);
+    autosize(document.querySelectorAll('textarea'));
+    GenerationRemove();
     generationforms.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
   }
 

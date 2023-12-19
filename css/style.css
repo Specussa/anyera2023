@@ -8890,6 +8890,9 @@ html.has-scroll-dragging {
     padding: 100px 30px;
     gap: 0;
   }
+  .generation__button {
+    height: 72px;
+  }
   .footer__list,
   .footer__social {
     gap: 60px;
