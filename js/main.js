@@ -1571,6 +1571,31 @@ if (pricelist) {
 }
 // end price-list
 
+// start digital__square
+const digitalsquare = document.querySelector('.digital__square');
+if (digitalsquare) {
+  let digitalsquareitem = document.querySelectorAll('.digital__square_item');
+  digitalsquareitem.forEach(function (digitalsquare) {
+    let animate = Math.floor(Math.random() * (25 - 5) + 5);
+    let left = Math.floor(Math.random() * 95);
+    let delay = Math.floor(Math.random() * (3 - 1) + 1);
+    if (window.innerWidth >= 1023) {
+      let dimensions = Math.floor(Math.random() * (95 - 40) + 40);
+      digitalsquare.style.width = dimensions + 'px';
+      digitalsquare.style.height = dimensions + 'px';
+    } else {
+      let dimensions = Math.floor(Math.random() * (95 - 65) + 10);
+      digitalsquare.style.width = dimensions + 'px';
+      digitalsquare.style.height = dimensions + 'px';
+    }
+  
+    digitalsquare.style.left = left + '%';
+    digitalsquare.style.setProperty('--animation-time', animate +'s');
+    digitalsquare.style.animationDelay = delay + 's';
+  });
+}
+// end digital__square
+
 // start index animation
 const headerform = document.querySelector('.header__forms_form_controls');
 const headerforms = document.querySelectorAll('.header__forms_form_controls');

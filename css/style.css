@@ -4,6 +4,8 @@
   --scroll: 0;
   --x: 0px;
   --y: 0px;
+  --animation-time: 2s;
+  --left: 50%;
   --title-font: 'Winston', sans-serif;
   --text-font: 'Rubik', sans-serif;
   --bg: #fff;
@@ -2804,7 +2806,7 @@ html.has-scroll-dragging {
 /* start showreel */
 
 .showreel {
-  padding: 80px 0;
+  padding: 0 0 80px;
 }
 
 .showreel__container {
@@ -3666,6 +3668,7 @@ html.has-scroll-dragging {
 /* start digital */
 
 .digital {
+  padding: 0 0 80px;
   position: relative;
   z-index: 1;
 }
@@ -3875,6 +3878,134 @@ html.has-scroll-dragging {
 .loaded .accredited__list.animate .accredited__desc {
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
+}
+    
+.digital__square {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.digital__square_list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.digital__square_item {
+  width: 40px;
+  height: 40px;
+  background-color: var(--border);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -150px;
+  -webkit-animation: animate var(--animation-time) linear infinite;
+  animation: animate var(--animation-time) linear infinite;
+}
+
+.digital__square_item:nth-child(1) {
+  background-color: #c7e3e7;
+}
+
+.digital__square_item:nth-child(2) {
+  background-color: #4ba5b1;
+}
+
+.digital__square_item:nth-child(3) {
+  background-color: #44959f;
+}
+
+.digital__square_item:nth-child(4) {
+  background-color: #3c848e;
+}
+
+.digital__square_item:nth-child(5) {
+  background-color: #387c85;
+}
+
+.digital__square_item:nth-child(6) {
+  background-color: #cfc7e7;
+}
+
+.digital__square_item:nth-child(7) {
+  background-color: #644bb1;
+}
+
+.digital__square_item:nth-child(8) {
+  background-color: #5a449f;
+}
+
+.digital__square_item:nth-child(9) {
+  background-color: #503c8e;
+}
+
+.digital__square_item:nth-child(10) {
+  background-color: #4b3885;
+}
+
+.digital__square_item:nth-child(11) {
+  background-color: #b0d0fa;
+}
+
+.digital__square_item:nth-child(12) {
+  background-color: #005ed8;
+}
+
+.digital__square_item:nth-child(13) {
+  background-color: #004eb4;
+}
+
+.digital__square_item:nth-child(14) {
+  background-color: #fff1bd;
+}
+
+.digital__square_item:nth-child(15) {
+  background-color: #ffd129;
+}
+
+.digital__square_item:nth-child(16) {
+  background-color: #fff8df;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    -webkit-transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0%;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px) rotate(720deg);
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+@keyframes animate {
+  0% {
+    -webkit-transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0%;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px) rotate(720deg);
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
 }
 
 /* end digital */
@@ -8510,12 +8641,15 @@ html.has-scroll-dragging {
     width: 20px;
     height: 13.2px;
   }
-  .showreel,
   .expertise,
   .projects__block,
   .articles__block,
   .footer__block {
     padding: 60px 0;
+  }
+  .showreel,
+  .digital {
+    padding: 0 0 60px;
   }
   .header__consultation_blocks {
     padding: 60px 0;
@@ -9050,12 +9184,15 @@ html.has-scroll-dragging {
   .header__subnav_item:first-child {
     padding: 15px 0 0;
   }
-  .showreel,
   .expertise,
   .projects__block,
   .articles__block,
   .footer__block {
     padding: 30px 0;
+  }
+  .showreel,
+  .digital {
+    padding: 0 0 30px;
   }
   .showreel__container {
     max-width: 100%;
@@ -9172,7 +9309,8 @@ html.has-scroll-dragging {
   .projects__filter_list {
     gap: 10px 20px;
   }
-  .showreel {
+  .showreel,
+  .digital {
     padding: 0;
   }
   .projects__flex {
@@ -9864,12 +10002,15 @@ html.has-scroll-dragging {
   .header__nav_container {
     padding: 20px;
   }
-  .showreel,
   .expertise,
   .projects__block,
   .articles__block,
   .footer__block {
     padding: 20px 0;
+  }
+  .showreel,
+  .digital {
+    padding: 0 0 20px;
   }
   .showreel__container {
     max-width: 100%;
