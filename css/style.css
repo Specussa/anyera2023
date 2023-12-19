@@ -729,7 +729,7 @@ section {
   transform: translateY(-6px);
 }
 
-.text__rotate:last-child {
+.text__rotate:nth-child(2) {
   color: var(--purple);
 }
 
