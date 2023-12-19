@@ -1022,13 +1022,15 @@ section {
 }
 
 .btn__arrow:hover .btn__side_default,
-.active .btn__arrow .btn__side_default {
+.active .btn__arrow .btn__side_default,
+.expertise__button:hover .btn__arrow .btn__side_default {
   -webkit-transform: translateY(35px);
   transform: translateY(35px);
 }
 
 .btn__arrow:hover .btn__side_hover,
-.active .btn__arrow .btn__side_hover {
+.active .btn__arrow .btn__side_hover,
+.expertise__button:hover .btn__arrow .btn__side_hover {
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
 }
@@ -2817,7 +2819,7 @@ html.has-scroll-dragging {
 }
 
 .showreel__inview {
-  max-height: 650px;
+  max-height: 750px;
 }
 
 .inview {
@@ -8658,7 +8660,7 @@ html.has-scroll-dragging {
     max-width: 100%;
   }
   .showreel__inview {
-    max-height: 500px;
+    max-height: 600px;
   }
   .expertise__left,
   .expertise__right {
