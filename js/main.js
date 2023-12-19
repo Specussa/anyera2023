@@ -552,26 +552,28 @@ headerlangbutton.addEventListener('click', function() {
 
 // start text rotate
 let textblock = document.querySelectorAll('.text');
-textblock.forEach(element => {
-  let innerText = element.innerText;
-  element.innerHTML = '';
-  
-  let textContainer = document.createElement('span');
-  textContainer.classList.add('text__rotate');
-  
-  for (let letter of innerText) {
-    let span = document.createElement('span');
-    // span.innerText = letter.trim() === '' ? span.classList.add('text__space') : letter;
-    // span.innerText = letter.trim() === '' ? '\xa0': letter;
-    span.innerText = letter.trim() === '' ? '\x20': letter;
-    textContainer.appendChild(span);
-  }
-  
-  element.appendChild(textContainer);
-  element.appendChild(textContainer.cloneNode(true));
-});
-const textrotate = document.querySelectorAll('.text__rotate'); 
-[...textrotate].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+if (document.documentElement.clientWidth >= 1023) {
+  textblock.forEach(element => {
+    let innerText = element.innerText;
+    element.innerHTML = '';
+    
+    let textContainer = document.createElement('span');
+    textContainer.classList.add('text__rotate');
+    
+    for (let letter of innerText) {
+      let span = document.createElement('span');
+      // span.innerText = letter.trim() === '' ? span.classList.add('text__space') : letter;
+      // span.innerText = letter.trim() === '' ? '\x20': letter;
+      span.innerText = letter.trim() === '' ? '\xa0': letter;
+      textContainer.appendChild(span);
+    }
+    
+    element.appendChild(textContainer);
+    element.appendChild(textContainer.cloneNode(true));
+  });
+  const textrotate = document.querySelectorAll('.text__rotate'); 
+  [...textrotate].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+}
 // end text rotate
 
 // start select
