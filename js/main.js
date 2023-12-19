@@ -273,6 +273,8 @@ burger.addEventListener('click', function() {
     }
     for (var i = 0; i < menuItemActive.length; i++) {
       menuItemActive[i].classList.remove("active");
+      menuItemActive[i].children[1].classList.remove("active");
+      menuItemActive[i].children[1].style.maxHeight = null;
     }
     scroll.start();
   } else {
@@ -288,6 +290,8 @@ burger.addEventListener('click', function() {
     }
     for (var i = 0; i < menuItemActive.length; i++) {
       menuItemActive[i].classList.remove("active");
+      menuItemActive[i].children[1].classList.remove("active");
+      menuItemActive[i].children[1].style.maxHeight = null;
     }
     scroll.stop();
   }
