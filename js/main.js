@@ -1579,26 +1579,109 @@ if (pricelist) {
 // end price-list
 
 // start digital__square
-const digitalsquare = document.querySelector('.digital__square');
+const digitalsquare = document.querySelector('#digital__square');
 if (digitalsquare) {
-  let digitalsquareitem = document.querySelectorAll('.digital__square_item');
-  digitalsquareitem.forEach(function (digitalsquare) {
-    let animate = Math.floor(Math.random() * (25 - 5) + 5);
-    let left = Math.floor(Math.random() * 95);
-    let delay = Math.floor(Math.random() * (3 - 1) + 1);
-    if (window.innerWidth >= 1023) {
-      let dimensions = Math.floor(Math.random() * (95 - 40) + 40);
-      digitalsquare.style.width = dimensions + 'px';
-      digitalsquare.style.height = dimensions + 'px';
-    } else {
-      let dimensions = Math.floor(Math.random() * (95 - 65) + 10);
-      digitalsquare.style.width = dimensions + 'px';
-      digitalsquare.style.height = dimensions + 'px';
-    }
-  
-    digitalsquare.style.left = left + '%';
-    digitalsquare.style.setProperty('--animation-time', animate +'s');
-    digitalsquare.style.animationDelay = delay + 's';
+  particlesJS("digital__square", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 9000
+        }
+      },
+      "color": {
+        "value": ["#44959F", "#C7E3E7", "#4BA5B1", "#644BB1", "#5A449F", "#CFC7E7"]
+      },
+      "shape": {
+        "type": "edge",
+        "stroke": {
+          "width": 0,
+          "color": "rgba(255, 255, 255, 0.3)"
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 0.2,
+          "opacity_min": 0,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 50,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 2,
+          "size_min": 5,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "top",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 600
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "bubble"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 250,
+          "size": 0,
+          "duration": 2,
+          "opacity": 0,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 400,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
   });
 }
 // end digital__square
