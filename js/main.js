@@ -561,8 +561,9 @@ textblock.forEach(element => {
   
   for (let letter of innerText) {
     let span = document.createElement('span');
-    span.innerText = letter.trim() === '' ? span.classList.add('text__space') : letter;
-    span.innerText = letter.trim() === '' ? '\xa0': letter;
+    // span.innerText = letter.trim() === '' ? span.classList.add('text__space') : letter;
+    // span.innerText = letter.trim() === '' ? '\xa0': letter;
+    span.innerText = letter.trim() === '' ? '\x20': letter;
     textContainer.appendChild(span);
   }
   
