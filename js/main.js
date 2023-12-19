@@ -257,6 +257,7 @@ const contactssb = document.querySelector('.contacts__social_button');
 
 const burger_ctwo = document.querySelector('.button__project_two');
 const menuItemActive = document.getElementsByClassName("header__nav_item active");
+const menuListActive = document.getElementsByClassName("header__subnav_list active");
 
 // button header__burger
 burger.addEventListener('click', function() {
@@ -273,8 +274,10 @@ burger.addEventListener('click', function() {
     }
     for (var i = 0; i < menuItemActive.length; i++) {
       menuItemActive[i].classList.remove("active");
-      menuItemActive[i].children[1].classList.remove("active");
-      menuItemActive[i].children[1].style.maxHeight = null;
+    }
+    for (var i = 0; i < menuListActive.length; i++) {
+      menuListActive[i].style.maxHeight = null;
+      menuListActive[i].classList.remove("active");
     }
     scroll.start();
   } else {
@@ -290,8 +293,10 @@ burger.addEventListener('click', function() {
     }
     for (var i = 0; i < menuItemActive.length; i++) {
       menuItemActive[i].classList.remove("active");
-      menuItemActive[i].children[1].classList.remove("active");
-      menuItemActive[i].children[1].style.maxHeight = null;
+    }
+    for (var i = 0; i < menuListActive.length; i++) {
+      menuListActive[i].style.maxHeight = null;
+      menuListActive[i].classList.remove("active");
     }
     scroll.stop();
   }
