@@ -713,6 +713,7 @@ if (generation) {
     e.preventDefault();
     checkgthInputs();
   });
+  
   function checkgthInputs() {
     const gthusernameValue = gthusername.value.trim();
     const gthphoneValue = gthphone.value.trim();
@@ -894,6 +895,7 @@ if (generation) {
       });
     }
   }
+
   function GenerationAdd() {
     var generationadded = document.getElementById("generation__added");
   
@@ -909,9 +911,9 @@ if (generation) {
     generationr.className = "generation__remove";
     generationr.innerHTML = `
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.25 12C4.25 11.5858 4.58579 11.25 5 11.25H19C19.4142 11.25 19.75 11.5858 19.75 12C19.75 12.4142 19.4142 12.75 19 12.75H5C4.58579 12.75 4.25 12.4142 4.25 12Z" fill="currentColor"/>
+        <path d="M7 17L12 12M12 12L17 7.00001M12 12L7 7M12 12L17 17" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      Удалить услугу
+      <span>Удалить услугу</span>
     `;
     generationat.appendChild(generationr);
   
@@ -989,6 +991,17 @@ if (generation) {
     autosize(document.querySelectorAll('textarea'));
     GenerationRemove();
     generationforms.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
+
+    const generationaddedID = document.getElementById("generation__added");
+    const gablock = document.querySelectorAll('.generation__added_block');
+    if(generationaddedID){
+      function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+    
+      let gablockopt = {threshold: [0.5]};
+      let gablockserv = new IntersectionObserver(onEntry, gablockopt);
+      for (let elm of gablock) {gablockserv.observe(elm);}
+      [...gablock].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
+    }
   }
 
   function GenerationRemove() {

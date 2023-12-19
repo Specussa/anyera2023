@@ -6548,7 +6548,8 @@ html.has-scroll-dragging {
 .form__select_label,
 .header__form_bottom,
 .feedback_popup__head,
-.feedback_popup__form_bottom {
+.feedback_popup__form_bottom,
+#generation__added .generation__added_block div {
   opacity: 0;
   -webkit-transform: translateY(30px);
   transform: translateY(30px);
@@ -6571,7 +6572,9 @@ html.has-scroll-dragging {
 .generation .form__select_label,
 .header__consultation.active .header__form_bottom,
 .feedback_popup.active .feedback_popup__head,
-.feedback_popup.active .feedback_popup__form_bottom {
+.feedback_popup.active .feedback_popup__form_bottom,
+.loaded .generation__form.active .form__control,
+.loaded #generation__added .generation__added_block.animate div {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -6579,10 +6582,8 @@ html.has-scroll-dragging {
   transition-delay: calc(var(--inc-step)*0.1s + 0.7s);
 }
 
-.loaded .generation__form.active .form__control {
-  opacity: 1;
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
+.loaded .generation__form.active .form__control,
+.loaded #generation__added .generation__added_block.animate div {
   -webkit-transition-delay: calc(var(--inc-step)*0.1s);
   transition-delay: calc(var(--inc-step)*0.1s);
 }
@@ -8395,6 +8396,18 @@ html.has-scroll-dragging {
   height: 50px;
   align-items: center;
   gap: 10px;
+}
+
+.generation__remove svg {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+
+.generation__remove:hover svg {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .generation__add {
@@ -10767,6 +10780,9 @@ html.has-scroll-dragging {
   }
   .article__info_right {
     gap: 40px;
+  }
+  .generation__remove span {
+    display: none;
   }
   .footer__button_up {
     padding: 0;
