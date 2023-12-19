@@ -990,7 +990,8 @@ if (generation) {
     generationadded.appendChild(generationab);
     autosize(document.querySelectorAll('textarea'));
     GenerationRemove();
-    generationforms.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
+    const generationformss = document.querySelectorAll(".generation__right .generation__form");
+    generationformss.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
 
     const generationaddedID = document.getElementById("generation__added");
     const gablock = document.querySelectorAll('.generation__added_block');
