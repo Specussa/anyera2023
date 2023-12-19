@@ -2099,7 +2099,6 @@ html.has-scroll-dragging {
   max-width: 0px;
   margin: 0;
   opacity: 0;
-  font-weight: 600;
   -webkit-transition: opacity 0.2s linear, max-width 0s, margin 0s;
   transition: opacity 0.2s linear, max-width 0s, margin 0s;
   -webkit-transition-delay: 0s, 0.2s, 0.2s;
@@ -10673,10 +10672,6 @@ html.has-scroll-dragging {
   }
   .header__set_mode {
     width: 100%;
-  }
-  .header__set_language_control {
-    max-width: 100%;
-    opacity: 1;
   }
   .expertise__panel p,
   .expertise__panel ul,
