@@ -1698,6 +1698,114 @@ if (digitalsquare) {
 }
 // end digital__square
 
+// start digital__square
+const projecttopstar = document.querySelector('#project_top__star');
+if (projecttopstar) {
+  particlesJS("project_top__star", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 1000
+        }
+      },
+      "color": {
+        "value": ["#44959F", "#C7E3E7", "#4BA5B1", "#644BB1", "#5A449F", "#CFC7E7"]
+      },
+      "shape": {
+        "type": "star",
+        "stroke": {
+          "width": 0,
+          "color": "rgba(255, 255, 255, 0.3)"
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 0.1,
+          "opacity_min": 0,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 2,
+          "size_min": 5,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "top",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 3000,
+          "rotateY": 1500
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "bubble"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 250,
+          "size": 0,
+          "duration": 2,
+          "opacity": 0,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 400,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });
+}
+// end project_top__star
+
 // start index animation
 const headerform = document.querySelector('.header__forms_form_controls');
 const headerforms = document.querySelectorAll('.header__forms_form_controls');

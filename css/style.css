@@ -3889,7 +3889,8 @@ html.has-scroll-dragging {
   transition-delay: 0.6s;
 }
     
-.digital__square {
+.digital__square,
+.project_top__star {
   width: 100%;
   height: 100%;
   display: block;
@@ -3899,7 +3900,8 @@ html.has-scroll-dragging {
   z-index: 0;
 }
 
-.digital__square canvas {
+.digital__square canvas,
+.project_top__star canvas {
   display: block;
   width: 100%;
   height: 100%;
@@ -4595,8 +4597,8 @@ html.has-scroll-dragging {
 
 .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
 .projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
-  -webkit-transform: translateY(30px);
-  transform: translateY(30px);
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
 }
 
 .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_default,
@@ -4607,8 +4609,8 @@ html.has-scroll-dragging {
 
 .projects__navigation .btn__arrow:hover .btn__side_default,
 .projects__navigation .active .btn__arrow .btn__side_default {
-  -webkit-transform: translateY(30px);
-  transform: translateY(30px);
+  -webkit-transform: translateY(50px);
+  transform: translateY(50px);
 }
 
 .projects__navigation .btn__side_hover {
@@ -4788,6 +4790,10 @@ html.has-scroll-dragging {
 
 .project_top__info .btn .button__text {
   color: var(--black);
+}
+
+.project_top__info .btn:hover .button__text {
+  color: var(--white);
 }
 
 .project_top__info.project_top__white .btn .button__text {
@@ -8658,6 +8664,27 @@ html.has-scroll-dragging {
   .projects__flex {
     gap: 60px;
   }
+  .projects__navigation .projects__prev,
+  .projects__navigation .projects__next,
+  .projects__navigation .btn__arrow,
+  .projects__navigation .btn__side {
+    width: 40px;
+    height: 40px;
+  }
+  .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
+  .projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+  .projects__navigation .btn__arrow:hover .btn__side_default,
+  .projects__navigation .active .btn__arrow .btn__side_default {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+  }
+  .projects__navigation .btn__side_hover {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
   .digital__container {
     max-height: 560px;
   }
@@ -10745,20 +10772,6 @@ html.has-scroll-dragging {
   .team_comments__quotes svg {
     width: 40px;
     height: 40px;
-  }
-  .projects__navigation .swiper-button-disabled .btn__arrow:hover .btn__side_hover,
-  .projects__navigation .swiper-button-disabled .active .btn__arrow .btn__side_hover {
-    -webkit-transform: translateY(40px);
-    transform: translateY(40px);
-  }
-  .projects__navigation .btn__arrow:hover .btn__side_default,
-  .projects__navigation .active .btn__arrow .btn__side_default {
-    -webkit-transform: translateY(40px);
-    transform: translateY(40px);
-  }
-  .projects__navigation .btn__side_hover {
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
   }
   .team__bottom_counters {
     gap: 40px;
