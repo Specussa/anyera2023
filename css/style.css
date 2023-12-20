@@ -1956,10 +1956,18 @@ html.has-scroll-dragging {
 }
 
 .header__set_mode_btn[data-clr-mode="dark"]::after {
+  left: -140px;
+}
+
+[data-clr-mode-active="light"] .header__set_mode_btn[data-clr-mode="dark"]::after {
   left: 0;
 }
 
 .header__set_mode_btn[data-clr-mode="light"]::after {
+  left: 0;
+}
+
+[data-clr-mode-active="dark"] .header__set_mode_btn[data-clr-mode="light"]::after {
   left: -140px;
 }
 
@@ -3967,6 +3975,11 @@ html.has-scroll-dragging {
   background-color: var(--text);
 }
 
+.expertise__btn .btn__side.btn__side_hover svg {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
 .expertise__panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5104,7 +5117,6 @@ html.has-scroll-dragging {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 10px;
 }
 
 .project_phone__swiper .swiper-slide-shadow-left,
@@ -8700,7 +8712,7 @@ html.has-scroll-dragging {
     width: calc(25% - 15px);
   }
   .team_slider_block {
-    height: 300px;
+    height: 400px;
   }
   .team_slider_flex {
     padding: 60px;
@@ -10098,6 +10110,25 @@ html.has-scroll-dragging {
   .expertise__button {
     height: 60px;
   }
+  .expertise__arrow {
+    display: none;
+  }
+  .expertise__button.active .btn__arrow .btn__side_default,
+  .expertise__button.active:hover .btn__arrow .btn__side_default {
+    -webkit-transform: translateY(35px);
+    transform: translateY(35px);
+  }
+  .expertise__button:hover .btn__arrow .btn__side_default,
+  .expertise__button.active .btn__arrow .btn__side_hover,
+  .expertise__button.active:hover .btn__arrow .btn__side_hover {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  .expertise__button:hover .btn__arrow .btn__side_hover,
+  .expertise__button .btn__side_hover {
+    -webkit-transform: translateY(-35px);
+    transform: translateY(-35px);
+  }
   .text__verybig {
     -webkit-transform: translateY(3px);
     transform: translateY(3px);
@@ -10155,6 +10186,9 @@ html.has-scroll-dragging {
   }
   .team_comments__buttons {
     justify-content: space-between;
+  }
+  .team_slider_block {
+    height: 600px;
   }
   .services__flex {
     padding: 30px 20px;
@@ -10748,6 +10782,9 @@ html.has-scroll-dragging {
   }
   .team_slider_info {
     gap: 5px;
+  }
+  .team_slider_block {
+    height: 300px;
   }
   .services__flex {
     padding: 30px 20px 90px;

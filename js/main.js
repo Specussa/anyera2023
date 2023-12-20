@@ -67,6 +67,7 @@ if(projecttop &&
   projecttop.style.background !=  "rgb(255, 255, 255)" && 
   projecttop.style.background !=  "rgb(255, 251, 239)" && 
   projecttop.style.background !=  "rgb(233, 249, 249)" && 
+  projecttop.style.background !=  "rgb(255, 248, 246)" && 
   projecttop.style.background !=  "var(--bg)"){
   header.classList.add('header__transparent');
   header.classList.add('project_top__white');
@@ -89,6 +90,7 @@ scroll.on('scroll', (args) => {
     projecttop.style.background !=  "rgb(255, 255, 255)" && 
     projecttop.style.background !=  "rgb(255, 251, 239)" && 
     projecttop.style.background !=  "rgb(233, 249, 249)" && 
+    projecttop.style.background !=  "rgb(255, 248, 246)" && 
     projecttop.style.background !=  "var(--bg)"){
     if (Math.round(args["scroll"]["y"]) <= 50) {
       header.classList.add('header__transparent');
@@ -105,7 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cursorBlock = cursor.querySelector(".cursor__block");
   const a = document.querySelectorAll('a');
   const button = document.querySelectorAll('button');
-  const label = document.querySelectorAll('label'); 
+  const label = document.querySelectorAll('label');
+  const hslanguageicon = document.querySelectorAll('.header__set_language_icon');
   const sinview = document.querySelectorAll('.showreel__inview');
   const cursorgrab = document.querySelectorAll('.c-scrollbar_thumb');
   const buttonnext = document.querySelectorAll('.swiper-button-next');
@@ -187,6 +190,15 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   button.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      cursor.classList.add('hover');
+    });
+    item.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+    });
+  })
+
+  hslanguageicon.forEach(item => {
     item.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
     });
