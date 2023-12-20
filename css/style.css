@@ -10417,6 +10417,64 @@ html.has-scroll-dragging {
   .generation__button {
     height: 62px;
   }
+  .spec__border {
+    width: calc(100% - 18px);
+    height: calc(100% - 79px);
+    top: 10px;
+    left: 10px;
+  }
+  .spec__controls {
+    margin: 0 10px 10px;
+  }
+  .spec__button.toggle,
+  .spec__button.volume {
+    padding: 18px 22px;
+  }
+  .spec__button {
+    max-height: 60px;
+    max-width: 60px;
+  }
+  .spec__button i {
+    height: 40px;
+    width: 40px;
+  }
+  .spec-play:before {
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+  }
+  .spec-volume-medium:before {
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+  }
+  .spec__button.fullscreen {
+    display: none;
+  }
+  .spec__button.volume {
+    border-radius: 0 0 30px 0;
+  }
+  .spec .progress {
+    height: 60px;
+  }
+  .showreel__modal_close svg,
+  .showreel__modal_close:hover svg,
+  .dark .showreel__modal_close svg,
+  .dark .showreel__modal_close:hover svg {
+    width: 20px;
+    height: 20px;
+  }
+  .showreel__modal_close {
+    top: 10px;
+    right: 10px;
+  }
+  .showreel__modal .button__close {
+    width: 60px;
+    height: 60px;
+  }
+  .hide.showreel__modal .button__close {
+    border: 1px solid hsla(0,0%,100%,.2);
+  }
   .footer__flex {
     padding: 0 0 130px;
   }

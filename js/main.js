@@ -1587,7 +1587,7 @@ if (digitalsquare) {
         "value": 80,
         "density": {
           "enable": true,
-          "value_area": 9000
+          "value_area": 6000
         }
       },
       "color": {
@@ -1605,13 +1605,13 @@ if (digitalsquare) {
         "random": true,
         "anim": {
           "enable": true,
-          "speed": 0.2,
+          "speed": 0.1,
           "opacity_min": 0,
           "sync": false
         }
       },
       "size": {
-        "value": 50,
+        "value": 20,
         "random": true,
         "anim": {
           "enable": true,
@@ -1637,8 +1637,8 @@ if (digitalsquare) {
         "bounce": false,
         "attract": {
           "enable": false,
-          "rotateX": 600,
-          "rotateY": 600
+          "rotateX": 3000,
+          "rotateY": 1500
         }
       }
     },
