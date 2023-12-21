@@ -52,15 +52,27 @@
   font-size: 0;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  background: var(--purple);
+}
+
 html {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1151,6 +1163,7 @@ html.has-scroll-smooth {
   top: 0;
   bottom: 0;
   overflow: hidden;
+  scroll-behavior: auto;
 }
 
 html.has-scroll-dragging {

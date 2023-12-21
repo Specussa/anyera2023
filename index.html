@@ -188,9 +188,7 @@
           <div class="showreel__target inview__target" id="showreel__target"></div>
           <button class="showreel__button inview__flex" data-scroll data-scroll-sticky data-scroll-target="#showreel__target">
             <div class="showreel__block inview__block">
-              <video poster="img/main/showreel.webp" playsinline autoplay muted loop>
-                <source src="img/main/showreel.mp4" type="video/mp4">
-              </video>
+              <img src="img/main/showreel.webp" alt="">
             </div>
           </button>
         </div>
@@ -1006,9 +1004,7 @@
   <div class="showreel__modal">
     <div class="showreel__modal_inner">
       <div class="showreel__video_responsive">
-        <video id="showreel__video" poster="img/main/showreel.webp" playsinline autoplay loop data-overlay="1" data-title="ANYERA">
-          <source src="img/main/showreel.mp4" type="video/mp4">
-        </video>
+        <img src="img/main/showreel.webp" alt="">
       </div>
       <button class="button__close showreel__modal_close" aria-label="Закрыть видео">
         <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1077,7 +1073,7 @@
     </div>
   </div>
   <script>
-    window.onload = function () {
+  document.addEventListener("DOMContentLoaded", (event) => {
     //   document.body.classList.add('loaded_hiding');
     //   document.querySelector('.preloader__top').style.top = "-50%";
     //   document.querySelector('.preloader__bottom').style.top = "100%";
@@ -1087,7 +1083,7 @@
     //     document.body.classList.remove('loaded_hiding');
     //     document.querySelector('.preloader').style.display = "none";
     //   }, 500);
-    };
+  });
   </script>
   <script src="js/swiper.min.js"></script>
   <script src="js/form.js"></script>
