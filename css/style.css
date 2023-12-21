@@ -2855,6 +2855,8 @@ html.has-scroll-dragging {
   top: calc(var(--height) - var(--height)*2);
   left: 0;
   right: 0;
+  /* -webkit-transition: -webkit-transform 0.01s linear;
+  transition: transform 0.01s linear; */
 }
 
 .inview__target {

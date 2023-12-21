@@ -46,7 +46,7 @@ appHeight();
 
 // start scroll
 // scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,lerp:0.05,mobile: {breakpoint: 0,smooth: true,inertia: 1,},tablet: {breakpoint: 0,smooth: true,inertia: 1,},smartphone: {breakpoint: 0,smooth: true,inertia: 1,}})
-scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth:true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,tablet: {breakpoint: 0,smooth: true,inertia: 0,}})
+scroll = new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'),smooth: true,getDirection: true,scrollFromAnywhere: true,breakpoint: 0,inertia: 0,tablet: {breakpoint: 0,smooth: false,inertia: 0,}})
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"));
 
 const hn_scroll = document.querySelector('.header__nav_scroll');
@@ -77,6 +77,22 @@ if(projecttop &&
   projecttopinfo.classList.add('project_top__bg');
 }
 
+const showreelbutton = document.querySelector('.showreel__button');
+const showreel = document.querySelector('.showreel');
+const pbbutton = document.querySelector('.project_banner__button');
+const pbinview = document.querySelector('.project_banner__inview');
+if (!document.querySelector('.has-scroll-smooth')) {
+  let parallaxscrollY;
+  parallaxscrollY = window.scrollY;
+  if (showreel) {
+    let showreelbuttonPadding = Number(window.getComputedStyle(showreel).paddingBottom.replace('px', ''));
+    showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,${parallaxscrollY + (window.innerHeight - document.querySelector('.digital').scrollHeight + (document.querySelector('.header').scrollHeight) + (showreelbuttonPadding))}, 0, 1)`;
+  }
+  if (pbbutton) {
+    pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight))}, 0, 1)`;
+  }
+}
+
 scroll.on('scroll', (args) => {
   const headerprogress = document.querySelector('.header__progress_bar');
   if (document.querySelector('.has-scroll-smooth')) {
@@ -88,11 +104,26 @@ scroll.on('scroll', (args) => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     let documentHeight = Math.max(
-      document.body.scrollHeight, document.body.offsetHeight, document.body.clientHeight,
-      document.documentElement.scrollHeight, document.documentElement.offsetHeight, document.documentElement.clientHeight
+      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
     );
     let scrollpage = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
     headerprogress.style.flexBasis = scrollpage + '%';
+
+    let parallaxscrollY;
+    parallaxscrollY = window.scrollY
+    if (showreel) {
+      if (parallaxscrollY < (showreel.scrollHeight)) {
+        let showreelbuttonPadding = Number(window.getComputedStyle(showreel).paddingBottom.replace('px', ''));
+        showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY + (window.innerHeight - document.querySelector('.digital').scrollHeight + (document.querySelector('.header').scrollHeight) + (showreelbuttonPadding))}, 0, 1)`;
+      }
+    }
+    if (pbbutton) {
+      if (parallaxscrollY < (pbinview.scrollHeight)) {
+        // matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 755, 0, 1)
+        // pbbutton.style.transform = `translateY(${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight * 3))}px)`;
+        pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight * 3))}, 0, 1)`;
+      }
+    }
   }
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
