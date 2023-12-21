@@ -85,11 +85,10 @@ if (!document.querySelector('.has-scroll-smooth')) {
   let parallaxscrollY;
   parallaxscrollY = window.scrollY;
   if (showreel) {
-    let showreelbuttonPadding = Number(window.getComputedStyle(showreel).paddingBottom.replace('px', ''));
-    showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,${parallaxscrollY + (window.innerHeight - document.querySelector('.digital').scrollHeight + (document.querySelector('.header').scrollHeight) + (showreelbuttonPadding))}, 0, 1)`;
+    showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
   }
   if (pbbutton) {
-    pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight))}, 0, 1)`;
+    pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
   }
 }
 
@@ -108,20 +107,21 @@ scroll.on('scroll', (args) => {
     );
     let scrollpage = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
     headerprogress.style.flexBasis = scrollpage + '%';
-
+    
     let parallaxscrollY;
     parallaxscrollY = window.scrollY
     if (showreel) {
-      if (parallaxscrollY < (showreel.scrollHeight)) {
-        let showreelbuttonPadding = Number(window.getComputedStyle(showreel).paddingBottom.replace('px', ''));
-        showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY + (window.innerHeight - document.querySelector('.digital').scrollHeight + (document.querySelector('.header').scrollHeight) + (showreelbuttonPadding))}, 0, 1)`;
+      let showreelmaxHeight = Number(window.getComputedStyle(document.querySelector('.showreel__inview')).maxHeight.replace('px', ''));
+      if (parallaxscrollY <= (document.querySelector('[data-persistent]').offsetTop + showreelmaxHeight)) {
+        showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
+        showreelbutton.style.transition = `transform 0.1s linear`;
       }
     }
     if (pbbutton) {
-      if (parallaxscrollY < (pbinview.scrollHeight)) {
-        // matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 755, 0, 1)
-        // pbbutton.style.transform = `translateY(${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight * 3))}px)`;
-        pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY + (window.innerHeight - pbinview.scrollHeight + (document.querySelector('.header').scrollHeight * 3))}, 0, 1)`;
+        let pbmaxHeight = Number(window.getComputedStyle(document.querySelector('.project_banner__inview')).maxHeight.replace('px', ''));
+        if (parallaxscrollY <= (document.querySelector('[data-persistent]').offsetTop + pbmaxHeight)) {
+        pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
+        pbbutton.style.transition = `transform 0.1s linear`;
       }
     }
   }
