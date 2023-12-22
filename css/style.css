@@ -753,6 +753,7 @@ section {
 
 .header__nav_item.active .header__nav_link .text .text__rotate span,
 .header__set_language_btn.active .text .text__rotate span,
+.text.active .text__rotate span,
 .text:hover .text__rotate span {
   -webkit-transform: translateY(-100%);
   transform: translateY(-100%);

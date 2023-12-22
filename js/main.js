@@ -820,6 +820,20 @@ for (i = 0; i < expertisebutton.length; i++) {
 }
 // end expertise
 
+// start article__heading
+var articleheading = document.getElementsByClassName("article__heading");
+if (articleheading) {
+  for (var i = 0; i < articleheading.length; i++) {
+    articleheading[i].onclick = function(e) {
+      for (var i = 0; i < articleheading.length; i++) {
+        articleheading[i].classList.remove("active");
+      }
+      this.classList.add("active");
+    }
+  }
+};
+// end article__heading
+
 // start articles
 const articlesSlider = document.querySelector('.articles__swiper');
 if(articlesSlider){
