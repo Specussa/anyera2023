@@ -1120,7 +1120,7 @@ section {
 
 .dark .checkbox:hover .button__text,
 .dark .checkbox:hover .button__count small {
-  color: var(--text);
+  color: var(--bg);
 }
 
 .dark .checkbox.active:hover {
@@ -7075,7 +7075,7 @@ html.has-scroll-dragging {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  padding: 100px 0;
+  padding: 100px 80px;
   gap: 80px;
 }
 
@@ -7085,6 +7085,10 @@ html.has-scroll-dragging {
   justify-content: space-between;
   flex-direction: column;
   gap: 40px;
+}
+
+.career_top__info {
+  max-height: 400px;
 }
 
 .career_top__image {
@@ -8024,8 +8028,8 @@ html.has-scroll-dragging {
   opacity: 0;
   -webkit-transform: translateY(30px);
   transform: translateY(30px);
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.2s linear;
-  transition: opacity 0.3s linear, transform 0.2s linear;
+  -webkit-transition: opacity 0.3s linear, border 0.2s linear, color 0.2s linear, -webkit-transform 0.2s linear;
+  transition: opacity 0.3s linear,  border 0.2s linear, color 0.2s linear, transform 0.2s linear;
 }
 
 .loaded .articles_page__item.animate,
@@ -8035,8 +8039,8 @@ html.has-scroll-dragging {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s, 0s, 0s, 0.1s;
+  transition-delay: 0.1s, 0s, 0s, 0.1s;
 }
 
 .loaded .articles_page__block.animate .articles_page__desc {
@@ -8915,7 +8919,7 @@ html.has-scroll-dragging {
     padding: 90px 30px;
   }
   .career_top__block {
-    padding: 120px 0 80px;
+    padding: 120px 60px 80px;
     gap: 60px;
   }
   .career__left,
@@ -9414,7 +9418,7 @@ html.has-scroll-dragging {
     gap: 40px;
   }
   .career_top__block {
-    padding: 90px 0 60px;
+    padding: 90px 30px 60px;
     gap: 40px;
   }
   .project_top__image {
@@ -10399,7 +10403,7 @@ html.has-scroll-dragging {
     gap: 30px;
   }
   .career_top__block {
-    padding: 40px 0;
+    padding: 40px 20px;
     gap: 20px;
   }
   .career_top {
@@ -10442,6 +10446,9 @@ html.has-scroll-dragging {
   .career_popup__head,
   .feedback_popup__head {
     padding: 0px 0px 40px;
+  }
+  .career_top__info {
+    max-height: 100%;
   }
   .price__block {
     width: 100%;
