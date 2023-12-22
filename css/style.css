@@ -5100,7 +5100,10 @@ html.has-scroll-dragging {
 }
 
 .project_phone_flex {
-  padding: 80px;
+  padding: 80px 0;
+  margin: 0 2px;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg);
   overflow: hidden;
 }
 
@@ -5112,6 +5115,25 @@ html.has-scroll-dragging {
   height: 100%;
   border-radius: 40px;
   overflow: visible;
+}
+
+.project_phone__img,
+.project_phone_block {
+  transition: opacity 0.5s linear;
+}
+
+.project_phone_item.swiper-slide .project_phone__img,
+.project_phone_item.swiper-slide .project_phone_block {
+  opacity: 0;
+}
+
+.project_phone_item.swiper-slide-active .project_phone__img,
+.project_phone_item.swiper-slide-prev .project_phone__img,
+.project_phone_item.swiper-slide-next .project_phone__img,
+.project_phone_item.swiper-slide-active .project_phone_block,
+.project_phone_item.swiper-slide-prev .project_phone_block,
+.project_phone_item.swiper-slide-next .project_phone_block {
+  opacity: 1;
 }
 
 .project_phone__img {
@@ -5139,12 +5161,18 @@ html.has-scroll-dragging {
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  border-radius: 0 0 30px 30px;
 }
 
 .project_phone__swiper .swiper-slide-shadow-left,
 .project_phone__swiper .swiper-slide-shadow-right {
   border-radius: 40px;
   overflow: hidden;
+}
+
+.project_present__container {
+  max-width: 100%;
+  padding: 0;
 }
 
 .project_present__swiper .swiper-wrapper {
@@ -5157,6 +5185,9 @@ html.has-scroll-dragging {
 }
 
 .project_present__slider {
+  padding: 80px 0;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
   overflow: visible;
 }
 
@@ -5499,6 +5530,20 @@ html.has-scroll-dragging {
   padding: 0 20px;
   flex-direction: column;
   gap: 20px;
+}
+
+.team_slider_block {
+  transition: opacity 0.5s linear;
+}
+
+.team_slider__item.swiper-slide .team_slider_block {
+  opacity: 0;
+}
+
+.team_slider__item.swiper-slide-active .team_slider_block,
+.team_slider__item.swiper-slide-prev .team_slider_block,
+.team_slider__item.swiper-slide-next .team_slider_block {
+  opacity: 1;
 }
 
 .team_slider_block {
@@ -7775,6 +7820,10 @@ html.has-scroll-dragging {
 
 /* start article */
 
+.article {
+  overflow: visible;
+}
+
 .article__block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7794,6 +7843,11 @@ html.has-scroll-dragging {
   display: flex;
   width: 50%;
   flex-direction: column;
+}
+
+.article__info_sticky {
+  position: sticky;
+  top: 0;
 }
 
 .article__info_block {
@@ -8476,6 +8530,16 @@ html.has-scroll-dragging {
 
 /* end generation */
 
+/* start bitrix fun */
+
+.bx-subscribe {
+  height: 0px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* end bitrix fun */
+
 /* start 1919px */
 @media (max-width: 1919px) {
   .team__bottom_heading {
@@ -8567,7 +8631,8 @@ html.has-scroll-dragging {
   .expertise,
   .projects__block,
   .articles__block,
-  .footer__block {
+  .footer__block,
+  .project_present__slider {
     padding: 60px 0;
   }
   .showreel,
@@ -8624,7 +8689,7 @@ html.has-scroll-dragging {
     padding: 20px 60px 30px;
   }
   .project_phone_flex {
-    padding: 60px;
+    padding: 60px 0;
   }
   .project__info {
     padding: 60px 0;
@@ -9131,7 +9196,8 @@ html.has-scroll-dragging {
   .expertise,
   .projects__block,
   .articles__block,
-  .footer__block {
+  .footer__block,
+  .project_present__slider {
     padding: 30px 0;
   }
   .showreel,
@@ -9152,6 +9218,9 @@ html.has-scroll-dragging {
   .projects__swiper .projects__item:nth-child(1n),
   .projects__swiper .projects__item:nth-child(2n) {
     padding: 0 10px;
+  }
+  .project_present__container {
+    padding: 0;
   }
   .project_present__swiper {
     height: 320px;
@@ -9303,7 +9372,7 @@ html.has-scroll-dragging {
     padding: 120px 0 40px;
   }
   .project_phone_flex {
-    padding: 40px;
+    padding: 40px 0;
   }
   .project__info {
     padding: 40px 0;
@@ -9949,7 +10018,8 @@ html.has-scroll-dragging {
   .expertise,
   .projects__block,
   .articles__block,
-  .footer__block {
+  .footer__block,
+  .project_present__slider {
     padding: 20px 0;
   }
   .showreel,
@@ -10030,6 +10100,9 @@ html.has-scroll-dragging {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  .project_present__container {
+    padding: 0;
+  }
   .project_top__shadow .project_top__block {
     padding: 100px 0 40px;
   }
@@ -10087,10 +10160,25 @@ html.has-scroll-dragging {
     object-position: top left;
   }
   .project_phone_flex {
-    padding: 20px;
+    padding: 20px 0;
   }
   .project_present__swiper {
     height: 240px;
+  }
+  .project_phone_item.swiper-slide .project_phone__img,
+  .project_phone_item.swiper-slide .project_phone_block,
+  .project_phone_item.swiper-slide-prev .project_phone__img,
+  .project_phone_item.swiper-slide-next .project_phone__img,
+  .project_phone_item.swiper-slide-prev .project_phone_block,
+  .project_phone_item.swiper-slide-next .project_phone_block,
+  .team_slider__item.swiper-slide-prev .team_slider_block,
+  .team_slider__item.swiper-slide-next .team_slider_block {
+    opacity: 0;
+  }
+  .project_phone_item.swiper-slide-active .project_phone__img,
+  .project_phone_item.swiper-slide-active .project_phone_block,
+  .team_slider__item.swiper-slide-active .team_slider_block {
+    opacity: 1;
   }
   .articles__top {
     padding: 0 20px 20px;
@@ -10493,6 +10581,11 @@ html.has-scroll-dragging {
   }
   .generation__button {
     height: 62px;
+  }
+  .hide .is-playing .spec__title,
+  .hide .is-playing .spec__border,
+  .hide .is-playing .spec__controls {
+    opacity: 1;
   }
   .spec__border {
     width: calc(100% - 18px);

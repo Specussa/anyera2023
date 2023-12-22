@@ -933,7 +933,7 @@ if(elsliderphone) {
     };
   }
   var pphoneSlider = new Swiper(".project_phone__swiper", {
-    loop: false,
+    loop: true,
     slidesPerView: 1.5,
     spaceBetween: 0,
     initialSlide: 2,
@@ -947,7 +947,7 @@ if(elsliderphone) {
       stretch: 0,
       depth: 100,
       modifier: 1,
-      slideShadows : true,
+      slideShadows : false,
     },
     breakpoints: {
       1440: {
@@ -1045,49 +1045,64 @@ if(teamcommentsSlider){
 // start project present
 const projectpresentSlider = document.querySelector('.project_present__swiper');
 if(projectpresentSlider){
-  var transformValue;
-  var projectpresentlist = document.querySelector('.project_present__swiper .project_present__list');
+  // var transformValue;
+  // var projectpresentlist = document.querySelector('.project_present__swiper .project_present__list');
+  // var ppresentSlider = new Swiper('.project_present__swiper', {
+  //   loop: true,
+  //   slideToClickedSlide: false,
+  //   allowTouchMove: false,
+  //   watchSlidesProgress: true,
+  //   slidesPerView: 1,
+  //   loopedSlides: 10,
+  //   spaceBetween: 0,
+  //   speed: 6000,
+  //   autoplay: {
+  //     enabled: true,
+  //     delay: 1,
+  //     pauseOnMouseEnter: false
+  //   },
+  //   breakpoints: {
+  //     580: {
+  //       slidesPerView: 'auto',
+  //     },
+  //   },
+  //   on: {
+  //     slideChangeTransitionStart: function() {
+  //       projectpresentlist.style.transitionDuration = "6000ms";
+  //       this.params.speed = 6000;
+  //       this.autoplay.start();
+  //     },
+  //     init: function() {
+  //       projectpresentSlider.addEventListener('mouseenter', () => {
+  //         this.autoplay.stop();
+  //         transformValue = projectpresentlist.style.transform;
+  //         projectpresentlist.style.transitionDuration = "0ms";
+  //         this.params.speed = 0;
+  //         projectpresentlist.style.transform = "translate3d(" + this.getTranslate() + "px, 0px, 0px)";
+  //       });
+  //       projectpresentSlider.addEventListener('mouseleave', () => {
+  //         projectpresentlist.style.transitionDuration = "1000ms";
+  //         this.params.speed = 1000;
+  //         projectpresentlist.style.transform = transformValue;
+  //         this.autoplay.start();
+  //       });
+  //     }
+  //   }
+  // });
   var ppresentSlider = new Swiper('.project_present__swiper', {
     loop: true,
-    slideToClickedSlide: false,
-    allowTouchMove: false,
-    watchSlidesProgress: true,
     slidesPerView: 1,
-    loopedSlides: 10,
-    spaceBetween: 0,
-    speed: 6000,
+    centeredSlides: true,
+    speed: 2000,
     autoplay: {
-      enabled: true,
-      delay: 1,
-      pauseOnMouseEnter: false
+      delay: 2000,
+      disableOnInteraction: false,
     },
     breakpoints: {
       580: {
         slidesPerView: 'auto',
       },
     },
-    on: {
-      slideChangeTransitionStart: function() {
-        projectpresentlist.style.transitionDuration = "6000ms";
-        this.params.speed = 6000;
-        this.autoplay.start();
-      },
-      init: function() {
-        projectpresentSlider.addEventListener('mouseenter', () => {
-          this.autoplay.stop();
-          transformValue = projectpresentlist.style.transform;
-          projectpresentlist.style.transitionDuration = "0ms";
-          this.params.speed = 0;
-          projectpresentlist.style.transform = "translate3d(" + this.getTranslate() + "px, 0px, 0px)";
-        });
-        projectpresentSlider.addEventListener('mouseleave', () => {
-          projectpresentlist.style.transitionDuration = "1000ms";
-          this.params.speed = 1000;
-          projectpresentlist.style.transform = transformValue;
-          this.autoplay.start();
-        });
-      }
-    }
   });
 }
 // end project present
@@ -1663,14 +1678,14 @@ if (digitalsquare) {
         "value": 80,
         "density": {
           "enable": true,
-          "value_area": 6000
+          "value_area": 1000
         }
       },
       "color": {
         "value": ["#44959F", "#C7E3E7", "#4BA5B1", "#644BB1", "#5A449F", "#CFC7E7"]
       },
       "shape": {
-        "type": "edge",
+        "type": "star",
         "stroke": {
           "width": 0,
           "color": "rgba(255, 255, 255, 0.3)"
@@ -1687,7 +1702,7 @@ if (digitalsquare) {
         }
       },
       "size": {
-        "value": 20,
+        "value": 1,
         "random": true,
         "anim": {
           "enable": true,
