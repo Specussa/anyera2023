@@ -1459,14 +1459,25 @@ html.has-scroll-dragging {
 }
 
 .header__name svg {
-  width: 170px;
-  height: 34px;
+  width: 165px;
+  height: 30px;
   object-fit: contain;
-  color: var(--text);
 }
 
 .header__name svg path:nth-child(2) {
   color: var(--purple);
+}
+
+.header__name svg path {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+  transition: opacity 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+  -webkit-transition-delay: calc(var(--inc-step)*0.05s);
+  transition-delay: calc(var(--inc-step)*0.05s);
+}
+
+.loaded .header__name svg path {
+  opacity: 1;
 }
 
 .header.header__transparent .header__name {
@@ -1538,6 +1549,11 @@ html.has-scroll-dragging {
 .button__project {
   width: 173px;
   padding: 0;
+}
+
+.dark .button__project.active {
+  background-color: var(--purple);
+  border: 1px solid var(--purple);
 }
 
 .button__feedback {
@@ -4077,7 +4093,6 @@ html.has-scroll-dragging {
 .certificates__desc,
 .competencies__desc,
 .competencies__description,
-.article__desc,
 .articles_page__desc,
 .generation__desc {
   max-width: 430px;
@@ -4105,7 +4120,6 @@ html.has-scroll-dragging {
 .certificates__desc::before,
 .competencies__desc::before,
 .competencies__description::before,
-.article__desc::before,
 .articles_page__desc::before,
 .generation__desc::before {
   content: "";
@@ -7872,7 +7886,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 120px 80px 80px;
+  padding: 170px 80px 80px;
   flex-direction: column;
   gap: 10px;
 }
@@ -7885,7 +7899,7 @@ html.has-scroll-dragging {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 80px 0 0;
+  padding: 170px 0 0;
   flex-direction: column;
   gap: 40px;
 }
@@ -8364,6 +8378,10 @@ html.has-scroll-dragging {
   opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0);
+}
+
+.project_top__white .breadcrumbs__link {
+  color: var(--white);
 }
 
 /* end breadcrumbs */
@@ -9012,7 +9030,10 @@ html.has-scroll-dragging {
     width: 100%;
   }
   .article__info_block {
-    padding: 100px 60px 80px;
+    padding: 150px 60px 80px;
+  }
+  .article__info_flex {
+    padding: 150px 0 0;
   }
   .articles_page__block {
     max-width: 100%;
@@ -9325,7 +9346,6 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc,
   .articles_page__desc,
   .generation__desc {
     padding: 0 0 0 30px;
@@ -10251,7 +10271,6 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc,
   .articles_page__desc,
   .generation__desc {
     padding: 0 0 0 20px;
@@ -10832,7 +10851,6 @@ html.has-scroll-dragging {
   .certificates__desc,
   .competencies__desc,
   .competencies__description,
-  .article__desc,
   .articles_page__desc,
   .generation__desc {
     max-width: 100%;
