@@ -1449,6 +1449,9 @@ html.has-scroll-dragging {
 }
 
 .header__name {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
   color: var(--text);
   opacity: 1;
   -webkit-transition: color 0.2s linear, opacity 0.1s linear 0.3s;
