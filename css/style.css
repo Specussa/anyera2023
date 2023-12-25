@@ -1456,8 +1456,8 @@ html.has-scroll-dragging {
 }
 
 .header__name svg {
-  width: 228px;
-  height: 46px;
+  width: 170px;
+  height: 34px;
   object-fit: contain;
   color: var(--text);
 }
