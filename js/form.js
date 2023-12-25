@@ -99,6 +99,8 @@ if(form) {
     phoneValue !== '' && phoneValue.length >= phoneMin && phoneValue.length <= phoneMax && 
     textValue !== '' && textValue.length >= textMin && textValue.length <= textMax &&
     priceValue !== '' && сommunicationValue !== '') {
+      form.classList.add("hidden");
+      document.getElementById('form__successfully_form').classList.add("active");
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({
@@ -110,7 +112,7 @@ if(form) {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
-        }
+        },
       });
     }
   }
@@ -199,6 +201,8 @@ if(formcareer) {
     careeremailValue === '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax && 
     careerlinkValue !== '' && careerlinkValue.length >= careerlinkMin && careerlinkValue.length <= careerlinkMax && 
     careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax) {
+      formcareer.classList.add("hidden");
+      document.getElementById('form__successfully_form__career').classList.add("active");
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({
@@ -216,6 +220,8 @@ if(formcareer) {
     careeremailValue !== '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax &&  
     careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax && 
     careerfileValue !== '') {
+      formcareer.classList.add("hidden");
+      document.getElementById('form__successfully_form__career').classList.add("active");
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({
@@ -341,6 +347,8 @@ if(formfeedback) {
     if(feedbackusernameValue !== '' && feedbackusernameValue.length >= feedbackusernameMin && feedbackusernameValue.length <= feedbackusernameMax && 
     feedbackphoneValue !== '' && feedbackphoneValue.length >= feedbackphoneMin && feedbackphoneValue.length <= feedbackphoneMax && 
     feedbacksocialValue !== '' && feedbacksocialValue.length >= feedbacksocialMin && feedbacksocialValue.length <= feedbacksocialMax) {
+      formfeedback.classList.add("hidden");
+      document.getElementById('form__successfully_form__feedback').classList.add("active");
       fetch('/ajax/sendMail.php', {
         method: 'POST',
         body: JSON.stringify({

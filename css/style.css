@@ -2264,6 +2264,10 @@ html.has-scroll-dragging {
   max-width: 515px;
 }
 
+.header__forms_form.hidden {
+  display: none;
+}
+
 .header__forms_header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7383,6 +7387,11 @@ html.has-scroll-dragging {
   width: 100%;
 }
 
+.career_popup__forms_form.hidden,
+.feedback_popup__forms_form.hidden {
+  display: none;
+}
+
 .career_popup__form_bottom,
 .feedback_popup__form_bottom {
   display: -webkit-box;
@@ -8565,6 +8574,35 @@ html.has-scroll-dragging {
 }
 
 /* end generation */
+
+/* start form__successfully */
+
+.form__successfully {
+  display: none;
+}
+
+.form__successfully.active {
+  display: block;
+}
+
+.form__successfully_image {
+  width: 100%;
+  max-width: 256px;
+  max-height: 256px;
+  padding: 0 0 10px;
+  color: var(--green);
+}
+
+.form__successfully_image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.form__successfully_head {
+  padding: 0 0 30px;
+}
+
+/* end form__successfully */
 
 /* start bitrix fun */
 
