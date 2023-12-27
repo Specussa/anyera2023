@@ -2166,6 +2166,29 @@ html.has-scroll-dragging {
   transition-delay: 0.2s, 0.2s, 0.2s;
 }
 
+.header__login {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  margin: 0 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__login_image {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+
+.header__login_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 /* end header__nav */
 
 /* start header__consultation */
@@ -10830,7 +10853,7 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .header__nav_container {
-    gap: 20px;
+    gap: 40px;
   }
   .header__nav_flex {
     padding: 0;
@@ -10843,7 +10866,7 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .header__nav__contact {
-    gap: 20px;
+    gap: 40px;
   }
   .header__nav_contact_item p,
   .header__nav_contact_item:not(:last-child) {
@@ -10859,7 +10882,7 @@ html.has-scroll-dragging {
   }
   .header__set {
     flex-direction: column-reverse;
-    gap: 20px;
+    gap: 40px;
   }
   .header__set_block,
   .header__set_language {
@@ -11157,6 +11180,14 @@ html.has-scroll-dragging {
   .certificates__image img {
     width: 100%;
     height: auto;
+  }
+  .header__set_language {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .header__login {
+    width: 100%;
+    margin: 0;
   }
 }
 /* end 389px */
