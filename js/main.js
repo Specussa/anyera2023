@@ -53,11 +53,13 @@ const hn_scroll = document.querySelector('.header__nav_scroll');
 const hc_scroll = document.querySelector('.header__consultation_scroll');
 const cp_scroll = document.querySelector('.career_popup__scroll');
 const fp_scroll = document.querySelector('.feedback_popup__scroll');
+const gp_scroll = document.querySelector('.generation_popup__scroll');
 
 Scrollbar.init(hn_scroll);
 Scrollbar.init(hc_scroll);
 if (cp_scroll) {Scrollbar.init(cp_scroll);}
 if (fp_scroll) {Scrollbar.init(fp_scroll);}
+if (gp_scroll) {Scrollbar.init(gp_scroll);}
 
 const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
@@ -561,6 +563,69 @@ if(feedbackpopup) {
 }
 // end feedback_popup
 
+// button career_popup
+const generationpopup = document.querySelector('.generation_popup');
+if(generationpopup) {
+  const generationbutton = document.getElementsByClassName("generation_popup__button");
+  const generationpopupclose = document.querySelector('.generation_popup__close');
+  const generationlistclose = document.querySelector('.generation__list_close');
+  for (i = 0; i < generationbutton.length; i++) {
+    generationbutton[i].onclick = function(e) {
+      if (generationpopup.classList.contains("active")) {
+        bodyoverlay.classList.remove("active");
+        generationpopup.classList.remove("active");
+        document.body.style.overflow = null;
+        document.body.style.height = null;
+        bodyoverlay.style.zIndex = null;
+        scroll.start();
+      } else {
+        document.querySelector('.generation_popup__head_add').innerText = this.closest('.generation__item').children[0].children[0].innerText;
+        bodyoverlay.classList.add("active");
+        generationpopup.classList.add("active");
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100vh";
+        bodyoverlay.style.zIndex = "101";
+        scroll.stop();
+      }
+    };
+  }
+  generationpopupclose.addEventListener('click', function() {
+    bodyoverlay.classList.remove("active");
+    generationpopup.classList.remove("active");
+    document.body.style.overflow = null;
+    document.body.style.height = null;
+    bodyoverlay.style.zIndex = null;
+    scroll.start();
+  })
+  generationlistclose.addEventListener('click', function() {
+    bodyoverlay.classList.remove("active");
+    generationpopup.classList.remove("active");
+    document.body.style.overflow = null;
+    document.body.style.height = null;
+    bodyoverlay.style.zIndex = null;
+    scroll.start();
+  })
+  const fcitype = [...document.querySelectorAll('.form__checks_type .form__check_input')];
+  const fcisum = [...document.querySelectorAll('.form__checks_sum .form__check_input')];
+  const fchecktype = document.querySelectorAll('.form__checks_type .form__check');
+  const fchecksum = document.querySelectorAll('.form__checks_sum .form__check');
+
+  fcitype.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      for(var i = 0;i < fchecktype.length; i++) {fchecktype[i].classList.remove('active');}
+      event.target.closest('.form__check').classList.add('active');
+    }
+  }))
+
+  fcisum.forEach(input => input.addEventListener('input', function(event) {
+    if (event.target.checked) {
+      for(var i = 0;i < fchecksum.length; i++) {fchecksum[i].classList.remove('active');}
+      event.target.closest('.form__check').classList.add('active');
+    }
+  }))
+}
+// end career_popup
+
 // button overlay
 bodyoverlay.addEventListener('click', function() {
   if (bodyoverlay.classList.contains("active")) {
@@ -583,6 +648,10 @@ bodyoverlay.addEventListener('click', function() {
     }
     if(feedbackpopup){
       feedbackpopup.classList.remove("active");
+      bodyoverlay.style.zIndex = null;
+    }
+    if(generationpopup){
+      generationpopup.classList.remove("active");
       bodyoverlay.style.zIndex = null;
     }
     headerlinks.classList.remove("hidden");

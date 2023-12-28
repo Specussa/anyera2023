@@ -6652,7 +6652,8 @@ html.has-scroll-dragging {
   text-overflow: ellipsis;
 }
 
-.briefing__checks {
+.briefing__checks,
+.form__checks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6701,8 +6702,15 @@ html.has-scroll-dragging {
 .form__control,
 .form__select_label,
 .header__form_bottom,
+.career_popup__head,
+.form__file,
+.career_popup__form_bottom,
 .feedback_popup__head,
 .feedback_popup__form_bottom,
+.generation_popup__head,
+.generation_popup__heading,
+.generation_popup__form_bottom,
+.form__checks,
 #generation__added .generation__added_block div {
   opacity: 0;
   -webkit-transform: translateY(30px);
@@ -6719,14 +6727,22 @@ html.has-scroll-dragging {
 }
 
 .header__consultation.active .form__control,
-.feedback_popup.active .form__control,
 .career_popup.active .form__control,
+.feedback_popup.active .form__control,
+.generation_popup.active .form__control,
 .loaded .subscription__block.animate .form__control,
 .header__consultation.active .form__select_label,
 .generation .form__select_label,
 .header__consultation.active .header__form_bottom,
+.career_popup.active .career_popup__head,
+.career_popup.active .form__file,
+.career_popup.active .career_popup__form_bottom,
 .feedback_popup.active .feedback_popup__head,
 .feedback_popup.active .feedback_popup__form_bottom,
+.generation_popup.active .generation_popup__head,
+.generation_popup.active .generation_popup__heading,
+.generation_popup.active .generation_popup__form_bottom,
+.generation_popup.active .form__checks,
 .loaded .generation__form.active .form__control,
 .loaded #generation__added .generation__added_block.animate div {
   opacity: 1;
@@ -6761,7 +6777,9 @@ html.has-scroll-dragging {
 }
 
 .header__consultation.active .header__form_bottom,
-.feedback_popup.active .feedback_popup__form_bottom  {
+.career_popup.active .career_popup__form_bottom,
+.feedback_popup.active .feedback_popup__form_bottom,
+.generation_popup.active .generation_popup__form_bottom  {
   -webkit-transition-delay: 1s;
   transition-delay: 1s;
 }
@@ -7345,7 +7363,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup,
-.feedback_popup {
+.feedback_popup,
+.generation_popup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7367,7 +7386,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup.active,
-.feedback_popup.active {
+.feedback_popup.active,
+.generation_popup.active {
   top: 0px;
   opacity: 1;
   -webkit-transition: -webkit-transform 1.1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s, opacity 0s linear 0s, top 0s linear 0.2s;
@@ -7377,13 +7397,15 @@ html.has-scroll-dragging {
 }
 
 .career_popup__container,
-.feedback_popup__container {
+.feedback_popup__container,
+.generation_popup__container {
   height: 100%;
   padding: 0 60px;
 }
 
 .career_popup__blocks,
-.feedback_popup__blocks {
+.feedback_popup__blocks,
+.generation_popup__blocks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7397,7 +7419,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup__block,
-.feedback_popup__block {
+.feedback_popup__block,
+.generation_popup__block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7406,12 +7429,22 @@ html.has-scroll-dragging {
 }
 
 .career_popup__forms_form,
-.feedback_popup__forms_form {
+.feedback_popup__forms_form,
+.generation_popup__forms_form {
   width: 100%;
 }
 
+.generation_popup__forms_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .career_popup__forms_form.hidden,
-.feedback_popup__forms_form.hidden {
+.feedback_popup__forms_form.hidden,
+.generation_popup__forms_form.hidden {
   display: none;
 }
 
@@ -7425,6 +7458,15 @@ html.has-scroll-dragging {
   gap: 40px;
 }
 
+.generation_popup__form_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0 0;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
 .career_popup__form_policy a,
 .career_popup__form_policy a:hover,
 .career_popup__form_policy a:active,
@@ -7432,13 +7474,18 @@ html.has-scroll-dragging {
 .feedback_popup__form_policy a,
 .feedback_popup__form_policy a:hover,
 .feedback_popup__form_policy a:active,
-.feedback_popup__form_policy a:focus {
+.feedback_popup__form_policy a:focus,,
+.generation_popup__form_policy a,
+.generation_popup__form_policy a:hover,
+.generation_popup__form_policy a:active,
+.generation_popup__form_policy a:focus {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .career_bottom__block .expertise__panel:last-child,
-.feedback_bottom__block .expertise__panel:last-child {
+.feedback_bottom__block .expertise__panel:last-child,
+.generation_bottom__block .expertise__panel:last-child {
   border-bottom: none;
 }
 
@@ -7448,7 +7495,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup__close,
-.feedback_popup__close {
+.feedback_popup__close,
+.generation_popup__close {
   display: block;
   width: 48px;
   height: 48px;
@@ -7461,7 +7509,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup__close svg,
-.feedback_popup__close svg {
+.feedback_popup__close svg,
+.generation_popup__close svg {
   height: 20px;
   width: 20px;
   position: absolute;
@@ -7475,7 +7524,8 @@ html.has-scroll-dragging {
 }
 
 .career_popup__close:hover svg,
-.feedback_popup__close:hover svg {
+.feedback_popup__close:hover svg,
+.generation_popup__close:hover svg {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
   transform: translate(-50%, -50%) rotate(90deg);
 }
@@ -8596,6 +8646,51 @@ html.has-scroll-dragging {
   gap: 10px;
 }
 
+.generation__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0 1px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.generation__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid var(--border);
+}
+
+.generation__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.generation__list_buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.generation__item_button {
+  margin: 20px 0 0;
+}
+
+.generation_popup__heading {
+  padding: 20px 0 0;
+}
+
 /* end generation */
 
 /* start form__successfully */
@@ -8977,7 +9072,8 @@ html.has-scroll-dragging {
     width: 9px;
     height: 9px;
   }
-  .briefing__checks {
+  .briefing__checks,
+  .form__checks {
     gap: 10px;
   }
   .briefing__check {
@@ -9029,11 +9125,13 @@ html.has-scroll-dragging {
     padding: 0 60px 40px;
   }
   .career_popup__blocks,
-  .feedback_popup__blocks {
+  .feedback_popup__blocks,
+  .generation_popup__blocks {
     padding: 80px 0px;
   }
   .career_popup__container,
-  .feedback_popup__container {
+  .feedback_popup__container,
+  .generation_popup__container {
     padding: 0px 60px;
   }
   .price__block {
@@ -9728,15 +9826,18 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .career_popup__blocks,
-  .feedback_popup__blocks {
+  .feedback_popup__blocks,
+  .generation_popup__blocks {
     padding: 70px 0px;
   }
   .career_popup__container,
-  .feedback_popup__container {
+  .feedback_popup__container,
+  .generation_popup__container {
     padding: 0px 50px;
   }
   .career_bottom__button span,
-  .feedback_bottom__button span {
+  .feedback_bottom__button span,
+  .generation_bottom__button span {
     padding: 0;
   }
   .price__block {
@@ -10539,12 +10640,13 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .career_popup__container,
-  .feedback_popup__container {
-    padding: 0px 40px;
+  .feedback_popup__container,
+  .generation_popup__container {
+    padding: 0 40px;
   }
   .career_popup__head,
   .feedback_popup__head {
-    padding: 0px 0px 40px;
+    padding: 0 0 40px;
   }
   .career_top__info {
     max-height: 100%;
@@ -11075,11 +11177,13 @@ html.has-scroll-dragging {
     padding: 0;
   }
   .career_popup__blocks,
-  .feedback_popup__blocks {
+  .feedback_popup__blocks,
+  .generation_popup__blocks{
     padding: 80px 0px;
   }
   .career_popup__container,
-  .feedback_popup__container {
+  .feedback_popup__container,
+  .generation_popup__container {
     padding: 0px 30px;
   }
   .career_bottom__button span {
