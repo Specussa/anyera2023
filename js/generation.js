@@ -52,6 +52,32 @@ if (generation) {
   const gthcorrespondent = document.getElementById('generation__three_correspondent');
   const gthbik = document.getElementById('generation__three_bik');
   const gthprice = document.getElementById('generation__three_price');
+  
+  const formgeneration = document.getElementById('form__generation');
+  const generationusername = document.getElementById('generation__username');
+  const generationphone = document.getElementById('generation__phone');
+  const generationemail = document.getElementById('generation__email');
+  const generationbasicterms = document.getElementById('generation__basicterms');
+  const generationtarget = document.getElementById('generation__target');
+  const generationknow = document.getElementById('generation__know');
+  const generationaudience = document.getElementById('generation__audience');
+  const generationchoice = document.getElementById('generation__choice');
+  const generationlink = document.getElementById('generation__link');
+  const generationtopics = document.getElementById('generation__topics');
+  const generationnotopics = document.getElementById('generation__notopics');
+  const generationprice = document.getElementById('generation__price');
+  const generationimpression = document.getElementById('generation__impression');
+  const generationimportant = document.getElementById('generation__important');
+  const generationlike = document.getElementById('generation__like');
+  const generationproblems = document.getElementById('generation__problems');
+  const generationtriggers = document.getElementById('generation__triggers');
+  const generationinfoball = document.getElementById('generation__infoball');
+  const generationneeds = document.getElementById('generation__needs');
+  const generationbarriers = document.getElementById('generation__barriers');
+  const generationstrive = document.getElementById('generation__strive');
+  const generationdesign = document.getElementById('generation__design');
+  const generationassociations = document.getElementById('generation__associations');
+  const generationsegment = document.getElementById('generation__segment');
 
   // start Min Max
   const gousernameMin = gousername.getAttribute('minl');
@@ -140,6 +166,55 @@ if (generation) {
   const gthcorrespondentMax = gthcorrespondent.getAttribute('maxl');
   const gthbikMin = gthbik.getAttribute('minl');
   const gthbikMax = gthbik.getAttribute('maxl');
+  
+  const generationusernameMin = generationusername.getAttribute('minl');
+  const generationusernameMax = generationusername.getAttribute('maxl');
+  const generationphoneMin = generationphone.getAttribute('minl');
+  const generationphoneMax = generationphone.getAttribute('maxl');
+  const generationemailMin = generationemail.getAttribute('minl');
+  const generationemailMax = generationemail.getAttribute('maxl');
+  const generationbasictermsMin = generationbasicterms.getAttribute('minl');
+  const generationbasictermsMax = generationbasicterms.getAttribute('maxl');
+  const generationtargetMin = generationtarget.getAttribute('minl');
+  const generationtargetMax = generationtarget.getAttribute('maxl');
+  const generationknowMin = generationknow.getAttribute('minl');
+  const generationknowMax = generationknow.getAttribute('maxl');
+  const generationaudienceMin = generationaudience.getAttribute('minl');
+  const generationaudienceMax = generationaudience.getAttribute('maxl');
+  const generationchoiceMin = generationchoice.getAttribute('minl');
+  const generationchoiceMax = generationchoice.getAttribute('maxl');
+  const generationlinkMin = generationlink.getAttribute('minl');
+  const generationlinkMax = generationlink.getAttribute('maxl');
+  const generationtopicsMin = generationtopics.getAttribute('minl');
+  const generationtopicsMax = generationtopics.getAttribute('maxl');
+  const generationnotopicsMin = generationnotopics.getAttribute('minl');
+  const generationnotopicsMax = generationnotopics.getAttribute('maxl');
+  const generationpriceMin = generationprice.getAttribute('minl');
+  const generationpriceMax = generationprice.getAttribute('maxl');
+  const generationimpressionMin = generationimpression.getAttribute('minl');
+  const generationimpressionMax = generationimpression.getAttribute('maxl');
+  const generationimportantMin = generationimportant.getAttribute('minl');
+  const generationimportantMax = generationimportant.getAttribute('maxl');
+  const generationlikeMin = generationlike.getAttribute('minl');
+  const generationlikeMax = generationlike.getAttribute('maxl');
+  const generationproblemsMin = generationproblems.getAttribute('minl');
+  const generationproblemsMax = generationproblems.getAttribute('maxl');
+  const generationtriggersMin = generationtriggers.getAttribute('minl');
+  const generationtriggersMax = generationtriggers.getAttribute('maxl');
+  const generationinfoballMin = generationinfoball.getAttribute('minl');
+  const generationinfoballMax = generationinfoball.getAttribute('maxl');
+  const generationneedsMin = generationneeds.getAttribute('minl');
+  const generationneedsMax = generationneeds.getAttribute('maxl');
+  const generationbarriersMin = generationbarriers.getAttribute('minl');
+  const generationbarriersMax = generationbarriers.getAttribute('maxl');
+  const generationstriveMin = generationstrive.getAttribute('minl');
+  const generationstriveMax = generationstrive.getAttribute('maxl');
+  const generationdesignMin = generationdesign.getAttribute('minl');
+  const generationdesignMax = generationdesign.getAttribute('maxl');
+  const generationassociationsMin = generationassociations.getAttribute('minl');
+  const generationassociationsMax = generationassociations.getAttribute('maxl');
+  const generationsegmentMin = generationsegment.getAttribute('minl');
+  const generationsegmentMax = generationsegment.getAttribute('maxl');
   // end Min Max
 
   // start counter
@@ -217,6 +292,24 @@ if (generation) {
     }
   })
 
+  generationemail.addEventListener('input', function () {
+    const generationemailValid = generationemail.value.trim();
+    this.nextElementSibling.children[0].textContent = Math.max(0, Math.min(this.getAttribute('maxl'), this.value.length));
+    if (this.value.length < this.getAttribute('minl')) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else if (!isEmailGValid(generationemailValid)) {
+      this.parentElement.classList.add('error');
+      this.parentElement.classList.remove('success');
+      this.nextElementSibling.classList.remove('success');
+    } else {
+      this.parentElement.classList.remove('error');
+      this.parentElement.classList.add('success');
+      this.nextElementSibling.classList.add('success');
+    }
+  })
+
   function isEmailGValid(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   }
@@ -267,6 +360,31 @@ if (generation) {
   gthorganization.oninput = function(){this.value = this.value.substr(0, gthorganizationMax);}
   gthcorrespondent.oninput = function(){this.value = this.value.substr(0, gthcorrespondentMax);}
   gthbik.oninput = function(){this.value = this.value.substr(0, gthbikMax);}
+  
+  generationusername.oninput = function(){this.value = this.value.substr(0, generationusernameMax);}
+  generationphone.oninput = function(){this.value = this.value.substr(0, generationphoneMax);}
+  generationemail.oninput = function(){this.value = this.value.substr(0, generationemailMax);}
+  generationbasicterms.oninput = function(){this.value = this.value.substr(0, generationbasictermsMax);}
+  generationtarget.oninput = function(){this.value = this.value.substr(0, generationtargetMax);}
+  generationknow.oninput = function(){this.value = this.value.substr(0, generationknowMax);}
+  generationaudience.oninput = function(){this.value = this.value.substr(0, generationaudienceMax);}
+  generationchoice.oninput = function(){this.value = this.value.substr(0, generationchoiceMax);}
+  generationlink.oninput = function(){this.value = this.value.substr(0, generationlinkMax);}
+  generationtopics.oninput = function(){this.value = this.value.substr(0, generationtopicsMax);}
+  generationnotopics.oninput = function(){this.value = this.value.substr(0, generationnotopicsMax);}
+  generationprice.oninput = function(){this.value = this.value.substr(0, generationpriceMax);}
+  generationimpression.oninput = function(){this.value = this.value.substr(0, generationimpressionMax);}
+  generationimportant.oninput = function(){this.value = this.value.substr(0, generationimportantMax);}
+  generationlike.oninput = function(){this.value = this.value.substr(0, generationlikeMax);}
+  generationproblems.oninput = function(){this.value = this.value.substr(0, generationproblemsMax);}
+  generationtriggers.oninput = function(){this.value = this.value.substr(0, generationtriggersMax);}
+  generationinfoball.oninput = function(){this.value = this.value.substr(0, generationinfoballMax);}
+  generationneeds.oninput = function(){this.value = this.value.substr(0, generationneedsMax);}
+  generationbarriers.oninput = function(){this.value = this.value.substr(0, generationbarriersMax);}
+  generationstrive.oninput = function(){this.value = this.value.substr(0, generationstriveMax);}
+  generationdesign.oninput = function(){this.value = this.value.substr(0, generationdesignMax);}
+  generationassociations.oninput = function(){this.value = this.value.substr(0, generationassociationsMax);}
+  generationsegment.oninput = function(){this.value = this.value.substr(0, generationsegmentMax);}
   // end maxleight
 
   // START step
@@ -297,6 +415,7 @@ if (generation) {
   const gbtwo = document.querySelector('.generation__button_two');
   const gbthree = document.querySelector('.generation__button_three');
   const gbfour = document.querySelector('.generation__button_four');
+  const genitem = document.querySelectorAll('.generation__item');
 
   gbone.addEventListener('click', function() {
     if (!gformone.classList.contains("active")) {
@@ -306,6 +425,7 @@ if (generation) {
       generationforms.forEach(n => gformone.style.maxHeight = gformone.scrollHeight + "px");
       gbone.classList.add("active");
       gformone.classList.add("active");
+      genitem.forEach(n => n.classList.remove("animate"));
       scroll.scrollTo(togr);
     }
   })
@@ -318,6 +438,7 @@ if (generation) {
       generationforms.forEach(n => gformtwo.style.maxHeight = gformtwo.scrollHeight + "px");
       gbtwo.classList.add("active");
       gformtwo.classList.add("active");
+      genitem.forEach(n => n.classList.remove("animate"));
       scroll.scrollTo(togr);
     }
   })
@@ -330,6 +451,7 @@ if (generation) {
       generationforms.forEach(n => gformthree.style.maxHeight = gformthree.scrollHeight + "px");
       gbthree.classList.add("active");
       gformthree.classList.add("active");
+      genitem.forEach(n => n.classList.remove("animate"));
       scroll.scrollTo(togr);
     }
   })
@@ -342,6 +464,7 @@ if (generation) {
       generationforms.forEach(n => gformfour.style.maxHeight = gformfour.scrollHeight + "px");
       gbfour.classList.add("active");
       gformfour.classList.add("active");
+      genitem.forEach(n => n.classList.remove("animate"));
       scroll.scrollTo(togr);
     }
   })
@@ -731,13 +854,13 @@ if (generation) {
     const gthbikValue = gthbik.value.trim();
     const gthpriceValue = gthprice.value.trim();
 
-    if(gthusernameValue !== '' && gthusernameValue.lengthh >= gthusernameMin && gthusernameValue.lengthh <= gthusernameMax) {
+    if(gthusernameValue !== '' && gthusernameValue.length >= gthusernameMin && gthusernameValue.length <= gthusernameMax) {
       setSuccessForGeneration(gthusername);
     } else {
       setErrorForGeneration(gthusername);
     }
 
-    if(gthphoneValue !== '' && gthphoneValue.lengthh >= gthphoneMin && gthphoneValue.lengthh <= gthphoneMax) {
+    if(gthphoneValue !== '' && gthphoneValue.length >= gthphoneMin && gthphoneValue.length <= gthphoneMax) {
       setSuccessForGeneration(gthphone);
     } else {
       setErrorForGeneration(gthphone);
@@ -746,73 +869,73 @@ if (generation) {
     if(!isEmailGValid(gthemailValue)) {
       setErrorForGeneration(gthemail);
       scroll.scrollTo(togr);
-    } else if (gthemailValue !== '' && gthemailValue.lengthh >= gthemailMin && gthemailValue.lengthh <= gthemailMax) {
+    } else if (gthemailValue !== '' && gthemailValue.length >= gthemailMin && gthemailValue.length <= gthemailMax) {
       setSuccessForGeneration(gthemail);
     } else {
       setErrorForGeneration(gthemail);
     }
 
-    if(gthtgValue.lengthh >= gthtgMin && gthtgValue.lengthh <= gthtgMax) {
+    if(gthtgValue.length >= gthtgMin && gthtgValue.length <= gthtgMax) {
       setSuccessForGeneration(gthtg);
     } else {
       setErrorForGeneration(gthtg);
     }
 
-    if(gthorgValue !== '' && gthorgValue.lengthh >= gthorgMin && gthorgValue.lengthh <= gthorgMax) {
+    if(gthorgValue !== '' && gthorgValue.length >= gthorgMin && gthorgValue.length <= gthorgMax) {
       setSuccessForGeneration(gthorg);
     } else {
       setErrorForGeneration(gthorg);
     }
 
-    if(gthogrnValue !== '' && gthogrnValue.lengthh >= gthogrnMin && gthogrnValue.lengthh <= gthogrnMax) {
+    if(gthogrnValue !== '' && gthogrnValue.length >= gthogrnMin && gthogrnValue.length <= gthogrnMax) {
       setSuccessForGeneration(gthogrn);
     } else {
       setErrorForGeneration(gthogrn);
     }
 
-    if(gthinnValue !== '' && gthinnValue.lengthh >= gthinnMin && gthinnValue.lengthh <= gthinnMax) {
+    if(gthinnValue !== '' && gthinnValue.length >= gthinnMin && gthinnValue.length <= gthinnMax) {
       setSuccessForGeneration(gthinn);
     } else {
       setErrorForGeneration(gthinn);
     }
 
-    if(gthkppValue !== '' && gthkppValue.lengthh >= gthkppMin && gthkppValue.lengthh <= gthkppMax) {
+    if(gthkppValue !== '' && gthkppValue.length >= gthkppMin && gthkppValue.length <= gthkppMax) {
       setSuccessForGeneration(gthkpp);
     } else {
       setErrorForGeneration(gthkpp);
     }
 
-    if(gthaddressValue !== '' && gthaddressValue.lengthh >= gthaddressMin && gthaddressValue.lengthh <= gthaddressMax) {
+    if(gthaddressValue !== '' && gthaddressValue.length >= gthaddressMin && gthaddressValue.length <= gthaddressMax) {
       setSuccessForGeneration(gthaddress);
     } else {
       setErrorForGeneration(gthaddress);
     }
 
-    if(gthokpoValue !== '' && gthokpoValue.lengthh >= gthokpoMin && gthokpoValue.lengthh <= gthokpoMax) {
+    if(gthokpoValue !== '' && gthokpoValue.length >= gthokpoMin && gthokpoValue.length <= gthokpoMax) {
       setSuccessForGeneration(gthokpo);
     } else {
       setErrorForGeneration(gthokpo);
     }
 
-    if(gthokvedValue !== '' && gthokvedValue.lengthh >= gthokvedMin && gthokvedValue.lengthh <= gthokvedMax) {
+    if(gthokvedValue !== '' && gthokvedValue.length >= gthokvedMin && gthokvedValue.length <= gthokvedMax) {
       setSuccessForGeneration(gthokved);
     } else {
       setErrorForGeneration(gthokved);
     }
 
-    if(gthorganizationValue !== '' && gthorganizationValue.lengthh >= gthorganizationMin && gthorganizationValue.lengthh <= gthorganizationMax) {
+    if(gthorganizationValue !== '' && gthorganizationValue.length >= gthorganizationMin && gthorganizationValue.length <= gthorganizationMax) {
       setSuccessForGeneration(gthorganization);
     } else {
       setErrorForGeneration(gthorganization);
     }
 
-    if(gthcorrespondentValue !== '' && gthcorrespondentValue.lengthh >= gthcorrespondentMin && gthcorrespondentValue.lengthh <= gthcorrespondentMax) {
+    if(gthcorrespondentValue !== '' && gthcorrespondentValue.length >= gthcorrespondentMin && gthcorrespondentValue.length <= gthcorrespondentMax) {
       setSuccessForGeneration(gthcorrespondent);
     } else {
       setErrorForGeneration(gthcorrespondent);
     }
 
-    if(gthbikValue !== '' && gthbikValue.lengthh >= gthbikMin && gthbikValue.lengthh <= gthbikMax) {
+    if(gthbikValue !== '' && gthbikValue.length >= gthbikMin && gthbikValue.length <= gthbikMax) {
       setSuccessForGeneration(gthbik);
     } else {
       setErrorForGeneration(gthbik);
@@ -828,46 +951,46 @@ if (generation) {
       scroll.scrollTo(togr);
     } else if (
       gthusernameValue !== '' &&
-      gthusernameValue.lengthh >= gthusernameMin &&
-      gthusernameValue.lengthh <= gthusernameMax &&
+      gthusernameValue.length >= gthusernameMin &&
+      gthusernameValue.length <= gthusernameMax &&
       gthphoneValue !== '' &&
-      gthphoneValue.lengthh >= gthphoneMin &&
-      gthphoneValue.lengthh <= gthphoneMax &&
+      gthphoneValue.length >= gthphoneMin &&
+      gthphoneValue.length <= gthphoneMax &&
       gthemailValue !== '' &&
-      gthemailValue.lengthh >= gthemailMin &&
-      gthemailValue.lengthh <= gthemailMax &&
-      gthtgValue.lengthh >= gthtgMin &&
-      gthtgValue.lengthh <= gthtgMax &&
+      gthemailValue.length >= gthemailMin &&
+      gthemailValue.length <= gthemailMax &&
+      gthtgValue.length >= gthtgMin &&
+      gthtgValue.length <= gthtgMax &&
       gthorgValue !== '' &&
-      gthorgValue.lengthh >= gthorgMin &&
-      gthorgValue.lengthh <= gthorgMax &&
+      gthorgValue.length >= gthorgMin &&
+      gthorgValue.length <= gthorgMax &&
       gthogrnValue !== '' &&
-      gthogrnValue.lengthh >= gthogrnMin &&
-      gthogrnValue.lengthh <= gthogrnMax &&
+      gthogrnValue.length >= gthogrnMin &&
+      gthogrnValue.length <= gthogrnMax &&
       gthinnValue !== '' &&
-      gthinnValue.lengthh >= gthinnMin &&
-      gthinnValue.lengthh <= gthinnMax &&
+      gthinnValue.length >= gthinnMin &&
+      gthinnValue.length <= gthinnMax &&
       gthkppValue !== '' &&
-      gthkppValue.lengthh >= gthkppMin &&
-      gthkppValue.lengthh <= gthkppMax &&
+      gthkppValue.length >= gthkppMin &&
+      gthkppValue.length <= gthkppMax &&
       gthaddressValue !== '' &&
-      gthaddressValue.lengthh >= gthaddressMin &&
-      gthaddressValue.lengthh <= gthaddressMax &&
+      gthaddressValue.length >= gthaddressMin &&
+      gthaddressValue.length <= gthaddressMax &&
       gthokpoValue !== '' &&
-      gthokpoValue.lengthh >= gthokpoMin &&
-      gthokpoValue.lengthh <= gthokpoMax &&
+      gthokpoValue.length >= gthokpoMin &&
+      gthokpoValue.length <= gthokpoMax &&
       gthokvedValue !== '' &&
-      gthokvedValue.lengthh >= gthokvedMin &&
-      gthokvedValue.lengthh <= gthokvedMax &&
+      gthokvedValue.length >= gthokvedMin &&
+      gthokvedValue.length <= gthokvedMax &&
       gthorganizationValue !== '' &&
-      gthorganizationValue.lengthh >= gthorganizationMin &&
-      gthorganizationValue.lengthh <= gthorganizationMax &&
+      gthorganizationValue.length >= gthorganizationMin &&
+      gthorganizationValue.length <= gthorganizationMax &&
       gthcorrespondentValue !== '' &&
-      gthcorrespondentValue.lengthh >= gthcorrespondentMin &&
-      gthcorrespondentValue.lengthh <= gthcorrespondentMax &&
+      gthcorrespondentValue.length >= gthcorrespondentMin &&
+      gthcorrespondentValue.length <= gthcorrespondentMax &&
       gthbikValue !== '' &&
-      gthbikValue.lengthh >= gthbikMin &&
-      gthbikValue.lengthh <= gthbikMax && 
+      gthbikValue.length >= gthbikMin &&
+      gthbikValue.length <= gthbikMax && 
       gthpriceValue !== ''
     ) {
       fetch('/ajax/sendMail.php', {
@@ -1015,4 +1138,307 @@ if (generation) {
   }
   GenerationRemove();
   // END validate generation__form_three
+  
+  // start validate generation__form_four
+  formgeneration.addEventListener('submit', e => {
+    scroll.scrollTo(togr);
+    e.preventDefault();
+    checkgfrInputs();
+  });
+  function checkgfrInputs() {
+    const generationusernameValue = generationusername.value.trim();
+    const generationphoneValue = generationphone.value.trim();
+    const generationemailValue = generationemail.value.trim();
+    const generationbasictermsValue = generationbasicterms.value.trim();
+    const generationtargetValue = generationtarget.value.trim();
+    const generationknowValue = generationknow.value.trim();
+    const generationaudienceValue = generationaudience.value.trim();
+    const generationchoiceValue = generationchoice.value.trim();
+    const generationlinkValue = generationlink.value.trim();
+    const generationtopicsValue = generationtopics.value.trim();
+    const generationnotopicsValue = generationnotopics.value.trim();
+    const generationpriceValue = generationprice.value.trim();
+    const generationimpressionValue = generationimpression.value.trim();
+    const generationimportantValue = generationimportant.value.trim();
+    const generationlikeValue = generationlike.value.trim();
+    const generationproblemsValue = generationproblems.value.trim();
+    const generationtriggersValue = generationtriggers.value.trim();
+    const generationinfoballValue = generationinfoball.value.trim();
+    const generationneedsValue = generationneeds.value.trim();
+    const generationbarriersValue = generationbarriers.value.trim();
+    const generationstriveValue = generationstrive.value.trim();
+    const generationdesignValue = generationdesign.value.trim();
+    const generationassociationsValue = generationassociations.value.trim();
+    const generationsegmentValue = generationsegment.value.trim();
+
+    if(generationusernameValue !== '' && generationusernameValue.length >= generationusernameMin && generationusernameValue.length <= generationusernameMax) {
+      setSuccessForGeneration(generationusername);
+    } else {
+      setErrorForGeneration(generationusername);
+    }
+
+    if(generationphoneValue !== '' && generationphoneValue.length >= generationphoneMin && generationphoneValue.length <= generationphoneMax) {
+      setSuccessForGeneration(generationphone);
+    } else {
+      setErrorForGeneration(generationphone);
+    }
+
+    if(!isEmailGValid(generationemailValue)) {
+      setErrorForGeneration(generationemail);
+      scroll.scrollTo(togr);
+    } else if (generationemailValue !== '' && generationemailValue.length >= generationemailMin && generationemailValue.length <= generationemailMax) {
+      setSuccessForGeneration(generationemail);
+    } else {
+      setErrorForGeneration(generationemail);
+    }
+
+    if(generationbasictermsValue !== '' && generationbasictermsValue.length >= generationbasictermsMin && generationbasictermsValue.length <= generationbasictermsMax) {
+      setSuccessForGeneration(generationbasicterms);
+    } else {
+      setErrorForGeneration(generationbasicterms);
+    }
+
+    if(generationtargetValue !== '' && generationtargetValue.length >= generationtargetMin && generationtargetValue.length <= generationtargetMax) {
+      setSuccessForGeneration(generationtarget);
+    } else {
+      setErrorForGeneration(generationtarget);
+    }
+
+    if(generationknowValue !== '' && generationknowValue.length >= generationknowMin && generationknowValue.length <= generationknowMax) {
+      setSuccessForGeneration(generationknow);
+    } else {
+      setErrorForGeneration(generationknow);
+    }
+
+    if(generationaudienceValue !== '' && generationaudienceValue.length >= generationaudienceMin && generationaudienceValue.length <= generationaudienceMax) {
+      setSuccessForGeneration(generationaudience);
+    } else {
+      setErrorForGeneration(generationaudience);
+    }
+
+    if(generationchoiceValue !== '' && generationchoiceValue.length >= generationchoiceMin && generationchoiceValue.length <= generationchoiceMax) {
+      setSuccessForGeneration(generationchoice);
+    } else {
+      setErrorForGeneration(generationchoice);
+    }
+
+    if(generationlinkValue !== '' && generationlinkValue.length >= generationlinkMin && generationlinkValue.length <= generationlinkMax) {
+      setSuccessForGeneration(generationlink);
+    } else {
+      setErrorForGeneration(generationlink);
+    }
+
+    if(generationtopicsValue !== '' && generationtopicsValue.length >= generationtopicsMin && generationtopicsValue.length <= generationtopicsMax) {
+      setSuccessForGeneration(generationtopics);
+    } else {
+      setErrorForGeneration(generationtopics);
+    }
+
+    if(generationnotopicsValue !== '' && generationnotopicsValue.length >= generationnotopicsMin && generationnotopicsValue.length <= generationnotopicsMax) {
+      setSuccessForGeneration(generationnotopics);
+    } else {
+      setErrorForGeneration(generationnotopics);
+    }
+
+    if(generationpriceValue !== '' && generationpriceValue.length >= generationpriceMin && generationpriceValue.length <= generationpriceMax) {
+      setSuccessForGeneration(generationprice);
+    } else {
+      setErrorForGeneration(generationprice);
+    }
+
+    if(generationimpressionValue !== '' && generationimpressionValue.length >= generationimpressionMin && generationimpressionValue.length <= generationimpressionMax) {
+      setSuccessForGeneration(generationimpression);
+    } else {
+      setErrorForGeneration(generationimpression);
+    }
+
+    if(generationimportantValue !== '' && generationimportantValue.length >= generationimportantMin && generationimportantValue.length <= generationimportantMax) {
+      setSuccessForGeneration(generationimportant);
+    } else {
+      setErrorForGeneration(generationimportant);
+    }
+
+    if(generationlikeValue !== '' && generationlikeValue.length >= generationlikeMin && generationlikeValue.length <= generationlikeMax) {
+      setSuccessForGeneration(generationlike);
+    } else {
+      setErrorForGeneration(generationlike);
+    }
+
+    if(generationproblemsValue !== '' && generationproblemsValue.length >= generationproblemsMin && generationproblemsValue.length <= generationproblemsMax) {
+      setSuccessForGeneration(generationproblems);
+    } else {
+      setErrorForGeneration(generationproblems);
+    }
+
+    if(generationtriggersValue !== '' && generationtriggersValue.length >= generationtriggersMin && generationtriggersValue.length <= generationtriggersMax) {
+      setSuccessForGeneration(generationtriggers);
+    } else {
+      setErrorForGeneration(generationtriggers);
+    }
+
+    if(generationinfoballValue !== '' && generationinfoballValue.length >= generationinfoballMin && generationinfoballValue.length <= generationinfoballMax) {
+      setSuccessForGeneration(generationinfoball);
+    } else {
+      setErrorForGeneration(generationinfoball);
+    }
+
+    if(generationneedsValue !== '' && generationneedsValue.length >= generationneedsMin && generationneedsValue.length <= generationneedsMax) {
+      setSuccessForGeneration(generationneeds);
+    } else {
+      setErrorForGeneration(generationneeds);
+    }
+
+    if(generationbarriersValue !== '' && generationbarriersValue.length >= generationbarriersMin && generationbarriersValue.length <= generationbarriersMax) {
+      setSuccessForGeneration(generationbarriers);
+    } else {
+      setErrorForGeneration(generationbarriers);
+    }
+
+    if(generationstriveValue !== '' && generationstriveValue.length >= generationstriveMin && generationstriveValue.length <= generationstriveMax) {
+      setSuccessForGeneration(generationstrive);
+    } else {
+      setErrorForGeneration(generationstrive);
+    }
+
+    if(generationdesignValue !== '' && generationdesignValue.length >= generationdesignMin && generationdesignValue.length <= generationdesignMax) {
+      setSuccessForGeneration(generationdesign);
+    } else {
+      setErrorForGeneration(generationdesign);
+    }
+
+    if(generationassociationsValue !== '' && generationassociationsValue.length >= generationassociationsMin && generationassociationsValue.length <= generationassociationsMax) {
+      setSuccessForGeneration(generationassociations);
+    } else {
+      setErrorForGeneration(generationassociations);
+    }
+
+    if(generationsegmentValue !== '' && generationsegmentValue.length >= generationsegmentMin && generationsegmentValue.length <= generationsegmentMax) {
+      setSuccessForGeneration(generationsegment);
+    } else {
+      setErrorForGeneration(generationsegment);
+    }
+
+    if(
+      !isEmailGValid(generationemailValue)
+    ) {
+      scroll.scrollTo(togr);
+    } else if (
+      generationusernameValue !== '' &&
+      generationusernameValue.length >= generationusernameMin &&
+      generationusernameValue.length <= generationusernameMax &&
+      generationphoneValue !== '' &&
+      generationphoneValue.length >= generationphoneMin &&
+      generationphoneValue.length <= generationphoneMax &&
+      generationemailValue !== '' &&
+      generationemailValue.length >= generationemailMin &&
+      generationemailValue.length <= generationemailMax &&
+
+      generationbasictermsValue !== '' &&
+      generationbasictermsValue.length >= generationbasictermsMin &&
+      generationbasictermsValue.length <= generationbasictermsMax &&
+      generationtargetValue !== '' &&
+      generationtargetValue.length >= generationtargetMin &&
+      generationtargetValue.length <= generationtargetMax &&
+      generationknowValue !== '' &&
+      generationknowValue.length >= generationknowMin &&
+      generationknowValue.length <= generationknowMax &&
+      generationaudienceValue !== '' &&
+      generationaudienceValue.length >= generationaudienceMin &&
+      generationaudienceValue.length <= generationaudienceMax &&
+      generationchoiceValue !== '' &&
+      generationchoiceValue.length >= generationchoiceMin &&
+      generationchoiceValue.length <= generationchoiceMax &&
+
+      generationlinkValue !== '' &&
+      generationlinkValue.length >= generationlinkMin &&
+      generationlinkValue.length <= generationlinkMax &&
+      generationtopicsValue !== '' &&
+      generationtopicsValue.length >= generationtopicsMin &&
+      generationtopicsValue.length <= generationtopicsMax &&
+      generationnotopicsValue !== '' &&
+      generationnotopicsValue.length >= generationnotopicsMin &&
+      generationnotopicsValue.length <= generationnotopicsMax &&
+      generationpriceValue !== '' &&
+      generationpriceValue.length >= generationpriceMin &&
+      generationpriceValue.length <= generationpriceMax &&
+      generationimpressionValue !== '' &&
+      generationimpressionValue.length >= generationimpressionMin &&
+      generationimpressionValue.length <= generationimpressionMax &&
+      generationimportantValue !== '' &&
+      generationimportantValue.length >= generationimportantMin &&
+      generationimportantValue.length <= generationimportantMax &&
+      generationlikeValue !== '' &&
+      generationlikeValue.length >= generationlikeMin &&
+      generationlikeValue.length <= generationlikeMax &&
+      
+      generationproblemsValue !== '' &&
+      generationproblemsValue.length >= generationproblemsMin &&
+      generationproblemsValue.length <= generationproblemsMax &&
+      generationtriggersValue !== '' &&
+      generationtriggersValue.length >= generationtriggersMin &&
+      generationtriggersValue.length <= generationtriggersMax &&
+      generationinfoballValue !== '' &&
+      generationinfoballValue.length >= generationinfoballMin &&
+      generationinfoballValue.length <= generationinfoballMax &&
+      generationneedsValue !== '' &&
+      generationneedsValue.length >= generationneedsMin &&
+      generationneedsValue.length <= generationneedsMax &&
+      generationbarriersValue !== '' &&
+      generationbarriersValue.length >= generationbarriersMin &&
+      generationbarriersValue.length <= generationbarriersMax &&
+      generationstriveValue !== '' &&
+      generationstriveValue.length >= generationstriveMin &&
+      generationstriveValue.length <= generationstriveMax &&
+
+      generationdesignValue !== '' &&
+      generationdesignValue.length >= generationdesignMin &&
+      generationdesignValue.length <= generationdesignMax &&
+      generationassociationsValue !== '' &&
+      generationassociationsValue.length >= generationassociationsMin &&
+      generationassociationsValue.length <= generationassociationsMax &&
+      generationsegmentValue !== '' &&
+      generationsegmentValue.length >= generationsegmentMin &&
+      generationsegmentValue.length <= generationsegmentMax
+    ) {
+      formgeneration.classList.add("hidden");
+      document.getElementById('form__successfully_form__generation').classList.add("active");
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: generationusernameValue,
+          two: generationphoneValue,
+          three: generationemailValue,
+
+          four: generationbasictermsValue,
+          five: generationtargetValue,
+          six: generationknowValue,
+          seven: generationaudienceValue,
+          eight: generationchoiceValue,
+
+          nine: generationlinkValue,
+          ten: generationtopicsValue,
+          eleven: generationnotopicsValue,
+          twelve: generationpriceValue,
+          thirteen: generationimpressionValue,
+          fourteen: generationimportantValue,
+          fifteen: generationlikeValue,
+
+          sixteen: generationproblemsValue,
+          seventeen: generationtriggersValue,
+          eighteen: generationinfoballValue,
+          nineteen: generationneedsValue,
+          twenty: generationbarriersValue,
+          twentyone: generationstriveValue,
+          
+          twentytwo: generationdesignValue,
+          twentythree: generationassociationsValue,
+          twentyfour: generationsegmentValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+    }
+  }
+  // end validate generation__form_four
 }

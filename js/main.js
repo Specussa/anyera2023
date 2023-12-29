@@ -563,7 +563,7 @@ if(feedbackpopup) {
 }
 // end feedback_popup
 
-// button career_popup
+// button generation_popup
 const generationpopup = document.querySelector('.generation_popup');
 if(generationpopup) {
   const generationbutton = document.getElementsByClassName("generation_popup__button");
@@ -579,6 +579,10 @@ if(generationpopup) {
         bodyoverlay.style.zIndex = null;
         scroll.start();
       } else {
+        document.getElementById('form__generation').classList.remove("hidden");
+        document.getElementById('form__successfully_form__generation').classList.remove("active");
+        document.querySelectorAll('#form__generation .success').forEach(n => n.classList.remove("success"));
+        document.querySelectorAll('#form__generation .error').forEach(n => n.classList.remove("error"));
         document.querySelector('.generation_popup__head_add').innerText = this.closest('.generation__item').children[0].children[0].innerText;
         bodyoverlay.classList.add("active");
         generationpopup.classList.add("active");
@@ -624,7 +628,7 @@ if(generationpopup) {
     }
   }))
 }
-// end career_popup
+// end generation_popup
 
 // button overlay
 bodyoverlay.addEventListener('click', function() {
@@ -2366,6 +2370,16 @@ if(price){
   let priceitemopt = {threshold: [0.3]};
   let priceitemserv = new IntersectionObserver(onEntry, priceitemopt);
   for (let elm of priceitem) {priceitemserv.observe(elm);}
+}
+
+const generationitem = document.querySelector('.generation__item');
+const generationitems = document.querySelectorAll('.generation__item');
+if(generationitem){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
+
+  let generationitemsopt = {threshold: [0.5]};
+  let generationitemsserv = new IntersectionObserver(onEntry, generationitemsopt);
+  for (let elm of generationitems) {generationitemsserv.observe(elm);}
 }
 
 const footer = document.querySelector('.footer');

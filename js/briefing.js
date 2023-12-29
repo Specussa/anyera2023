@@ -1036,42 +1036,42 @@ if(!briefing){} else {
       bsegmentValue.length >= bsegmentMin &&
       bsegmentValue.length <= bsegmentMax
     ) {
-      // fetch('/ajax/sendMail.php', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     one: busernameValue,
-      //     two: bphoneValue,
-      //     three: bemailValue,
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          one: busernameValue,
+          two: bphoneValue,
+          three: bemailValue,
 
-      //     four: bbasictermsValue,
-      //     five: btargetValue,
-      //     six: bknowValue,
-      //     seven: baudienceValue,
-      //     eight: bchoiceValue,
+          four: bbasictermsValue,
+          five: btargetValue,
+          six: bknowValue,
+          seven: baudienceValue,
+          eight: bchoiceValue,
 
-      //     nine: blinkValue,
-      //     ten: btopicsValue,
-      //     eleven: bnotopicsValue,
-      //     twelve: bpriceValue,
-      //     thirteen: bimpressionValue,
-      //     fourteen: bimportantValue,
-      //     fifteen: blikeValue,
+          nine: blinkValue,
+          ten: btopicsValue,
+          eleven: bnotopicsValue,
+          twelve: bpriceValue,
+          thirteen: bimpressionValue,
+          fourteen: bimportantValue,
+          fifteen: blikeValue,
 
-      //     sixteen: bproblemsValue,
-      //     seventeen: btriggersValue,
-      //     eighteen: binfoballValue,
-      //     nineteen: bneedsValue,
-      //     twenty: bbarriersValue,
-      //     twenty-one: bstriveValue,
+          sixteen: bproblemsValue,
+          seventeen: btriggersValue,
+          eighteen: binfoballValue,
+          nineteen: bneedsValue,
+          twenty: bbarriersValue,
+          twentyone: bstriveValue,
           
-      //     twenty-one: bdesignValue,
-      //     twenty-two: bassociationsValue,
-      //     twenty-three: bsegmentValue
-      //   }),
-      //   headers: {
-      //     "Content-type": "application/json; charset=UTF-8"
-      //   }
-      // });
+          twentytwo: bdesignValue,
+          twentythree: bassociationsValue,
+          twentyfour: bsegmentValue
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
       briefingform.forEach(n => n.classList.remove('active'));
       briefingsteps.forEach(n => n.classList.remove('active'));
       briefingstep.forEach(n => n.classList.remove('border'));
