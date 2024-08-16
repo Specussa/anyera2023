@@ -65,18 +65,33 @@ const header = document.querySelector('.header');
 const projecttop = document.querySelector('.project_top');
 const projecttopinfo = document.querySelector('.project_top__info');
 
-if(projecttop && 
-  projecttop.style.background !=  "rgb(255, 255, 255)" && 
-  projecttop.style.background !=  "rgb(255, 251, 239)" && 
-  projecttop.style.background !=  "rgb(233, 249, 249)" && 
-  projecttop.style.background !=  "rgb(255, 248, 246)" && 
-  projecttop.style.background !=  "var(--bg)"){
-  header.classList.add('header__transparent');
-  header.classList.add('project_top__white');
-  projecttopinfo.classList.add('project_top__white');
-} else if (projecttop && projecttop.style.background ==  "var(--bg)") {
-  header.classList.add('project_top__bg');
-  projecttopinfo.classList.add('project_top__bg');
+if(projecttop){
+  if(
+    projecttop.style.background !=  "rgb(255, 255, 255)" && 
+    projecttop.style.background !=  "rgb(255, 251, 239)" && 
+    projecttop.style.background !=  "rgb(233, 249, 249)" && 
+    projecttop.style.background !=  "rgb(255, 248, 246)" && 
+    projecttop.style.background !=  "rgb(248, 255, 255)" && 
+    projecttop.style.background !=  "rgb(245, 245, 245)" && 
+    projecttop.style.background !=  "rgb(255, 253, 248)" && 
+    projecttop.style.background !=  "rgb(252, 252, 252)" && 
+    projecttop.style.background !=  "rgb(236, 245, 235)" && 
+    projecttop.style.background !=  "rgb(255, 248, 246)" && 
+    projecttop.style.background !=  "rgb(254, 250, 243)" && 
+    projecttop.style.background !=  "rgb(248, 248, 248)" && 
+    projecttop.style.background !=  "rgb(210, 227, 240)" && 
+    projecttop.style.background !=  "rgb(226, 240, 251)" && 
+    projecttop.style.background !=  "rgb(252, 252, 252)" && 
+    projecttop.style.background !=  "rgb(241, 240, 235)" && 
+    projecttop.style.background !=  "" && 
+    projecttop.style.background !=  "var(--bg)"){
+    header.classList.add('header__transparent');
+    header.classList.add('project_top__white');
+    projecttopinfo.classList.add('project_top__white');
+  } else if (projecttop && projecttop.style.background === "var(--bg)") {
+    header.classList.add('project_top__bg');
+    projecttopinfo.classList.add('project_top__bg');
+  }
 }
 
 const showreelbutton = document.querySelector('.showreel__button');
@@ -129,16 +144,31 @@ scroll.on('scroll', (args) => {
   }
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
-  if(projecttop && 
-    projecttop.style.background !=  "rgb(255, 255, 255)" && 
-    projecttop.style.background !=  "rgb(255, 251, 239)" && 
-    projecttop.style.background !=  "rgb(233, 249, 249)" && 
-    projecttop.style.background !=  "rgb(255, 248, 246)" && 
-    projecttop.style.background !=  "var(--bg)"){
-    if (Math.round(args["scroll"]["y"]) <= 50) {
-      header.classList.add('header__transparent');
-    } else {
-      header.classList.remove('header__transparent');
+  if(projecttop) {
+    if(
+      projecttop.style.background !=  "rgb(255, 255, 255)" && 
+      projecttop.style.background !=  "rgb(255, 251, 239)" && 
+      projecttop.style.background !=  "rgb(233, 249, 249)" && 
+      projecttop.style.background !=  "rgb(255, 248, 246)" && 
+      projecttop.style.background !=  "rgb(248, 255, 255)" && 
+      projecttop.style.background !=  "rgb(245, 245, 245)" && 
+      projecttop.style.background !=  "rgb(255, 253, 248)" && 
+      projecttop.style.background !=  "rgb(252, 252, 252)" && 
+      projecttop.style.background !=  "rgb(236, 245, 235)" && 
+      projecttop.style.background !=  "rgb(255, 248, 246)" && 
+      projecttop.style.background !=  "rgb(254, 250, 243)" && 
+      projecttop.style.background !=  "rgb(248, 248, 248)" && 
+      projecttop.style.background !=  "rgb(210, 227, 240)" && 
+      projecttop.style.background !=  "rgb(226, 240, 251)" && 
+      projecttop.style.background !=  "rgb(252, 252, 252)" && 
+      projecttop.style.background !=  "rgb(241, 240, 235)" && 
+      projecttop.style.background !=  "" && 
+      projecttop.style.background !=  "var(--bg)"){
+      if (Math.round(args["scroll"]["y"]) <= 50) {
+        header.classList.add('header__transparent');
+      } else {
+        header.classList.remove('header__transparent');
+      }
     }
   }
 });
@@ -176,10 +206,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.onmousemove = (event) => {
     moveCursor(event);
+    cursor.classList.remove("active");
   };
 
   document.onpointermove = (event) => {
     moveCursor(event);
+    cursor.classList.remove("active");
   };
 
   document.addEventListener('mousedown', function(){
@@ -507,6 +539,8 @@ if(careerpopup) {
         bodyoverlay.style.zIndex = null;
         scroll.start();
       } else {
+        document.getElementById("form__successfully_form__career").classList.remove("active");
+        docheight.querySelector(".career_popup__forms_form").classList.remove("hidden");
         document.querySelector('.career_popup__vacancy').innerText = this.closest('.expertise__panel').previousElementSibling.children[0].children[0].children[0].children[0].innerText;
         bodyoverlay.classList.add("active");
         careerpopup.classList.add("active");
@@ -702,7 +736,7 @@ if (document.documentElement.clientWidth >= 1023) {
     element.appendChild(textContainer);
     element.appendChild(textContainer.cloneNode(true));
   });
-  const textrotate = document.querySelectorAll('.text__rotate'); 
+  const textrotate = document.querySelectorAll('.text__rotate');
   [...textrotate].forEach(function (li) {for (let [index, elem] of [...li.children].entries()){elem.style.setProperty('--inc-step', index+1);}});
 }
 // end text rotate
@@ -1018,23 +1052,6 @@ if(elsliderphone) {
           n.querySelector('.project_phone__list').innerHTML = projectlists[i].innerHTML + projectlists[i].innerHTML
       })
     }
-    const ppParent = document.querySelector('.project_phone__list');
-    const ppitem = document.querySelectorAll('.project_phone_item');
-    setTimeout(function() {
-      window.addEventListener('resize', onResizeHandler, false);
-      if (document.documentElement.clientWidth >= 1023) {
-        ppParent.insertBefore(ppitem[0], ppitem[3]);
-      } else {
-        ppParent.insertBefore(ppitem[0], ppitem[2]);
-      };
-      function onResizeHandler() {
-        if (document.documentElement.clientWidth >= 1023) {
-          ppParent.insertBefore(ppitem[0], ppitem[3]);
-        } else {
-          ppParent.insertBefore(ppitem[0], ppitem[2]);
-        };
-      }
-    }, 1);
     var pphoneSlider = new Swiper(".project_phone__swiper", {
       loop: true,
       slidesPerView: 1.5,
@@ -1053,7 +1070,7 @@ if(elsliderphone) {
         slideShadows : false,
       },
       breakpoints: {
-        1440: {
+        1025: {
           slidesPerView: 5,
         },
         1024: {
@@ -1091,6 +1108,48 @@ if(projectsSlider){
   });
 }
 // end project desktop
+
+// start newteam slider
+const elslidernewteam = document.querySelector('.newteam__slider');
+if(elslidernewteam) {
+  const sliderSelector = '.newteam__slider',
+  options = {
+    autoplay: false,
+    init: false,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 0,
+      slideShadows : false,
+    },
+    autoplay: {
+      delay: 7000,
+      disableOnInteraction: false,
+    },
+    speed: 700,
+    parallax: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.newteam__slider_next',
+      prevEl: '.newteam__slider_prev',
+    },
+    on: {
+      imagesReady: function(){
+        this.el.classList.remove('loading');
+      }
+    }
+  };
+  const mySwiper = new Swiper(sliderSelector, options);
+  mySwiper.init();
+}
+// end newteam slider
 
 // start team
 const teamswiperSlider = document.querySelector('.team_slider__swiper');
@@ -2239,24 +2298,45 @@ if(teambottom){
   for (let elm of teambottombottom) {teambottombottomserv.observe(elm);}
 }
 
+const newteam = document.querySelector('.newteam');
+const newteamitem = document.querySelectorAll('.newteam__item');
+if(newteam) {
+  let newteamd = document.querySelectorAll('.newteam');
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {
+    change.target.classList.add('animate');
+  }});};
+  let newteamdopt = {threshold: [0]};
+  let newteamdserv = new IntersectionObserver(onEntry, newteamdopt);
+  for (let elm of newteamd) {newteamdserv.observe(elm);}
+
+  let newteamopt = {threshold: [0.5]};
+  let newteamserv = new IntersectionObserver(onEntry, newteamopt);
+  for (let elm of newteamitem) {newteamserv.observe(elm);}
+}
+
 const teamslider = document.querySelector('.team_slider');
 const teamsliderswiper = document.querySelectorAll('.team_slider__swiper');
-const teamsliderinfo = document.querySelectorAll('.team_slider__info');
-const teamslideritem = document.querySelectorAll('.team_clients__item');
 if(teamslider){
   function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
 
   let teamsliderswiperopt = {threshold: [0.5]};
   let teamsliderswiperserv = new IntersectionObserver(onEntry, teamsliderswiperopt);
   for (let elm of teamsliderswiper) {teamsliderswiperserv.observe(elm);}
+}
+
+const teamclients = document.querySelector('.team_clients');
+const teamclientsitem = document.querySelectorAll('.team_clients__item');
+const teamsliderinfo = document.querySelectorAll('.team_slider__info');
+if(teamclients){
+  function onEntry(entry) {entry.forEach(change => {if (change.isIntersecting) {change.target.classList.add('animate');}});};
 
   let teamsliderinfoopt = {threshold: [0.5]};
   let teamsliderinfoserv = new IntersectionObserver(onEntry, teamsliderinfoopt);
   for (let elm of teamsliderinfo) {teamsliderinfoserv.observe(elm);}
 
-  let teamslideritemopt = {threshold: [0.5]};
-  let teamslideritemserv = new IntersectionObserver(onEntry, teamslideritemopt);
-  for (let elm of teamslideritem) {teamslideritemserv.observe(elm);}
+  let teamclientsitemopt = {threshold: [0.5]};
+  let teamclientsitemserv = new IntersectionObserver(onEntry, teamclientsitemopt);
+  for (let elm of teamclientsitem) {teamclientsitemserv.observe(elm);}
 }
 
 const teamcomments = document.querySelector('.team_comments');

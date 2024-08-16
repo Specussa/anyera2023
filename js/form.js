@@ -50,15 +50,19 @@ if(form) {
   const text = document.getElementById('text');
   const price = document.getElementById('price');
   const сommunication = document.getElementById('сommunication');
+  const promocode = document.getElementById('сommunication');
   const usernameMin = username.getAttribute('minl');
   const usernameMax = username.getAttribute('maxl');
   const phoneMin = phone.getAttribute('minl');
   const phoneMax = phone.getAttribute('maxl');
   const textMin = text.getAttribute('minl');
   const textMax = text.getAttribute('maxl');
+  const promocodeMin = promocode.getAttribute('minl');
+  const promocodeMax = promocode.getAttribute('maxl');
   username.oninput = function(){this.value = this.value.substr(0, usernameMax);}
   phone.oninput = function(){this.value = this.value.substr(0, phoneMax);}
   text.oninput = function(){this.value = this.value.substr(0, textMax);}
+  promocode.oninput = function(){this.value = this.value.substr(0, promocodeMax);}
   form.addEventListener('submit', e => {
     e.preventDefault();
     checkFormInputs();
@@ -85,6 +89,11 @@ if(form) {
     } else {
       setErrorFor(text);
     }
+    if(promocodeValue !== '' && promocodeValue.length >= promocodeMin && promocodeValue.length <= promocodeMax) {
+      setSuccessFor(promocode);
+    } else {
+      setErrorFor(promocode);
+    }
     if(priceValue !== '') {
       setSelectSuccessFor(price);
     } else {
@@ -108,7 +117,8 @@ if(form) {
           two: phoneValue,
           three: textValue,
           four: priceValue,
-          five: сommunicationValue
+          five: сommunicationValue,
+          six: promocode
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8"
@@ -200,41 +210,41 @@ if(formcareer) {
     } else if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax && 
     careeremailValue === '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax && 
     careerlinkValue !== '' && careerlinkValue.length >= careerlinkMin && careerlinkValue.length <= careerlinkMax && 
-    careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax) {
-      formcareer.classList.add("hidden");
-      document.getElementById('form__successfully_form__career').classList.add("active");
-      fetch('/ajax/sendMail.php', {
-        method: 'POST',
-        body: JSON.stringify({
-          one: careerusernameValue,
-          two: careeremailValue,
-          three: careerlinkValue,
-          four: careersocialValue,
-          five: careerfileValue
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      });
-    } else if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax && 
-    careeremailValue !== '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax &&  
     careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax && 
     careerfileValue !== '') {
       formcareer.classList.add("hidden");
       document.getElementById('form__successfully_form__career').classList.add("active");
+
+      var input = document.querySelector('input[type="file"]')
+      var data = new FormData()
+      data.append('one', careerusernameValue);
+      data.append('two', careeremailValue);
+      data.append('three', careerlinkValue);
+      data.append('four', careersocialValue);
+      data.append('five', document.getElementById('career__file').files[0]);
+      
       fetch('/ajax/sendMail.php', {
         method: 'POST',
-        body: JSON.stringify({
-          one: careerusernameValue,
-          two: careeremailValue,
-          three: careerlinkValue,
-          four: careersocialValue,
-          five: careerfileValue
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      });
+        body: data
+      })
+    } else if(careerusernameValue !== '' && careerusernameValue.length >= careerusernameMin && careerusernameValue.length <= careerusernameMax && 
+    careeremailValue !== '' && careeremailValue.length >= careeremailMin && careeremailValue.length <= careeremailMax &&  
+    careersocialValue !== '' && careersocialValue.length >= careersocialMin && careersocialValue.length <= careersocialMax) {
+      formcareer.classList.add("hidden");
+      document.getElementById('form__successfully_form__career').classList.add("active");
+
+      var input = document.querySelector('input[type="file"]')
+      var data = new FormData()
+      data.append('one', careerusernameValue);
+      data.append('two', careeremailValue);
+      data.append('three', careerlinkValue);
+      data.append('four', careersocialValue);
+      data.append('five', document.getElementById('career__file').files[0]);
+      
+      fetch('/ajax/sendMail.php', {
+        method: 'POST',
+        body: data
+      })
     }
   }
 
