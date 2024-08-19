@@ -11299,7 +11299,7 @@ html.has-scroll-dragging {
   }
   .inview__block video,
   .inview__block img {
-    height: auto;
+    height: 100%;
     object-fit: contain;
   }
   .footer__flex {
@@ -11504,7 +11504,7 @@ html.has-scroll-dragging {
     gap: 20px;
   }
   .project_banner__inview {
-    max-height: 350px;
+    max-height: 100%;
   }
   .project_desktop__img {
     max-width: 306px;

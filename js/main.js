@@ -96,18 +96,6 @@ if(projecttop){
 
 const showreelbutton = document.querySelector('.showreel__button');
 const showreel = document.querySelector('.showreel');
-const pbbutton = document.querySelector('.project_banner__button');
-const pbinview = document.querySelector('.project_banner__inview');
-if (!document.querySelector('.has-scroll-smooth')) {
-  let parallaxscrollY;
-  parallaxscrollY = window.scrollY;
-  if (showreel) {
-    showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
-  }
-  if (pbbutton) {
-    pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
-  }
-}
 
 scroll.on('scroll', (args) => {
   const headerprogress = document.querySelector('.header__progress_bar');
@@ -124,23 +112,6 @@ scroll.on('scroll', (args) => {
     );
     let scrollpage = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
     headerprogress.style.flexBasis = scrollpage + '%';
-    
-    let parallaxscrollY;
-    parallaxscrollY = window.scrollY
-    if (showreel) {
-      let showreelmaxHeight = Number(window.getComputedStyle(document.querySelector('.showreel__inview')).maxHeight.replace('px', ''));
-      if (parallaxscrollY <= (document.querySelector('[data-persistent]').offsetTop + showreelmaxHeight)) {
-        showreelbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
-        showreelbutton.style.transition = `transform 0.1s linear`;
-      }
-    }
-    if (pbbutton) {
-        let pbmaxHeight = Number(window.getComputedStyle(document.querySelector('.project_banner__inview')).maxHeight.replace('px', ''));
-        if (parallaxscrollY <= (document.querySelector('[data-persistent]').offsetTop + pbmaxHeight)) {
-        pbbutton.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${parallaxscrollY - (document.querySelector('[data-persistent]').offsetTop - window.innerHeight)}, 0, 1)`;
-        pbbutton.style.transition = `transform 0.1s linear`;
-      }
-    }
   }
   document.documentElement.setAttribute('scroll', `${Math.round(args["scroll"]["y"])}`);
 
@@ -405,6 +376,24 @@ burger_c.addEventListener('click', function() {
     scroll.stop();
   }
 })
+if(document.querySelector('.new_project_banner')) {
+  document.querySelector('.new_project_banner').addEventListener('click', function() {
+    if (!burger_c.classList.contains("active")) {
+      bodyoverlay.classList.add("active");
+      menu_c.classList.add("active");
+      burger_c.classList.add("active");
+      header.classList.add("active");
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+      menu.classList.remove("active");
+      burger.classList.remove("active");
+      header.classList.add("hidden");
+      headerlinks.classList.add("hidden");
+      headerbuttons.classList.add("active");
+      scroll.stop();
+    }
+  })
+}
 if (contactssb) {
   contactssb.addEventListener('click', function() {
     if (!burger_c.classList.contains("active")) {
@@ -471,55 +460,59 @@ const nav = document.querySelectorAll('.header__nav_list');
   }
 });
 
-if (document.documentElement.clientWidth > 1439) {
   var hovermenu = document.querySelector('.header__nav_list');
   var elemHovermenu = false;
   hovermenu.addEventListener('mouseover', function(e) {
-    var target = e.target.closest('.header__nav_item');
-    if (elemHovermenu || !target) {return};
-    elemHovermenu = target;
-    var parent = target.closest('.header__nav_list');
-    var old = parent.querySelector('.header__nav_item.active');
-    if (old) {old.classList.remove('active')};
-    target.classList.add('active');
+    if (document.documentElement.clientWidth > 1439) {
+      var target = e.target.closest('.header__nav_item');
+      if (elemHovermenu || !target) {return};
+      elemHovermenu = target;
+      var parent = target.closest('.header__nav_list');
+      var old = parent.querySelector('.header__nav_item.active');
+      if (old) {old.classList.remove('active')};
+      target.classList.add('active');
+    };
   })
   hovermenu.addEventListener('mouseout', function(e) {
-    if(!elemHovermenu) return;
-    elemHovermenu = null;
+    if (document.documentElement.clientWidth > 1439) {
+      if(!elemHovermenu) return;
+      elemHovermenu = null;
+    };
   })
-};
 
 var hnl = document.getElementsByClassName("header__nav_link");
 var i;
 for (i = 0; i < hnl.length; i++) {
   hnl[i].onclick = function(e) {
-    if (!this.parentElement.classList.contains("active")) {
-      var hsl = this.nextElementSibling;
-      if (hsl) {
-        e.preventDefault();
-        var courseHsl = document.getElementsByClassName("header__subnav_list");
-        var courseHniActive = document.getElementsByClassName("header__nav_item active");
-
-        if (hsl.style.maxHeight) {
-          hsl.style.maxHeight = null;
-          this.parentElement.classList.remove("active");
-          hsl.classList.remove("active");
-        } else {
-          for (var q = 0; q < courseHniActive.length; q++) {
-            courseHniActive[q].classList.remove("active");
-            courseHsl[q].classList.remove("active");
-          }
-          for (var p = 0; p < courseHsl.length; p++) {
+    if (document.documentElement.clientWidth <= 1439) {
+      if (!this.parentElement.classList.contains("active")) {
+        var hsl = this.nextElementSibling;
+        if (hsl) {
+          e.preventDefault();
+          var courseHsl = document.getElementsByClassName("header__subnav_list");
+          var courseHniActive = document.getElementsByClassName("header__nav_item active");
+  
+          if (hsl.style.maxHeight) {
+            hsl.style.maxHeight = null;
             this.parentElement.classList.remove("active");
-            courseHsl[p].classList.remove("active");
-            courseHsl[p].style.maxHeight = null;
+            hsl.classList.remove("active");
+          } else {
+            for (var q = 0; q < courseHniActive.length; q++) {
+              courseHniActive[q].classList.remove("active");
+              courseHsl[q].classList.remove("active");
+            }
+            for (var p = 0; p < courseHsl.length; p++) {
+              this.parentElement.classList.remove("active");
+              courseHsl[p].classList.remove("active");
+              courseHsl[p].style.maxHeight = null;
+            }
+            hsl.style.maxHeight = hsl.scrollHeight + "px";
+            hsl.classList.add("active");
+            this.parentElement.classList.add("active");
           }
-          hsl.style.maxHeight = hsl.scrollHeight + "px";
-          hsl.classList.add("active");
-          this.parentElement.classList.add("active");
         }
       }
-    }
+    };
   };
 }
 // end menu sublist
@@ -539,8 +532,6 @@ if(careerpopup) {
         bodyoverlay.style.zIndex = null;
         scroll.start();
       } else {
-        document.getElementById("form__successfully_form__career").classList.remove("active");
-        docheight.querySelector(".career_popup__forms_form").classList.remove("hidden");
         document.querySelector('.career_popup__vacancy').innerText = this.closest('.expertise__panel').previousElementSibling.children[0].children[0].children[0].children[0].innerText;
         bodyoverlay.classList.add("active");
         careerpopup.classList.add("active");
